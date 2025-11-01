@@ -17,14 +17,36 @@ A WordPress.com MCP extension **megjelenik a Claude Desktop Tools paneljén, de 
 
 ## Dokumentumok
 
+### 🚀 [GYORS_JAVITAS_LEPESROL_LEPESRE.md](./GYORS_JAVITAS_LEPESROL_LEPESRE.md) ⭐ **KEZDD EZZEL!**
+**Vizuális, kattintásról-kattintásra útmutató** kezdőknek:
+- 1. OAuth újra-autorizáció (böngésző + Claude extension)
+- 2. ESET/Defender/Tűzfal kivételek (minden kattintás leírva)
+- 3. Cache törlés + újratelepítés (automatikus script)
+- **PowerShell script mellékelve** ami mindent megcsinál
+
 ### 📄 [WORDPRESS_MCP_JAVITAS.md](./WORDPRESS_MCP_JAVITAS.md)
-**Teljes, lépésről-lépésre javítási útmutató** az alábbi témákban:
+**Részletes technikai útmutató** haladóknak:
 1. LOG_FILE beállítása részletes hibakereséshez
 2. WordPress.com OAuth újra-autorizáció
 3. Windows Tűzfal/Antivirus konfiguráció
 4. Claude Desktop cache teljes törlése
 5. MCP szerver manuális diagnosztika
 6. Átmeneti megoldások (REST API közvetlen használat)
+
+### 🛠️ [diagnose_claude_mcp.ps1](./diagnose_claude_mcp.ps1)
+**Automatikus diagnosztikai PowerShell script:**
+- Rendszer info gyűjtés
+- Claude folyamatok ellenőrzése
+- Config/log fájlok másolása
+- Tűzfal/AV információk
+- WordPress.com API teszt
+
+### 🧹 [claude_cleanup.ps1](./claude_cleanup.ps1)
+**Egyszerű cache törlő script:**
+- Automatikus backup készítés
+- Claude folyamatok leállítása
+- Cache/Extensions törlése
+- Felhasználóbarát kimenet
 
 ## Gyors javítás (próbáld először!)
 
