@@ -1,0 +1,771 @@
+<style>
+/* ===== WORDPRESS ORGANIC CHRONO FULL-WIDTH OVERRIDES ===== */
+
+/* Critical: Remove WordPress theme constraints */
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-x: hidden !important;
+}
+
+.entry-content,
+.wp-site-blocks,
+.wp-block-group,
+.site-content,
+.site-main,
+.wp-block-post-content,
+body.has-global-padding .wp-site-blocks {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    overflow: visible !important;
+}
+
+.is-layout-constrained > .alignfull,
+.is-layout-constrained > .vb-fw,
+.wp-block-group.alignfull,
+.is-layout-constrained > * {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+/* Full-width sections (Desktop) */
+@media (min-width: 769px) {
+    .hero,
+    .section,
+    .cta-section {
+        width: 100vw !important;
+        max-width: 100vw !important;
+        margin-left: calc(50% - 50vw) !important;
+        margin-right: calc(50% - 50vw) !important;
+        position: relative !important;
+        left: 50% !important;
+        right: 50% !important;
+        transform: translateX(-50%) !important;
+        overflow: visible !important;
+    }
+}
+
+/* Full-width sections (Mobile) */
+@media (max-width: 768px) {
+    .hero,
+    .section,
+    .cta-section {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        overflow: visible !important;
+    }
+}
+
+/* ===== ORIGINAL F1 STYLES ===== */
+
+:root {
+    /* Monaco Midnight Color Palette */
+    --monaco-midnight: #0A0F1C;
+    --carbon-fiber: #1A1D23;
+    --platinum: #E8EAED;
+    --racing-silver: #D4D7DC;
+    --champagne-gold: #C9A961;
+    --electric-cyan: #00E5FF;
+    --pure-white: #FFFFFF;
+    --soft-grey: #F5F7FA;
+    --border-subtle: rgba(232, 234, 237, 0.1);
+
+    /* Typography */
+    --font-luxury: 'Cormorant Garamond', Georgia, serif;
+    --font-modern: 'Inter', -apple-system, system-ui, sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: var(--font-modern);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--carbon-fiber);
+    background: var(--pure-white);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography Hierarchy */
+h1, h2, h3 {
+    font-family: var(--font-luxury);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+}
+h1 { font-size: clamp(3rem, 7vw, 5rem); font-weight: 400; }
+h2 { font-size: clamp(2.25rem, 5vw, 3.5rem); font-weight: 500; }
+h3 { font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 600; }
+
+/* Hero Section - Full Screen Elegance with Parallax */
+.hero {
+    min-height: 100vh;
+    background: linear-gradient(165deg, var(--monaco-midnight) 0%, #0d1420 50%, var(--carbon-fiber) 100%);
+    color: var(--pure-white);
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 50%; height: 100%;
+    background: radial-gradient(ellipse at top right, rgba(201, 169, 97, 0.08) 0%, transparent 60%);
+    pointer-events: none;
+    animation: pulseGlow 8s ease-in-out infinite;
+}
+@keyframes pulseGlow { 0%,100%{opacity:.3} 50%{opacity:.6} }
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--champagne-gold), transparent);
+}
+.hero-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 80px 40px;
+    position: relative;
+    z-index: 1;
+    animation: fadeInUp 1s ease-out;
+}
+@keyframes fadeInUp { from {opacity:0; transform: translateY(30px);} to {opacity:1; transform: translateY(0);} }
+
+.hero-badge {
+    display: inline-flex; align-items: center; gap: 12px;
+    padding: 10px 0; margin-bottom: 32px;
+    font-size: .875rem; font-weight: 600;
+    text-transform: uppercase; letter-spacing: .15em;
+    color: var(--racing-silver);
+    animation: fadeInUp 1s ease-out .2s both;
+}
+.hero-badge::before { content:''; width:40px; height:1px; background: var(--champagne-gold); }
+.hero h1 { margin-bottom: 32px; color: var(--pure-white); animation: fadeInUp 1s ease-out .4s both; }
+.hero-gold { color: var(--champagne-gold); font-style: italic; }
+.hero-subtitle {
+    font-size: clamp(1rem, 2vw, 1.25rem); font-weight: 300; color: var(--platinum);
+    max-width: 600px; margin-bottom: 48px; line-height: 1.8;
+    animation: fadeInUp 1s ease-out .6s both;
+}
+.hero-meta {
+    display: flex; gap: 48px; flex-wrap: wrap;
+    margin-bottom: 48px; padding-bottom: 48px; border-bottom: 1px solid var(--border-subtle);
+    animation: fadeInUp 1s ease-out .8s both;
+}
+.meta-item { display: flex; flex-direction: column; gap: 8px; }
+.meta-label { font-size: .75rem; text-transform: uppercase; letter-spacing: .12em; color: var(--racing-silver); }
+.meta-value { font-family: var(--font-luxury); font-size: 1.125rem; color: var(--pure-white); }
+.hero-cta { display: flex; gap: 16px; flex-wrap: wrap; animation: fadeInUp 1s ease-out 1s both; }
+
+/* Countdown Timer */
+.countdown-container {
+    background: rgba(255,255,255,.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    padding: 32px; margin-top: 48px; text-align: center;
+    animation: fadeInUp 1s ease-out 1.2s both;
+}
+.countdown-title { font-size: 1.125rem; color: var(--champagne-gold); margin-bottom: 24px; text-transform: uppercase; letter-spacing: .1em; }
+.countdown { display:flex; gap:24px; justify-content:center; flex-wrap:wrap; }
+.countdown-item { display:flex; flex-direction:column; align-items:center; min-width:80px; }
+.countdown-value { font-family: var(--font-luxury); font-size: 3rem; font-weight: 300; color: var(--pure-white); line-height:1; animation: pulse 2s ease-in-out infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.7} }
+.countdown-label { font-size:.875rem; text-transform:uppercase; letter-spacing:.1em; color: var(--racing-silver); margin-top:8px; }
+
+/* Buttons */
+.btn {
+    display:inline-flex; align-items:center; justify-content:center; gap:12px;
+    padding:16px 40px; font-family:var(--font-modern); font-weight:600; font-size:.9rem;
+    text-decoration:none; text-transform:uppercase; letter-spacing:.08em; border-radius:2px;
+    transition: all .4s cubic-bezier(.4,0,.2,1); cursor:pointer; border:none; position:relative; overflow:hidden;
+}
+.btn::before {
+    content:''; position:absolute; top:0; left:-100%; width:100%; height:100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,.2), transparent);
+    transition: left .5s ease;
+}
+.btn:hover::before { left:100%; }
+.btn-primary { background: var(--pure-white); color: var(--monaco-midnight); }
+.btn-primary:hover { background: var(--champagne-gold); color: var(--monaco-midnight); transform: translateY(-2px); box-shadow: 0 10px 40px rgba(201,169,97,.3); }
+.btn-outline { background: transparent; color: var(--pure-white); border: 1px solid rgba(255,255,255,.3); }
+.btn-outline:hover { background: rgba(255,255,255,.05); border-color: var(--pure-white); }
+.btn-dark { background: var(--carbon-fiber); color: var(--pure-white); border: 1px solid var(--border-subtle); }
+.btn-dark:hover { background: var(--monaco-midnight); border-color: var(--champagne-gold); transform: translateY(-2px); }
+
+/* Section Styling */
+.section { padding:120px 40px; position:relative; }
+.section-dark { background: var(--monaco-midnight); color: var(--pure-white); }
+.section-light { background: var(--soft-grey); }
+.container { max-width:1400px; margin:0 auto; }
+
+/* Section Headers */
+.section-header { text-align:center; max-width:800px; margin:0 auto 80px; }
+.section-label { font-size:.75rem; text-transform:uppercase; letter-spacing:.15em; color: var(--champagne-gold); margin-bottom:16px; font-weight:600; }
+.section-header h2 { margin-bottom:24px; }
+.section-header p { font-size:1.125rem; color: var(--racing-silver); line-height:1.8; }
+.section-dark .section-header p { color: var(--platinum); }
+
+/* Enhanced Pricing Grid with Flip Cards */
+.pricing-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(320px,1fr)); gap:32px; margin-top:64px; perspective:1000px; }
+.pricing-card-wrapper { perspective:1000px; height:600px; }
+.pricing-card { position:relative; width:100%; height:100%; transition: transform .8s cubic-bezier(.4,0,.2,1); transform-style: preserve-3d; }
+.pricing-card-wrapper:hover .pricing-card { transform: rotateY(180deg); }
+.pricing-card-front, .pricing-card-back {
+    position:absolute; width:100%; height:100%; backface-visibility:hidden;
+    background: var(--pure-white); border:1px solid rgba(0,0,0,.06); border-radius:12px; padding:48px 40px; overflow:hidden;
+}
+.pricing-card-front::before {
+    content:''; position:absolute; top:0; left:0; right:0; height:3px;
+    background: linear-gradient(90deg, var(--champagne-gold) 0%, transparent 100%);
+    transform: scaleX(0); transform-origin:left; transition: transform .5s ease;
+}
+.pricing-card-wrapper:hover .pricing-card-front::before { transform: scaleX(1); }
+.pricing-card-back { transform: rotateY(180deg); background: var(--monaco-midnight); color: var(--pure-white); display:flex; flex-direction:column; justify-content:space-between; }
+
+.card-tier { font-size:.75rem; text-transform:uppercase; letter-spacing:.12em; color: var(--champagne-gold); margin-bottom:16px; font-weight:600; }
+.card-vehicle { font-family:var(--font-luxury); font-size:2rem; font-weight:500; color: var(--monaco-midnight); margin-bottom:12px; }
+.pricing-card-back .card-vehicle { color: var(--pure-white); }
+.card-model { color: var(--racing-silver); font-size:.9rem; margin-bottom:8px; }
+.card-capacity { color: var(--carbon-fiber); font-size:.875rem; margin-bottom:32px; padding-bottom:32px; border-bottom:1px solid rgba(0,0,0,.06); }
+.pricing-card-back .card-capacity { color: var(--platinum); border-bottom-color: var(--border-subtle); }
+
+.price-display { margin-bottom:32px; }
+.price { font-family: var(--font-luxury); font-size:3.5rem; font-weight:300; color: var(--monaco-midnight); line-height:1; }
+.pricing-card-back .price { color: var(--champagne-gold); }
+.price-unit { font-size:1rem; font-weight:400; color: var(--racing-silver); }
+.discount-tag { display:inline-block; background: rgba(201,169,97,.1); color: var(--champagne-gold); padding:8px 16px; border-radius:4px; font-size:.8rem; font-weight:600; margin-top:16px; border:1px solid rgba(201,169,97,.2); }
+
+/* Features List */
+.features-list { list-style:none; padding:0; margin:24px 0; }
+.features-list li { padding:12px 0; padding-left:32px; position:relative; font-size:.95rem; color: var(--carbon-fiber); }
+.pricing-card-back .features-list li { color: var(--platinum); }
+.features-list li::before { content:'✓'; position:absolute; left:0; color: var(--champagne-gold); font-weight:700; }
+
+/* Availability Badge */
+.availability-badge { display:inline-flex; align-items:center; gap:8px; padding:8px 16px; border-radius:20px; font-size:.8rem; font-weight:600; margin-bottom:16px; }
+.availability-badge.sold-out { background: rgba(229,57,53,.1); color:#e53935; border:1px solid rgba(229,57,53,.2); }
+.availability-badge.limited { background: rgba(255,193,7,.1); color:#ffc107; border:1px solid rgba(255,193,7,.2); }
+.availability-badge.available { background: rgba(76,175,80,.1); color:#4caf50; border:1px solid rgba(76,175,80,.2); }
+.availability-dot { width:8px; height:8px; border-radius:50%; background: currentColor; animation: blink 2s ease-in-out infinite; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+
+/* Vehicle Comparison Tool */
+.comparison-tool { background: var(--pure-white); border-radius:16px; padding:48px; margin:64px auto; max-width:1200px; box-shadow: 0 20px 60px rgba(0,0,0,.1); }
+.comparison-header { text-align:center; margin-bottom:48px; }
+.comparison-filters { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-bottom:48px; }
+.filter-btn { padding:12px 24px; background: var(--soft-grey); border:2px solid transparent; border-radius:8px; cursor:pointer; transition: all .3s ease; font-weight:600; text-transform:uppercase; font-size:.875rem; letter-spacing:.05em; }
+.filter-btn:hover, .filter-btn.active { background: var(--champagne-gold); color: var(--monaco-midnight); border-color: var(--champagne-gold); }
+.comparison-table { width:100%; border-collapse:collapse; margin-top:32px; }
+.comparison-table th {
+    background: var(--monaco-midnight); color: var(--pure-white); padding:20px; text-align:left;
+    font-weight:600; text-transform:uppercase; font-size:.875rem; letter-spacing:.05em;
+}
+.comparison-table td { padding:20px; border-bottom:1px solid rgba(0,0,0,.06); }
+.comparison-table tr:hover { background: var(--soft-grey); }
+.comparison-highlight { color: var(--champagne-gold); font-weight:600; }
+
+/* Stats Grid - Neomorphism */
+.stats-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap:40px; }
+.stat-card {
+    background: var(--pure-white); padding:48px 32px; text-align:center; border-radius:16px;
+    box-shadow: 20px 20px 60px rgba(0,0,0,.05), -20px -20px 60px rgba(255,255,255,.5);
+    transition: all .4s ease;
+}
+.section-dark .stat-card {
+    background: rgba(255,255,255,.03);
+    box-shadow: 20px 20px 60px rgba(0,0,0,.3), -20px -20px 60px rgba(255,255,255,.02);
+}
+.stat-card:hover { transform: translateY(-8px); box-shadow: 30px 30px 80px rgba(0,0,0,.08), -30px -30px 80px rgba(255,255,255,.6); }
+.stat-number { font-family: var(--font-luxury); font-size: 4rem; font-weight:300; color: var(--champagne-gold); line-height:1; margin-bottom:16px; }
+.stat-label { font-size:.875rem; text-transform:uppercase; letter-spacing:.12em; color: var(--carbon-fiber); font-weight:600; }
+.section-dark .stat-label { color: var(--platinum); }
+
+/* CTA Full Width */
+.cta-section { background: linear-gradient(165deg, var(--monaco-midnight) 0%, var(--carbon-fiber) 100%); color: var(--pure-white); text-align:center; padding:120px 40px; position:relative; overflow:hidden; }
+.cta-section::before { content:''; position:absolute; top:0; left:0; right:0; height:1px; background: linear-gradient(90deg, transparent, var(--champagne-gold), transparent); }
+.cta-content { max-width:800px; margin:0 auto; position:relative; z-index:1; }
+.cta-content h2 { margin-bottom:24px; }
+.cta-content p { font-size:1.125rem; color: var(--platinum); margin-bottom:48px; line-height:1.8; }
+.cta-buttons { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-bottom:48px; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .section { padding: 80px 24px; }
+    .hero-container { padding: 60px 24px; }
+    .pricing-grid { grid-template-columns: 1fr; }
+    .pricing-card-wrapper { height: auto; min-height: 550px; }
+    .hero-cta { flex-direction: column; }
+    .btn { width: 100%; }
+    .hero-meta { flex-direction: column; gap: 24px; }
+    .countdown { gap: 16px; }
+    .countdown-value { font-size: 2rem; }
+    .comparison-table { display:block; overflow-x:auto; }
+}
+
+/* Smooth Scroll */
+html { scroll-behavior: smooth; }
+
+/* Fade-in on Scroll Animation */
+.fade-in-up { opacity:0; transform: translateY(30px); transition: opacity .6s ease, transform .6s ease; }
+.fade-in-up.visible { opacity:1; transform: translateY(0); }
+</style>
+
+<!-- Load Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Hero Section with Countdown -->
+<section class="hero">
+    <div class="hero-container">
+        <div class="hero-badge">Formula 1 Hungarian Grand Prix 2026</div>
+
+        <h1>
+            Premium <span class="hero-gold">VIP Transfers</span><br>
+            to Hungaroring
+        </h1>
+
+        <p class="hero-subtitle">
+            Experience the pinnacle of luxury transportation. Professional Mercedes chauffeurs. Fixed premium rates. Seamless door-to-door service for the ultimate Grand Prix weekend.
+        </p>
+
+        <div class="hero-meta">
+            <div class="meta-item">
+                <span class="meta-label">Race Weekend</span>
+                <span class="meta-value">July 24–26, 2026</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Daily Rental</span>
+                <span class="meta-value">10 Hours Included</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Since</span>
+                <span class="meta-value">1988</span>
+            </div>
+        </div>
+
+        <div class="hero-cta">
+            <a href="#pricing" class="btn btn-primary">View Pricing</a>
+            <a href="#booking" class="btn btn-outline">Book Transfer</a>
+        </div>
+
+        <!-- Countdown Timer -->
+        <div class="countdown-container">
+            <div class="countdown-title">Early Bird Discount Ends In</div>
+            <div class="countdown" id="countdown">
+                <div class="countdown-item">
+                    <div class="countdown-value" id="days">00</div>
+                    <div class="countdown-label">Days</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-value" id="hours">00</div>
+                    <div class="countdown-label">Hours</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-value" id="minutes">00</div>
+                    <div class="countdown-label">Minutes</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-value" id="seconds">00</div>
+                    <div class="countdown-label">Seconds</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section class="section section-dark fade-in-up">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number" style="font-size:3rem;">Since 1988</div>
+                <div class="stat-label">Premium Service</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">10h</div>
+                <div class="stat-label">Daily Rental</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">All Fees Covered</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Dedicated Support</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Enhanced Pricing Section with Flip Cards -->
+<section class="section section-light fade-in-up" id="pricing">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-label">Fixed Rates 2026</div>
+            <h2>Formula 1 Hungarian Grand Prix<br>Premium Transfer Pricing</h2>
+            <p>10-hour daily rental • Professional chauffeur • All fees included</p>
+        </div>
+
+        <div class="pricing-grid">
+            <!-- E-Class Card -->
+            <div class="pricing-card-wrapper">
+                <div class="pricing-card">
+                    <!-- Front -->
+                    <div class="pricing-card-front">
+                        <div class="availability-badge sold-out">
+                            <span class="availability-dot"></span>
+                            Sold Out
+                        </div>
+                        <div class="card-tier">Business Class</div>
+                        <h3 class="card-vehicle">Mercedes E-Class</h3>
+                        <p class="card-model">Latest Model • Executive Sedan</p>
+                        <p class="card-capacity">Up to 3 passengers</p>
+
+                        <div class="price-display">
+                            <div class="price">€790<span class="price-unit"> / day</span></div>
+                        </div>
+
+                        <a href="#booking" class="btn btn-dark" style="width: 100%;">Reserve E-Class</a>
+                    </div>
+
+                    <!-- Back -->
+                    <div class="pricing-card-back">
+                        <div>
+                            <div class="card-tier">What's Included</div>
+                            <ul class="features-list">
+                                <li>Professional chauffeur service</li>
+                                <li>10-hour daily rental</li>
+                                <li>All tolls & parking fees</li>
+                                <li>Meet & greet service</li>
+                                <li>Flexible return schedule</li>
+                                <li>Premium comfort & WiFi</li>
+                            </ul>
+                        </div>
+                        <a href="#booking" class="btn btn-primary" style="width: 100%;">Book Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- V-Class Card -->
+            <div class="pricing-card-wrapper">
+                <div class="pricing-card">
+                    <!-- Front -->
+                    <div class="pricing-card-front">
+                        <div class="availability-badge sold-out">
+                            <span class="availability-dot"></span>
+                            Sold Out
+                        </div>
+                        <div class="card-tier">Premium Van</div>
+                        <h3 class="card-vehicle">Mercedes V-Class</h3>
+                        <p class="card-model">Luxury Van • Spacious Comfort</p>
+                        <p class="card-capacity">Up to 6-7 passengers</p>
+
+                        <div class="price-display">
+                            <div class="price">€890<span class="price-unit"> / day</span></div>
+                            <div class="discount-tag">Save €250 on 2-3 days</div>
+                        </div>
+
+                        <a href="#booking" class="btn btn-dark" style="width: 100%;">Reserve V-Class</a>
+                    </div>
+
+                    <!-- Back -->
+                    <div class="pricing-card-back">
+                        <div>
+                            <div class="card-tier">Perfect For</div>
+                            <ul class="features-list">
+                                <li>Family groups (6-7 people)</li>
+                                <li>Corporate teams</li>
+                                <li>Premium luggage space</li>
+                                <li>Luxury interior design</li>
+                                <li>Multi-day packages available</li>
+                                <li>VIP hospitality events</li>
+                            </ul>
+                        </div>
+                        <a href="#booking" class="btn btn-primary" style="width: 100%;">Book Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sprinter Card -->
+            <div class="pricing-card-wrapper">
+                <div class="pricing-card">
+                    <!-- Front -->
+                    <div class="pricing-card-front">
+                        <div class="availability-badge sold-out">
+                            <span class="availability-dot"></span>
+                            Sold Out
+                        </div>
+                        <div class="card-tier">Executive</div>
+                        <h3 class="card-vehicle">Mercedes Sprinter</h3>
+                        <p class="card-model">Executive Comfort • Group Excellence</p>
+                        <p class="card-capacity">Up to 8 passengers</p>
+
+                        <div class="price-display">
+                            <div class="price">€990<span class="price-unit"> / day</span></div>
+                            <div class="discount-tag">Save €250 on 2-3 days</div>
+                        </div>
+
+                        <a href="#booking" class="btn btn-dark" style="width: 100%;">Reserve Sprinter</a>
+                    </div>
+
+                    <!-- Back -->
+                    <div class="pricing-card-back">
+                        <div>
+                            <div class="card-tier">Group Benefits</div>
+                            <ul class="features-list">
+                                <li>Executive seating for 8</li>
+                                <li>Conference-style setup</li>
+                                <li>Premium sound system</li>
+                                <li>Climate control zones</li>
+                                <li>Ideal for corporate groups</li>
+                                <li>Multi-day discount available</li>
+                            </ul>
+                        </div>
+                        <a href="#booking" class="btn btn-primary" style="width: 100%;">Book Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VIP Sprinter Bus Card -->
+            <div class="pricing-card-wrapper">
+                <div class="pricing-card">
+                    <!-- Front -->
+                    <div class="pricing-card-front">
+                        <div class="availability-badge sold-out">
+                            <span class="availability-dot"></span>
+                            Sold Out
+                        </div>
+                        <div class="card-tier">VIP Experience</div>
+                        <h3 class="card-vehicle">VIP Sprinter Bus</h3>
+                        <p class="card-model">Ultimate Luxury • Premium Groups</p>
+                        <p class="card-capacity">Up to 15 passengers</p>
+
+                        <div class="price-display">
+                            <div class="price">€1,290<span class="price-unit"> / day</span></div>
+                            <div class="discount-tag">Save €250 on 2-3 days</div>
+                        </div>
+
+                        <a href="#booking" class="btn btn-dark" style="width: 100%;">Reserve VIP Bus</a>
+                    </div>
+
+                    <!-- Back -->
+                    <div class="pricing-card-back">
+                        <div>
+                            <div class="card-tier">VIP Features</div>
+                            <ul class="features-list">
+                                <li>Luxury leather seating</li>
+                                <li>Entertainment system</li>
+                                <li>Refreshment bar</li>
+                                <li>Privacy partition</li>
+                                <li>Perfect for large groups</li>
+                                <li>Premium event transport</li>
+                            </ul>
+                        </div>
+                        <a href="#booking" class="btn btn-primary" style="width: 100%;">Book Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- S-Class Card -->
+            <div class="pricing-card-wrapper">
+                <div class="pricing-card">
+                    <!-- Front -->
+                    <div class="pricing-card-front">
+                        <div class="availability-badge sold-out">
+                            <span class="availability-dot"></span>
+                            Sold Out
+                        </div>
+                        <div class="card-tier">Ultimate VIP</div>
+                        <h3 class="card-vehicle">Mercedes S-Class</h3>
+                        <p class="card-model">2024 Model • Flagship Excellence</p>
+                        <p class="card-capacity">Up to 3 passengers</p>
+
+                        <div class="price-display">
+                            <div class="price">€1,490<span class="price-unit"> / day</span></div>
+                            <div class="discount-tag">Save €250 on 2-3 days</div>
+                        </div>
+
+                        <a href="#booking" class="btn btn-dark" style="width: 100%;">Reserve S-Class</a>
+                    </div>
+
+                    <!-- Back -->
+                    <div class="pricing-card-back">
+                        <div>
+                            <div class="card-tier">Ultimate Luxury</div>
+                            <ul class="features-list">
+                                <li>2024 flagship model</li>
+                                <li>Executive rear seating</li>
+                                <li>Massage & climate seats</li>
+                                <li>Advanced sound system</li>
+                                <li>Privacy glass</li>
+                                <li>Presidential-level service</li>
+                            </ul>
+                        </div>
+                        <a href="#booking" class="btn btn-primary" style="width: 100%;">Book Now</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Vehicle Comparison Tool -->
+<section class="section fade-in-up">
+    <div class="comparison-tool">
+        <div class="comparison-header">
+            <div class="section-label">Compare Vehicles</div>
+            <h2>Find Your Perfect Transfer</h2>
+            <p>Compare our luxury fleet to choose the ideal vehicle for your Grand Prix experience</p>
+        </div>
+
+        <div class="comparison-filters">
+            <button class="filter-btn active" data-filter="all">All Vehicles</button>
+            <button class="filter-btn" data-filter="sedan">Sedans</button>
+            <button class="filter-btn" data-filter="van">Vans</button>
+            <button class="filter-btn" data-filter="luxury">Luxury</button>
+        </div>
+
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Vehicle</th>
+                    <th>Passengers</th>
+                    <th>Daily Rate</th>
+                    <th>Best For</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="sedan">
+                    <td><strong>Mercedes E-Class</strong></td>
+                    <td>3</td>
+                    <td class="comparison-highlight">€790/day</td>
+                    <td>Business travelers, Couples</td>
+                    <td><span class="availability-badge sold-out"><span class="availability-dot"></span>Sold Out</span></td>
+                </tr>
+                <tr class="van">
+                    <td><strong>Mercedes V-Class</strong></td>
+                    <td>6-7</td>
+                    <td class="comparison-highlight">€890/day</td>
+                    <td>Families, Small groups</td>
+                    <td><span class="availability-badge sold-out"><span class="availability-dot"></span>Sold Out</span></td>
+                </tr>
+                <tr class="van">
+                    <td><strong>Mercedes Sprinter</strong></td>
+                    <td>8</td>
+                    <td class="comparison-highlight">€990/day</td>
+                    <td>Corporate groups, Teams</td>
+                    <td><span class="availability-badge sold-out"><span class="availability-dot"></span>Sold Out</span></td>
+                </tr>
+                <tr class="van luxury">
+                    <td><strong>VIP Sprinter Bus</strong></td>
+                    <td>15</td>
+                    <td class="comparison-highlight">€1,290/day</td>
+                    <td>Large groups, Events</td>
+                    <td><span class="availability-badge sold-out"><span class="availability-dot"></span>Sold Out</span></td>
+                </tr>
+                <tr class="sedan luxury">
+                    <td><strong>Mercedes S-Class</strong></td>
+                    <td>3</td>
+                    <td class="comparison-highlight">€1,490/day</td>
+                    <td>VIP clients, Executives</td>
+                    <td><span class="availability-badge sold-out"><span class="availability-dot"></span>Sold Out</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section fade-in-up" id="booking">
+    <div class="cta-content">
+        <div class="section-label" style="color: var(--champagne-gold);">Limited Availability</div>
+        <h2>Reserve Your VIP Transfer Today</h2>
+        <p>Secure your premium transportation for the 2026 Hungarian Grand Prix. First come, first served. We respond within 12 business hours to all inquiries.</p>
+
+        <div class="cta-buttons">
+            <a href="mailto:info@vanbudapest.com?subject=F1 Hungarian Grand Prix 2026 VIP Booking Request" class="btn btn-primary">Request Quote</a>
+            <a href="https://vanbudapest.com/contact-customer-reviews/" class="btn btn-outline">Contact Form</a>
+        </div>
+    </div>
+</section>
+
+<!-- JavaScript for Countdown & Animations -->
+<script>
+    // Countdown Timer
+    const countdown = () => {
+        const targetDate = new Date('January 15, 2026 23:59:59').getTime();
+        const now = new Date().getTime();
+        const difference = targetDate - now;
+
+        if (difference > 0) {
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = String(days).padStart(2, '0');
+            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+        } else {
+            document.getElementById('countdown').innerHTML = '<p style="font-size: 1.5rem; color: var(--champagne-gold);">Early Bird Offer Expired</p>';
+        }
+    };
+
+    // Update countdown every second
+    setInterval(countdown, 1000);
+    countdown();
+
+    // Scroll-triggered animations
+    const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+    }, observerOptions);
+    document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+
+    // Comparison filter functionality
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const tableRows = document.querySelectorAll('.comparison-table tbody tr');
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            const filter = button.getAttribute('data-filter');
+            tableRows.forEach(row => {
+                if (filter === 'all') { row.style.display = ''; }
+                else { row.style.display = row.classList.contains(filter) ? '' : 'none'; }
+            });
+        });
+    });
+
+    // Parallax effect for hero section (disabled on mobile)
+    if (window.innerWidth > 768) {
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero-container');
+            if (hero && scrolled < 1000) {
+                hero.style.transform = `translateY(${scrolled * 0.3}px)`;
+                hero.style.opacity = 1 - (scrolled * 0.002);
+            }
+        });
+    }
+</script>
