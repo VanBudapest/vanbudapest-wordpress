@@ -64,6 +64,25 @@ body.has-global-padding .wp-site-blocks {
     }
 }
 
+/* ===== ULTIMATE BACKGROUND COLOR ENFORCEMENT ===== */
+/* Force backgrounds to show through WordPress wrappers */
+section.hero,
+section.section.section-dark,
+section.cta-section {
+    background-color: var(--monaco-midnight) !important;
+}
+
+section.section.section-light {
+    background-color: var(--soft-grey) !important;
+}
+
+/* Ensure parent containers don't have white background */
+.entry-content,
+.wp-site-blocks,
+.site-content {
+    background: transparent !important;
+}
+
 /* ===== ORIGINAL F1 STYLES ===== */
 
 :root {
