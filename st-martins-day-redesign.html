@@ -1,0 +1,265 @@
+<section class="vb-section vb-fw vb-theme-martins">
+  <style>
+    .vb-section, .vb-section * { box-sizing: border-box !important; }
+
+    .vb-section {
+      --vb-font: 'Montserrat', 'Segoe UI', system-ui, -apple-system, Arial, sans-serif;
+      --vb-autumn-rust: #8B4513;
+      --vb-autumn-gold: #DAA520;
+      --vb-autumn-orange: #D2691E;
+      --vb-autumn-burgundy: #722F37;
+      --vb-lantern-glow: #FFD700;
+      --vb-warm-cream: #FFF8DC;
+      --vb-deep-brown: #3E2723;
+
+      background: linear-gradient(135deg,
+        var(--vb-deep-brown) 0%,
+        var(--vb-autumn-burgundy) 35%,
+        var(--vb-autumn-rust) 70%,
+        var(--vb-autumn-orange) 100%);
+      background-attachment: fixed;
+      color: var(--vb-warm-cream);
+      font-family: var(--vb-font);
+      line-height: 1.8;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Autumn leaves background pattern */
+    .vb-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image:
+        radial-gradient(circle at 20% 30%, rgba(218, 165, 32, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(210, 105, 30, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, rgba(255, 215, 0, 0.06) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .vb-container {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 80px 24px;
+      text-align: justify;
+      position: relative;
+      z-index: 1;
+    }
+
+    .vb-container h2, .vb-container h3, .vb-container h4, .vb-container h5, .vb-container h6 {
+      text-align: center;
+      color: var(--vb-lantern-glow);
+      margin-top: 60px;
+      margin-bottom: 20px;
+      font-weight: 700;
+      text-shadow:
+        0 0 20px rgba(255, 215, 0, 0.5),
+        0 0 40px rgba(255, 215, 0, 0.3),
+        0 2px 4px rgba(0, 0, 0, 0.5);
+      letter-spacing: 0.5px;
+    }
+
+    .vb-container h2 {
+      font-size: 2.4rem;
+      animation: lanternGlow 3s ease-in-out infinite;
+    }
+
+    .vb-container h3 {
+      font-size: 2rem;
+      color: var(--vb-autumn-gold);
+    }
+
+    .vb-container h4 {
+      font-size: 1.6rem;
+      color: var(--vb-autumn-gold);
+    }
+
+    @keyframes lanternGlow {
+      0%, 100% {
+        text-shadow:
+          0 0 20px rgba(255, 215, 0, 0.5),
+          0 0 40px rgba(255, 215, 0, 0.3),
+          0 2px 4px rgba(0, 0, 0, 0.5);
+      }
+      50% {
+        text-shadow:
+          0 0 30px rgba(255, 215, 0, 0.7),
+          0 0 60px rgba(255, 215, 0, 0.5),
+          0 2px 4px rgba(0, 0, 0, 0.5);
+      }
+    }
+
+    .vb-container p {
+      margin-bottom: 20px;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    }
+
+    .vb-container strong {
+      color: var(--vb-autumn-gold);
+      font-weight: 600;
+    }
+
+    .vb-img {
+      display: block;
+      width: 100%;
+      border-radius: 16px;
+      margin: 40px auto;
+      box-shadow:
+        0 10px 40px rgba(0, 0, 0, 0.6),
+        0 0 0 1px rgba(218, 165, 32, 0.3),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 3px solid rgba(218, 165, 32, 0.3);
+    }
+
+    .vb-img:hover {
+      transform: scale(1.03) translateY(-5px);
+      box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.7),
+        0 0 60px rgba(255, 215, 0, 0.4),
+        0 0 0 1px rgba(218, 165, 32, 0.5),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 215, 0, 0.6);
+    }
+
+    details {
+      margin: 20px 0;
+      background: linear-gradient(135deg,
+        rgba(139, 69, 19, 0.3) 0%,
+        rgba(114, 47, 55, 0.3) 100%);
+      border-radius: 12px;
+      padding: 20px 24px;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      border: 2px solid rgba(218, 165, 32, 0.2);
+      backdrop-filter: blur(10px);
+    }
+
+    details:hover {
+      background: linear-gradient(135deg,
+        rgba(139, 69, 19, 0.4) 0%,
+        rgba(114, 47, 55, 0.4) 100%);
+      border-color: rgba(218, 165, 32, 0.4);
+      transform: translateX(5px);
+      box-shadow:
+        -5px 5px 20px rgba(0, 0, 0, 0.3),
+        0 0 30px rgba(255, 215, 0, 0.15);
+    }
+
+    details[open] {
+      background: linear-gradient(135deg,
+        rgba(139, 69, 19, 0.5) 0%,
+        rgba(114, 47, 55, 0.5) 100%);
+      border-color: rgba(218, 165, 32, 0.5);
+      box-shadow:
+        inset 0 2px 10px rgba(0, 0, 0, 0.3),
+        0 0 40px rgba(255, 215, 0, 0.2);
+    }
+
+    summary {
+      color: var(--vb-lantern-glow);
+      font-weight: 600;
+      font-size: 1.2rem;
+      position: relative;
+      padding-right: 40px;
+      text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+    }
+
+    summary::after {
+      content: '🏮';
+      position: absolute;
+      right: 0;
+      font-size: 1.6rem;
+      transition: transform 0.3s ease;
+      filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.6));
+    }
+
+    details[open] summary::after {
+      transform: rotate(180deg);
+    }
+
+    details p {
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(218, 165, 32, 0.3);
+      color: var(--vb-warm-cream);
+    }
+
+    /* Decorative lantern elements */
+    .vb-container::before,
+    .vb-container::after {
+      content: '🏮';
+      position: absolute;
+      font-size: 3rem;
+      opacity: 0.15;
+      animation: float 6s ease-in-out infinite;
+      filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.4));
+    }
+
+    .vb-container::before {
+      top: 100px;
+      left: 5%;
+      animation-delay: 0s;
+    }
+
+    .vb-container::after {
+      top: 200px;
+      right: 5%;
+      animation-delay: 3s;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(-5deg); }
+      50% { transform: translateY(-20px) rotate(5deg); }
+    }
+
+    @media (max-width: 768px) {
+      .vb-container { padding: 60px 16px; }
+      .vb-container h2 { font-size: 1.8rem; }
+      .vb-container::before,
+      .vb-container::after { display: none; }
+    }
+  </style>
+
+  <div class="vb-container">
+
+    <h2>The Story Behind St. Martin's Day</h2>
+    <p>Every year on November 11, Hungary celebrates St. Martin's Day — a centuries-old tradition marking the end of the agricultural season and the arrival of new wine.</p>
+    <p>The story begins with St. Martin of Tours, a Roman soldier turned bishop known for his compassion. According to legend, Martin once cut his cloak in half to share it with a beggar. Later, when he tried to avoid being appointed bishop, he hid among a flock of geese — but their loud cackling gave him away. Since then, the goose has become the symbol of the holiday, and eating goose on this day is said to bring good fortune for the year ahead.</p>
+
+    <h3>Hungarian Goose Feasts and Culinary Traditions</h3>
+    <p>St. Martin's Day is one of Hungary's most delicious holidays. Tables are filled with roast goose, goose liver, and creamy ludaskása, a barley-based dish enriched with tender goose meat and vegetables.</p>
+    <p>The feast is always accompanied by new wine — young, fresh vintages from the recent harvest, officially opened on November 11. From full-bodied reds to fruity whites, these wines symbolize renewal and the joy of community.</p>
+
+    <img class="vb-img" src="https://res.cloudinary.com/dmrjcw98n/images/v1762606513/GOOSE-STMARTINDAYS/GOOSE-STMARTINDAYS.webp?_i=AA" alt="St. Martin's Day goose feast">
+
+    <h3>Festival Highlights Across Hungary</h3>
+    <h4>Budapest: Gourmet Nights and Lantern Parades</h4>
+    <p>In the capital, St. Martin's Day brings both flavor and festivity. Elegant restaurants such as Normafa Síház or the Time Out Market offer multi-course goose menus paired with Hungarian wines. Along the Római riverside, families gather for lantern-making workshops and children's parades, illuminating the November evenings with handmade paper lanterns.</p>
+
+    <h4>Countryside Celebrations: Wine & Tradition</h4>
+    <p>Beyond the capital, historic towns like Székesfehérvár, Eger, and Miskolc host goose and wine festivals featuring local folk music, craft fairs, and open-air feasts. Around Lake Balaton, wineries open their cellars for tastings, while charming villages such as Noszvaj and Hollókő invite visitors to discover rural traditions — bonfires, artisan workshops, and hearty goose dinners shared under candlelight.</p>
+
+    <img class="vb-img" src="https://res.cloudinary.com/dmrjcw98n/images/v1762606506/goose-stmartinday/goose-stmartinday.jpg?_i=AA" alt="Lantern parade and goose festival">
+
+    <h3>A Central European Tradition</h3>
+    <p>St. Martin's Day is cherished across Central Europe. In Czechia, new wines are ceremoniously opened at 11:11 a.m. on November 11, while Austria's "Martinigansl" dinners mirror Hungary's goose feasts. The celebration symbolizes gratitude, community, and the joy of the harvest season — a perfect reason for travelers to explore Hungarian hospitality.</p>
+
+    <h3>Modern Gastronomy Meets Tradition</h3>
+    <p>In 2025, St. Martin's Day takes on a new culinary twist. Chefs are reimagining goose dishes with modern fusion flavors — truffle-infused goose liver, roasted goose leg with chestnut purée, or goose rillette with elderberry glaze. Sustainability is also in focus: locally sourced ingredients and "glocal" menus (local roots, global inspiration) are redefining festive dining across Hungary.</p>
+
+    <h3>Travel & Experience Guide</h3>
+    <p>Whether you're visiting for a weekend getaway or planning a culinary road trip, St. Martin's Day offers endless experiences. Book early — restaurants and wineries fill up quickly. Many boutique hotels offer St. Martin's Day experience packages that include a goose dinner, wine tasting, and guided village walks.</p>
+    <p><strong>Tip:</strong> Combine your festival visit with sightseeing — explore Hungary's wine regions, from Eger to Villány, or spend an evening in Budapest's thermal spas after the festivities.</p>
+
+    <h2>Frequently Asked Questions</h2>
+    <details><summary>Why do Hungarians eat goose on St. Martin's Day?</summary><p>Because of the legend of St. Martin hiding among geese, the bird became his symbol. Eating goose is said to bring luck and prosperity for the coming year.</p></details>
+    <details><summary>Where can I join St. Martin's Day festivals in Hungary?</summary><p>Budapest, Eger, Székesfehérvár, and Balaton towns host some of the biggest events — with goose menus, wine tastings, and lantern parades.</p></details>
+    <details><summary>How is St. Martin's Day celebrated in other countries?</summary><p>Czechs, Austrians, and Slovenians celebrate with similar feasts and new wine openings, creating a shared Central European cultural tradition.</p></details>
+    <details><summary>When should I plan my visit?</summary><p>Events usually take place around November 8–12, so booking early ensures you'll have the best seats — and the crispiest roast goose.</p></details>
+
+  </div>
+</section>
