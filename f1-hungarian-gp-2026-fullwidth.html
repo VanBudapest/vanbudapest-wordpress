@@ -2,10 +2,15 @@
 /* ===== WORDPRESS ORGANIC CHRONO FULL-WIDTH OVERRIDES ===== */
 
 /* Critical: Remove WordPress theme constraints */
+html {
+    background: transparent !important;
+}
+
 body {
     margin: 0 !important;
     padding: 0 !important;
     overflow-x: hidden !important;
+    background: transparent !important;
 }
 
 .entry-content,
@@ -14,7 +19,14 @@ body {
 .site-content,
 .site-main,
 .wp-block-post-content,
-body.has-global-padding .wp-site-blocks {
+body.has-global-padding .wp-site-blocks,
+.wp-block-post-content > *,
+main,
+article,
+#main,
+#content,
+.site,
+.site-wrapper {
     max-width: 100% !important;
     width: 100% !important;
     padding-left: 0 !important;
@@ -22,6 +34,7 @@ body.has-global-padding .wp-site-blocks {
     margin-left: 0 !important;
     margin-right: 0 !important;
     overflow: visible !important;
+    background: transparent !important;
 }
 
 .is-layout-constrained > .alignfull,
