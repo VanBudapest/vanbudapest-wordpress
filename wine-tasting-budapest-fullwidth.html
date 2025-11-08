@@ -1,15 +1,37 @@
-<!-- VB Wine Block v4.0 ORGANIC CHRONO COMPATIBLE (FULL-WIDTH) -->
+<!-- VB Wine Block v4.1 ORGANIC CHRONO COMPATIBLE (FULL-WIDTH) -->
 
 <style>
+  /* Full-width container with !important flags to override theme constraints */
   .vb-wine-fullwidth {
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-    max-width: 100vw;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    position: relative !important;
+    left: 50% !important;
+    right: 50% !important;
+    margin-left: -50vw !important;
+    margin-right: -50vw !important;
+    overflow-x: hidden !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Override Organic Chrono and WordPress core layout constraints */
+  .is-layout-constrained .vb-wine-fullwidth,
+  .has-global-padding .vb-wine-fullwidth,
+  .wp-site-blocks .vb-wine-fullwidth {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: -50vw !important;
+    margin-right: -50vw !important;
+  }
+
+  /* Prevent horizontal scrollbar on mobile due to viewport width calculation */
+  body {
     overflow-x: hidden;
+  }
+
+  /* Ensure inner content wrapper doesn't break out */
+  .vb-wine-fullwidth * {
+    box-sizing: border-box;
   }
 </style>
 
