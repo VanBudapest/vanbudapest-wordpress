@@ -90,7 +90,7 @@ body {
     font-size: 16px;
     line-height: 1.6;
     color: var(--carbon-fiber);
-    background: var(--pure-white);
+    background: transparent !important; /* ← Fixed: transparent instead of white */
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -110,7 +110,7 @@ h3 { font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 600; }
 /* Hero Section - Full Screen Elegance with Parallax */
 .hero {
     min-height: 100vh;
-    background: linear-gradient(165deg, var(--monaco-midnight) 0%, #0d1420 50%, var(--carbon-fiber) 100%);
+    background: linear-gradient(165deg, var(--monaco-midnight) 0%, #0d1420 50%, var(--carbon-fiber) 100%) !important;
     color: var(--pure-white);
     display: flex;
     align-items: center;
@@ -208,8 +208,8 @@ h3 { font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 600; }
 
 /* Section Styling */
 .section { padding:120px 40px; position:relative; }
-.section-dark { background: var(--monaco-midnight); color: var(--pure-white); }
-.section-light { background: var(--soft-grey); }
+.section-dark { background: var(--monaco-midnight) !important; color: var(--pure-white); }
+.section-light { background: var(--soft-grey) !important; }
 .container { max-width:1400px; margin:0 auto; }
 
 /* Section Headers */
@@ -295,7 +295,7 @@ h3 { font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 600; }
 .section-dark .stat-label { color: var(--platinum); }
 
 /* CTA Full Width */
-.cta-section { background: linear-gradient(165deg, var(--monaco-midnight) 0%, var(--carbon-fiber) 100%); color: var(--pure-white); text-align:center; padding:120px 40px; position:relative; overflow:hidden; }
+.cta-section { background: linear-gradient(165deg, var(--monaco-midnight) 0%, var(--carbon-fiber) 100%) !important; color: var(--pure-white); text-align:center; padding:120px 40px; position:relative; overflow:hidden; }
 .cta-section::before { content:''; position:absolute; top:0; left:0; right:0; height:1px; background: linear-gradient(90deg, transparent, var(--champagne-gold), transparent); }
 .cta-content { max-width:800px; margin:0 auto; position:relative; z-index:1; }
 .cta-content h2 { margin-bottom:24px; }
