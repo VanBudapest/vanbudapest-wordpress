@@ -1,0 +1,1491 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="F1 Magyar Nagydíj 2025 - Hungaroring - Jegyértékesítés és információk">
+    <title>F1 Magyar Nagydíj 2025 | Hungaroring</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --ferrari-red: #DC0000;
+            --racing-black: #15151E;
+            --champagne-gold: #C9A961;
+            --electric-cyan: #00E5FF;
+            --pure-white: #FFFFFF;
+            --soft-grey: #F5F7FA;
+            --dark-grey: #2A2A35;
+            --gradient-primary: linear-gradient(135deg, #DC0000 0%, #8B0000 100%);
+            --gradient-dark: linear-gradient(135deg, #15151E 0%, #2A2A35 100%);
+            --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.1);
+            --shadow-medium: 0 15px 50px rgba(220, 0, 0, 0.2);
+            --shadow-hard: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--racing-black);
+            overflow-x: hidden;
+            background-color: var(--soft-grey);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(21, 21, 30, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .navbar.scrolled {
+            padding: 0.5rem 0;
+            background: rgba(21, 21, 30, 0.98);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--pure-white);
+            text-decoration: none;
+            font-family: 'Rajdhani', sans-serif;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-f1 {
+            color: var(--ferrari-red);
+            font-size: 2.2rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            color: var(--pure-white);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            position: relative;
+            text-transform: uppercase;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--ferrari-red);
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: var(--ferrari-red);
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--pure-white);
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: linear-gradient(135deg, #15151E 0%, #2A2A35 50%, #DC0000 100%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080"><path d="M0,0 L1920,0 L1920,1080 L0,1080 Z" fill="none"/><path d="M0,540 Q480,400 960,540 T1920,540" stroke="rgba(220,0,0,0.1)" stroke-width="2" fill="none"/><path d="M0,600 Q480,460 960,600 T1920,600" stroke="rgba(220,0,0,0.05)" stroke-width="2" fill="none"/></svg>') no-repeat center;
+            background-size: cover;
+            opacity: 0.3;
+            animation: raceTrack 20s linear infinite;
+        }
+
+        @keyframes raceTrack {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: var(--pure-white);
+            max-width: 1200px;
+            padding: 2rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--champagne-gold);
+            letter-spacing: 4px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            animation: fadeInDown 1s ease;
+        }
+
+        .hero-title {
+            font-size: 6rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            line-height: 1;
+            animation: fadeInUp 1s ease;
+            text-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-title .highlight {
+            color: var(--ferrari-red);
+            display: block;
+            font-size: 7rem;
+            letter-spacing: 5px;
+        }
+
+        .hero-date {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--electric-cyan);
+            margin-bottom: 2rem;
+            letter-spacing: 2px;
+            animation: fadeIn 1.5s ease;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+            animation: fadeIn 2s ease;
+        }
+
+        .countdown-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 2rem;
+            border-radius: 15px;
+            border: 2px solid rgba(220, 0, 0, 0.3);
+            min-width: 120px;
+        }
+
+        .countdown-number {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--ferrari-red);
+            font-family: 'Rajdhani', sans-serif;
+        }
+
+        .countdown-label {
+            font-size: 0.9rem;
+            color: var(--champagne-gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-top: 3rem;
+            animation: fadeInUp 2s ease;
+        }
+
+        .btn {
+            padding: 1.2rem 3rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.4s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: var(--pure-white);
+            border: 2px solid var(--ferrari-red);
+            box-shadow: 0 10px 40px rgba(220, 0, 0, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(220, 0, 0, 0.6);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--pure-white);
+            border: 2px solid var(--pure-white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--pure-white);
+            color: var(--racing-black);
+            transform: translateY(-5px);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator::before {
+            content: '↓';
+            font-size: 2rem;
+            color: var(--pure-white);
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-20px); }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 6rem 2rem;
+            position: relative;
+        }
+
+        .section-dark {
+            background: var(--gradient-dark);
+            color: var(--pure-white);
+        }
+
+        .section-light {
+            background: var(--soft-grey);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-subtitle {
+            font-size: 1rem;
+            color: var(--ferrari-red);
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+
+        .section-description {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* Race Info Cards */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .info-card {
+            background: var(--pure-white);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-soft);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .info-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--ferrari-red);
+        }
+
+        .card-title {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--racing-black);
+        }
+
+        .card-content {
+            font-size: 1rem;
+            color: var(--dark-grey);
+            line-height: 1.8;
+        }
+
+        /* Schedule Table */
+        .schedule-table {
+            background: var(--pure-white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            margin-top: 3rem;
+        }
+
+        .schedule-row {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .schedule-row:hover {
+            background: var(--soft-grey);
+        }
+
+        .schedule-row.header {
+            background: var(--gradient-primary);
+            color: var(--pure-white);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .schedule-row.header:hover {
+            background: var(--gradient-primary);
+        }
+
+        .schedule-day {
+            font-weight: 700;
+            color: var(--ferrari-red);
+        }
+
+        .schedule-row.header .schedule-day {
+            color: var(--pure-white);
+        }
+
+        /* Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            height: 400px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-hard);
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .gallery-item:hover .gallery-image {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+            padding: 2rem;
+            transform: translateY(100%);
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        .gallery-title {
+            color: var(--pure-white);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .gallery-description {
+            color: var(--champagne-gold);
+            font-size: 0.9rem;
+        }
+
+        /* Placeholder images with gradients */
+        .gallery-item:nth-child(1) .gallery-image {
+            background: linear-gradient(135deg, #DC0000, #8B0000);
+        }
+
+        .gallery-item:nth-child(2) .gallery-image {
+            background: linear-gradient(135deg, #15151E, #DC0000);
+        }
+
+        .gallery-item:nth-child(3) .gallery-image {
+            background: linear-gradient(135deg, #C9A961, #DC0000);
+        }
+
+        .gallery-item:nth-child(4) .gallery-image {
+            background: linear-gradient(135deg, #00E5FF, #DC0000);
+        }
+
+        .gallery-item:nth-child(5) .gallery-image {
+            background: linear-gradient(135deg, #2A2A35, #DC0000);
+        }
+
+        .gallery-item:nth-child(6) .gallery-image {
+            background: linear-gradient(135deg, #DC0000, #C9A961);
+        }
+
+        /* Ticket Section */
+        .ticket-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .ticket-card {
+            background: var(--pure-white);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            text-align: center;
+            box-shadow: var(--shadow-soft);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ticket-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-primary);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .ticket-card:hover {
+            transform: translateY(-15px);
+            box-shadow: var(--shadow-hard);
+        }
+
+        .ticket-card:hover::before {
+            opacity: 0.05;
+        }
+
+        .ticket-card.featured {
+            border: 3px solid var(--ferrari-red);
+            transform: scale(1.05);
+        }
+
+        .ticket-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--ferrari-red);
+            color: var(--pure-white);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .ticket-type {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--racing-black);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .ticket-price {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--ferrari-red);
+            margin-bottom: 1.5rem;
+            font-family: 'Rajdhani', sans-serif;
+        }
+
+        .ticket-price span {
+            font-size: 1.5rem;
+        }
+
+        .ticket-features {
+            list-style: none;
+            margin: 2rem 0;
+            text-align: left;
+        }
+
+        .ticket-features li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .ticket-features li::before {
+            content: '✓';
+            color: var(--ferrari-red);
+            font-weight: 900;
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--racing-black);
+            color: var(--pure-white);
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            color: var(--ferrari-red);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: var(--pure-white);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--ferrari-red);
+            opacity: 1;
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--pure-white);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--ferrari-red);
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-title {
+                font-size: 4.5rem;
+            }
+
+            .hero-title .highlight {
+                font-size: 5.5rem;
+            }
+
+            .section-title {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background: rgba(21, 21, 30, 0.98);
+                width: 100%;
+                text-align: center;
+                transition: left 0.3s ease;
+                padding: 2rem 0;
+                gap: 1.5rem;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .hero-title .highlight {
+                font-size: 3.5rem;
+            }
+
+            .hero-date {
+                font-size: 1.3rem;
+            }
+
+            .countdown {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .countdown-item {
+                min-width: 100px;
+                padding: 1rem 1.5rem;
+            }
+
+            .countdown-number {
+                font-size: 2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .section {
+                padding: 4rem 1.5rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .info-grid,
+            .gallery-grid,
+            .ticket-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .schedule-row {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+
+            .ticket-card.featured {
+                transform: scale(1);
+            }
+
+            .gallery-item {
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-title .highlight {
+                font-size: 3rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .logo {
+                font-size: 1.4rem;
+            }
+
+            .logo-f1 {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Loading Animation */
+        .fade-in {
+            animation: fadeIn 1s ease;
+        }
+
+        /* Accessibility */
+        .skip-to-content {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--ferrari-red);
+            color: var(--pure-white);
+            padding: 8px;
+            text-decoration: none;
+            z-index: 100;
+        }
+
+        .skip-to-content:focus {
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip to Content -->
+    <a href="#main-content" class="skip-to-content">Ugrás a tartalomhoz</a>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">
+                <span class="logo-f1">F1</span> HUNGARORING
+            </a>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home">Főoldal</a></li>
+                <li><a href="#info">Információ</a></li>
+                <li><a href="#schedule">Program</a></li>
+                <li><a href="#gallery">Galéria</a></li>
+                <li><a href="#tickets">Jegyek</a></li>
+                <li><a href="#contact">Kapcsolat</a></li>
+            </ul>
+            <div class="mobile-menu-toggle" id="mobile-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <p class="hero-subtitle">Forma-1 Világbajnokság 2025</p>
+            <h1 class="hero-title">
+                MAGYAR
+                <span class="highlight">NAGYDÍJ</span>
+            </h1>
+            <p class="hero-date">📍 Hungaroring | 2025. július 25-27.</p>
+
+            <!-- Countdown Timer -->
+            <div class="countdown" id="countdown">
+                <div class="countdown-item">
+                    <div class="countdown-number" id="days">000</div>
+                    <div class="countdown-label">Nap</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="hours">00</div>
+                    <div class="countdown-label">Óra</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="minutes">00</div>
+                    <div class="countdown-label">Perc</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="seconds">00</div>
+                    <div class="countdown-label">Másodperc</div>
+                </div>
+            </div>
+
+            <div class="cta-buttons">
+                <a href="#tickets" class="btn btn-primary"><span>Jegyvásárlás</span></a>
+                <a href="#info" class="btn btn-secondary"><span>További Infó</span></a>
+            </div>
+        </div>
+        <div class="scroll-indicator"></div>
+    </section>
+
+    <!-- Main Content -->
+    <main id="main-content">
+
+        <!-- Info Section -->
+        <section class="section section-light" id="info">
+            <div class="container">
+                <div class="section-header">
+                    <p class="section-subtitle">Versenypálya Információk</p>
+                    <h2 class="section-title">A Hungaroring</h2>
+                    <p class="section-description">
+                        A Hungaroring Mogyoród közelében található, mindössze 20 km-re Budapest központjától.
+                        1986 óta folyamatosan helyet ad a Forma-1 Magyar Nagydíjának.
+                    </p>
+                </div>
+
+                <div class="info-grid">
+                    <div class="info-card">
+                        <div class="card-icon">🏁</div>
+                        <h3 class="card-title">Pálya Adatok</h3>
+                        <div class="card-content">
+                            <p><strong>Hossz:</strong> 4.381 km</p>
+                            <p><strong>Kanyarok:</strong> 14</p>
+                            <p><strong>Körök száma:</strong> 70</p>
+                            <p><strong>Verseny táv:</strong> 306.63 km</p>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="card-icon">🏎️</div>
+                        <h3 class="card-title">Pályarekord</h3>
+                        <div class="card-content">
+                            <p><strong>Idő:</strong> 1:16.627</p>
+                            <p><strong>Versenyző:</strong> Lewis Hamilton</p>
+                            <p><strong>Csapat:</strong> Mercedes</p>
+                            <p><strong>Év:</strong> 2020</p>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="card-icon">📍</div>
+                        <h3 class="card-title">Megközelítés</h3>
+                        <div class="card-content">
+                            <p><strong>Cím:</strong> 2146 Mogyoród, Hungaroring</p>
+                            <p><strong>GPS:</strong> 47.5789° N, 19.2486° E</p>
+                            <p><strong>Távolság:</strong> 20 km Budapest központjától</p>
+                            <p><strong>Parkolás:</strong> Ingyenes</p>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="card-icon">🎫</div>
+                        <h3 class="card-title">Látogatói Info</h3>
+                        <div class="card-content">
+                            <p><strong>Kapacitás:</strong> 70,000+ néző</p>
+                            <p><strong>Lelátók:</strong> 8 különböző szektor</p>
+                            <p><strong>Étel-ital:</strong> Széles választék</p>
+                            <p><strong>Merchandising:</strong> Hivatalos F1 boltok</p>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="card-icon">🌡️</div>
+                        <h3 class="card-title">Időjárás</h3>
+                        <div class="card-content">
+                            <p><strong>Átlaghőmérséklet:</strong> 25-30°C</p>
+                            <p><strong>Időjárás:</strong> Általában napos</p>
+                            <p><strong>Ajánlott:</strong> Napvédelem, sapka</p>
+                            <p><strong>Ivóvíz:</strong> Több töltőpont a pályán</p>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="card-icon">🎉</div>
+                        <h3 class="card-title">Szórakozás</h3>
+                        <div class="card-content">
+                            <p><strong>Paddock Club:</strong> VIP élmény</p>
+                            <p><strong>F1 Fanzone:</strong> Interaktív zóna</p>
+                            <p><strong>Pit Lane Walk:</strong> Csütörtökön</p>
+                            <p><strong>Koncertek:</strong> Verseny után</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Schedule Section -->
+        <section class="section section-dark" id="schedule">
+            <div class="container">
+                <div class="section-header">
+                    <p class="section-subtitle">Verseny Program</p>
+                    <h2 class="section-title">Hétvége Menetrend</h2>
+                    <p class="section-description">
+                        Három napos versenyhétvége a világ legjobb versenyzőivel és csapataival.
+                    </p>
+                </div>
+
+                <div class="schedule-table">
+                    <div class="schedule-row header">
+                        <div>Időpont</div>
+                        <div>Program</div>
+                        <div>Időtartam</div>
+                    </div>
+
+                    <div class="schedule-row">
+                        <div class="schedule-day">PÉNTEK</div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="schedule-row">
+                        <div>13:30 - 14:30</div>
+                        <div>1. Szabadedzés</div>
+                        <div>60 perc</div>
+                    </div>
+                    <div class="schedule-row">
+                        <div>17:00 - 18:00</div>
+                        <div>2. Szabadedzés</div>
+                        <div>60 perc</div>
+                    </div>
+
+                    <div class="schedule-row">
+                        <div class="schedule-day">SZOMBAT</div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="schedule-row">
+                        <div>12:30 - 13:30</div>
+                        <div>3. Szabadedzés</div>
+                        <div>60 perc</div>
+                    </div>
+                    <div class="schedule-row">
+                        <div>16:00 - 17:00</div>
+                        <div>Időmérő Edzés</div>
+                        <div>60 perc</div>
+                    </div>
+
+                    <div class="schedule-row">
+                        <div class="schedule-day">VASÁRNAP</div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="schedule-row">
+                        <div>15:00</div>
+                        <div>🏁 MAGYAR NAGYDÍJ - VERSENY</div>
+                        <div>70 kör</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section class="section section-light" id="gallery">
+            <div class="container">
+                <div class="section-header">
+                    <p class="section-subtitle">Pillanatok</p>
+                    <h2 class="section-title">Galéria</h2>
+                    <p class="section-description">
+                        Nézze meg a korábbi évek legemlékezetesebb pillanatait a Hungaroringen.
+                    </p>
+                </div>
+
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <div class="gallery-image"></div>
+                        <div class="gallery-overlay">
+                            <h3 class="gallery-title">Rajt Pillanat</h3>
+                            <p class="gallery-description">A feszültség a rajtrácsról</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item">
+                        <div class="gallery-image"></div>
+                        <div class="gallery-overlay">
+                            <h3 class="gallery-title">Versenytempó</h3>
+                            <p class="gallery-description">Küzdelem minden kanyarban</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item">
+                        <div class="gallery-image"></div>
+                        <div class="gallery-overlay">
+                            <h3 class="gallery-title">Dobogós Ünneplés</h3>
+                            <p class="gallery-description">A győzelem pillanatai</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item">
+                        <div class="gallery-image"></div>
+                        <div class="gallery-overlay">
+                            <h3 class="gallery-title">Lelkes Szurkolók</h3>
+                            <p class="gallery-description">Teltház a Hungaroringen</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item">
+                        <div class="gallery-image"></div>
+                        <div class="gallery-overlay">
+                            <h3 class="gallery-title">Pit Stop Akció</h3>
+                            <p class="gallery-description">Csapatmunka másodpercekben</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item">
+                        <div class="gallery-image"></div>
+                        <div class="gallery-overlay">
+                            <h3 class="gallery-title">Éjszakai Fények</h3>
+                            <p class="gallery-description">A pálya varázsa napnyugta után</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tickets Section -->
+        <section class="section section-dark" id="tickets">
+            <div class="container">
+                <div class="section-header">
+                    <p class="section-subtitle">Jegyek</p>
+                    <h2 class="section-title">Válaszd ki a Te élményedet</h2>
+                    <p class="section-description">
+                        Különböző jegytípusok állnak rendelkezésre, hogy mindenki megtalálhassa a számára legmegfelelőbbet.
+                    </p>
+                </div>
+
+                <div class="ticket-cards">
+                    <div class="ticket-card">
+                        <div class="ticket-type">Bronze</div>
+                        <div class="ticket-price">49.900 <span>Ft</span></div>
+                        <ul class="ticket-features">
+                            <li>Péntek - 1 napos belépő</li>
+                            <li>Általános állóhely</li>
+                            <li>Szabadedzések megtekintése</li>
+                            <li>F1 Fanzone hozzáférés</li>
+                            <li>Paddock Kilátó</li>
+                        </ul>
+                        <a href="#buy" class="btn btn-secondary"><span>Vásárlás</span></a>
+                    </div>
+
+                    <div class="ticket-card">
+                        <div class="ticket-type">Silver</div>
+                        <div class="ticket-price">79.900 <span>Ft</span></div>
+                        <ul class="ticket-features">
+                            <li>Szombat - 1 napos belépő</li>
+                            <li>Kijelölt lelátóhely</li>
+                            <li>3. szabadedzés + Időmérő</li>
+                            <li>F1 Fanzone hozzáférés</li>
+                            <li>Merchandising kedvezmény</li>
+                            <li>Ingyenes parkolás</li>
+                        </ul>
+                        <a href="#buy" class="btn btn-primary"><span>Vásárlás</span></a>
+                    </div>
+
+                    <div class="ticket-card featured">
+                        <div class="ticket-badge">Legnépszerűbb</div>
+                        <div class="ticket-type">Gold</div>
+                        <div class="ticket-price">149.900 <span>Ft</span></div>
+                        <ul class="ticket-features">
+                            <li>3 napos hétvége bérlet</li>
+                            <li>Prémium lelátóhely</li>
+                            <li>Összes edzés + Időmérő + Verseny</li>
+                            <li>Pit Lane Walk csütörtökön</li>
+                            <li>VIP Fanzone hozzáférés</li>
+                            <li>Hivatalos program ajándékba</li>
+                            <li>15% Merchandising kedvezmény</li>
+                            <li>Ingyenes parkolás + Shuttle</li>
+                        </ul>
+                        <a href="#buy" class="btn btn-primary"><span>Vásárlás</span></a>
+                    </div>
+
+                    <div class="ticket-card">
+                        <div class="ticket-type">Platinum VIP</div>
+                        <div class="ticket-price">599.900 <span>Ft</span></div>
+                        <ul class="ticket-features">
+                            <li>3 napos VIP Paddock Club</li>
+                            <li>Privát suite légtérrel</li>
+                            <li>Korlátlan étel-ital csomag</li>
+                            <li>Pit Lane Walk VIP túra</li>
+                            <li>Meet & Greet lehetőség</li>
+                            <li>Csapat galéria látogatás</li>
+                            <li>Exkluzív ajándékcsomag</li>
+                            <li>VIP parkolás + Shuttle</li>
+                            <li>Verseny utáni exkluzív party</li>
+                        </ul>
+                        <a href="#buy" class="btn btn-primary"><span>Vásárlás</span></a>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 3rem;">
+                    <p style="font-size: 1.1rem; opacity: 0.9; max-width: 800px; margin: 0 auto;">
+                        <strong>Fontos:</strong> A jegyek korlátozott számban elérhetőek.
+                        Korai foglalással garantálhatod a helyed a 2025-ös Magyar Nagydíjon!
+                        Minden jegy tartalmazza az F1 Fan Festival belépőjét is.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="section section-light" id="contact">
+            <div class="container">
+                <div class="section-header">
+                    <p class="section-subtitle">Kapcsolat</p>
+                    <h2 class="section-title">Vedd fel velünk a kapcsolatot</h2>
+                    <p class="section-description">
+                        Kérdésed van? Keress minket bizalommal az alábbi elérhetőségeken!
+                    </p>
+                </div>
+
+                <div class="info-grid">
+                    <div class="info-card">
+                        <div class="card-icon">📧</div>
+                        <h3 class="card-title">Email</h3>
+                        <div class="card-content">
+                            <p><strong>Általános:</strong><br>info@hungaroring.hu</p>
+                            <p><strong>Jegyértékesítés:</strong><br>tickets@hungaroring.hu</p>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="card-icon">📞</div>
+                        <h3 class="card-title">Telefon</h3>
+                        <div class="card-content">
+                            <p><strong>Központ:</strong><br>+36 28 444 444</p>
+                            <p><strong>Jegyiroda:</strong><br>+36 28 444 400</p>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="card-icon">🕐</div>
+                        <h3 class="card-title">Nyitvatartás</h3>
+                        <div class="card-content">
+                            <p><strong>Hétfő-Péntek:</strong><br>9:00 - 17:00</p>
+                            <p><strong>Hétvége:</strong><br>Csak versenyhétvégén</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>F1 Hungaroring</h3>
+                <p>A Forma-1 Magyar Nagydíj hivatalos oldala. Magyarország legnagyobb motorsport eseménye 1986 óta.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link" aria-label="Facebook">f</a>
+                    <a href="#" class="social-link" aria-label="Instagram">📷</a>
+                    <a href="#" class="social-link" aria-label="Twitter">🐦</a>
+                    <a href="#" class="social-link" aria-label="YouTube">▶</a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Gyors Linkek</h3>
+                <ul class="footer-links">
+                    <li><a href="#info">Információ</a></li>
+                    <li><a href="#schedule">Program</a></li>
+                    <li><a href="#tickets">Jegyek</a></li>
+                    <li><a href="#gallery">Galéria</a></li>
+                    <li><a href="#contact">Kapcsolat</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Hasznos Infók</h3>
+                <ul class="footer-links">
+                    <li><a href="#">ÁSZF</a></li>
+                    <li><a href="#">Adatvédelem</a></li>
+                    <li><a href="#">Cookie Szabályzat</a></li>
+                    <li><a href="#">Megközelítés</a></li>
+                    <li><a href="#">Gyakori Kérdések</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Partnerek</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Formula 1</a></li>
+                    <li><a href="#">FIA</a></li>
+                    <li><a href="#">Magyar Motorsport</a></li>
+                    <li><a href="#">Ticket Shop</a></li>
+                    <li><a href="#">Média Központ</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Hungaroring Sport Zrt. Minden jog fenntartva. | F1 Magyar Nagydíj | Mogyoród, Magyarország</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const navMenu = document.getElementById('nav-menu');
+
+        mobileToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Countdown Timer
+        function updateCountdown() {
+            const raceDate = new Date('2025-07-27T15:00:00').getTime();
+            const now = new Date().getTime();
+            const distance = raceDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = String(days).padStart(3, '0');
+            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+
+            if (distance < 0) {
+                document.getElementById('countdown').innerHTML = '<h2 style="color: var(--ferrari-red);">🏁 A VERSENY ELKEZDŐDÖTT! 🏁</h2>';
+            }
+        }
+
+        // Update countdown every second
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // Smooth Scroll for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 80; // Account for fixed navbar
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for Fade In Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        document.querySelectorAll('.info-card, .ticket-card, .gallery-item, .section-header').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero && scrolled <= window.innerHeight) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+
+        // Add loading animation to page
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '0';
+            setTimeout(() => {
+                document.body.style.transition = 'opacity 0.5s ease';
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+
+        // Console Easter Egg
+        console.log('%c🏎️ F1 HUNGARIAN GRAND PRIX 2025 🏎️', 'color: #DC0000; font-size: 24px; font-weight: bold;');
+        console.log('%cHungaroring | 2025.07.25-27', 'color: #C9A961; font-size: 16px;');
+        console.log('%cLights out and away we go! 🏁', 'color: #00E5FF; font-size: 14px;');
+    </script>
+</body>
+</html>
