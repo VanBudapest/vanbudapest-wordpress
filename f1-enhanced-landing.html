@@ -37,9 +37,11 @@
             line-height: 1.6;
             color: var(--carbon-fiber);
             background: var(--pure-white);
-            overflow-x: hidden;
+            overflow-x: hidden !important;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            margin: 0 !important;
+            padding: 0 !important;
         }
 
         /* Typography Hierarchy */
@@ -53,7 +55,31 @@
         h2 { font-size: clamp(2.25rem, 5vw, 3.5rem); font-weight: 500; }
         h3 { font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 600; }
 
-        /* Hero Section - Full Screen Elegance with Parallax */
+        /* WORDPRESS FULL-WIDTH OVERRIDE */
+        @media (min-width: 769px) {
+            .vb-section.vb-fw {
+                width: 100vw !important;
+                max-width: 100vw !important;
+                margin-left: calc(50% - 50vw) !important;
+                margin-right: calc(50% - 50vw) !important;
+                position: relative !important;
+                left: 50% !important;
+                right: 50% !important;
+                transform: translateX(-50%) !important;
+                overflow: visible !important;
+            }
+        }
+        @media (max-width: 768px) {
+            .vb-section.vb-fw {
+                width: 100% !important;
+                max-width: 100% !important;
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+                overflow: visible !important;
+            }
+        }
+
+        /* Hero Section - Full Screen Elegance WITHOUT fade effect */
         .hero {
             min-height: 100vh;
             background: linear-gradient(165deg, var(--monaco-midnight) 0%, #0d1420 50%, var(--carbon-fiber) 100%);
@@ -90,6 +116,7 @@
         }
         @keyframes fadeInUp { from {opacity:0; transform: translateY(30px);} to {opacity:1; transform: translateY(0);} }
 
+        /* Enhanced Hero Badge with Glowing Effect */
         .hero-badge {
             display: inline-flex; align-items: center; gap: 12px;
             padding: 10px 0; margin-bottom: 32px;
@@ -97,8 +124,39 @@
             text-transform: uppercase; letter-spacing: .15em;
             color: var(--racing-silver);
             animation: fadeInUp 1s ease-out .2s both;
+            position: relative;
         }
-        .hero-badge::before { content:''; width:40px; height:1px; background: var(--champagne-gold); }
+        .hero-badge::before {
+            content:''; width:40px; height:1px;
+            background: var(--champagne-gold);
+            box-shadow: 0 0 10px rgba(201, 169, 97, 0.6), 0 0 20px rgba(201, 169, 97, 0.4);
+            animation: lineGlow 3s ease-in-out infinite;
+        }
+        @keyframes lineGlow {
+            0%, 100% {
+                box-shadow: 0 0 10px rgba(201, 169, 97, 0.6), 0 0 20px rgba(201, 169, 97, 0.4);
+                transform: scaleX(1);
+            }
+            50% {
+                box-shadow: 0 0 15px rgba(201, 169, 97, 0.8), 0 0 30px rgba(201, 169, 97, 0.6), 0 0 40px rgba(201, 169, 97, 0.4);
+                transform: scaleX(1.1);
+            }
+        }
+        .hero-badge span {
+            text-shadow: 0 0 10px rgba(201, 169, 97, 0.3);
+            animation: textGlow 3s ease-in-out infinite;
+        }
+        @keyframes textGlow {
+            0%, 100% {
+                text-shadow: 0 0 10px rgba(201, 169, 97, 0.3);
+                color: var(--racing-silver);
+            }
+            50% {
+                text-shadow: 0 0 15px rgba(201, 169, 97, 0.5), 0 0 25px rgba(201, 169, 97, 0.3);
+                color: var(--platinum);
+            }
+        }
+
         .hero h1 { margin-bottom: 32px; color: var(--pure-white); animation: fadeInUp 1s ease-out .4s both; }
         .hero-gold { color: var(--champagne-gold); font-style: italic; }
         .hero-subtitle {
@@ -157,6 +215,7 @@
         .section-dark { background: var(--monaco-midnight); color: var(--pure-white); }
         .section-light { background: var(--soft-grey); }
         .container { max-width:1400px; margin:0 auto; }
+        .vb-container { max-width:1400px; margin:0 auto; padding:0 40px; }
 
         /* Section Headers */
         .section-header { text-align:center; max-width:800px; margin:0 auto 80px; }
@@ -201,7 +260,7 @@
         .pricing-card-back .features-list li { color: var(--platinum); }
         .features-list li::before { content:'✓'; position:absolute; left:0; color: var(--champagne-gold); font-weight:700; }
 
-        /* Availability Badge */
+        /* Availability Badge - Available status */
         .availability-badge { display:inline-flex; align-items:center; gap:8px; padding:8px 16px; border-radius:20px; font-size:.8rem; font-weight:600; margin-bottom:16px; }
         .availability-badge.sold-out { background: rgba(229,57,53,.1); color:#e53935; border:1px solid rgba(229,57,53,.2); }
         .availability-badge.limited { background: rgba(255,193,7,.1); color:#ffc107; border:1px solid rgba(255,193,7,.2); }
@@ -252,6 +311,7 @@
         @media (max-width: 768px) {
             .section { padding: 80px 24px; }
             .hero-container { padding: 60px 24px; }
+            .vb-container { padding: 0 24px; }
             .pricing-grid { grid-template-columns: 1fr; }
             .pricing-card-wrapper { height: auto; min-height: 550px; }
             .hero-cta { flex-direction: column; }
@@ -273,9 +333,11 @@
 <body>
 
     <!-- Hero Section with Countdown -->
-    <section class="hero">
+    <section class="hero vb-section vb-fw">
         <div class="hero-container">
-            <div class="hero-badge">Formula 1 Hungarian Grand Prix 2026</div>
+            <div class="hero-badge">
+                <span>Formula 1 Hungarian Grand Prix 2026</span>
+            </div>
 
             <h1>
                 Premium <span class="hero-gold">VIP Transfers</span><br>
@@ -332,10 +394,9 @@
     </section>
 
     <!-- Stats Section -->
-    <section class="section section-dark fade-in-up">
-        <div class="container">
+    <section class="section section-dark fade-in-up vb-section vb-fw">
+        <div class="vb-container">
             <div class="stats-grid">
-                <!-- FIX: no numeric years, only Since 1988 -->
                 <div class="stat-card">
                     <div class="stat-number" style="font-size:3rem;">Since 1988</div>
                     <div class="stat-label">Premium Service</div>
@@ -357,8 +418,8 @@
     </section>
 
     <!-- Enhanced Pricing Section with Flip Cards -->
-    <section class="section section-light fade-in-up" id="pricing">
-        <div class="container">
+    <section class="section section-light fade-in-up vb-section vb-fw" id="pricing">
+        <div class="vb-container">
             <div class="section-header">
                 <div class="section-label">Fixed Rates 2026</div>
                 <h2>Formula 1 Hungarian Grand Prix<br>Premium Transfer Pricing</h2>
@@ -371,9 +432,9 @@
                     <div class="pricing-card">
                         <!-- Front -->
                         <div class="pricing-card-front">
-                            <div class="availability-badge sold-out">
+                            <div class="availability-badge available">
                                 <span class="availability-dot"></span>
-                                Sold Out
+                                Available
                             </div>
                             <div class="card-tier">Business Class</div>
                             <h3 class="card-vehicle">Mercedes E-Class</h3>
@@ -384,7 +445,7 @@
                                 <div class="price">€790<span class="price-unit"> / day</span></div>
                             </div>
 
-                            <a href="#booking" class="btn btn-dark" style="width: 100%;">Reserve E-Class</a>
+                            <a href="#booking" class="btn btn-dark" style="width: 100%;">View Details</a>
                         </div>
 
                         <!-- Back -->
@@ -410,9 +471,9 @@
                     <div class="pricing-card">
                         <!-- Front -->
                         <div class="pricing-card-front">
-                            <div class="availability-badge limited">
+                            <div class="availability-badge available">
                                 <span class="availability-dot"></span>
-                                Limited
+                                Available
                             </div>
                             <div class="card-tier">Premium Van</div>
                             <h3 class="card-vehicle">Mercedes V-Class</h3>
@@ -424,7 +485,7 @@
                                 <div class="discount-tag">Save €250 on 2-3 days</div>
                             </div>
 
-                            <a href="#booking" class="btn btn-dark" style="width: 100%;">Reserve V-Class</a>
+                            <a href="#booking" class="btn btn-dark" style="width: 100%;">View Details</a>
                         </div>
 
                         <!-- Back -->
@@ -445,26 +506,26 @@
                     </div>
                 </div>
 
-                <!-- Sprinter Card -->
+                <!-- Sprinter Bus Card - RENAMED to Mercedes Sprinter Bus -->
                 <div class="pricing-card-wrapper">
                     <div class="pricing-card">
                         <!-- Front -->
                         <div class="pricing-card-front">
-                            <div class="availability-badge sold-out">
+                            <div class="availability-badge available">
                                 <span class="availability-dot"></span>
-                                Sold Out
+                                Available
                             </div>
                             <div class="card-tier">Executive</div>
-                            <h3 class="card-vehicle">Mercedes Sprinter</h3>
+                            <h3 class="card-vehicle">Mercedes Sprinter Bus</h3>
                             <p class="card-model">Executive Comfort • Group Excellence</p>
-                            <p class="card-capacity">Up to 8 passengers</p>
+                            <p class="card-capacity">Up to 20 passengers</p>
 
                             <div class="price-display">
                                 <div class="price">€990<span class="price-unit"> / day</span></div>
                                 <div class="discount-tag">Save €250 on 2-3 days</div>
                             </div>
 
-                            <a href="#booking" class="btn btn-dark" style="width: 100%;">Reserve Sprinter</a>
+                            <a href="#booking" class="btn btn-dark" style="width: 100%;">View Details</a>
                         </div>
 
                         <!-- Back -->
@@ -472,7 +533,7 @@
                             <div>
                                 <div class="card-tier">Group Benefits</div>
                                 <ul class="features-list">
-                                    <li>Executive seating for 8</li>
+                                    <li>Executive seating for 20</li>
                                     <li>Conference-style setup</li>
                                     <li>Premium sound system</li>
                                     <li>Climate control zones</li>
@@ -485,26 +546,26 @@
                     </div>
                 </div>
 
-                <!-- VIP Sprinter Bus Card -->
+                <!-- VIP Sprinter Card - RENAMED to Mercedes Sprinter VIP -->
                 <div class="pricing-card-wrapper">
                     <div class="pricing-card">
                         <!-- Front -->
                         <div class="pricing-card-front">
-                            <div class="availability-badge limited">
+                            <div class="availability-badge available">
                                 <span class="availability-dot"></span>
-                                Limited
+                                Available
                             </div>
                             <div class="card-tier">VIP Experience</div>
-                            <h3 class="card-vehicle">VIP Sprinter Bus</h3>
+                            <h3 class="card-vehicle">Mercedes Sprinter VIP</h3>
                             <p class="card-model">Ultimate Luxury • Premium Groups</p>
-                            <p class="card-capacity">Up to 15 passengers</p>
+                            <p class="card-capacity">Up to 8 passengers</p>
 
                             <div class="price-display">
                                 <div class="price">€1,290<span class="price-unit"> / day</span></div>
                                 <div class="discount-tag">Save €250 on 2-3 days</div>
                             </div>
 
-                            <a href="#booking" class="btn btn-dark" style="width: 100%;">Reserve VIP Bus</a>
+                            <a href="#booking" class="btn btn-dark" style="width: 100%;">View Details</a>
                         </div>
 
                         <!-- Back -->
@@ -516,7 +577,7 @@
                                     <li>Entertainment system</li>
                                     <li>Refreshment bar</li>
                                     <li>Privacy partition</li>
-                                    <li>Perfect for large groups</li>
+                                    <li>Perfect for VIP groups</li>
                                     <li>Premium event transport</li>
                                 </ul>
                             </div>
@@ -525,17 +586,17 @@
                     </div>
                 </div>
 
-                <!-- S-Class Card -->
+                <!-- S-Class Card - RENAMED to Mercedes S-Class VIP -->
                 <div class="pricing-card-wrapper">
                     <div class="pricing-card">
                         <!-- Front -->
                         <div class="pricing-card-front">
-                            <div class="availability-badge sold-out">
+                            <div class="availability-badge available">
                                 <span class="availability-dot"></span>
-                                Sold Out
+                                Available
                             </div>
                             <div class="card-tier">Ultimate VIP</div>
-                            <h3 class="card-vehicle">Mercedes S-Class</h3>
+                            <h3 class="card-vehicle">Mercedes S-Class VIP</h3>
                             <p class="card-model">2024 Model • Flagship Excellence</p>
                             <p class="card-capacity">Up to 3 passengers</p>
 
@@ -544,7 +605,7 @@
                                 <div class="discount-tag">Save €250 on 2-3 days</div>
                             </div>
 
-                            <a href="#booking" class="btn btn-dark" style="width: 100%;">Reserve S-Class</a>
+                            <a href="#booking" class="btn btn-dark" style="width: 100%;">View Details</a>
                         </div>
 
                         <!-- Back -->
@@ -570,7 +631,7 @@
     </section>
 
     <!-- Vehicle Comparison Tool -->
-    <section class="section fade-in-up">
+    <section class="section fade-in-up vb-section vb-fw">
         <div class="comparison-tool">
             <div class="comparison-header">
                 <div class="section-label">Compare Vehicles</div>
@@ -601,35 +662,35 @@
                         <td>3</td>
                         <td class="comparison-highlight">€790/day</td>
                         <td>Business travelers, Couples</td>
-                        <td><span class="availability-badge sold-out"><span class="availability-dot"></span>Sold Out</span></td>
+                        <td><span class="availability-badge available"><span class="availability-dot"></span>Available</span></td>
                     </tr>
                     <tr class="van">
                         <td><strong>Mercedes V-Class</strong></td>
                         <td>6-7</td>
                         <td class="comparison-highlight">€890/day</td>
                         <td>Families, Small groups</td>
-                        <td><span class="availability-badge limited"><span class="availability-dot"></span>Limited</span></td>
+                        <td><span class="availability-badge available"><span class="availability-dot"></span>Available</span></td>
                     </tr>
                     <tr class="van">
-                        <td><strong>Mercedes Sprinter</strong></td>
-                        <td>8</td>
+                        <td><strong>Mercedes Sprinter Bus</strong></td>
+                        <td>20</td>
                         <td class="comparison-highlight">€990/day</td>
                         <td>Corporate groups, Teams</td>
-                        <td><span class="availability-badge sold-out"><span class="availability-dot"></span>Sold Out</span></td>
+                        <td><span class="availability-badge available"><span class="availability-dot"></span>Available</span></td>
                     </tr>
                     <tr class="van luxury">
-                        <td><strong>VIP Sprinter Bus</strong></td>
-                        <td>15</td>
+                        <td><strong>Mercedes Sprinter VIP</strong></td>
+                        <td>8</td>
                         <td class="comparison-highlight">€1,290/day</td>
-                        <td>Large groups, Events</td>
-                        <td><span class="availability-badge limited"><span class="availability-dot"></span>Limited</span></td>
+                        <td>VIP groups, Events</td>
+                        <td><span class="availability-badge available"><span class="availability-dot"></span>Available</span></td>
                     </tr>
                     <tr class="sedan luxury">
-                        <td><strong>Mercedes S-Class</strong></td>
+                        <td><strong>Mercedes S-Class VIP</strong></td>
                         <td>3</td>
                         <td class="comparison-highlight">€1,490/day</td>
                         <td>VIP clients, Executives</td>
-                        <td><span class="availability-badge sold-out"><span class="availability-dot"></span>Sold Out</span></td>
+                        <td><span class="availability-badge available"><span class="availability-dot"></span>Available</span></td>
                     </tr>
                 </tbody>
             </table>
@@ -637,7 +698,7 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="cta-section fade-in-up" id="booking">
+    <section class="cta-section fade-in-up vb-section vb-fw" id="booking">
         <div class="cta-content">
             <div class="section-label" style="color: var(--champagne-gold);">Limited Availability</div>
             <h2>Reserve Your VIP Transfer Today</h2>
@@ -699,16 +760,6 @@
                     else { row.style.display = row.classList.contains(filter) ? '' : 'none'; }
                 });
             });
-        });
-
-        // Parallax effect for hero section
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const hero = document.querySelector('.hero-container');
-            if (hero) {
-                hero.style.transform = `translateY(${scrolled * 0.3}px)`;
-                hero.style.opacity = 1 - (scrolled * 0.002);
-            }
         });
     </script>
 
