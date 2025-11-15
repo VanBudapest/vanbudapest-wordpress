@@ -1,6 +1,24 @@
 # 🚀 Gyors Indítás - BUD Járat Ellenőrző
 
-## 3 lépésben használatra kész!
+## 📦 Válassza ki a megfelelő verziót!
+
+### 1️⃣ Web Alkalmazás (Böngészős)
+- Lokális vagy szerver futtatás
+- Leggyorsabb kezdés
+- **Ideális:** Fejlesztéshez, teszteléshez
+
+### 2️⃣ Desktop Alkalmazás (Windows/Mac/Linux)
+- Telepíthető .exe/.dmg
+- Nincs szükség böngészőre
+- **Ideális:** Végfelhasználóknak, irodai használatra
+
+### 3️⃣ WordPress Beágyazás
+- Integrált a meglévő weboldallal
+- **Ideális:** Weboldal látogatóknak
+
+---
+
+## 🌐 Web Alkalmazás - 3 lépésben használatra kész!
 
 ### 1️⃣ Telepítés
 
@@ -103,6 +121,81 @@ npm install
 ### További segítség
 
 Olvassa el a részletes [README.md](README.md) dokumentációt!
+
+---
+
+---
+
+## 🖥️ Desktop Alkalmazás - Windows Telepítő
+
+### 1️⃣ Telepítés
+
+```bash
+cd budapest-flight-validator
+npm install
+```
+
+### 2️⃣ Ikon hozzáadása
+
+1. VanBudapest.com logó (512×512 PNG) konvertálása .ico-ba
+2. Online konverter: https://icoconvert.com/
+3. Mentés: `build/icon.ico`
+
+### 3️⃣ Fejlesztői teszt
+
+```bash
+npm run electron-dev
+```
+
+Felugrik egy natív Windows ablak az alkalmazással!
+
+### 4️⃣ Telepítő készítése
+
+```bash
+npm run build:win
+```
+
+Eredmény: `dist/BUD Flight Validator Setup 1.0.0.exe`
+
+### 📘 Részletes útmutató
+
+Lásd: [ELECTRON_SETUP.md](ELECTRON_SETUP.md)
+
+---
+
+## 🌐 WordPress Beágyazás
+
+### 1️⃣ HTML kód másolása
+
+Nyissa meg: `wordpress-embed/bud-flight-validator-embed.html`
+
+### 2️⃣ WordPress Admin
+
+1. Pages → Add New
+2. Add Block → Custom HTML
+3. Paste HTML code
+
+### 3️⃣ API URL módosítása
+
+Keresse meg a kódban:
+
+```javascript
+const BUD_API_URL = 'http://localhost:3000/api/validate';
+```
+
+Változtassa meg:
+
+```javascript
+const BUD_API_URL = 'https://vanbudapest.com/api/validate';
+```
+
+### 4️⃣ Publish
+
+Kész! Az alkalmazás beágyazva a WordPress oldalon.
+
+### 📘 Részletes útmutató
+
+Lásd: [wordpress-embed/WORDPRESS_BEAGYAZAS.md](wordpress-embed/WORDPRESS_BEAGYAZAS.md)
 
 ---
 

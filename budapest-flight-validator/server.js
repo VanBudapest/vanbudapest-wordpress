@@ -164,17 +164,26 @@ app.use((req, res) => {
   });
 });
 
-// Szerver indítása
-app.listen(PORT, () => {
-  console.log('╔════════════════════════════════════════════════════╗');
-  console.log('║   🛬 BUD Érkező Járatszám Ellenőrző SZERVER   🛬   ║');
-  console.log('╚════════════════════════════════════════════════════╝');
-  console.log('');
-  console.log(`✅ Szerver fut: http://localhost:${PORT}`);
-  console.log(`📂 API endpoint: http://localhost:${PORT}/api/validate`);
-  console.log('');
-  console.log('A szerver leállításához: Ctrl+C');
-  console.log('════════════════════════════════════════════════════');
-});
+// Szerver indítása függvény
+function startServer() {
+  const server = app.listen(PORT, () => {
+    console.log('╔════════════════════════════════════════════════════╗');
+    console.log('║   🛬 BUD Érkező Járatszám Ellenőrző SZERVER   🛬   ║');
+    console.log('╚════════════════════════════════════════════════════╝');
+    console.log('');
+    console.log(`✅ Szerver fut: http://localhost:${PORT}`);
+    console.log(`📂 API endpoint: http://localhost:${PORT}/api/validate`);
+    console.log('');
+    console.log('A szerver leállításához: Ctrl+C');
+    console.log('════════════════════════════════════════════════════');
+  });
 
-module.exports = app;
+  return server;
+}
+
+// Ha közvetlenül futtatod: node server.js → működjön, mint eddig
+if (require.main === module) {
+  startServer();
+}
+
+module.exports = { app, startServer };

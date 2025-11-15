@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BUD Járat Ellenőrző</title>
+    <style>
+        /* WordPress-kompatibilis beágyazott stílusok */
+        .bud-validator-container {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .bud-validator-header {
+            background: linear-gradient(135deg, #0066cc 0%, #00a6ff 100%);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+
+        .bud-validator-header h2 {
+            margin: 0 0 10px 0;
+            font-size: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .bud-validator-header p {
+            margin: 0;
+            opacity: 0.95;
+        }
+
+        .bud-upload-area {
+            border: 3px dashed #dee2e6;
+            border-radius: 15px;
+            padding: 60px 20px;
+            text-align: center;
+            background: white;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        .bud-upload-area:hover {
+            border-color: #0066cc;
+            background: rgba(0, 102, 204, 0.05);
+        }
+
+        .bud-upload-area.drag-over {
+            border-color: #0066cc;
+            background: rgba(0, 102, 204, 0.1);
+        }
+
+        .bud-upload-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .bud-upload-area h3 {
+            color: #333;
+            margin: 10px 0;
+        }
+
+        .bud-btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .bud-btn-primary {
+            background: #0066cc;
+            color: white;
+        }
+
+        .bud-btn-primary:hover {
+            background: #00a6ff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .bud-btn-success {
+            background: #28a745;
+            color: white;
+            width: 100%;
+            padding: 18px;
+            font-size: 1.2rem;
+            margin-top: 20px;
+        }
+
+        .bud-btn-success:hover {
+            background: #218838;
+        }
+
+        .bud-file-info {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            display: none;
+            border: 2px solid #28a745;
+        }
+
+        .bud-file-info.active {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .bud-file-details {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .bud-file-icon {
+            font-size: 2.5rem;
+        }
+
+        .bud-file-name {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .bud-file-size {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .bud-btn-remove {
+            background: #dc3545;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            border: none;
+            cursor: pointer;
+        }
+
+        .bud-progress {
+            display: none;
+            margin: 30px 0;
+        }
+
+        .bud-progress.active {
+            display: block;
+        }
+
+        .bud-progress-bar {
+            width: 100%;
+            height: 30px;
+            background: #dee2e6;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .bud-progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #0066cc 0%, #00a6ff 100%);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .bud-progress-text {
+            text-align: center;
+            margin-top: 10px;
+            color: #666;
+            font-weight: 600;
+        }
+
+        .bud-result {
+            display: none;
+            margin: 30px 0;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .bud-result.active {
+            display: block;
+        }
+
+        .bud-result.success {
+            background: rgba(40, 167, 69, 0.1);
+            border: 2px solid #28a745;
+        }
+
+        .bud-result.error {
+            background: rgba(220, 53, 69, 0.1);
+            border: 2px solid #dc3545;
+        }
+
+        .bud-result-icon {
+            font-size: 4rem;
+            margin-bottom: 15px;
+        }
+
+        .bud-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .bud-info-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #0066cc;
+        }
+
+        .bud-info-card h4 {
+            color: #333;
+            margin: 0 0 10px 0;
+        }
+
+        .bud-info-card p {
+            color: #666;
+            margin: 5px 0;
+            line-height: 1.6;
+        }
+
+        .bud-info-card ul {
+            margin: 10px 0 0 20px;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 768px) {
+            .bud-validator-header h2 {
+                font-size: 1.5rem;
+            }
+
+            .bud-info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bud-validator-container">
+        <!-- Header -->
+        <div class="bud-validator-header">
+            <h2>
+                <span>✈️</span>
+                BUD Járat Ellenőrző
+            </h2>
+            <p>Budapest Liszt Ferenc Nemzetközi Repülőtér</p>
+        </div>
+
+        <!-- Info Grid -->
+        <div class="bud-info-grid">
+            <div class="bud-info-card">
+                <h4>📋 Excel formátum</h4>
+                <p>Szükséges oszlopok:</p>
+                <ul>
+                    <li>Járatszám / Flight Number</li>
+                    <li>Dátum / Date</li>
+                    <li>Idő / Time (opcionális)</li>
+                    <li>Megjegyzés / Notes (üres)</li>
+                </ul>
+            </div>
+
+            <div class="bud-info-card">
+                <h4>🔍 Mit ellenőriz?</h4>
+                <ul>
+                    <li>Járat létezése</li>
+                    <li>BUD-ra érkezés</li>
+                    <li>Helyes dátum</li>
+                    <li>Helyes időpont</li>
+                </ul>
+            </div>
+
+            <div class="bud-info-card">
+                <h4>✅ Eredmény</h4>
+                <p>A hibák csak a <strong>Megjegyzés</strong> oszlopban jelennek meg.</p>
+                <p>Az eredeti formátum 100%-osan megmarad!</p>
+            </div>
+        </div>
+
+        <!-- Upload Area -->
+        <div class="bud-upload-area" id="budUploadArea">
+            <div class="bud-upload-icon">📤</div>
+            <h3>Húzza ide az Excel fájlt</h3>
+            <p>vagy</p>
+            <label for="budFileInput" class="bud-btn bud-btn-primary">
+                Fájl kiválasztása
+            </label>
+            <input type="file" id="budFileInput" accept=".xlsx,.xls,.csv" hidden>
+            <p style="margin-top: 15px; color: #666; font-size: 0.9rem;">
+                Támogatott formátumok: .xlsx, .xls, .csv (max. 10 MB)
+            </p>
+        </div>
+
+        <!-- File Info -->
+        <div class="bud-file-info" id="budFileInfo">
+            <div class="bud-file-details">
+                <span class="bud-file-icon">📄</span>
+                <div>
+                    <p class="bud-file-name" id="budFileName"></p>
+                    <p class="bud-file-size" id="budFileSize"></p>
+                </div>
+            </div>
+            <button class="bud-btn-remove" id="budRemoveFile">✕</button>
+        </div>
+
+        <!-- Validate Button -->
+        <button class="bud-btn bud-btn-success" id="budValidateBtn" style="display: none;">
+            🔍 Járatok ellenőrzése
+        </button>
+
+        <!-- Progress -->
+        <div class="bud-progress" id="budProgress">
+            <div class="bud-progress-bar">
+                <div class="bud-progress-fill" id="budProgressFill"></div>
+            </div>
+            <p class="bud-progress-text" id="budProgressText">Feldolgozás folyamatban...</p>
+        </div>
+
+        <!-- Result -->
+        <div class="bud-result" id="budResult">
+            <div class="bud-result-icon" id="budResultIcon"></div>
+            <h3 id="budResultTitle"></h3>
+            <p id="budResultMessage"></p>
+        </div>
+    </div>
+
+    <script>
+        // BUD Flight Validator - WordPress Embedded Version
+        // FIGYELEM: Ez az API URL-t tartalmazza - módosítsa a saját szerverére!
+        const BUD_API_URL = 'http://localhost:3000/api/validate'; // ← MÓDOSÍTSA EZT!
+
+        class BUDFlightValidator {
+            constructor() {
+                this.selectedFile = null;
+                this.initElements();
+                this.attachEvents();
+            }
+
+            initElements() {
+                this.uploadArea = document.getElementById('budUploadArea');
+                this.fileInput = document.getElementById('budFileInput');
+                this.fileInfo = document.getElementById('budFileInfo');
+                this.fileName = document.getElementById('budFileName');
+                this.fileSize = document.getElementById('budFileSize');
+                this.removeBtn = document.getElementById('budRemoveFile');
+                this.validateBtn = document.getElementById('budValidateBtn');
+                this.progress = document.getElementById('budProgress');
+                this.progressFill = document.getElementById('budProgressFill');
+                this.progressText = document.getElementById('budProgressText');
+                this.result = document.getElementById('budResult');
+                this.resultIcon = document.getElementById('budResultIcon');
+                this.resultTitle = document.getElementById('budResultTitle');
+                this.resultMessage = document.getElementById('budResultMessage');
+            }
+
+            attachEvents() {
+                this.fileInput.addEventListener('change', (e) => this.handleFileSelect(e));
+                this.uploadArea.addEventListener('click', () => this.fileInput.click());
+                this.uploadArea.addEventListener('dragover', (e) => this.handleDragOver(e));
+                this.uploadArea.addEventListener('dragleave', (e) => this.handleDragLeave(e));
+                this.uploadArea.addEventListener('drop', (e) => this.handleDrop(e));
+                this.removeBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    this.removeFile();
+                });
+                this.validateBtn.addEventListener('click', () => this.validateFile());
+            }
+
+            handleDragOver(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                this.uploadArea.classList.add('drag-over');
+            }
+
+            handleDragLeave(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                this.uploadArea.classList.remove('drag-over');
+            }
+
+            handleDrop(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                this.uploadArea.classList.remove('drag-over');
+                const files = e.dataTransfer.files;
+                if (files.length > 0) {
+                    this.setFile(files[0]);
+                }
+            }
+
+            handleFileSelect(e) {
+                const file = e.target.files[0];
+                if (file) this.setFile(file);
+            }
+
+            setFile(file) {
+                const allowedExt = ['.xlsx', '.xls', '.csv'];
+                const ext = '.' + file.name.split('.').pop().toLowerCase();
+
+                if (!allowedExt.includes(ext)) {
+                    this.showError('Csak Excel (.xlsx, .xls) és CSV fájlok engedélyezettek!');
+                    return;
+                }
+
+                if (file.size > 10 * 1024 * 1024) {
+                    this.showError('A fájl túl nagy! Maximum 10 MB engedélyezett.');
+                    return;
+                }
+
+                this.selectedFile = file;
+                this.displayFileInfo(file);
+            }
+
+            displayFileInfo(file) {
+                this.fileName.textContent = file.name;
+                this.fileSize.textContent = this.formatFileSize(file.size);
+                this.uploadArea.style.display = 'none';
+                this.fileInfo.classList.add('active');
+                this.validateBtn.style.display = 'block';
+                this.result.classList.remove('active');
+            }
+
+            removeFile() {
+                this.selectedFile = null;
+                this.fileInput.value = '';
+                this.uploadArea.style.display = 'block';
+                this.fileInfo.classList.remove('active');
+                this.validateBtn.style.display = 'none';
+                this.progress.classList.remove('active');
+                this.result.classList.remove('active');
+            }
+
+            formatFileSize(bytes) {
+                if (bytes === 0) return '0 Bytes';
+                const k = 1024;
+                const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+                const i = Math.floor(Math.log(bytes) / Math.log(k));
+                return Math.round(bytes / Math.pow(k, i) * 100) / 100 + ' ' + sizes[i];
+            }
+
+            async validateFile() {
+                if (!this.selectedFile) {
+                    this.showError('Nincs kiválasztott fájl!');
+                    return;
+                }
+
+                this.validateBtn.disabled = true;
+                this.progress.classList.add('active');
+                this.result.classList.remove('active');
+                this.updateProgress(0, 'Feltöltés...');
+
+                try {
+                    const formData = new FormData();
+                    formData.append('excelFile', this.selectedFile);
+
+                    this.animateProgress(0, 30, 1000);
+
+                    const response = await fetch(BUD_API_URL, {
+                        method: 'POST',
+                        body: formData
+                    });
+
+                    this.animateProgress(30, 60, 500);
+
+                    if (!response.ok) {
+                        const errorData = await response.json();
+                        throw new Error(errorData.error || 'Hiba történt a feldolgozás során');
+                    }
+
+                    this.animateProgress(60, 90, 500);
+
+                    const blob = await response.blob();
+
+                    this.animateProgress(90, 100, 300);
+
+                    this.downloadFile(blob, 'budapest-flights-validated.xlsx');
+
+                    setTimeout(() => {
+                        this.showSuccess('Sikeres ellenőrzés! A módosított fájl letöltése megkezdődött.');
+                    }, 500);
+
+                } catch (error) {
+                    console.error('Validálási hiba:', error);
+                    this.showError(error.message || 'Nem sikerült csatlakozni a szerverhez. Ellenőrizze az API URL-t!');
+                } finally {
+                    this.validateBtn.disabled = false;
+                }
+            }
+
+            animateProgress(from, to, duration) {
+                const startTime = Date.now();
+                const animate = () => {
+                    const elapsed = Date.now() - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const currentValue = from + (to - from) * progress;
+
+                    this.updateProgress(currentValue, this.getProgressMessage(currentValue));
+
+                    if (progress < 1) {
+                        requestAnimationFrame(animate);
+                    }
+                };
+                animate();
+            }
+
+            updateProgress(percent, message) {
+                this.progressFill.style.width = percent + '%';
+                this.progressText.textContent = message;
+            }
+
+            getProgressMessage(percent) {
+                if (percent < 30) return 'Fájl feltöltése...';
+                if (percent < 60) return 'Járatok ellenőrzése...';
+                if (percent < 90) return 'Eredmények összeállítása...';
+                return 'Fájl előkészítése letöltésre...';
+            }
+
+            downloadFile(blob, filename) {
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.style.display = 'none';
+                a.href = url;
+                a.download = filename;
+                document.body.appendChild(a);
+                a.click();
+                window.URL.revokeObjectURL(url);
+                document.body.removeChild(a);
+            }
+
+            showSuccess(message) {
+                this.progress.classList.remove('active');
+                this.result.classList.add('active', 'success');
+                this.result.classList.remove('error');
+                this.resultIcon.textContent = '✅';
+                this.resultTitle.textContent = 'Sikeres ellenőrzés!';
+                this.resultMessage.textContent = message;
+            }
+
+            showError(message) {
+                this.progress.classList.remove('active');
+                this.result.classList.add('active', 'error');
+                this.result.classList.remove('success');
+                this.resultIcon.textContent = '❌';
+                this.resultTitle.textContent = 'Hiba történt';
+                this.resultMessage.textContent = message;
+            }
+        }
+
+        // Inicializálás
+        document.addEventListener('DOMContentLoaded', () => {
+            new BUDFlightValidator();
+        });
+    </script>
+</body>
+</html>

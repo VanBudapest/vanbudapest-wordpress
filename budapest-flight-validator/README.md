@@ -14,6 +14,14 @@ Ez az alkalmazás automatikusan ellenőrzi a Budapestre (BUD) érkező repülőj
 - ✅ **Automatikus validálás**: Létezés, célállomás, dátum, időpont ellenőrzés
 - ✅ **Modern web UI**: Drag & drop fájl feltöltés, valós idejű progress
 - ✅ **Gyors feldolgozás**: Párhuzamos járat-ellenőrzés
+- 🖥️ **Desktop alkalmazás**: Electron-alapú Windows/Mac/Linux telepíthető verzió
+- 🌐 **WordPress integráció**: Beágyazható HTML verzió
+
+### 📦 Elérhető verziók
+
+1. **Web alkalmazás** - Node.js szerver + böngésző
+2. **Desktop alkalmazás** - Telepíthető Windows .exe (Electron)
+3. **WordPress beágyazás** - Standalone HTML verzió
 
 ---
 
@@ -281,6 +289,105 @@ OS711,2025-11-15,09:00,
 - ✅ CORS védelem
 - ✅ Input sanitizáció
 - ✅ Timeout védelem API hívásoknál
+
+---
+
+## 🖥️ Desktop Alkalmazás (Electron)
+
+### Windows Telepíthető .EXE Készítése
+
+**Részletes útmutató:** [ELECTRON_SETUP.md](ELECTRON_SETUP.md)
+
+#### Gyors lépések:
+
+```bash
+# 1. Függőségek telepítése
+npm install
+
+# 2. Ikonok hozzáadása
+# Tegye a build/icon.ico fájlt a build/ mappába
+
+# 3. Fejlesztői teszt
+npm run electron-dev
+
+# 4. Windows telepítő készítése
+npm run build:win
+```
+
+**Eredmény:**
+- `dist/BUD Flight Validator Setup 1.0.0.exe` - Telepítő
+- Natív Windows alkalmazás
+- Start menü és Desktop ikon
+- Nincs szükség böngészőre
+
+**Más platformok:**
+
+```bash
+npm run build:mac    # macOS .dmg
+npm run build:linux  # Linux AppImage
+```
+
+### Electron Előnyök
+
+- ✅ Telepíthető Windows/Mac/Linux alkalmazás
+- ✅ Nincs szükség böngészőre
+- ✅ Natív ablak kezelés
+- ✅ Automatikus frissítés (konfigurálható)
+- ✅ VanBudapest.com ikon az alkalmazásban
+- ✅ Nincs szükség Node.js ismerethez a felhasználóknak
+
+---
+
+## 🌐 WordPress Integráció
+
+### Beágyazás WordPress Oldalba
+
+**Részletes útmutató:** [wordpress-embed/WORDPRESS_BEAGYAZAS.md](wordpress-embed/WORDPRESS_BEAGYAZAS.md)
+
+#### 1. módszer: Iframe (Legegyszerűbb)
+
+```html
+<iframe
+    src="http://your-server.com:3000"
+    width="100%"
+    height="1200px"
+    frameborder="0">
+</iframe>
+```
+
+#### 2. módszer: Standalone HTML
+
+A `wordpress-embed/bud-flight-validator-embed.html` fájlt:
+
+1. Másolja WordPress Custom HTML blockba
+2. Módosítsa az API URL-t:
+   ```javascript
+   const BUD_API_URL = 'https://vanbudapest.com/api/validate';
+   ```
+3. Publikálja az oldalt
+
+#### 3. módszer: Shortcode
+
+```php
+// functions.php
+function bud_validator_shortcode() {
+    include 'bud-flight-validator-embed.html';
+}
+add_shortcode('bud_validator', 'bud_validator_shortcode');
+```
+
+Használat bármely WordPress oldalon:
+```
+[bud_validator]
+```
+
+### WordPress Előnyök
+
+- ✅ Teljes integráció a meglévő weboldallal
+- ✅ Ugyanaz a design nyelv
+- ✅ SEO optimalizált
+- ✅ Nincs külön domain szükséges
+- ✅ WordPress felhasználók számára elérhető
 
 ---
 
