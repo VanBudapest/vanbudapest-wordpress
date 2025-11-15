@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Budapest Liszt Ferenc Nemzetközi Repülőtér (BUD) érkezési járatok validálása Excel fájlokból">
+    <title>🛬 BUD Járat Ellenőrző | Budapest Airport</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <span class="plane-icon">✈️</span>
+                <h1>BUD Járat Ellenőrző</h1>
+            </div>
+            <p class="subtitle">Budapest Liszt Ferenc Nemzetközi Repülőtér</p>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Útmutató Panel -->
+            <section class="info-panel">
+                <h2>📋 Használati útmutató</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <span class="step-number">1</span>
+                        <h3>Excel előkészítése</h3>
+                        <p>Készítsen Excel táblázatot az alábbi oszlopokkal:</p>
+                        <ul>
+                            <li><strong>Járatszám</strong> / Flight Number</li>
+                            <li><strong>Dátum</strong> / Date</li>
+                            <li><strong>Idő</strong> / Time (opcionális)</li>
+                            <li><strong>Megjegyzés</strong> / Notes (üres)</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-card">
+                        <span class="step-number">2</span>
+                        <h3>Fájl feltöltése</h3>
+                        <p>Töltse fel az Excel fájlt (.xlsx, .xls formátumban)</p>
+                        <p class="small-text">Maximum fájlméret: 10 MB</p>
+                    </div>
+
+                    <div class="info-card">
+                        <span class="step-number">3</span>
+                        <h3>Automatikus ellenőrzés</h3>
+                        <p>A rendszer minden járatot ellenőriz:</p>
+                        <ul>
+                            <li>✓ Létezik-e a járat?</li>
+                            <li>✓ BUD-ra érkezik-e?</li>
+                            <li>✓ Helyes dátum?</li>
+                            <li>✓ Helyes időpont?</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-card">
+                        <span class="step-number">4</span>
+                        <h3>Eredmény letöltése</h3>
+                        <p>A hibák a <strong>Megjegyzés</strong> oszlopban jelennek meg.</p>
+                        <p class="small-text">Az eredeti fájl szerkezete és formázása változatlan marad!</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Feltöltő Panel -->
+            <section class="upload-panel">
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-icon">📤</div>
+                    <h2>Húzza ide az Excel fájlt</h2>
+                    <p>vagy</p>
+                    <label for="fileInput" class="btn btn-primary">
+                        Fájl kiválasztása
+                    </label>
+                    <input type="file" id="fileInput" accept=".xlsx,.xls,.csv" hidden>
+                    <p class="upload-hint">Támogatott formátumok: .xlsx, .xls, .csv</p>
+                </div>
+
+                <!-- Kiválasztott fájl info -->
+                <div class="file-info" id="fileInfo" style="display: none;">
+                    <div class="file-details">
+                        <span class="file-icon">📄</span>
+                        <div>
+                            <p class="file-name" id="fileName"></p>
+                            <p class="file-size" id="fileSize"></p>
+                        </div>
+                    </div>
+                    <button class="btn btn-remove" id="removeFile">✕</button>
+                </div>
+
+                <!-- Validálás gomb -->
+                <button class="btn btn-success btn-large" id="validateBtn" style="display: none;">
+                    🔍 Járatok ellenőrzése
+                </button>
+
+                <!-- Progress bar -->
+                <div class="progress-container" id="progressContainer" style="display: none;">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <p class="progress-text" id="progressText">Feldolgozás folyamatban...</p>
+                </div>
+
+                <!-- Eredmény panel -->
+                <div class="result-panel" id="resultPanel" style="display: none;">
+                    <div class="result-icon" id="resultIcon"></div>
+                    <h3 id="resultTitle"></h3>
+                    <p id="resultMessage"></p>
+                </div>
+            </section>
+
+            <!-- Példa fájl letöltés -->
+            <section class="example-panel">
+                <h3>💡 Nincs példa fájlja?</h3>
+                <p>Töltse le a minta Excel sablont, és töltse ki a saját járataival:</p>
+                <button class="btn btn-secondary" id="downloadTemplate">
+                    📥 Sablon letöltése
+                </button>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>🛬 Budapest Liszt Ferenc Nemzetközi Repülőtér (BUD) Járat Ellenőrző</p>
+            <p class="small-text">A járat adatok több hivatalos forrásból kerülnek ellenőrzésre</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
