@@ -1,24 +1,22 @@
 /**
- * VanBudapest Média Táblázat - Admin JavaScript
+ * VanBudapest Média Táblázat - Excel-szerű admin script
  */
 
 (function($) {
     'use strict';
 
-    // State management
     const state = {
         currentPage: 1,
         totalPages: 1,
         totalItems: 0,
         currentFilter: 'all',
         searchQuery: '',
-        perPage: 50,
+        perPage: 100,
         sortField: 'date',
         sortOrder: 'desc',
         mediaItems: []
     };
 
-    // Category labels
     const categoryLabels = {
         'f1': 'F1',
         'airport': 'Reptér',
@@ -30,7 +28,6 @@
         'other': 'Egyéb'
     };
 
-    // File type icons
     const fileIcons = {
         'video': '🎬',
         'audio': '🎵',
@@ -38,24 +35,20 @@
         'default': '📁'
     };
 
-    // Initialize
     $(document).ready(function() {
         loadMedia();
         bindEvents();
     });
 
-    // Bind event handlers
     function bindEvents() {
-        // Filter buttons
-        $('.vbmt-filter-btn').on('click', function() {
-            $('.vbmt-filter-btn').removeClass('active');
-            $(this).addClass('active');
-            state.currentFilter = $(this).data('filter');
+        // Kategória szűrő dropdown
+        $('#vbmt-category-filter').on('change', function() {
+            state.currentFilter = $(this).val();
             state.currentPage = 1;
             loadMedia();
         });
 
-        // Search input with debounce
+        // Keresés
         let searchTimeout;
         $('#vbmt-search').on('input', function() {
             clearTimeout(searchTimeout);
@@ -67,7 +60,7 @@
             }, 300);
         });
 
-        // Pagination
+        // Lapozás
         $('#vbmt-prev-page').on('click', function() {
             if (state.currentPage > 1) {
                 state.currentPage--;
@@ -82,43 +75,53 @@
             }
         });
 
-        // Sortable columns
+        // Rendezés
         $('.vbmt-sortable').on('click', function() {
             const field = $(this).data('sort');
             if (state.sortField === field) {
                 state.sortOrder = state.sortOrder === 'asc' ? 'desc' : 'asc';
             } else {
                 state.sortField = field;
-                state.sortOrder = 'asc';
+                state.sortOrder = 'desc';
             }
+            updateSortIndicators();
             sortAndRenderTable();
         });
 
-        // Modal close
+        // Modal bezárás
         $('#vbmt-modal-close, #vbmt-modal').on('click', function(e) {
-            if (e.target === this) {
+            if (e.target === this || $(e.target).is('#vbmt-modal-close')) {
                 closeModal();
             }
         });
 
-        // ESC key to close modal
         $(document).on('keydown', function(e) {
             if (e.key === 'Escape') {
                 closeModal();
             }
         });
 
-        // Modal copy button
+        // Modal másolás gomb
         $('#vbmt-modal-copy').on('click', function() {
             const url = $('#vbmt-modal-url').val();
             copyToClipboard(url, $(this));
         });
     }
 
-    // Load media from server
+    function updateSortIndicators() {
+        $('.vbmt-sortable').each(function() {
+            const field = $(this).data('sort');
+            let text = $(this).text().replace(' ▼', '').replace(' ▲', '');
+            if (field === state.sortField) {
+                text += state.sortOrder === 'desc' ? ' ▼' : ' ▲';
+            }
+            $(this).text(text);
+        });
+    }
+
     function loadMedia() {
         const $tableBody = $('#vbmt-table-body');
-        $tableBody.html('<tr><td colspan="5" class="vbmt-loading">⏳ Betöltés...</td></tr>');
+        $tableBody.html('<tr><td colspan="5" class="vbmt-loading">Betöltés...</td></tr>');
 
         $.ajax({
             url: vbmt_ajax.ajax_url,
@@ -142,16 +145,15 @@
                     updateStats();
                     updatePagination();
                 } else {
-                    $tableBody.html('<tr><td colspan="5" class="vbmt-loading">❌ Hiba: ' + response.data + '</td></tr>');
+                    $tableBody.html('<tr><td colspan="5" class="vbmt-loading">Hiba: ' + response.data + '</td></tr>');
                 }
             },
             error: function() {
-                $tableBody.html('<tr><td colspan="5" class="vbmt-loading">❌ Hálózati hiba történt</td></tr>');
+                $tableBody.html('<tr><td colspan="5" class="vbmt-loading">Hálózati hiba</td></tr>');
             }
         });
     }
 
-    // Sort and render table
     function sortAndRenderTable() {
         const sorted = [...state.mediaItems].sort((a, b) => {
             let valA = a[state.sortField] || '';
@@ -170,7 +172,6 @@
         renderTable(sorted);
     }
 
-    // Render table
     function renderTable(items) {
         const $tableBody = $('#vbmt-table-body');
 
@@ -198,55 +199,70 @@
 
             html += '<tr data-id="' + item.id + '">' +
                 '<td>' + escapeHtml(item.date) + '</td>' +
-                '<td>' + thumbnailHtml + '</td>' +
-                '<td class="vbmt-title-cell" title="' + escapeHtml(item.title) + '">' + escapeHtml(item.title) + '</td>' +
-                '<td class="vbmt-url-display">' +
-                    '<button class="vbmt-copy-btn" data-url="' + escapeHtml(item.url) + '">📋 Másolás</button>' +
-                    '<span class="vbmt-url-text">' + escapeHtml(item.url) + '</span>' +
-                '</td>' +
-                '<td><span class="vbmt-category-badge ' + categoryClass + '">' + categoryLabel + '</span></td>' +
+                '<td style="text-align:center">' + thumbnailHtml + '</td>' +
+                '<td><div class="vbmt-link-cell" title="' + escapeHtml(item.url) + '">' + escapeHtml(item.url) + '</div></td>' +
+                '<td style="text-align:center"><button class="vbmt-copy-btn" data-url="' + escapeHtml(item.url) + '">Másolás</button></td>' +
+                '<td><span class="vbmt-category ' + categoryClass + '">' + categoryLabel + '</span></td>' +
                 '</tr>';
         });
 
         $tableBody.html(html);
 
-        // Bind copy buttons
+        // Másolás gombok
         $tableBody.find('.vbmt-copy-btn').on('click', function(e) {
             e.stopPropagation();
             const url = $(this).data('url');
             copyToClipboard(url, $(this));
         });
 
-        // Bind thumbnail click for modal
+        // Link cellára kattintás - kijelölés
+        $tableBody.find('.vbmt-link-cell').on('click', function() {
+            selectText(this);
+        });
+
+        // Kép kattintás - modal
         $tableBody.find('.vbmt-thumb').on('click', function() {
             openModal($(this).data('full-url'), $(this).data('title'));
         });
+
+        // Sor kiválasztás
+        $tableBody.find('tr').on('click', function(e) {
+            if (!$(e.target).is('.vbmt-copy-btn, .vbmt-thumb, .vbmt-link-cell')) {
+                $tableBody.find('tr').removeClass('selected');
+                $(this).addClass('selected');
+            }
+        });
     }
 
-    // Get file icon based on mime type
+    function selectText(element) {
+        const range = document.createRange();
+        range.selectNodeContents(element);
+        const selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+    }
+
     function getFileIcon(mimeType) {
+        if (!mimeType) return fileIcons['default'];
         if (mimeType.startsWith('video/')) return fileIcons['video'];
         if (mimeType.startsWith('audio/')) return fileIcons['audio'];
         if (mimeType === 'application/pdf') return fileIcons['application/pdf'];
         return fileIcons['default'];
     }
 
-    // Update statistics display
     function updateStats() {
         $('#vbmt-visible-count').text(state.mediaItems.length);
         $('#vbmt-total-count').text(state.totalItems);
     }
 
-    // Update pagination controls
     function updatePagination() {
         $('#vbmt-current-page').text(state.currentPage);
-        $('#vbmt-total-pages').text(state.totalPages);
+        $('#vbmt-total-pages').text(state.totalPages || 1);
 
         $('#vbmt-prev-page').prop('disabled', state.currentPage <= 1);
         $('#vbmt-next-page').prop('disabled', state.currentPage >= state.totalPages);
     }
 
-    // Copy to clipboard
     function copyToClipboard(text, $button) {
         if (navigator.clipboard && navigator.clipboard.writeText) {
             navigator.clipboard.writeText(text).then(function() {
@@ -259,7 +275,6 @@
         }
     }
 
-    // Fallback copy method
     function fallbackCopy(text, $button) {
         const textarea = document.createElement('textarea');
         textarea.value = text;
@@ -278,10 +293,9 @@
         document.body.removeChild(textarea);
     }
 
-    // Show copy success feedback
     function showCopySuccess($button) {
         const originalText = $button.text();
-        $button.addClass('copied').text('✓ Másolva!');
+        $button.addClass('copied').text('✓ OK');
         showToast('Link vágólapra másolva!');
 
         setTimeout(function() {
@@ -289,7 +303,6 @@
         }, 1500);
     }
 
-    // Show toast notification
     function showToast(message) {
         const $toast = $('#vbmt-toast');
         $toast.text(message).addClass('show');
@@ -299,24 +312,20 @@
         }, 2000);
     }
 
-    // Open modal
     function openModal(url, title) {
         const $modal = $('#vbmt-modal');
         $('#vbmt-modal-image').attr('src', url);
-        $('#vbmt-modal-title').text(title);
         $('#vbmt-modal-url').val(url);
         $modal.addClass('active');
         $('body').css('overflow', 'hidden');
     }
 
-    // Close modal
     function closeModal() {
         const $modal = $('#vbmt-modal');
         $modal.removeClass('active');
         $('body').css('overflow', '');
     }
 
-    // Escape HTML
     function escapeHtml(text) {
         if (!text) return '';
         const map = {

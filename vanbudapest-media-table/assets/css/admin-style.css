@@ -1,319 +1,295 @@
-/* VanBudapest Média Táblázat - Admin Stílusok */
-
-:root {
-    --vbmt-navy: #0a1628;
-    --vbmt-gold: #c9a227;
-    --vbmt-cream: #f5f1e8;
-    --vbmt-dark-navy: #050d18;
-    --vbmt-gold-hover: #d4af37;
-}
+/* VanBudapest Média Táblázat - Excel-szerű stílus */
 
 .vbmt-wrap {
-    margin: 0;
+    margin: -8px -20px 0 -20px;
     padding: 0;
-    background: var(--vbmt-navy);
+    background: #f0f0f0;
     min-height: 100vh;
-    margin-left: -20px;
-    margin-top: -10px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: Calibri, Arial, sans-serif;
+    font-size: 14px;
 }
 
-/* Header */
-.vbmt-header {
-    background: var(--vbmt-dark-navy);
-    padding: 20px;
-    text-align: center;
-    border-bottom: 2px solid var(--vbmt-gold);
-    position: sticky;
-    top: 32px; /* WordPress admin bar */
-    z-index: 100;
-}
-
-.vbmt-header h1 {
-    color: var(--vbmt-gold);
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-    font-weight: 600;
-}
-
-/* Controls */
-.vbmt-controls {
+/* Toolbar - Excel ribbon stílus */
+.vbmt-toolbar {
     display: flex;
-    flex-direction: column;
-    gap: 15px;
+    justify-content: space-between;
     align-items: center;
-}
-
-.vbmt-search-box {
-    padding: 10px 18px;
-    border: 1px solid var(--vbmt-gold);
-    border-radius: 25px;
-    background: transparent;
-    color: var(--vbmt-cream);
-    width: 300px;
-    max-width: 90%;
-    outline: none;
-    font-size: 0.95rem;
-    transition: all 0.3s;
-}
-
-.vbmt-search-box:focus {
-    border-color: var(--vbmt-gold-hover);
-    box-shadow: 0 0 10px rgba(201, 162, 39, 0.3);
-}
-
-.vbmt-search-box::placeholder {
-    color: rgba(245, 241, 232, 0.5);
-}
-
-.vbmt-filters {
-    display: flex;
-    gap: 8px;
+    padding: 8px 15px;
+    background: linear-gradient(180deg, #217346 0%, #1e6b40 100%);
+    border-bottom: 1px solid #145a32;
     flex-wrap: wrap;
-    justify-content: center;
+    gap: 10px;
 }
 
-.vbmt-filter-btn {
-    padding: 6px 14px;
-    border: 1px solid var(--vbmt-gold);
-    border-radius: 20px;
-    background: transparent;
-    color: var(--vbmt-gold);
+.vbmt-toolbar-left h1 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+}
+
+.vbmt-toolbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.vbmt-search {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 13px;
+    width: 180px;
+    background: white;
+}
+
+.vbmt-search:focus {
+    outline: none;
+    border-color: #217346;
+}
+
+.vbmt-category-filter {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 13px;
+    background: white;
     cursor: pointer;
-    font-size: 0.8rem;
-    font-weight: 500;
-    transition: all 0.2s;
 }
 
-.vbmt-filter-btn:hover,
-.vbmt-filter-btn.active {
-    background: var(--vbmt-gold);
-    color: var(--vbmt-navy);
+.vbmt-count {
+    color: white;
+    font-size: 12px;
+    padding: 4px 10px;
+    background: rgba(0,0,0,0.2);
+    border-radius: 3px;
 }
 
-/* Stats */
-.vbmt-stats {
-    text-align: center;
-    padding: 10px;
-    color: var(--vbmt-gold);
-    font-size: 0.9rem;
-    background: var(--vbmt-dark-navy);
-    border-bottom: 1px solid rgba(201, 162, 39, 0.2);
-}
-
-/* Table Container */
-.vbmt-table-container {
+/* Excel tábla konténer */
+.vbmt-excel-container {
+    background: white;
+    margin: 0;
     overflow-x: auto;
-    padding: 15px;
+    border: 1px solid #b4b4b4;
 }
 
-.vbmt-table {
+/* Excel tábla */
+.vbmt-excel {
     width: 100%;
     border-collapse: collapse;
-    background: var(--vbmt-dark-navy);
-    border-radius: 8px;
-    overflow: hidden;
+    background: white;
+    table-layout: fixed;
 }
 
-.vbmt-table th {
-    background: var(--vbmt-gold);
-    color: var(--vbmt-navy);
-    padding: 12px 10px;
+/* Fejléc - Excel stílus */
+.vbmt-excel thead th {
+    background: linear-gradient(180deg, #f8f8f8 0%, #e8e8e8 100%);
+    border: 1px solid #b4b4b4;
+    padding: 8px 10px;
     text-align: left;
-    font-size: 0.85rem;
     font-weight: 600;
+    font-size: 13px;
+    color: #333;
+    position: sticky;
+    top: 0;
+    z-index: 10;
     white-space: nowrap;
-}
-
-.vbmt-table th.vbmt-sortable {
-    cursor: pointer;
     user-select: none;
 }
 
-.vbmt-table th.vbmt-sortable:hover {
-    background: var(--vbmt-gold-hover);
-}
-
-.vbmt-table td {
-    padding: 10px;
-    border-bottom: 1px solid rgba(201, 162, 39, 0.15);
-    vertical-align: middle;
-    font-size: 0.85rem;
-    color: var(--vbmt-cream);
-}
-
-.vbmt-table tbody tr:hover {
-    background: rgba(201, 162, 39, 0.1);
-}
-
-.vbmt-table .vbmt-loading {
-    text-align: center;
-    padding: 40px;
-    color: var(--vbmt-gold);
-}
-
-/* Thumbnail */
-.vbmt-thumb {
-    width: 100px;
-    height: 60px;
-    object-fit: cover;
-    border-radius: 6px;
+.vbmt-excel thead th.vbmt-sortable {
     cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
-    border: 1px solid rgba(201, 162, 39, 0.3);
+}
+
+.vbmt-excel thead th.vbmt-sortable:hover {
+    background: linear-gradient(180deg, #e8f4ea 0%, #d4ebd8 100%);
+}
+
+/* Oszlop szélességek */
+.vbmt-col-date { width: 130px; }
+.vbmt-col-preview { width: 100px; text-align: center !important; }
+.vbmt-col-link { width: auto; min-width: 300px; }
+.vbmt-col-copy { width: 90px; text-align: center !important; }
+.vbmt-col-category { width: 120px; }
+
+/* Cellák */
+.vbmt-excel tbody td {
+    border: 1px solid #d4d4d4;
+    padding: 6px 10px;
+    vertical-align: middle;
+    font-size: 13px;
+    color: #333;
+    background: white;
+}
+
+/* Sorok hover */
+.vbmt-excel tbody tr:hover td {
+    background: #e8f4ea;
+}
+
+/* Kiválasztott sor */
+.vbmt-excel tbody tr.selected td {
+    background: #c6e0cc;
+}
+
+/* Zebra csíkozás */
+.vbmt-excel tbody tr:nth-child(even) td {
+    background: #fafafa;
+}
+
+.vbmt-excel tbody tr:nth-child(even):hover td {
+    background: #e8f4ea;
+}
+
+/* Betöltés cella */
+.vbmt-loading {
+    text-align: center;
+    padding: 40px !important;
+    color: #666;
+    font-style: italic;
+}
+
+/* Kép előnézet */
+.vbmt-thumb {
+    width: 70px;
+    height: 45px;
+    object-fit: cover;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    transition: transform 0.15s;
+    display: block;
+    margin: 0 auto;
 }
 
 .vbmt-thumb:hover {
-    transform: scale(1.1);
-    box-shadow: 0 4px 15px rgba(201, 162, 39, 0.4);
+    transform: scale(1.5);
+    z-index: 100;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
 .vbmt-non-image {
-    width: 100px;
-    height: 60px;
-    background: var(--vbmt-navy);
+    width: 70px;
+    height: 45px;
+    background: #f5f5f5;
+    border: 1px solid #ddd;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 6px;
-    font-size: 1.5rem;
-    border: 1px solid rgba(201, 162, 39, 0.3);
+    margin: 0 auto;
+    font-size: 20px;
+    color: #888;
 }
 
-/* Title Cell */
-.vbmt-title-cell {
-    max-width: 200px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+/* Link mező */
+.vbmt-link-cell {
+    font-family: Consolas, Monaco, monospace;
+    font-size: 11px;
+    color: #0066cc;
+    word-break: break-all;
+    cursor: text;
+    padding: 4px;
+    background: #f9f9f9;
+    border-radius: 2px;
 }
 
-/* Copy Button */
+.vbmt-link-cell:hover {
+    background: #f0f0f0;
+}
+
+/* Másolás gomb */
 .vbmt-copy-btn {
-    padding: 6px 14px;
-    background: var(--vbmt-gold);
-    border: none;
-    border-radius: 6px;
-    color: var(--vbmt-navy);
-    font-weight: 600;
+    padding: 4px 12px;
+    background: #217346;
+    border: 1px solid #1a5c38;
+    border-radius: 3px;
+    color: white;
+    font-size: 12px;
+    font-weight: 500;
     cursor: pointer;
-    font-size: 0.8rem;
+    transition: all 0.15s;
     white-space: nowrap;
-    transition: all 0.2s;
 }
 
 .vbmt-copy-btn:hover {
-    background: var(--vbmt-gold-hover);
-    transform: translateY(-1px);
+    background: #1a5c38;
 }
 
 .vbmt-copy-btn.copied {
     background: #28a745;
-    color: white;
+    border-color: #28a745;
 }
 
-/* URL Display */
-.vbmt-url-display {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.vbmt-url-text {
-    max-width: 200px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    font-size: 0.7rem;
-    color: rgba(245, 241, 232, 0.6);
-    font-family: monospace;
-}
-
-/* Category Badge */
-.vbmt-category-badge {
-    padding: 4px 10px;
-    border-radius: 12px;
-    font-size: 0.7rem;
-    font-weight: 600;
+/* Kategória cella */
+.vbmt-category {
     display: inline-block;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: 600;
     text-transform: uppercase;
 }
 
-.vbmt-cat-f1 {
-    background: #e74c3c;
-    color: white;
-}
+.vbmt-cat-f1 { background: #dc3545; color: white; }
+.vbmt-cat-airport { background: #007bff; color: white; }
+.vbmt-cat-fleet { background: #28a745; color: white; }
+.vbmt-cat-balaton { background: #6f42c1; color: white; }
+.vbmt-cat-budapest { background: #fd7e14; color: white; }
+.vbmt-cat-festival { background: #20c997; color: white; }
+.vbmt-cat-vip { background: #ffc107; color: #333; }
+.vbmt-cat-other { background: #6c757d; color: white; }
 
-.vbmt-cat-airport {
-    background: #3498db;
-    color: white;
-}
-
-.vbmt-cat-fleet {
-    background: #2ecc71;
-    color: white;
-}
-
-.vbmt-cat-balaton {
-    background: #9b59b6;
-    color: white;
-}
-
-.vbmt-cat-budapest {
-    background: #e67e22;
-    color: white;
-}
-
-.vbmt-cat-festival {
-    background: #1abc9c;
-    color: white;
-}
-
-.vbmt-cat-vip {
-    background: var(--vbmt-gold);
-    color: var(--vbmt-navy);
-}
-
-.vbmt-cat-other {
-    background: #95a5a6;
-    color: white;
-}
-
-/* Pagination */
-.vbmt-pagination {
+/* Footer - Lapozás */
+.vbmt-footer {
+    background: linear-gradient(180deg, #f8f8f8 0%, #e8e8e8 100%);
+    border-top: 1px solid #b4b4b4;
+    padding: 8px 15px;
     display: flex;
     justify-content: center;
+}
+
+.vbmt-pagination {
+    display: flex;
     align-items: center;
-    gap: 20px;
-    padding: 20px;
-    background: var(--vbmt-dark-navy);
-    border-top: 1px solid rgba(201, 162, 39, 0.2);
+    gap: 10px;
 }
 
-.vbmt-page-btn {
-    padding: 8px 16px;
-    background: transparent;
-    border: 1px solid var(--vbmt-gold);
-    border-radius: 6px;
-    color: var(--vbmt-gold);
+.vbmt-btn {
+    padding: 5px 12px;
+    background: white;
+    border: 1px solid #b4b4b4;
+    border-radius: 3px;
+    font-size: 12px;
     cursor: pointer;
-    font-size: 0.85rem;
-    transition: all 0.2s;
+    transition: all 0.15s;
 }
 
-.vbmt-page-btn:hover:not(:disabled) {
-    background: var(--vbmt-gold);
-    color: var(--vbmt-navy);
+.vbmt-btn:hover:not(:disabled) {
+    background: #e8f4ea;
+    border-color: #217346;
 }
 
-.vbmt-page-btn:disabled {
-    opacity: 0.4;
+.vbmt-btn:disabled {
+    opacity: 0.5;
     cursor: not-allowed;
 }
 
+.vbmt-btn-primary {
+    background: #217346;
+    color: white;
+    border-color: #1a5c38;
+}
+
+.vbmt-btn-primary:hover {
+    background: #1a5c38 !important;
+}
+
 .vbmt-page-info {
-    color: var(--vbmt-cream);
-    font-size: 0.9rem;
+    font-size: 12px;
+    color: #666;
+    min-width: 60px;
+    text-align: center;
 }
 
 /* Modal */
@@ -324,87 +300,90 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.95);
+    background: rgba(0, 0, 0, 0.8);
     z-index: 100000;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    gap: 20px;
 }
 
 .vbmt-modal.active {
     display: flex;
 }
 
-.vbmt-modal img {
-    max-width: 85%;
-    max-height: 70%;
+.vbmt-modal-content {
+    background: white;
+    border-radius: 6px;
+    max-width: 90%;
+    max-height: 90%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    position: relative;
+}
+
+.vbmt-modal-content img {
+    max-width: 100%;
+    max-height: calc(90vh - 60px);
     object-fit: contain;
-    border-radius: 8px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    border-radius: 6px 6px 0 0;
 }
 
 .vbmt-modal-close {
     position: absolute;
-    top: 20px;
-    right: 30px;
-    color: var(--vbmt-gold);
-    font-size: 2.5rem;
+    top: -12px;
+    right: -12px;
+    width: 30px;
+    height: 30px;
+    background: #dc3545;
+    color: white;
+    border-radius: 50%;
+    font-size: 20px;
+    line-height: 28px;
+    text-align: center;
     cursor: pointer;
-    transition: color 0.2s;
-    line-height: 1;
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
 }
 
 .vbmt-modal-close:hover {
-    color: var(--vbmt-gold-hover);
+    background: #c82333;
 }
 
-.vbmt-modal-info {
+.vbmt-modal-footer {
     display: flex;
-    flex-direction: column;
-    align-items: center;
     gap: 10px;
-    padding: 15px;
-    background: var(--vbmt-dark-navy);
-    border-radius: 8px;
-    border: 1px solid var(--vbmt-gold);
-    max-width: 90%;
+    padding: 10px;
+    background: #f8f8f8;
+    border-radius: 0 0 6px 6px;
+    border-top: 1px solid #ddd;
 }
 
-.vbmt-modal-info p {
-    color: var(--vbmt-cream);
-    font-size: 1rem;
-    margin: 0;
+.vbmt-modal-footer input {
+    flex: 1;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-family: Consolas, Monaco, monospace;
+    font-size: 12px;
+    background: white;
 }
 
-.vbmt-modal-info input {
-    width: 400px;
-    max-width: 100%;
-    padding: 8px 12px;
-    background: var(--vbmt-navy);
-    border: 1px solid rgba(201, 162, 39, 0.3);
-    border-radius: 4px;
-    color: var(--vbmt-cream);
-    font-family: monospace;
-    font-size: 0.8rem;
-}
-
-/* Toast Notification */
+/* Toast */
 .vbmt-toast {
     position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background: var(--vbmt-gold);
-    color: var(--vbmt-navy);
-    padding: 12px 20px;
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 0.9rem;
+    bottom: 20px;
+    right: 20px;
+    background: #217346;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 500;
     transform: translateY(100px);
     opacity: 0;
     transition: all 0.3s;
     z-index: 100001;
-    box-shadow: 0 4px 15px rgba(201, 162, 39, 0.4);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
 .vbmt-toast.show {
@@ -414,37 +393,20 @@
 
 /* Responsive */
 @media (max-width: 782px) {
-    .vbmt-header {
-        top: 46px; /* Mobile admin bar */
-    }
-}
-
-@media (max-width: 600px) {
-    .vbmt-header h1 {
-        font-size: 1.3rem;
+    .vbmt-toolbar {
+        flex-direction: column;
+        align-items: flex-start;
     }
 
-    .vbmt-search-box {
+    .vbmt-toolbar-right {
         width: 100%;
     }
 
-    .vbmt-filter-btn {
-        padding: 5px 10px;
-        font-size: 0.7rem;
+    .vbmt-search {
+        flex: 1;
     }
 
-    .vbmt-table th,
-    .vbmt-table td {
-        padding: 6px;
-        font-size: 0.75rem;
-    }
-
-    .vbmt-thumb {
-        width: 60px;
-        height: 40px;
-    }
-
-    .vbmt-url-text {
-        display: none;
+    .vbmt-col-link {
+        min-width: 200px;
     }
 }

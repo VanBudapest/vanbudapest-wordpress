@@ -193,36 +193,36 @@ class VanBudapest_Media_Table {
     public function render_admin_page() {
         ?>
         <div class="vbmt-wrap">
-            <div class="vbmt-header">
-                <h1>🚐 VanBudapest Média Könyvtár</h1>
-                <div class="vbmt-controls">
-                    <input type="text" class="vbmt-search-box" id="vbmt-search" placeholder="🔍 Keresés...">
-                    <div class="vbmt-filters">
-                        <button class="vbmt-filter-btn active" data-filter="all">Mind</button>
-                        <button class="vbmt-filter-btn" data-filter="f1">F1</button>
-                        <button class="vbmt-filter-btn" data-filter="airport">Reptér</button>
-                        <button class="vbmt-filter-btn" data-filter="fleet">Flotta</button>
-                        <button class="vbmt-filter-btn" data-filter="balaton">Balaton</button>
-                        <button class="vbmt-filter-btn" data-filter="budapest">Budapest</button>
-                        <button class="vbmt-filter-btn" data-filter="festival">Fesztivál</button>
-                        <button class="vbmt-filter-btn" data-filter="vip">VIP</button>
-                    </div>
+            <div class="vbmt-toolbar">
+                <div class="vbmt-toolbar-left">
+                    <h1>VanBudapest Média Könyvtár</h1>
+                </div>
+                <div class="vbmt-toolbar-right">
+                    <input type="text" class="vbmt-search" id="vbmt-search" placeholder="Keresés...">
+                    <select class="vbmt-category-filter" id="vbmt-category-filter">
+                        <option value="all">Összes kategória</option>
+                        <option value="f1">F1</option>
+                        <option value="airport">Reptér</option>
+                        <option value="fleet">Flotta</option>
+                        <option value="balaton">Balaton</option>
+                        <option value="budapest">Budapest</option>
+                        <option value="festival">Fesztivál</option>
+                        <option value="vip">VIP</option>
+                        <option value="other">Egyéb</option>
+                    </select>
+                    <span class="vbmt-count"><span id="vbmt-visible-count">0</span> / <span id="vbmt-total-count">0</span> elem</span>
                 </div>
             </div>
 
-            <div class="vbmt-stats">
-                <span id="vbmt-visible-count">0</span> / <span id="vbmt-total-count">0</span> média elem
-            </div>
-
-            <div class="vbmt-table-container">
-                <table class="vbmt-table" id="vbmt-media-table">
+            <div class="vbmt-excel-container">
+                <table class="vbmt-excel" id="vbmt-media-table">
                     <thead>
                         <tr>
-                            <th class="vbmt-sortable" data-sort="date">📅 Dátum</th>
-                            <th>🖼️ Előnézet</th>
-                            <th>📝 Cím</th>
-                            <th>🔗 Link másolása</th>
-                            <th class="vbmt-sortable" data-sort="category">📁 Kategória</th>
+                            <th class="vbmt-col-date vbmt-sortable" data-sort="date">Feltöltés dátuma ▼</th>
+                            <th class="vbmt-col-preview">Kép</th>
+                            <th class="vbmt-col-link">Link</th>
+                            <th class="vbmt-col-copy">Másolás</th>
+                            <th class="vbmt-col-category vbmt-sortable" data-sort="category">Kategória</th>
                         </tr>
                     </thead>
                     <tbody id="vbmt-table-body">
@@ -233,21 +233,22 @@ class VanBudapest_Media_Table {
                 </table>
             </div>
 
-            <div class="vbmt-pagination" id="vbmt-pagination">
-                <button class="vbmt-page-btn" id="vbmt-prev-page" disabled>« Előző</button>
-                <span class="vbmt-page-info">
-                    <span id="vbmt-current-page">1</span> / <span id="vbmt-total-pages">1</span> oldal
-                </span>
-                <button class="vbmt-page-btn" id="vbmt-next-page">Következő »</button>
+            <div class="vbmt-footer">
+                <div class="vbmt-pagination">
+                    <button class="vbmt-btn" id="vbmt-prev-page" disabled>◀ Előző</button>
+                    <span class="vbmt-page-info"><span id="vbmt-current-page">1</span> / <span id="vbmt-total-pages">1</span></span>
+                    <button class="vbmt-btn" id="vbmt-next-page">Következő ▶</button>
+                </div>
             </div>
 
             <div class="vbmt-modal" id="vbmt-modal">
-                <span class="vbmt-modal-close" id="vbmt-modal-close">&times;</span>
-                <img src="" alt="Előnézet" id="vbmt-modal-image">
-                <div class="vbmt-modal-info">
-                    <p id="vbmt-modal-title"></p>
-                    <input type="text" id="vbmt-modal-url" readonly>
-                    <button class="vbmt-copy-btn" id="vbmt-modal-copy">📋 Link másolása</button>
+                <div class="vbmt-modal-content">
+                    <span class="vbmt-modal-close" id="vbmt-modal-close">&times;</span>
+                    <img src="" alt="Előnézet" id="vbmt-modal-image">
+                    <div class="vbmt-modal-footer">
+                        <input type="text" id="vbmt-modal-url" readonly>
+                        <button class="vbmt-btn vbmt-btn-primary" id="vbmt-modal-copy">Másolás</button>
+                    </div>
                 </div>
             </div>
 
