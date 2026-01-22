@@ -11,7 +11,7 @@
         totalItems: 0,
         currentFilter: 'all',
         searchQuery: '',
-        perPage: 100,
+        perPage: 500,
         sortField: 'date',
         sortOrder: 'desc',
         mediaItems: []
