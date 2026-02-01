@@ -1,0 +1,2839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VanBudapest Booking Form - Prototype</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --vb-navy: #0A1F44;
+      --vb-navy-light: #12306A;
+      --vb-navy-dark: #050E23;
+      --vb-gold: #C8B560;
+      --vb-gold-dark: #B78D38;
+      --vb-gold-light: #E5D9A8;
+      --vb-white: #FFFFFF;
+      --vb-cream: #F5F0E8;
+      --vb-gray: #F5F5F5;
+      --vb-gray-dark: #666;
+      --vb-error: #D26A50;
+      --vb-success: #2D5F4F;
+      
+      --vb-font-display: 'Playfair Display', Georgia, serif;
+      --vb-font-heading: 'Montserrat', system-ui, sans-serif;
+      --vb-font-body: 'Open Sans', Arial, sans-serif;
+      --vb-font-cta: 'Poppins', system-ui, sans-serif;
+      
+      --vb-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --vb-shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+      --vb-transition: all 0.3s ease;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: var(--vb-font-body);
+      background: var(--vb-cream);
+      color: var(--vb-navy);
+      line-height: 1.6;
+    }
+    
+    /* Header */
+    .vb-header {
+      background: var(--vb-navy);
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .vb-logo {
+      color: var(--vb-gold);
+      font-family: var(--vb-font-display);
+      font-size: 24px;
+    }
+    
+    .vb-header-contact {
+      color: var(--vb-white);
+      font-size: 14px;
+    }
+    
+    /* Form Container */
+    .vb-form-container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    
+    /* Progress Bar */
+    .vb-progress {
+      background: var(--vb-white);
+      border-radius: 12px;
+      padding: 24px 32px;
+      margin-bottom: 24px;
+      box-shadow: var(--vb-shadow);
+    }
+    
+    .vb-progress-title {
+      font-family: var(--vb-font-heading);
+      font-size: 14px;
+      color: var(--vb-gray-dark);
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .vb-steps {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+    }
+    
+    /* Background line (gray) */
+    .vb-steps::before {
+      content: '';
+      position: absolute;
+      top: 20px;
+      left: 60px;
+      right: 60px;
+      height: 2px;
+      background: #ddd;
+      z-index: 0;
+    }
+    
+    /* Green progress line overlay */
+    .vb-progress-line {
+      position: absolute;
+      top: 20px;
+      left: 60px;
+      height: 2px;
+      background: var(--vb-success);
+      z-index: 1;
+      transition: width 0.4s ease;
+      width: 0;
+      max-width: calc(100% - 120px);
+    }
+    
+    .vb-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .vb-step-number {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #ddd;
+      color: var(--vb-gray-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--vb-font-heading);
+      font-weight: 600;
+      margin-bottom: 8px;
+      transition: var(--vb-transition);
+    }
+    
+    .vb-step.active .vb-step-number {
+      background: var(--vb-gold);
+      color: var(--vb-navy);
+    }
+    
+    .vb-step.completed .vb-step-number {
+      background: var(--vb-success);
+      color: var(--vb-white);
+    }
+    
+    .vb-step-label {
+      font-size: 12px;
+      color: var(--vb-gray-dark);
+      text-align: center;
+      max-width: 100px;
+    }
+    
+    .vb-step.active .vb-step-label {
+      color: var(--vb-navy);
+      font-weight: 600;
+    }
+    
+    /* Back button in progress bar */
+    .vb-progress-back {
+      display: none;
+      margin-top: 14px;
+      text-align: center;
+    }
+    
+    .vb-progress-back.show {
+      display: block;
+    }
+    
+    .vb-back-link {
+      display: inline-block;
+      padding: 10px 24px;
+      background: transparent;
+      border: 2px solid var(--vb-navy);
+      border-radius: 8px;
+      color: var(--vb-navy);
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      transition: var(--vb-transition);
+    }
+    
+    .vb-back-link:hover {
+      background: var(--vb-navy);
+      color: var(--vb-white);
+    }
+    
+    /* Form Card */
+    .vb-form-card {
+      background: var(--vb-white);
+      border-radius: 12px;
+      padding: 40px;
+      box-shadow: var(--vb-shadow);
+      display: none;
+    }
+    
+    .vb-form-card.active {
+      display: block;
+    }
+    
+    .vb-form-title {
+      font-family: var(--vb-font-display);
+      font-size: 28px;
+      color: var(--vb-navy);
+      margin-bottom: 8px;
+    }
+    
+    .vb-form-subtitle {
+      color: var(--vb-gray-dark);
+      margin-bottom: 32px;
+    }
+    
+    /* Service Selection Cards */
+    .vb-service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    
+    @media (max-width: 768px) {
+      .vb-service-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    .vb-service-card {
+      border: 2px solid #e0e0e0;
+      border-radius: 12px;
+      padding: 24px 16px;
+      text-align: center;
+      cursor: pointer;
+      transition: var(--vb-transition);
+    }
+    
+    .vb-service-card:hover {
+      border-color: var(--vb-gold);
+      transform: translateY(-4px);
+      box-shadow: var(--vb-shadow-lg);
+    }
+    
+    .vb-service-card.selected {
+      border-color: var(--vb-gold);
+      background: linear-gradient(135deg, rgba(200,181,96,0.1) 0%, rgba(200,181,96,0.05) 100%);
+    }
+    
+    .vb-service-icon {
+      font-size: 36px;
+      margin-bottom: 12px;
+    }
+    
+    .vb-service-name {
+      font-family: var(--vb-font-heading);
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--vb-navy);
+      margin-bottom: 4px;
+    }
+    
+    .vb-service-desc {
+      font-size: 12px;
+      color: var(--vb-gray-dark);
+    }
+    
+    /* Form Fields */
+    .vb-form-section {
+      margin-bottom: 32px;
+    }
+    
+    .vb-section-title {
+      font-family: var(--vb-font-heading);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--vb-navy);
+      margin-bottom: 20px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--vb-gold);
+      display: inline-block;
+    }
+    
+    .vb-form-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+    
+    @media (max-width: 600px) {
+      .vb-form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .vb-form-group {
+      margin-bottom: 20px;
+    }
+    
+    .vb-form-group.full-width {
+      grid-column: 1 / -1;
+    }
+    
+    .vb-label {
+      display: block;
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 8px;
+      color: var(--vb-navy);
+    }
+    
+    .vb-label .required {
+      color: var(--vb-error);
+    }
+    
+    .vb-label .recommended {
+      color: var(--vb-gold-dark);
+      font-weight: 400;
+      font-size: 12px;
+    }
+    
+    .vb-input,
+    .vb-select,
+    .vb-textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      font-family: var(--vb-font-body);
+      font-size: 15px;
+      transition: var(--vb-transition);
+    }
+    
+    .vb-input:focus,
+    .vb-select:focus,
+    .vb-textarea:focus {
+      outline: none;
+      border-color: var(--vb-gold);
+    }
+    
+    .vb-textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+    
+    .vb-help-text {
+      font-size: 12px;
+      color: var(--vb-gray-dark);
+      margin-top: 6px;
+    }
+    
+    /* Checkbox Group */
+    .vb-checkbox-group {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    
+    @media (max-width: 600px) {
+      .vb-checkbox-group {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .vb-checkbox-item {
+      display: flex;
+      align-items: center;
+      padding: 12px 16px;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: var(--vb-transition);
+    }
+    
+    .vb-checkbox-item:hover {
+      border-color: var(--vb-gold-light);
+    }
+    
+    .vb-checkbox-item.checked {
+      border-color: var(--vb-gold);
+      background: rgba(200,181,96,0.1);
+    }
+    
+    /* Vehicle Selection Rows */
+    .vb-vehicle-selection {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    
+    .vb-vehicle-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    
+    .vb-vehicle-row .vb-checkbox-item {
+      flex: 1;
+      margin: 0;
+    }
+    
+    .vb-vehicle-qty {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-width: 110px;
+    }
+    
+    .vb-vehicle-qty label {
+      font-size: 14px;
+      color: #666;
+      font-weight: 500;
+    }
+    
+    .vb-qty-input {
+      width: 70px !important;
+      text-align: center;
+      padding: 8px 12px !important;
+    }
+    
+    /* VIP Badge */
+    .vip-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #c9a227 0%, #d4af37 50%, #c9a227 100%);
+      color: #1a365d;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-left: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      box-shadow: 0 1px 3px rgba(201, 162, 39, 0.3);
+    }
+    
+    @media (max-width: 600px) {
+      .vb-vehicle-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      
+      .vb-vehicle-qty {
+        margin-left: 32px;
+        margin-top: 8px;
+      }
+    }
+    
+    /* Most Popular Badge & Animation */
+    .vb-popular-badge {
+      position: absolute;
+      top: -10px;
+      right: 16px;
+      background: linear-gradient(135deg, #C8B560 0%, #A89540 100%);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 12px;
+      letter-spacing: 0.5px;
+      box-shadow: 0 2px 8px rgba(200,181,96,0.4);
+      animation: pulse-glow 2s ease-in-out infinite;
+      z-index: 10;
+    }
+    
+    .vb-most-popular {
+      overflow: visible !important;
+    }
+    
+    @keyframes pulse-glow {
+      0%, 100% {
+        box-shadow: 0 2px 8px rgba(200,181,96,0.4);
+      }
+      50% {
+        box-shadow: 0 2px 16px rgba(200,181,96,0.7), 0 0 24px rgba(200,181,96,0.3);
+      }
+    }
+    
+    .vb-most-popular {
+      animation: border-glow 3s ease-in-out infinite;
+    }
+    
+    @keyframes border-glow {
+      0%, 100% {
+        border-color: #C8B560;
+        box-shadow: 0 0 0 rgba(200,181,96,0);
+      }
+      50% {
+        border-color: #D4C470;
+        box-shadow: 0 0 12px rgba(200,181,96,0.25);
+      }
+    }
+    
+    /* Selected radio item - navy blue highlight */
+    .vb-radio-item:has(input:checked) {
+      border: 2px solid var(--vb-navy) !important;
+      background: rgba(26,54,93,0.06) !important;
+      box-shadow: 0 0 0 3px rgba(26,54,93,0.1) !important;
+      animation: none !important;
+    }
+    
+    /* Hover state - running light border animation */
+    .vb-radio-item {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    /* Most Popular keeps overflow visible for badge, hide ::before */
+    .vb-most-popular::before {
+      display: none !important;
+    }
+    
+    .vb-radio-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(200,181,96,0.4),
+        rgba(200,181,96,0.8),
+        rgba(200,181,96,0.4),
+        transparent
+      );
+      transition: none;
+      pointer-events: none;
+      z-index: 1;
+    }
+    
+    .vb-radio-item:hover:not(:has(input:checked))::before {
+      animation: running-light 1s ease-in-out;
+    }
+    
+    .vb-radio-item:hover:not(:has(input:checked)) {
+      border-color: #C8B560 !important;
+      box-shadow: 0 0 8px rgba(200,181,96,0.5), inset 0 0 20px rgba(200,181,96,0.05) !important;
+      background: rgba(200,181,96,0.04) !important;
+    }
+    
+    @keyframes running-light {
+      0% {
+        left: -100%;
+      }
+      100% {
+        left: 100%;
+      }
+    }
+    
+    /* Keep Most Popular badge visible when selected */
+    .vb-most-popular:has(input:checked) .vb-popular-badge {
+      animation: pulse-glow 2s ease-in-out infinite;
+    }
+    
+    .vb-checkbox-item input {
+      margin-right: 12px;
+      width: 18px;
+      height: 18px;
+      accent-color: var(--vb-gold);
+    }
+    
+    .vb-checkbox-label {
+      font-size: 14px;
+    }
+    
+    /* Radio Group */
+    .vb-radio-group {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    
+    .vb-radio-item {
+      display: flex;
+      align-items: center;
+      padding: 12px 20px;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: var(--vb-transition);
+    }
+    
+    .vb-radio-item:hover {
+      border-color: var(--vb-gold-light);
+    }
+    
+    .vb-radio-item.checked {
+      border-color: var(--vb-gold);
+      background: rgba(200,181,96,0.1);
+    }
+    
+    .vb-radio-item input {
+      margin-right: 10px;
+      accent-color: var(--vb-gold);
+    }
+    
+    /* Services Summary */
+    .vb-services-summary {
+      background: var(--vb-cream);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 32px;
+    }
+    
+    .vb-summary-title {
+      font-family: var(--vb-font-heading);
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--vb-navy);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .vb-summary-count {
+      background: var(--vb-gold);
+      color: var(--vb-navy);
+      padding: 2px 10px;
+      border-radius: 12px;
+      font-size: 12px;
+    }
+    
+    .vb-service-item {
+      background: var(--vb-white);
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: var(--vb-shadow);
+    }
+    
+    .vb-service-item-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .vb-service-item-icon {
+      font-size: 24px;
+    }
+    
+    .vb-service-item-name {
+      font-weight: 600;
+      font-size: 14px;
+    }
+    
+    .vb-service-item-details {
+      font-size: 12px;
+      color: var(--vb-gray-dark);
+    }
+    
+    .vb-service-item-vehicles {
+      font-size: 12px;
+      color: #5a7a3d;
+      margin-top: 4px;
+      font-weight: 500;
+    }
+    
+    .vb-service-item-guests {
+      font-size: 12px;
+      color: #666;
+      margin-top: 2px;
+    }
+    
+    .vb-service-item-actions {
+      display: flex;
+      gap: 8px;
+    }
+    
+    .vb-btn-icon {
+      width: 32px;
+      height: 32px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--vb-transition);
+    }
+    
+    .vb-btn-edit {
+      background: var(--vb-navy-light);
+      color: var(--vb-white);
+    }
+    
+    .vb-btn-edit:hover {
+      background: var(--vb-navy);
+    }
+    
+    .vb-btn-remove {
+      background: #fee;
+      color: var(--vb-error);
+    }
+    
+    .vb-btn-remove:hover {
+      background: var(--vb-error);
+      color: var(--vb-white);
+    }
+    
+    .vb-add-service-btn {
+      width: 100%;
+      padding: 16px;
+      border: 2px dashed var(--vb-gold);
+      border-radius: 8px;
+      background: transparent;
+      color: var(--vb-gold-dark);
+      font-family: var(--vb-font-cta);
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      transition: var(--vb-transition);
+    }
+    
+    .vb-add-service-btn:hover {
+      background: rgba(200,181,96,0.1);
+    }
+    
+    .vb-add-service-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    
+    /* File Upload */
+    .vb-file-upload {
+      border: 2px dashed #e0e0e0;
+      border-radius: 8px;
+      padding: 32px;
+      text-align: center;
+      cursor: pointer;
+      transition: var(--vb-transition);
+    }
+    
+    .vb-file-upload:hover {
+      border-color: var(--vb-gold);
+      background: rgba(200,181,96,0.05);
+    }
+    
+    .vb-file-upload-icon {
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+    
+    .vb-file-upload-text {
+      font-size: 14px;
+      color: var(--vb-gray-dark);
+    }
+    
+    .vb-file-upload-formats {
+      font-size: 12px;
+      color: #999;
+      margin-top: 4px;
+    }
+    
+    /* Buttons */
+    .vb-btn {
+      display: inline-block;
+      padding: 14px 32px;
+      font-family: var(--vb-font-cta);
+      font-weight: 600;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      text-decoration: none;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: var(--vb-transition);
+    }
+    
+    .vb-btn-gold {
+      background: var(--vb-gold);
+      color: var(--vb-navy);
+    }
+    
+    .vb-btn-gold:hover {
+      background: var(--vb-gold-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(200, 181, 96, 0.3);
+    }
+    
+    .vb-btn-outline {
+      background: transparent;
+      color: var(--vb-navy);
+      border: 2px solid var(--vb-navy);
+    }
+    
+    .vb-btn-outline:hover {
+      background: var(--vb-navy);
+      color: var(--vb-white);
+    }
+    
+    .vb-form-actions {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid #eee;
+    }
+    
+    /* Conditional Fields */
+    .vb-conditional {
+      display: none;
+      margin-top: 16px;
+      padding: 16px;
+      background: var(--vb-gray);
+      border-radius: 8px;
+    }
+    
+    .vb-conditional.show {
+      display: block;
+    }
+    
+    /* Add Venue Link */
+    .vb-add-link {
+      color: var(--vb-gold-dark);
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 8px;
+    }
+    
+    .vb-add-link:hover {
+      color: var(--vb-gold);
+    }
+    
+    /* Confirmation */
+    .vb-confirmation {
+      text-align: center;
+      padding: 60px 40px;
+    }
+    
+    .vb-confirmation-icon {
+      width: 80px;
+      height: 80px;
+      background: var(--vb-success);
+      color: var(--vb-white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      margin: 0 auto 24px;
+    }
+    
+    .vb-confirmation-title {
+      font-family: var(--vb-font-display);
+      font-size: 32px;
+      color: var(--vb-navy);
+      margin-bottom: 16px;
+    }
+    
+    .vb-confirmation-text {
+      color: var(--vb-gray-dark);
+      max-width: 500px;
+      margin: 0 auto 32px;
+    }
+    
+    .vb-next-steps {
+      background: var(--vb-cream);
+      border-radius: 12px;
+      padding: 24px;
+      text-align: left;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    
+    .vb-next-steps-title {
+      font-family: var(--vb-font-heading);
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    
+    .vb-next-steps ol {
+      margin-left: 20px;
+    }
+    
+    .vb-next-steps li {
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+    
+    /* Event Sub-steps indicator */
+    .vb-event-substeps {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      margin-bottom: 32px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .vb-event-substep {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: var(--vb-gray-dark);
+    }
+    
+    .vb-event-substep.active {
+      color: var(--vb-navy);
+      font-weight: 600;
+    }
+    
+    .vb-event-substep-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #e0e0e0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    
+    .vb-event-substep.active .vb-event-substep-num {
+      background: var(--vb-gold);
+      color: var(--vb-navy);
+    }
+    
+    .vb-event-substep.completed .vb-event-substep-num {
+      background: var(--vb-success);
+      color: var(--vb-white);
+    }
+    
+    /* Terms checkbox */
+    .vb-terms {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-top: 24px;
+    }
+    
+    .vb-terms input {
+      margin-top: 4px;
+      width: 18px;
+      height: 18px;
+      accent-color: var(--vb-gold);
+    }
+    
+    .vb-terms label {
+      font-size: 14px;
+    }
+    
+    .vb-terms a {
+      color: var(--vb-gold-dark);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="vb-header">
+    <div class="vb-logo">VanBudapest</div>
+    <div class="vb-header-contact"> +36 70 753 6333</div>
+  </header>
+
+  <!-- Form Container -->
+  <div class="vb-form-container">
+    
+    <!-- Progress Bar -->
+    <div class="vb-progress">
+      <div class="vb-progress-title">Your Booking Progress</div>
+      <div class="vb-steps">
+        <div class="vb-progress-line" id="progressLine"></div>
+        <div class="vb-step active" data-step="1">
+          <div class="vb-step-number">1</div>
+          <div class="vb-step-label">Service Selection</div>
+        </div>
+        <div class="vb-step" data-step="2">
+          <div class="vb-step-number">2</div>
+          <div class="vb-step-label">Vehicle & Group</div>
+        </div>
+        <div class="vb-step" data-step="3">
+          <div class="vb-step-number">3</div>
+          <div class="vb-step-label">Service Details</div>
+        </div>
+        <div class="vb-step" data-step="4">
+          <div class="vb-step-number">4</div>
+          <div class="vb-step-label">Contact & Billing</div>
+        </div>
+      </div>
+      <div class="vb-progress-back" id="progressBackBtn">
+        <a class="vb-back-link" onclick="goToPreviousStep()">&#8592; BACK</a>
+      </div>
+    </div>
+
+    <!-- STEP 1: Service Selection -->
+    <div class="vb-form-card active" id="step1">
+      <h2 class="vb-form-title">How can we help you today?</h2>
+      <p class="vb-form-subtitle">Select the service that best fits your needs</p>
+      
+      <div class="vb-service-grid">
+        <div class="vb-service-card" data-service="airport">
+          <div class="vb-service-icon" style="width:40px;height:40px;margin:0 auto 12px;">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#0A1F44" stroke-width="1.5"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 00-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg>
+          </div>
+          <div class="vb-service-name">Transfers (Airport & Long-Distance)</div>
+          <div class="vb-service-desc">One-way or return, any distance</div>
+        </div>
+        <div class="vb-service-card" data-service="hourly">
+          <div class="vb-service-icon" style="width:40px;height:40px;margin:0 auto 12px;">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#0A1F44" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+          </div>
+          <div class="vb-service-name">Hourly Ride & Sightseeing</div>
+          <div class="vb-service-desc">Chauffeur service or guided tours</div>
+        </div>
+        <div class="vb-service-card" data-service="countryside">
+          <div class="vb-service-icon" style="width:40px;height:40px;margin:0 auto 12px;">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#0A1F44" stroke-width="1.5"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>
+          </div>
+          <div class="vb-service-name">Multi-day Trips</div>
+          <div class="vb-service-desc">Private tours & trips</div>
+        </div>
+        <div class="vb-service-card" data-service="event">
+          <div class="vb-service-icon" style="width:40px;height:40px;margin:0 auto 12px;">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#0A1F44" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <div class="vb-service-name">Event Transportation</div>
+          <div class="vb-service-desc">Conferences & groups</div>
+        </div>
+        <div class="vb-service-card" data-service="uefa">
+          <div class="vb-service-icon" style="width:40px;height:40px;margin:0 auto 12px;">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#0A1F44" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/><path d="M2 12h20"/></svg>
+          </div>
+          <div class="vb-service-name">UEFA CL Final</div>
+          <div class="vb-service-desc">May 28-31, 2026</div>
+        </div>
+        <div class="vb-service-card" data-service="f1">
+          <div class="vb-service-icon" style="width:40px;height:40px;margin:0 auto 12px;">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#0A1F44" stroke-width="1.5"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9L18 10l-1.7-3.4A2 2 0 0014.5 5h-5a2 2 0 00-1.8 1.1L6 10l-2.5 1.1C2.7 11.3 2 12.1 2 13v3c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+          </div>
+          <div class="vb-service-name">F1 Grand Prix</div>
+          <div class="vb-service-desc">July 23-26, 2026</div>
+        </div>
+      </div>
+      
+      <div class="vb-form-actions">
+        <div></div>
+        <button class="vb-btn vb-btn-gold" onclick="goToStep(2)" id="step1Next" disabled>Next: Vehicle &amp; Group &#8594;</button>
+      </div>
+    </div>
+
+    <!-- STEP 2: Vehicle & Group Details -->
+    <div class="vb-form-card" id="step2">
+      <h2 class="vb-form-title">Vehicle & Group Details</h2>
+      <p class="vb-form-subtitle">Select your preferred vehicle(s) and group size</p>
+      
+      <div class="vb-form-section">
+        <div class="vb-section-title">Vehicle Selection</div>
+        <p class="vb-help-text" style="margin-bottom: 16px;">Select one or more vehicles. For mixed groups, choose multiple vehicle types.</p>
+        
+        <div class="vb-vehicle-selection">
+          <!-- Business Car -->
+          <div class="vb-vehicle-row">
+            <label class="vb-checkbox-item" style="flex: 1; margin: 0;">
+              <input type="checkbox" name="vehicles" value="business_car" onchange="toggleVehicleQty(this)">
+              <span>Business Car &mdash; up to 3 pax &mdash; Mercedes E-Class</span>
+            </label>
+            <div class="vb-vehicle-qty" style="display: none;">
+              <label>Qty:</label>
+              <input type="number" class="vb-input vb-qty-input" value="1" min="1" max="20" style="width: 70px;">
+            </div>
+          </div>
+          
+          <!-- Premium VAN -->
+          <div class="vb-vehicle-row">
+            <label class="vb-checkbox-item" style="flex: 1; margin: 0;">
+              <input type="checkbox" name="vehicles" value="premium_van" onchange="toggleVehicleQty(this)">
+              <span>Premium VAN &mdash; up to 6-7 pax &mdash; Mercedes V-Class</span>
+            </label>
+            <div class="vb-vehicle-qty" style="display: none;">
+              <label>Qty:</label>
+              <input type="number" class="vb-input vb-qty-input" value="1" min="1" max="20" style="width: 70px;">
+            </div>
+          </div>
+          
+          <!-- Minibus -->
+          <div class="vb-vehicle-row">
+            <label class="vb-checkbox-item" style="flex: 1; margin: 0;">
+              <input type="checkbox" name="vehicles" value="minibus" onchange="toggleVehicleQty(this)">
+              <span>Minibus &mdash; up to 14-20 pax &mdash; Mercedes Sprinter</span>
+            </label>
+            <div class="vb-vehicle-qty" style="display: none;">
+              <label>Qty:</label>
+              <input type="number" class="vb-input vb-qty-input" value="1" min="1" max="20" style="width: 70px;">
+            </div>
+          </div>
+          
+          <!-- Coach Bus -->
+          <div class="vb-vehicle-row">
+            <label class="vb-checkbox-item" style="flex: 1; margin: 0;">
+              <input type="checkbox" name="vehicles" value="coach" onchange="toggleVehicleQty(this)">
+              <span>Coach Bus &mdash; up to 49 pax &mdash; Mercedes Tourismo</span>
+            </label>
+            <div class="vb-vehicle-qty" style="display: none;">
+              <label>Qty:</label>
+              <input type="number" class="vb-input vb-qty-input" value="1" min="1" max="10" style="width: 70px;">
+            </div>
+          </div>
+          
+          <!-- Luxury Minibus VIP -->
+          <div class="vb-vehicle-row">
+            <label class="vb-checkbox-item" style="flex: 1; margin: 0;">
+              <input type="checkbox" name="vehicles" value="luxury_minibus_vip" onchange="toggleVehicleQty(this)">
+              <span>Luxury Minibus <span class="vip-badge">VIP</span> &mdash; up to 8 pax &mdash; Mercedes Sprinter</span>
+            </label>
+            <div class="vb-vehicle-qty" style="display: none;">
+              <label>Qty:</label>
+              <input type="number" class="vb-input vb-qty-input" value="1" min="1" max="10" style="width: 70px;">
+            </div>
+          </div>
+          
+          <!-- Luxury Car VIP -->
+          <div class="vb-vehicle-row">
+            <label class="vb-checkbox-item" style="flex: 1; margin: 0;">
+              <input type="checkbox" name="vehicles" value="luxury_car_vip" onchange="toggleVehicleQty(this)">
+              <span>Luxury Car <span class="vip-badge">VIP</span> &mdash; up to 3 pax &mdash; Mercedes S-Class</span>
+            </label>
+            <div class="vb-vehicle-qty" style="display: none;">
+              <label>Qty:</label>
+              <input type="number" class="vb-input vb-qty-input" value="1" min="1" max="10" style="width: 70px;">
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="vb-form-section">
+        <div class="vb-section-title">Group Details</div>
+        
+        <div class="vb-form-row">
+          <div class="vb-form-group">
+            <label class="vb-label">Total Number of Guests <span class="required">*</span></label>
+            <input type="number" class="vb-input" id="totalGuests" value="1" min="1" max="500">
+          </div>
+          <div class="vb-form-group">
+            <label class="vb-label">Pieces of Luggage</label>
+            <input type="number" class="vb-input" id="totalLuggage" value="0" min="0" max="100">
+          </div>
+        </div>
+        
+        <div class="vb-form-group">
+          <label class="vb-label">Special Items / Notes</label>
+          <input type="text" class="vb-input" id="specialItems" placeholder="e.g., Golf bags, Ski equipment, Wheelchair, Child seats">
+        </div>
+      </div>
+      
+      <div class="vb-form-actions">
+        <button class="vb-btn vb-btn-outline" onclick="goToStep(1)">&#8592; Back</button>
+        <button class="vb-btn vb-btn-gold" onclick="goToStep(3)">Next: Service Details &#8594;</button>
+      </div>
+    </div>
+
+    <!-- STEP 3: Service Details -->
+    <div class="vb-form-card" id="step3">
+      
+      <!-- AIRPORT & POINT-TO-POINT FLOW -->
+      <div class="vb-service-flow" id="flow-airport" style="display:none;">
+        <h2 class="vb-form-title">Transfer Details</h2>
+        <p class="vb-form-subtitle">One-way or return transfers, any distance</p>
+        
+        <div class="vb-form-section">
+          <div class="vb-section-title">Transfer Information</div>
+          
+          <div class="vb-form-row">
+            <div class="vb-form-group">
+              <label class="vb-label">Pickup Date <span class="required">*</span></label>
+              <input type="date" class="vb-input" id="transferPickupDate">
+            </div>
+            <div class="vb-form-group">
+              <label class="vb-label">Pickup Time <span class="required">*</span></label>
+              <input type="time" class="vb-input" id="transferPickupTime">
+            </div>
+          </div>
+          
+          <div class="vb-form-group">
+            <label class="vb-label">Pickup Address <span class="required">*</span></label>
+            <input type="text" class="vb-input" id="transferPickupAddress" placeholder="e.g., Budapest Airport Terminal 2B, Hotel name, or any address">
+          </div>
+          
+          <div class="vb-form-group">
+            <label class="vb-label">Drop-off Address <span class="required">*</span></label>
+            <input type="text" class="vb-input" id="transferDropoffAddress" placeholder="e.g., Hilton Budapest, Airport, or any destination">
+          </div>
+          
+          <div class="vb-form-group">
+            <label class="vb-label">Flight Number <span style="color:#666;font-weight:normal;">(if airport transfer)</span></label>
+            <input type="text" class="vb-input" placeholder="e.g., FR1023">
+            <p class="vb-help-text">Optional  for airport pickups, we monitor your flight for delays</p>
+          </div>
+          
+          <div class="vb-form-group">
+            <label class="vb-label">Do you require a return transfer? <span class="required">*</span></label>
+            <div class="vb-radio-group">
+              <label class="vb-radio-item">
+                <input type="radio" name="returnTransfer" value="yes" onchange="toggleReturnFields()"> Yes
+              </label>
+              <label class="vb-radio-item checked">
+                <input type="radio" name="returnTransfer" value="no" checked onchange="toggleReturnFields()"> No
+              </label>
+            </div>
+          </div>
+          
+          <div class="vb-conditional" id="returnFields">
+            <div class="vb-section-title" style="margin-top:0;">Return Transfer Details</div>
+            <div class="vb-form-row">
+              <div class="vb-form-group">
+                <label class="vb-label">Return Date</label>
+                <input type="date" class="vb-input">
+              </div>
+              <div class="vb-form-group">
+                <label class="vb-label">Return Time</label>
+                <input type="time" class="vb-input">
+              </div>
+            </div>
+            <div class="vb-form-group">
+              <label class="vb-label">Return Pickup Address</label>
+              <input type="text" class="vb-input" placeholder="e.g., Hotel address for return journey">
+            </div>
+            <div class="vb-form-group">
+              <label class="vb-label">Return Drop-off Address</label>
+              <input type="text" class="vb-input" placeholder="e.g., Budapest Airport Terminal 2B">
+            </div>
+          </div>
+        </div>
+        
+        <div class="vb-form-section">
+          <div class="vb-section-title">Special Requirements (optional)</div>
+          <div class="vb-checkbox-group">
+            <label class="vb-checkbox-item">
+              <input type="checkbox" value="wheelchair">  Wheelchair accessible
+            </label>
+            <label class="vb-checkbox-item">
+              <input type="checkbox" value="child-seats">  Child safety seats
+            </label>
+            <label class="vb-checkbox-item">
+              <input type="checkbox" value="hostess">  Hostess / Additional Staff
+            </label>
+            <label class="vb-checkbox-item">
+              <input type="checkbox" value="coordinator">  On-site coordinator
+            </label>
+            <label class="vb-checkbox-item">
+              <input type="checkbox" value="english-driver">  English-speaking driver
+            </label>
+            <label class="vb-checkbox-item">
+              <input type="checkbox" value="security">  Security / Protocol
+            </label>
+          </div>
+          
+          <div class="vb-form-group" style="margin-top: 16px;">
+            <label class="vb-label">Additional Preferences (optional)</label>
+            <textarea class="vb-textarea" rows="2" style="min-height:50px;" placeholder="Any other requests or preferences..."></textarea>
+          </div>
+        </div>
+        
+        <div class="vb-form-actions">
+          <button class="vb-btn vb-btn-outline" onclick="goToStep(2)">&#8592; Back</button>
+          <button class="vb-btn vb-btn-gold" onclick="saveServiceAndContinue()">Next: Contact Details &#8594;</button>
+        </div>
+      </div>
+      
+      <!-- HOURLY & SIGHTSEEING FLOW -->
+      <div class="vb-service-flow" id="flow-hourly" style="display:none;">
+        <h2 class="vb-form-title">Hourly Ride & Sightseeing</h2>
+        <p class="vb-form-subtitle">Chauffeur service or private guided tour in Budapest</p>
+        
+        <div class="vb-form-section">
+          <div class="vb-section-title">What type of service do you need?</div>
+          
+          <div class="vb-form-group">
+            <div class="vb-radio-group" style="display:grid; gap:12px;">
+              <label class="vb-radio-item" style="padding:16px; border-radius:8px; cursor:pointer;">
+                <input type="radio" name="hourlyServiceType" value="chauffeur" onchange="toggleHourlyFields()"> 
+                <div style="margin-left:8px;">
+                  <strong>Chauffeur Service</strong> <span style="color:#666;">(driver only)</span>
+                  <p style="margin:4px 0 0; font-size:13px; color:#666;">You direct the route  perfect for business, shopping, or custom itineraries</p>
+                </div>
+              </label>
+              <label class="vb-radio-item" style="padding:16px; border-radius:8px; cursor:pointer;">
+                <input type="radio" name="hourlyServiceType" value="sightseeing" onchange="toggleHourlyFields()"> 
+                <div style="margin-left:8px;">
+                  <strong>Private Sightseeing Tour</strong> <span style="color:#C8B560;">(driver + licensed guide)</span>
+                  <p style="margin:4px 0 0; font-size:13px; color:#666;">Expert guide plans the tour  history, culture, local insights included</p>
+                </div>
+              </label>
+            </div>
+          </div>
+        </div>
+        
+        <!-- All fields hidden until service type selected -->
+        <div class="vb-conditional" id="hourlyAllFields">
+          
+          <!-- Guide Options (shown only when Sightseeing selected) -->
+          <div class="vb-conditional" id="guideFields">
+            <div class="vb-form-section">
+              <div class="vb-section-title">Tour Guide Options</div>
+              
+              <div class="vb-form-group">
+                <label class="vb-label">Guide Language <span class="required">*</span></label>
+                <select class="vb-select">
+                  <option value="">-- Select language --</option>
+                  <option value="english">English</option>
+                  <option value="german">German (Deutsch)</option>
+                  <option value="spanish">Spanish (Espa)</option>
+                  <option value="french">French (Frans)</option>
+                  <option value="italian">Italian (Italiano)</option>
+                  <option value="russian">Russian (? ?????????,??)</option>
+                  <option value="chinese">Chinese (?,-ae-?)</option>
+                  <option value="polish">Polish (Polski)</option>
+                </select>
+              </div>
+              
+              <div class="vb-form-group">
+                <label class="vb-label">Tour Package <span class="required">*</span></label>
+                <div class="vb-radio-group" style="display:grid; gap:10px;">
+                  <label class="vb-radio-item" style="padding:12px 16px; border-radius:8px; cursor:pointer; align-items:flex-start;">
+                    <input type="radio" name="tourPackage" value="castle" onchange="toggleCustomTour()" style="margin-top:3px;"> 
+                    <div style="margin-left:8px;">
+                      <strong>Castle District Focus</strong> <span style="color:#666; font-size:13px;">(3-4 hours)</span>
+                      <p style="margin:2px 0 0; font-size:13px; color:#666;">Buda Castle, Fisherman's Bastion, Matthias Church, Gell Hill</p>
+                    </div>
+                  </label>
+                  <label class="vb-radio-item" style="padding:12px 16px; border-radius:8px; cursor:pointer; align-items:flex-start;">
+                    <input type="radio" name="tourPackage" value="pest" onchange="toggleCustomTour()" style="margin-top:3px;"> 
+                    <div style="margin-left:8px;">
+                      <strong>Pest Highlights</strong> <span style="color:#666; font-size:13px;">(3-4 hours)</span>
+                      <p style="margin:2px 0 0; font-size:13px; color:#666;">Downtown, Basilica, Parliament, Andry Avenue, Heroes' Square</p>
+                    </div>
+                  </label>
+                  <label class="vb-radio-item vb-most-popular" style="padding:12px 16px; border-radius:8px; cursor:pointer; align-items:flex-start; position:relative; border: 2px solid #C8B560; background: linear-gradient(135deg, rgba(200,181,96,0.08) 0%, rgba(200,181,96,0.02) 100%);">
+                    <span class="vb-popular-badge"> Most Popular</span>
+                    <input type="radio" name="tourPackage" value="classic" onchange="toggleCustomTour()" style="margin-top:3px;"> 
+                    <div style="margin-left:8px;">
+                      <strong>Budapest Classic</strong> <span style="color:#666; font-size:13px;">(4-5 hours)</span>
+                      <p style="margin:2px 0 0; font-size:13px; color:#666;">Best of both Buda & Pest sides  the complete introduction</p>
+                    </div>
+                  </label>
+                  <label class="vb-radio-item" style="padding:12px 16px; border-radius:8px; cursor:pointer; align-items:flex-start;">
+                    <input type="radio" name="tourPackage" value="grand" onchange="toggleCustomTour()" style="margin-top:3px;"> 
+                    <div style="margin-left:8px;">
+                      <strong>Grand Budapest Tour</strong> <span style="color:#666; font-size:13px;">(6+ hours)</span>
+                      <p style="margin:2px 0 0; font-size:13px; color:#666;">Full-day comprehensive tour with hidden gems & local favorites</p>
+                    </div>
+                  </label>
+                  <label class="vb-radio-item" style="padding:12px 16px; border-radius:8px; cursor:pointer; align-items:flex-start;">
+                    <input type="radio" name="tourPackage" value="jewish" onchange="toggleCustomTour()" style="margin-top:3px;"> 
+                    <div style="margin-left:8px;">
+                      <strong>Jewish Heritage</strong> <span style="color:#666; font-size:13px;">(3-4 hours)</span>
+                      <p style="margin:2px 0 0; font-size:13px; color:#666;">Jewish Quarter, Great Synagogue, memorials & historic sites</p>
+                    </div>
+                  </label>
+                  <label class="vb-radio-item" style="padding:12px 16px; border-radius:8px; cursor:pointer; align-items:flex-start;">
+                    <input type="radio" name="tourPackage" value="custom" onchange="toggleCustomTour()" style="margin-top:3px;"> 
+                    <div style="margin-left:8px;">
+                      <strong>Custom Tour</strong>
+                      <p style="margin:2px 0 0; font-size:13px; color:#666;">I have specific preferences or interests</p>
+                    </div>
+                  </label>
+                </div>
+              </div>
+              
+              <!-- Custom Tour textarea (shown when Custom selected) -->
+              <div class="vb-conditional" id="customTourFields">
+                <div class="vb-form-group">
+                  <label class="vb-label">Special Requests <span class="required">*</span></label>
+                  <textarea class="vb-textarea" placeholder="Tell us about your interests, must-see places, or any special requirements..."></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Ride Details (shown for both service types) -->
+          <div class="vb-form-section">
+            <div class="vb-section-title">Ride Details</div>
+            
+            <div class="vb-form-row">
+              <div class="vb-form-group">
+                <label class="vb-label">Pickup Date <span class="required">*</span></label>
+                <input type="date" class="vb-input" id="hourlyPickupDate">
+              </div>
+              <div class="vb-form-group">
+                <label class="vb-label">Pickup Time <span class="required">*</span></label>
+                <input type="time" class="vb-input" id="hourlyPickupTime">
+              </div>
+            </div>
+            
+            <!-- Duration only for Chauffeur Service -->
+            <div class="vb-conditional" id="durationField">
+              <p class="vb-help-text" style="margin-bottom:12px;">Minimum rental duration is 3+1 hours.</p>
+              <div class="vb-form-group">
+                <label class="vb-label">Ride Duration <span class="required">*</span></label>
+                <select class="vb-select" id="hourlyDuration">
+                  <option value="">-- Select duration --</option>
+                  <option value="3">3 hours (3+1)</option>
+                  <option value="4">4 hours (4+1)</option>
+                  <option value="5">5 hours (5+1)</option>
+                  <option value="6">6 hours (6+1)</option>
+                  <option value="7">7 hours (7+1)</option>
+                  <option value="8">8 hours (8+1)</option>
+                  <option value="9">9 hours (9+1)</option>
+                  <option value="10">10 hours (10+1)</option>
+                  <option value="11">11 hours (11+1)</option>
+                  <option value="12">12 hours (12+1)</option>
+                </select>
+              </div>
+            </div>
+            
+            <div class="vb-form-group">
+              <label class="vb-label">Pickup Address <span class="required">*</span></label>
+              <input type="text" class="vb-input" placeholder="Enter Pickup Address">
+            </div>
+            
+            <!-- Only for Chauffeur Service -->
+            <div class="vb-conditional" id="chauffeurOnlyFields">
+              <div class="vb-form-group">
+                <label class="vb-label">Destination Address</label>
+                <input type="text" class="vb-input" placeholder="">
+              </div>
+              
+              <div class="vb-form-group">
+                <label class="vb-label">Route & Stops</label>
+                <textarea class="vb-textarea" placeholder="Any optional stops along the route"></textarea>
+              </div>
+            </div>
+            
+            <div class="vb-form-group">
+              <label class="vb-label">Drop-off Address <span class="required">*</span></label>
+              <input type="text" class="vb-input" placeholder="Final Destination Address">
+            </div>
+          </div>
+        </div>
+        
+        <div class="vb-form-section">
+          <div class="vb-section-title">Special Requirements (optional)</div>
+          <div class="vb-checkbox-group">
+            <label class="vb-checkbox-item">
+              <input type="checkbox" value="wheelchair">  Wheelchair accessible
+            </label>
+            <label class="vb-checkbox-item">
+              <input type="checkbox" value="child-seats">  Child safety seats
+            </label>
+            <label class="vb-checkbox-item">
+              <input type="checkbox" value="hostess">  Hostess / Additional Staff
+            </label>
+            <label class="vb-checkbox-item">
+              <input type="checkbox" value="coordinator">  On-site coordinator
+            </label>
+            <label class="vb-checkbox-item">
+              <input type="checkbox" value="english-driver">  English-speaking driver
+            </label>
+            <label class="vb-checkbox-item">
+              <input type="checkbox" value="security">  Security / Protocol
+            </label>
+          </div>
+          
+          <div class="vb-form-group" style="margin-top: 16px;">
+            <label class="vb-label">Additional Preferences (optional)</label>
+            <textarea class="vb-textarea" rows="2" style="min-height:50px;" placeholder="Any other requests or preferences..."></textarea>
+          </div>
+        </div>
+        
+        <div class="vb-form-actions">
+          <button class="vb-btn vb-btn-outline" onclick="goToStep(2)">&#8592; Back</button>
+          <button class="vb-btn vb-btn-gold" onclick="saveServiceAndContinue()">Next: Contact Details &#8594;</button>
+        </div>
+      </div>
+      
+      <!-- COUNTRYSIDE / MULTI-DAY FLOW -->
+      <div class="vb-service-flow" id="flow-countryside" style="display:none;">
+        <h2 class="vb-form-title">Multi-day Trip Details</h2>
+        <p class="vb-form-subtitle">Plan your private tour or extended trip</p>
+        
+        <div class="vb-form-section">
+          <div class="vb-section-title">Trip Information</div>
+          
+          <div class="vb-form-row">
+            <div class="vb-form-group">
+              <label class="vb-label">Start Date <span class="required">*</span></label>
+              <input type="date" class="vb-input" id="countrysideStartDate">
+            </div>
+            <div class="vb-form-group">
+              <label class="vb-label">Pickup Time <span class="required">*</span></label>
+              <input type="time" class="vb-input" id="countrysidePickupTime">
+            </div>
+          </div>
+          
+          <div class="vb-form-group">
+            <label class="vb-label">Total Days <span class="required">*</span></label>
+            <input type="number" class="vb-input" id="countrysideTotalDays" min="2" max="30" placeholder="e.g., 3">
+            <p class="vb-help-text">Minimum 2 days for multi-day trips</p>
+          </div>
+          
+          <div class="vb-form-group">
+            <label class="vb-label">Pickup Address <span class="required">*</span></label>
+            <input type="text" class="vb-input" placeholder="e.g., Hotel in Budapest">
+          </div>
+          
+          <div class="vb-form-group">
+            <label class="vb-label">Trip Itinerary / Details <span class="required">*</span></label>
+            <textarea class="vb-textarea" style="min-height:150px;" placeholder="Describe your trip, e.g.:
+
+Day 1: Budapest >' Eger (wine tasting) >' overnight in Eger
+Day 2: Eger >' Tokaj wine region >' return to Budapest
+Day 3: Budapest sightseeing >' Airport transfer"></textarea>
+          </div>
+        </div>
+        
+        <div class="vb-form-section">
+          <div class="vb-section-title">Special Requirements (optional)</div>
+          <div class="vb-checkbox-group">
+            <label class="vb-checkbox-item">
+              <input type="checkbox" value="wheelchair">  Wheelchair accessible
+            </label>
+            <label class="vb-checkbox-item">
+              <input type="checkbox" value="child-seats">  Child safety seats
+            </label>
+            <label class="vb-checkbox-item">
+              <input type="checkbox" value="hostess">  Hostess / Additional Staff
+            </label>
+            <label class="vb-checkbox-item">
+              <input type="checkbox" value="coordinator">  On-site coordinator
+            </label>
+            <label class="vb-checkbox-item">
+              <input type="checkbox" value="english-driver">  English-speaking driver
+            </label>
+            <label class="vb-checkbox-item">
+              <input type="checkbox" value="security">  Security / Protocol
+            </label>
+          </div>
+          
+          <div class="vb-form-group" style="margin-top: 16px;">
+            <label class="vb-label">Additional Preferences (optional)</label>
+            <textarea class="vb-textarea" rows="2" style="min-height:50px;" placeholder="Any other requests or preferences..."></textarea>
+          </div>
+        </div>
+        
+        <div class="vb-form-actions">
+          <button class="vb-btn vb-btn-outline" onclick="goToStep(2)">&#8592; Back</button>
+          <button class="vb-btn vb-btn-gold" onclick="saveServiceAndContinue()">Next: Contact Details &#8594;</button>
+        </div>
+      </div>
+      
+      <!-- F1 FLOW -->
+      <div class="vb-service-flow" id="flow-f1" style="display:none;">
+        <h2 class="vb-form-title">F1 Grand Prix Transfers</h2>
+        <p class="vb-form-subtitle">July 23-26, 2026  Hungaroring</p>
+        
+        <div class="vb-form-section">
+          <div class="vb-section-title">Choose Your Day(s)</div>
+          
+          <div class="vb-form-group">
+            <label class="vb-label">Select the days you need transportation <span class="required">*</span></label>
+            <div class="vb-checkbox-group" style="grid-template-columns: 1fr;">
+              <label class="vb-checkbox-item">
+                <input type="checkbox" value="thu"> Thursday, July 23, 2026
+              </label>
+              <label class="vb-checkbox-item">
+                <input type="checkbox" value="fri"> Friday, July 24, 2026
+              </label>
+              <label class="vb-checkbox-item">
+                <input type="checkbox" value="sat"> Saturday, July 25, 2026
+              </label>
+              <label class="vb-checkbox-item">
+                <input type="checkbox" value="sun"> Sunday, July 26, 2026
+              </label>
+            </div>
+            <p class="vb-help-text">Maximum 10 hours per day. Service ends upon return to Budapest.</p>
+          </div>
+          
+          <div class="vb-form-group">
+            <label class="vb-label">Pickup Address <span class="required">*</span></label>
+            <input type="text" class="vb-input" placeholder="e.g., Hilton Budapest">
+          </div>
+          
+          <div class="vb-form-group">
+            <label class="vb-label">Event Destination</label>
+            <input type="text" class="vb-input" value="Hungaroring  Formula 1 Hungarian Grand Prix" readonly style="background:#f5f5f5;">
+          </div>
+          
+          <div class="vb-form-group">
+            <label class="vb-label">Final Drop-off Address <span class="required">*</span></label>
+            <input type="text" class="vb-input" placeholder="e.g., Same as pickup, or Airport">
+          </div>
+        </div>
+        
+        <div class="vb-form-section">
+          <div class="vb-section-title">Special Requirements (optional)</div>
+          <div class="vb-checkbox-group">
+            <label class="vb-checkbox-item">
+              <input type="checkbox" value="wheelchair">  Wheelchair accessible
+            </label>
+            <label class="vb-checkbox-item">
+              <input type="checkbox" value="child-seats">  Child safety seats
+            </label>
+            <label class="vb-checkbox-item">
+              <input type="checkbox" value="hostess">  Hostess / Additional Staff
+            </label>
+            <label class="vb-checkbox-item">
+              <input type="checkbox" value="coordinator">  On-site coordinator
+            </label>
+            <label class="vb-checkbox-item">
+              <input type="checkbox" value="english-driver">  English-speaking driver
+            </label>
+            <label class="vb-checkbox-item">
+              <input type="checkbox" value="security">  Security / Protocol
+            </label>
+          </div>
+          
+          <div class="vb-form-group" style="margin-top: 16px;">
+            <label class="vb-label">Additional Preferences (optional)</label>
+            <textarea class="vb-textarea" rows="2" style="min-height:50px;" placeholder="Any other requests or preferences..."></textarea>
+          </div>
+        </div>
+        
+        <div class="vb-form-actions">
+          <button class="vb-btn vb-btn-outline" onclick="goToStep(2)">&#8592; Back</button>
+          <button class="vb-btn vb-btn-gold" onclick="saveServiceAndContinue()">Next: Contact Details &#8594;</button>
+        </div>
+      </div>
+      
+      <!-- UEFA FLOW -->
+      <div class="vb-service-flow" id="flow-uefa" style="display:none;">
+        <h2 class="vb-form-title">UEFA Champions League Final</h2>
+        <p class="vb-form-subtitle">May 28-31, 2026  Pusk Ar, Budapest</p>
+        
+        <div class="vb-form-section">
+          <div class="vb-section-title">Choose Your Day(s)</div>
+          
+          <div class="vb-form-group">
+            <label class="vb-label">Select the days you need transportation <span class="required">*</span></label>
+            <div class="vb-checkbox-group" style="grid-template-columns: 1fr;">
+              <label class="vb-checkbox-item">
+                <input type="checkbox" value="thu"> Thursday, May 28, 2026 <span style="color:#666;font-size:12px;margin-left:8px;">(min. 6 hours)</span>
+              </label>
+              <label class="vb-checkbox-item">
+                <input type="checkbox" value="fri"> Friday, May 29, 2026 <span style="color:#666;font-size:12px;margin-left:8px;">(min. 6 hours)</span>
+              </label>
+              <label class="vb-checkbox-item">
+                <input type="checkbox" value="sat"> Saturday, May 30, 2026 <span style="color:#C8B560;font-size:12px;margin-left:8px;font-weight:600;">(MATCH DAY - min. 12 hours)</span>
+              </label>
+              <label class="vb-checkbox-item">
+                <input type="checkbox" value="sun"> Sunday, May 31, 2026 <span style="color:#666;font-size:12px;margin-left:8px;">(min. 6 hours)</span>
+              </label>
+            </div>
+            <p class="vb-help-text">Hourly service only within Budapest during the listed days.</p>
+          </div>
+          
+          <div class="vb-form-group">
+            <label class="vb-label">Pickup Address <span class="required">*</span></label>
+            <input type="text" class="vb-input" placeholder="e.g., Corinthia Hotel Budapest">
+          </div>
+          
+          <div class="vb-form-group">
+            <label class="vb-label">Destination & Route / Stops <span class="required">*</span></label>
+            <textarea class="vb-textarea" placeholder="e.g., Corinthia Hotel >' Pusk Ar >' City Park >' Return to hotel"></textarea>
+            <p class="vb-help-text">Enter the planned route with stops (in order)</p>
+          </div>
+        </div>
+        
+        <div class="vb-form-section">
+          <div class="vb-section-title">Special Requirements (optional)</div>
+          <div class="vb-checkbox-group">
+            <label class="vb-checkbox-item">
+              <input type="checkbox" value="wheelchair">  Wheelchair accessible
+            </label>
+            <label class="vb-checkbox-item">
+              <input type="checkbox" value="child-seats">  Child safety seats
+            </label>
+            <label class="vb-checkbox-item">
+              <input type="checkbox" value="hostess">  Hostess / Additional Staff
+            </label>
+            <label class="vb-checkbox-item">
+              <input type="checkbox" value="coordinator">  On-site coordinator
+            </label>
+            <label class="vb-checkbox-item">
+              <input type="checkbox" value="english-driver">  English-speaking driver
+            </label>
+            <label class="vb-checkbox-item">
+              <input type="checkbox" value="security">  Security / Protocol
+            </label>
+          </div>
+          
+          <div class="vb-form-group" style="margin-top: 16px;">
+            <label class="vb-label">Additional Preferences (optional)</label>
+            <textarea class="vb-textarea" rows="2" style="min-height:50px;" placeholder="Any other requests or preferences..."></textarea>
+          </div>
+        </div>
+        
+        <div class="vb-form-actions">
+          <button class="vb-btn vb-btn-outline" onclick="goToStep(2)">&#8592; Back</button>
+          <button class="vb-btn vb-btn-gold" onclick="saveServiceAndContinue()">Next: Contact Details &#8594;</button>
+        </div>
+      </div>
+      
+      <!-- EVENT FLOW -->
+      <div class="vb-service-flow" id="flow-event">
+        <h2 class="vb-form-title">Event Transportation  Request a Proposal</h2>
+        <p class="vb-form-subtitle">Tell us about your event and transportation needs</p>
+      
+      <!-- Event Sub-steps -->
+      <div class="vb-event-substeps">
+        <div class="vb-event-substep active" data-substep="1">
+          <div class="vb-event-substep-num">1</div>
+          <span>Event Details</span>
+        </div>
+        <div class="vb-event-substep" data-substep="2">
+          <div class="vb-event-substep-num">2</div>
+          <span>Transportation Needs</span>
+        </div>
+      </div>
+      
+      <!-- Event Substep 1: Event Details -->
+      <div class="vb-event-content" id="eventStep1">
+        <div class="vb-form-section">
+          <div class="vb-section-title">Tell us about your event</div>
+          
+          <div class="vb-form-row">
+            <div class="vb-form-group">
+              <label class="vb-label">Event Name <span class="required">*</span></label>
+              <input type="text" class="vb-input" placeholder="e.g., Budapest Tech Summit 2026">
+            </div>
+            <div class="vb-form-group">
+              <label class="vb-label">Organization Name <span class="required">*</span></label>
+              <input type="text" class="vb-input" placeholder="Company or organization name">
+            </div>
+          </div>
+          
+          <div class="vb-form-row">
+            <div class="vb-form-group">
+              <label class="vb-label">Event Type <span class="required">*</span></label>
+              <select class="vb-select">
+                <option value="">-- Select event type --</option>
+                <option value="conference">Conference / Summit</option>
+                <option value="corporate">Corporate Meeting / Incentive</option>
+                <option value="wedding">Wedding / Private Celebration</option>
+                <option value="gala">Gala / Award Ceremony</option>
+                <option value="sports">Sports Event</option>
+                <option value="film">Film / TV Production</option>
+                <option value="diplomatic">Diplomatic / Government</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="vb-form-group">
+              <label class="vb-label">Expected Guests <span class="required">*</span></label>
+              <input type="text" class="vb-input" id="eventExpectedGuests" inputmode="numeric" pattern="[0-9]*" placeholder="Enter number of guests">
+            </div>
+          </div>
+          
+          <div class="vb-form-row">
+            <div class="vb-form-group">
+              <label class="vb-label">Event Start Date <span class="required">*</span></label>
+              <input type="date" class="vb-input">
+            </div>
+            <div class="vb-form-group">
+              <label class="vb-label">Event End Date <span class="required">*</span></label>
+              <input type="date" class="vb-input">
+            </div>
+          </div>
+          
+          <div class="vb-form-row">
+            <div class="vb-form-group">
+              <label class="vb-label">Event City <span class="required">*</span></label>
+              <input type="text" class="vb-input" placeholder="e.g., Budapest">
+            </div>
+            <div class="vb-form-group">
+              <label class="vb-label">Event Venue / Location <span class="required">*</span></label>
+              <input type="text" class="vb-input" placeholder="e.g., Hilton Budapest, Buda Castle">
+              <p class="vb-help-text">Main event location (hotel, conference center, etc.)</p>
+            </div>
+          </div>
+          
+          <div class="vb-form-group" id="venue2" style="display:none;">
+            <label class="vb-label">Additional Venue 2</label>
+            <input type="text" class="vb-input" placeholder="e.g., Gundel Restaurant">
+          </div>
+          
+          <div class="vb-form-group" id="venue3" style="display:none;">
+            <label class="vb-label">Additional Venue 3</label>
+            <input type="text" class="vb-input" placeholder="e.g., Szenyi Thermal Bath">
+          </div>
+          
+          <span class="vb-add-link" onclick="addVenue()">+ Add another venue</span>
+        </div>
+        
+        <div class="vb-form-actions">
+          <button class="vb-btn vb-btn-outline" onclick="goToStep(2)">&#8592; Back</button>
+          <button class="vb-btn vb-btn-gold" onclick="goToEventSubstep(2)">Next: Transportation &#8594;</button>
+        </div>
+      </div>
+      
+      <!-- Event Substep 2: Transportation Needs -->
+      <div class="vb-event-content" id="eventStep2" style="display:none;">
+        <div class="vb-form-section">
+          <div class="vb-section-title">What transportation do you need?</div>
+          
+          <div class="vb-form-group">
+            <label class="vb-label">Services Needed <span class="required">*</span></label>
+            <div class="vb-checkbox-group">
+              <label class="vb-checkbox-item">
+                <input type="checkbox" value="airport"> Airport transfers
+              </label>
+              <label class="vb-checkbox-item">
+                <input type="checkbox" value="shuttle"> Hotel >" Venue shuttle
+              </label>
+              <label class="vb-checkbox-item">
+                <input type="checkbox" value="hourly-vip"> Hourly VIP / Chauffeur
+              </label>
+              <label class="vb-checkbox-item">
+                <input type="checkbox" value="multi-day"> Multi-day program
+              </label>
+              <label class="vb-checkbox-item">
+                <input type="checkbox" value="staff"> Staff / Crew transport
+              </label>
+              <label class="vb-checkbox-item">
+                <input type="checkbox" value="other" onchange="toggleOtherDetails()"> Other (specify below)
+              </label>
+            </div>
+            
+            <div class="vb-conditional" id="otherDetails">
+              <label class="vb-label">Please specify <span class="required">*</span></label>
+              <textarea class="vb-textarea" placeholder="Describe your specific transportation needs..."></textarea>
+            </div>
+          </div>
+          
+          <div class="vb-form-group">
+            <label class="vb-label">Fleet Preferences (optional)</label>
+            <p class="vb-help-text" style="margin-bottom: 12px;">You've selected your preferred vehicles in Step 2. Let us know if you have additional preferences for your event.</p>
+            <div class="vb-checkbox-group" style="flex-direction: column; gap: 8px;">
+              <label class="vb-checkbox-item">
+                <input type="checkbox" value="recommend-mix">  Recommend optimal vehicle mix for my event
+              </label>
+              <label class="vb-checkbox-item">
+                <input type="checkbox" value="uniform-fleet">  Prefer uniform fleet (same vehicle type throughout)
+              </label>
+              <label class="vb-checkbox-item">
+                <input type="checkbox" value="vip-priority">  Prioritize VIP vehicles for executives/speakers
+              </label>
+            </div>
+            <div style="margin-top: 12px;">
+              <label class="vb-label">Additional fleet notes (optional)</label>
+              <textarea class="vb-textarea" rows="2" placeholder="e.g., Need 2 separate vehicles for VIP speakers, rest can be mixed..."></textarea>
+            </div>
+          </div>
+          
+          <div class="vb-form-group">
+            <label class="vb-label">Special Requirements (optional)</label>
+            <div class="vb-checkbox-group">
+              <label class="vb-checkbox-item">
+                <input type="checkbox" value="wheelchair">  Wheelchair accessible
+              </label>
+              <label class="vb-checkbox-item">
+                <input type="checkbox" value="child-seats">  Child safety seats
+              </label>
+              <label class="vb-checkbox-item">
+                <input type="checkbox" value="hostess">  Hostess / Additional Staff
+              </label>
+              <label class="vb-checkbox-item">
+                <input type="checkbox" value="coordinator">  On-site coordinator
+              </label>
+              <label class="vb-checkbox-item">
+                <input type="checkbox" value="english-driver">  English-speaking driver
+              </label>
+              <label class="vb-checkbox-item">
+                <input type="checkbox" value="security">  Security / Protocol
+              </label>
+            </div>
+          </div>
+          
+          <div class="vb-form-group">
+            <label class="vb-label">Schedule / Key Moves <span class="recommended">(recommended)</span></label>
+            <textarea class="vb-textarea" placeholder="Example:
+ May 15, 10:00  Airport >' Hilton Budapest  25 guests
+ May 15, 18:00  Hilton >' Buda Castle  25 guests
+ May 17, 14:00  Hilton >' Airport  25 guests"></textarea>
+            <p class="vb-help-text">For accurate pricing, please share at least your top 3 key moves</p>
+          </div>
+          
+          <div class="vb-form-group">
+            <label class="vb-label">Upload Itinerary (optional)</label>
+            <div class="vb-file-upload">
+              <div class="vb-file-upload-icon"></div>
+              <div class="vb-file-upload-text">Click to upload or drag & drop</div>
+              <div class="vb-file-upload-formats">PDF, XLSX, DOCX  Max 20MB</div>
+            </div>
+            <p class="vb-help-text">Optional: itinerary, flight list, venue schedule, or RFP brief</p>
+          </div>
+          
+          <div class="vb-form-group" style="margin-top: 16px;">
+            <label class="vb-label">Additional Preferences (optional)</label>
+            <textarea class="vb-textarea" rows="2" style="min-height:50px;" placeholder="Any other requests or preferences..."></textarea>
+          </div>
+        </div>
+        
+        <div class="vb-form-actions">
+          <button class="vb-btn vb-btn-outline" onclick="goToEventSubstep(1)">&#8592; Back</button>
+          <button class="vb-btn vb-btn-gold" onclick="saveServiceAndContinue()">Next: Contact Details &#8594;</button>
+        </div>
+      </div>
+      
+      </div><!-- END flow-event -->
+
+    </div>
+
+    <!-- STEP 4: Contact & Billing -->
+    <div class="vb-form-card" id="step4">
+      <h2 class="vb-form-title">Contact & Billing</h2>
+      <p class="vb-form-subtitle">Review your services and provide contact details</p>
+      
+      <!-- Services Summary -->
+      <div class="vb-services-summary">
+        <div class="vb-summary-title">
+          YOUR SERVICES <span class="vb-summary-count" id="serviceCount">0</span>
+        </div>
+        
+        <div id="servicesList">
+          <!-- Dynamic content - populated by JavaScript -->
+        </div>
+        
+        <button class="vb-add-service-btn" onclick="addAnotherService()" id="addServiceBtn">
+          + Add Another Service
+        </button>
+        <p class="vb-help-text" style="text-align:center; margin-top:8px;">Maximum 5 services per request</p>
+      </div>
+      
+      <!-- Primary Contact -->
+      <div class="vb-form-section">
+        <div class="vb-section-title">Your Contact Details</div>
+        
+        <div class="vb-form-row" style="grid-template-columns: 100px 1fr 1fr;">
+          <div class="vb-form-group">
+            <label class="vb-label">Title</label>
+            <select class="vb-select">
+              <option value="">--</option>
+              <option value="mr">Mr</option>
+              <option value="mrs">Mrs</option>
+              <option value="ms">Ms</option>
+              <option value="miss">Miss</option>
+              <option value="dr">Dr</option>
+            </select>
+          </div>
+          <div class="vb-form-group">
+            <label class="vb-label">First Name <span class="required">*</span></label>
+            <input type="text" class="vb-input" placeholder="First name">
+          </div>
+          <div class="vb-form-group">
+            <label class="vb-label">Last Name <span class="required">*</span></label>
+            <input type="text" class="vb-input" placeholder="Last name">
+          </div>
+        </div>
+        
+        <div class="vb-form-row">
+          <div class="vb-form-group">
+            <label class="vb-label">Email <span class="required">*</span></label>
+            <input type="email" class="vb-input" placeholder="email@example.com">
+          </div>
+          <div class="vb-form-group">
+            <label class="vb-label">Phone <span class="required">*</span></label>
+            <input type="tel" class="vb-input" placeholder="+36 70 XXX XXXX">
+          </div>
+        </div>
+      </div>
+      
+      <!-- Booking For Someone Else -->
+      <div class="vb-form-section" style="padding-bottom: 8px;">
+        <label class="vb-checkbox-item" style="padding: 12px 16px; background: #f8f9fa; border-radius: 8px;">
+          <input type="checkbox" id="bookingForOther" onchange="toggleClientFields()">
+          <span style="font-weight: 500;">I'm booking for someone else</span>
+          <span style="font-size: 13px; color: #666; margin-left: 8px;">(e.g., guest, colleague, or client)</span>
+        </label>
+        
+        <div id="clientFields" style="display: none; margin-top: 20px;">
+          <div class="vb-section-title">Passenger / Client Information</div>
+          
+          <div class="vb-form-row" style="grid-template-columns: 100px 1fr 1fr;">
+            <div class="vb-form-group">
+              <label class="vb-label">Title</label>
+              <select class="vb-select">
+                <option value="">--</option>
+                <option value="mr">Mr</option>
+                <option value="mrs">Mrs</option>
+                <option value="ms">Ms</option>
+                <option value="miss">Miss</option>
+                <option value="dr">Dr</option>
+              </select>
+            </div>
+            <div class="vb-form-group">
+              <label class="vb-label">First Name <span class="required">*</span></label>
+              <input type="text" class="vb-input" id="clientFirstName" placeholder="First name">
+            </div>
+            <div class="vb-form-group">
+              <label class="vb-label">Last Name <span class="required">*</span></label>
+              <input type="text" class="vb-input" id="clientLastName" placeholder="Last name">
+            </div>
+          </div>
+          
+          <div class="vb-form-group">
+            <label class="vb-label">Mobile <span class="required">*</span></label>
+            <input type="tel" class="vb-input" id="clientPhone" placeholder="+36 70 XXX XXXX">
+          </div>
+        </div>
+      </div>
+      
+      <!-- Signage Option (Airport Transfers) -->
+      <div class="vb-form-section" style="padding-bottom: 8px;">
+        <label class="vb-checkbox-item" style="padding: 12px 16px; background: #f8f9fa; border-radius: 8px;">
+          <input type="checkbox" id="customSignage" onchange="toggleSignageField()">
+          <span style="font-weight: 500;">Use alternative text on the sign</span>
+          <span style="font-size: 13px; color: #666; margin-left: 8px;">(for airport meet & greet service)</span>
+        </label>
+        
+        <div id="signageFields" style="display: none; margin-top: 20px;">
+          <div class="vb-form-group">
+            <label class="vb-label">Text on sign <span class="required">*</span></label>
+            <input type="text" class="vb-input" id="signageName" placeholder="e.g., Company Name or Group Name">
+          </div>
+        </div>
+      </div>
+      
+      <!-- Billing Information (Optional - Collapsible) -->
+      <div class="vb-form-section" style="padding-bottom: 8px;">
+        <label class="vb-checkbox-item" style="padding: 14px 18px; background: linear-gradient(135deg, #f8f6f0 0%, #f0ede4 100%); border-radius: 8px; border: 1px solid #d4c9a8;">
+          <input type="checkbox" id="needBillingInfo" onchange="toggleBillingFields()">
+          <span style="font-weight: 600; color: #1a3c5a;">I need an invoice with specific billing details</span>
+        </label>
+        
+        <div id="billingFields" style="display: none; margin-top: 20px;">
+          <div class="vb-form-group">
+            <label class="vb-label">Name or Company Name <span class="required">*</span></label>
+            <input type="text" class="vb-input" placeholder="e.g., John Doe or ABC Company Ltd.">
+          </div>
+          
+          <div class="vb-form-group">
+            <label class="vb-label">Billing Address <span class="required">*</span></label>
+            <input type="text" class="vb-input" placeholder="Street, City, Postal Code, Country">
+          </div>
+          
+          <div class="vb-form-group">
+            <label class="vb-label">VAT / Tax Number</label>
+            <input type="text" class="vb-input" placeholder="e.g., HU12345678">
+          </div>
+          
+          <div class="vb-form-group">
+            <label class="vb-label">Billing Notes</label>
+            <textarea class="vb-textarea" rows="2" style="min-height: 50px;" placeholder="Any additional billing instructions or references..."></textarea>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Additional Information -->
+      <div class="vb-form-section">
+        <div class="vb-section-title">Additional Information</div>
+        
+        <div class="vb-form-row">
+          <div class="vb-form-group">
+            <label class="vb-label">How did you hear about us?</label>
+            <select class="vb-select">
+              <option value="">-- Select --</option>
+              <option value="google">Google Search</option>
+              <option value="social">Social Media</option>
+              <option value="recommendation">Recommendation</option>
+              <option value="travel-agency">Travel Agency / DMC</option>
+              <option value="returning">Returning Customer</option>
+              <option value="hotel">Hotel Concierge</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="vb-form-group">
+            <label class="vb-label">Promo Code (optional)</label>
+            <input type="text" class="vb-input" placeholder="Enter promo code if you have one">
+          </div>
+        </div>
+      </div>
+      
+      <!-- Payment Method -->
+      <div class="vb-form-section">
+        <div class="vb-section-title">Preferred Payment Method</div>
+        <p class="vb-help-text" style="margin-bottom: 16px;">For credit card payments, a minimal processing fee applies. Any applicable fees will be included in the quote.</p>
+        
+        <div class="vb-radio-group" style="display: flex; flex-direction: column; gap: 12px;">
+          <label class="vb-radio-item" style="padding: 16px; border-radius: 8px;">
+            <input type="radio" name="paymentMethod" value="bank_transfer"> 
+            <div style="margin-left: 8px;">
+              <strong>Bank Transfer</strong>
+              <span style="color: #2d5016; font-weight: 600; margin-left: 8px;"> No additional fees</span>
+            </div>
+          </label>
+          <label class="vb-radio-item" style="padding: 16px; border-radius: 8px;">
+            <input type="radio" name="paymentMethod" value="credit_card"> 
+            <div style="margin-left: 8px;">
+              <strong>Credit Card</strong>
+              <span style="color: #8B6914; font-weight: 600; margin-left: 8px;"> +3% processing fee</span>
+            </div>
+          </label>
+        </div>
+      </div>
+      
+      <!-- Terms -->
+      <div class="vb-terms">
+        <input type="checkbox" id="terms">
+        <label for="terms">I accept the <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a> <span class="required">*</span></label>
+      </div>
+      
+      <div class="vb-form-actions">
+        <button class="vb-btn vb-btn-outline" onclick="goToStep(3)">&#8592; Back</button>
+        <button class="vb-btn vb-btn-gold" onclick="submitForm()">Request a Quote &#8594;</button>
+      </div>
+    </div>
+
+    <!-- CONFIRMATION -->
+    <div class="vb-form-card" id="confirmation">
+      <div class="vb-confirmation">
+        <div class="vb-confirmation-icon"></div>
+        <h2 class="vb-confirmation-title">Thank You for Your Inquiry!</h2>
+        <p class="vb-confirmation-text">
+          We've received your transportation request. Our event logistics team will review your requirements and contact you within 24 hours with a customized proposal.
+        </p>
+        
+        <div class="vb-next-steps">
+          <div class="vb-next-steps-title">What happens next:</div>
+          <ol>
+            <li>We review your event details and transportation needs</li>
+            <li>Our team contacts you to discuss specific routes and timing</li>
+            <li>You receive a detailed quote with vehicle options</li>
+            <li>Once confirmed, we handle all logistics</li>
+          </ol>
+        </div>
+        
+        <div style="margin-top: 32px;">
+          <p style="color: var(--vb-gray-dark); font-size: 14px; margin-bottom: 16px;">Questions? Contact us:</p>
+          <p><strong> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a0c9cec6cfe0d6c1cec2d5c4c1d0c5d3d48ec3cfcd">[email&#160;protected]</a></strong></p>
+          <p><strong> +36 70 753 6333</strong></p>
+        </div>
+        
+        <button class="vb-btn vb-btn-outline" style="margin-top: 32px;" onclick="location.reload()">Back to Homepage</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+document.addEventListener("DOMContentLoaded", function() {
+    let currentStep = 1;
+    let currentEventSubstep = 1;
+    let selectedService = null;
+    let venueCount = 1;
+    let services = []; // Array to store all services
+    let editingServiceIndex = -1; // Track if we're editing
+    
+    // Service metadata
+    const serviceInfo = {
+      'airport': { name: 'Airport & Long-Distance Transfer', icon: 'plane' },
+      'hourly': { name: 'Hourly Ride & Sightseeing', icon: 'clock' },
+      'countryside': { name: 'Multi-day Trip', icon: 'map' },
+      'f1': { name: 'F1 Grand Prix', icon: 'car' },
+      'uefa': { name: 'UEFA Champions League', icon: 'ball' },
+      'event': { name: 'Event Transportation', icon: 'group' }
+    };
+    
+    // Service Selection
+    document.querySelectorAll('.vb-service-card').forEach(card => {
+      card.addEventListener('click', function() {
+        document.querySelectorAll('.vb-service-card').forEach(c => c.classList.remove('selected'));
+        this.classList.add('selected');
+        selectedService = this.dataset.service;
+        document.getElementById('step1Next').disabled = false;
+      });
+    });
+    
+    // Checkbox items toggle
+    document.querySelectorAll('.vb-checkbox-item input').forEach(checkbox => {
+      checkbox.addEventListener('change', function() {
+        this.closest('.vb-checkbox-item').classList.toggle('checked', this.checked);
+      });
+    });
+    
+    // Radio items toggle
+    document.querySelectorAll('.vb-radio-item input').forEach(radio => {
+      radio.addEventListener('change', function() {
+        const group = this.closest('.vb-radio-group');
+        group.querySelectorAll('.vb-radio-item').forEach(item => item.classList.remove('checked'));
+        this.closest('.vb-radio-item').classList.add('checked');
+      });
+    });
+    
+    function goToStep(step) {
+      // Update progress
+      document.querySelectorAll('.vb-step').forEach(s => {
+        const stepNum = parseInt(s.dataset.step);
+        s.classList.remove('active', 'completed');
+        if (stepNum < step) s.classList.add('completed');
+        if (stepNum === step) s.classList.add('active');
+      });
+      
+      // Update progress line width
+      var progressLine = document.getElementById('progressLine');
+      if (progressLine) {
+        // Calculate width: step 1 = 0%, step 2 = 33%, step 3 = 66%, step 4 = 100%
+        var widthPercent = (step - 1) * 33.33;
+        progressLine.style.width = widthPercent + '%';
+      }
+      
+      // Show correct card
+      document.querySelectorAll('.vb-form-card').forEach(card => card.classList.remove('active'));
+      document.getElementById('step' + step).classList.add('active');
+      
+      // If going to Step 3, show the correct service flow
+      if (step === 3) {
+        showServiceFlow(selectedService);
+      }
+      
+      // If going to Step 4, update services summary
+      if (step === 4) {
+        updateServicesSummary();
+      }
+      
+      // Show/hide progress back button (show on steps 2, 3, 4)
+      var progressBackBtn = document.getElementById('progressBackBtn');
+      if (progressBackBtn) {
+        progressBackBtn.classList.toggle('show', step > 1);
+      }
+      
+      currentStep = step;
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+    
+    // Go to previous step
+    function goToPreviousStep() {
+      if (currentStep > 1) {
+        goToStep(currentStep - 1);
+      }
+    }
+    
+    function showServiceFlow(service) {
+      // Hide all service flows
+      document.querySelectorAll('.vb-service-flow').forEach(flow => {
+        flow.style.display = 'none';
+      });
+      
+      // Show the selected service flow
+      const flowId = 'flow-' + service;
+      const flow = document.getElementById(flowId);
+      if (flow) {
+        flow.style.display = 'block';
+        
+        // If EVENT flow, reset to substep 1
+        if (service === 'event') {
+          goToEventSubstep(1);
+        }
+      }
+    }
+    
+    // Collect service data from Step 3 forms
+    function collectServiceData() {
+      var service = selectedService;
+      var info = serviceInfo;
+      var details = '';
+      
+      if (service === 'airport') {
+        var pickupDate = document.getElementById('transferPickupDate');
+        var pickupAddr = document.getElementById('transferPickupAddress');
+        var dropoffAddr = document.getElementById('transferDropoffAddress');
+        
+        if (pickupDate && pickupDate.value) {
+          details = formatDate(pickupDate.value);
+        }
+        if (pickupAddr && pickupAddr.value) {
+          details += (details ? '  ' : '') + shortenText(pickupAddr.value, 20);
+        }
+        if (dropoffAddr && dropoffAddr.value) {
+          details += ' >' ' + shortenText(dropoffAddr.value, 20);
+        }
+        if (!details) details = 'Transfer details pending';
+      }
+      else if (service === 'hourly') {
+        var hourlyDate = document.getElementById('hourlyPickupDate');
+        var serviceType = document.querySelector('input[name="hourlyServiceType"]:checked');
+        var duration = document.getElementById('hourlyDuration');
+        
+        if (hourlyDate && hourlyDate.value) {
+          details = formatDate(hourlyDate.value);
+        }
+        if (serviceType) {
+          details += (details ? '  ' : '') + (serviceType.value === 'sightseeing' ? 'Sightseeing Tour' : 'Chauffeur Service');
+        }
+        if (duration && duration.value && serviceType && serviceType.value !== 'sightseeing') {
+          details += '  ' + duration.value;
+        }
+        if (!details) details = 'Hourly service details pending';
+      }
+      else if (service === 'countryside') {
+        var startDateEl = document.getElementById('countrysideStartDate');
+        var daysEl = document.getElementById('countrysideTotalDays');
+        
+        if (startDateEl && startDateEl.value) {
+          details = formatDate(startDateEl.value);
+        }
+        if (daysEl && daysEl.value) {
+          details += (details ? '  ' : '') + daysEl.value + ' days';
+        }
+        if (!details) details = 'Multi-day trip details pending';
+      }
+      else if (service === 'f1') {
+        var f1Days = [];
+        document.querySelectorAll('#flow-f1 .vb-checkbox-item input:checked').forEach(function(cb) {
+          f1Days.push(cb.value);
+        });
+        details = f1Days.length ? 'July 2026  ' + f1Days.join(', ') : 'F1 days to be selected';
+      }
+      else if (service === 'uefa') {
+        var uefaDays = [];
+        document.querySelectorAll('#flow-uefa .vb-checkbox-item input:checked').forEach(function(cb) {
+          uefaDays.push(cb.value);
+        });
+        details = uefaDays.length ? 'May 2026  ' + uefaDays.join(', ') : 'UEFA days to be selected';
+      }
+      else if (service === 'event') {
+        var eventTypeEl = document.querySelector('#eventStep1 select');
+        var guestsEl = document.querySelectorAll('#eventStep1 select');
+        var eventStartEl = document.querySelectorAll('#eventStep1 input[type="date"]');
+        var eventEndEl = document.querySelectorAll('#eventStep1 input[type="date"]');
+        
+        if (eventStartEl && eventStartEl.value && eventEndEl && eventEndEl.value) {
+          details = formatDateRange(eventStartEl.value, eventEndEl.value);
+        } else if (eventStartEl && eventStartEl.value) {
+          details = formatDate(eventStartEl.value);
+        }
+        if (eventTypeEl && eventTypeEl.value) {
+          var typeOption = eventTypeEl.options[eventTypeEl.selectedIndex];
+          var typeLabel = typeOption ? typeOption.textContent : eventTypeEl.value;
+          details += (details ? '  ' : '') + typeLabel;
+        }
+        if (guestsEl && guestsEl.value) {
+          details += '  ' + guestsEl.value;
+        }
+        if (!details) details = 'Event details pending';
+      }
+      
+      // Collect vehicle data from Step 2
+      var vehicleData = collectVehicleData();
+      
+      return {
+        type: service,
+        name: info ? info.name : service,
+        icon: info ? info.icon : '
+        details: details,
+        vehicles: vehicleData
+      };
+    }
+    
+    // Collect vehicle selection from Step 2
+    function collectVehicleData() {
+      var vehicles = [];
+      document.querySelectorAll('.vb-vehicle-row').forEach(function(row) {
+        var checkbox = row.querySelector('input[type="checkbox"]');
+        var qtyInput = row.querySelector('.vb-qty-input');
+        if (checkbox && checkbox.checked) {
+          vehicles.push({
+            type: checkbox.value,
+            qty: qtyInput ? parseInt(qtyInput.value) || 1 : 1
+          });
+        }
+      });
+      
+      var totalGuests = document.getElementById('totalGuests');
+      var totalLuggage = document.getElementById('totalLuggage');
+      var specialItems = document.getElementById('specialItems');
+      
+      return {
+        selectedVehicles: vehicles,
+        guests: totalGuests ? totalGuests.value : '',
+        luggage: totalLuggage ? totalLuggage.value : '',
+        specialItems: specialItems ? specialItems.value : ''
+      };
+    }
+    
+    // Restore vehicle selection when editing a service
+    function restoreVehicleData(vehicleData) {
+      if (!vehicleData) return;
+      
+      // Reset all checkboxes first
+      resetVehicleSelection();
+      
+      // Restore selected vehicles
+      if (vehicleData.selectedVehicles && vehicleData.selectedVehicles.length > 0) {
+        vehicleData.selectedVehicles.forEach(function(v) {
+          var checkbox = document.querySelector('.vb-vehicle-row input[value="' + v.type + '"]');
+          if (checkbox) {
+            checkbox.checked = true;
+            var row = checkbox.closest('.vb-vehicle-row');
+            var qtyDiv = row.querySelector('.vb-vehicle-qty');
+            var qtyInput = row.querySelector('.vb-qty-input');
+            var checkboxItem = checkbox.closest('.vb-checkbox-item');
+            
+            if (qtyDiv) qtyDiv.style.display = 'flex';
+            if (qtyInput) qtyInput.value = v.qty;
+            if (checkboxItem) checkboxItem.classList.add('checked');
+          }
+        });
+      }
+      
+      // Restore group details
+      var totalGuests = document.getElementById('totalGuests');
+      var totalLuggage = document.getElementById('totalLuggage');
+      var specialItems = document.getElementById('specialItems');
+      
+      if (totalGuests && vehicleData.guests) totalGuests.value = vehicleData.guests;
+      if (totalLuggage && vehicleData.luggage) totalLuggage.value = vehicleData.luggage;
+      if (specialItems && vehicleData.specialItems) specialItems.value = vehicleData.specialItems;
+    }
+    
+    // Reset vehicle selection for new service
+    function resetVehicleSelection() {
+      document.querySelectorAll('.vb-vehicle-row').forEach(function(row) {
+        var checkbox = row.querySelector('input[type="checkbox"]');
+        var qtyDiv = row.querySelector('.vb-vehicle-qty');
+        var qtyInput = row.querySelector('.vb-qty-input');
+        var checkboxItem = row.querySelector('.vb-checkbox-item');
+        
+        if (checkbox) checkbox.checked = false;
+        if (qtyDiv) qtyDiv.style.display = 'none';
+        if (qtyInput) qtyInput.value = 1;
+        if (checkboxItem) checkboxItem.classList.remove('checked');
+      });
+      
+      // Reset group details
+      var totalGuests = document.getElementById('totalGuests');
+      var totalLuggage = document.getElementById('totalLuggage');
+      var specialItems = document.getElementById('specialItems');
+      
+      if (totalGuests) totalGuests.value = 1;
+      if (totalLuggage) totalLuggage.value = 0;
+      if (specialItems) specialItems.value = '';
+    }
+    
+    // Helper functions
+    function formatDate(dateStr) {
+      if (!dateStr) return '';
+      const date = new Date(dateStr);
+      return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+    }
+    
+    function formatDateRange(start, end) {
+      if (!start || !end) return formatDate(start);
+      const startDate = new Date(start);
+      const endDate = new Date(end);
+      const startMonth = startDate.toLocaleDateString('en-US', { month: 'short' });
+      const endMonth = endDate.toLocaleDateString('en-US', { month: 'short' });
+      
+      if (startMonth === endMonth) {
+        return startMonth + ' ' + startDate.getDate() + '-' + endDate.getDate();
+      }
+      return formatDate(start) + '  ' + formatDate(end);
+    }
+    
+    function shortenText(text, maxLen) {
+      if (!text || text.length <= maxLen) return text;
+      return text.substring(0, maxLen) + '...';
+    }
+    
+    // Format vehicle list for display
+    function formatVehicleList(vehicleData) {
+      if (!vehicleData || !vehicleData.selectedVehicles || vehicleData.selectedVehicles.length === 0) {
+        return '';
+      }
+      
+      var vehicleNames = {
+        'business_car': 'Business Car',
+        'premium_van': 'Premium VAN',
+        'minibus': 'Minibus',
+        'coach': 'Coach Bus',
+        'luxury_minibus_vip': 'Luxury Minibus VIP',
+        'luxury_car_vip': 'Luxury Car VIP'
+      };
+      
+      var parts = [];
+      vehicleData.selectedVehicles.forEach(function(v) {
+        var name = vehicleNames[v.type] || v.type;
+        if (v.qty > 1) {
+          parts.push(v.qty + ' ' + name);
+        } else {
+          parts.push(name);
+        }
+      });
+      
+      return parts.join(', ');
+    }
+    
+    // Save current service and go to Step 4
+    function saveServiceAndContinue() {
+      const serviceData = collectServiceData();
+      
+      if (editingServiceIndex >= 0) {
+        // Update existing service
+        services = serviceData;
+        editingServiceIndex = -1;
+      } else {
+        // Add new service
+        services.push(serviceData);
+      }
+      
+      goToStep(4);
+    }
+    
+    // Update services summary in Step 4
+    function updateServicesSummary() {
+      const container = document.getElementById('servicesList');
+      const countEl = document.getElementById('serviceCount');
+      const addBtn = document.getElementById('addServiceBtn');
+      
+      countEl.textContent = services.length;
+      
+      if (services.length === 0) {
+        container.innerHTML = '<p class="vb-help-text" style="text-align:center; padding:20px;">No services added yet. Please go back and complete Step 3.</p>';
+        addBtn.style.display = 'none';
+        return;
+      }
+      
+      addBtn.style.display = services.length >= 5 ? 'none' : 'block';
+      
+      let html = '';
+      services.forEach((service, index) => {
+        // Format vehicle list
+        var vehicleText = formatVehicleList(service.vehicles);
+        var guestsText = service.vehicles && service.vehicles.guests ? service.vehicles.guests + ' guests' : '';
+        
+        html += `
+          <div class="vb-service-item" data-index="${index}">
+            <div class="vb-service-item-info">
+              <div class="vb-service-item-icon">${service.icon}</div>
+              <div>
+                <div class="vb-service-item-name">${service.name}</div>
+                <div class="vb-service-item-details">${service.details}</div>
+                ${vehicleText ? '<div class="vb-service-item-vehicles"> ' + vehicleText + '</div>' : ''}
+                ${guestsText ? '<div class="vb-service-item-guests"> ' + guestsText + '</div>' : ''}
+              </div>
+            </div>
+            <div class="vb-service-item-actions">
+              <button class="vb-btn-icon vb-btn-edit" title="Edit" onclick="editService(${index})"></button>
+              <button class="vb-btn-icon vb-btn-remove" title="Remove" onclick="removeService(${index})"></button>
+            </div>
+          </div>
+        `;
+      });
+      
+      container.innerHTML = html;
+    }
+    
+    // Edit a service
+    function editService(index) {
+      editingServiceIndex = index;
+      const service = services;
+      selectedService = service.type;
+      
+      // Highlight the correct service card
+      document.querySelectorAll('.vb-service-card').forEach(c => {
+        c.classList.remove('selected');
+        if (c.dataset.service === service.type) {
+          c.classList.add('selected');
+        }
+      });
+      
+      // Restore vehicle selection for this service
+      if (service.vehicles) {
+        restoreVehicleData(service.vehicles);
+      }
+      
+      goToStep(3);
+    }
+    
+    // Remove a service
+    function removeService(index) {
+      if (confirm('Are you sure you want to remove this service?')) {
+        services.splice(index, 1);
+        updateServicesSummary();
+      }
+    }
+    
+    // Add another service
+    function addAnotherService() {
+      if (services.length >= 5) {
+        alert('Maximum 5 services per request. For complex itineraries, please contact us directly at info@vanbudapest.com');
+        return;
+      }
+      
+      editingServiceIndex = -1;
+      selectedService = null;
+      
+      // Clear service card selection
+      document.querySelectorAll('.vb-service-card').forEach(c => c.classList.remove('selected'));
+      document.getElementById('step1Next').disabled = true;
+      
+      // Reset vehicle selection for new service
+      resetVehicleSelection();
+      
+      goToStep(1);
+    }
+    
+    function goToEventSubstep(substep) {
+      // Update event substeps
+      document.querySelectorAll('.vb-event-substep').forEach(s => {
+        const num = parseInt(s.dataset.substep);
+        s.classList.remove('active', 'completed');
+        if (num < substep) s.classList.add('completed');
+        if (num === substep) s.classList.add('active');
+      });
+      
+      // Show correct content
+      document.querySelectorAll('.vb-event-content').forEach(c => c.style.display = 'none');
+      document.getElementById('eventStep' + substep).style.display = 'block';
+      
+      currentEventSubstep = substep;
+      window.scrollTo({top: 200, behavior: 'smooth'});
+    }
+    
+    function addVenue() {
+      venueCount++;
+      if (venueCount <= 3) {
+        document.getElementById('venue' + venueCount).style.display = 'block';
+      }
+      if (venueCount >= 3) {
+        document.querySelector('.vb-add-link').style.display = 'none';
+      }
+    }
+    
+    function toggleOtherDetails() {
+      const checkbox = document.querySelector('input[value="other"]');
+      document.getElementById('otherDetails').classList.toggle('show', checkbox.checked);
+    }
+    
+    function toggleContactFields() {
+      const selected = document.querySelector('input[name="contactMethod"]:checked');
+      document.getElementById('phoneFields').classList.remove('show');
+      document.getElementById('whatsappFields').classList.remove('show');
+      
+      if (selected) {
+        if (selected.value === 'phone') {
+          document.getElementById('phoneFields').classList.add('show');
+        } else if (selected.value === 'whatsapp') {
+          document.getElementById('whatsappFields').classList.add('show');
+        }
+      }
+    }
+    
+    function toggleReturnFields() {
+      const selected = document.querySelector('input[name="returnTransfer"]:checked');
+      if (selected && selected.value === 'yes') {
+        document.getElementById('returnFields').classList.add('show');
+      } else {
+        document.getElementById('returnFields').classList.remove('show');
+      }
+    }
+    
+    function toggleClientFields() {
+      const checkbox = document.getElementById('bookingForOther');
+      const clientFields = document.getElementById('clientFields');
+      
+      if (checkbox && checkbox.checked) {
+        clientFields.style.display = 'block';
+      } else {
+        clientFields.style.display = 'none';
+      }
+    }
+    
+    function toggleSignageField() {
+      const checkbox = document.getElementById('customSignage');
+      const signageFields = document.getElementById('signageFields');
+      
+      if (checkbox && checkbox.checked) {
+        signageFields.style.display = 'block';
+      } else {
+        signageFields.style.display = 'none';
+      }
+    }
+    
+    function toggleBillingFields() {
+      const checkbox = document.getElementById('needBillingInfo');
+      const billingFields = document.getElementById('billingFields');
+      
+      if (checkbox && checkbox.checked) {
+        billingFields.style.display = 'block';
+      } else {
+        billingFields.style.display = 'none';
+      }
+    }
+    
+    function toggleHourlyFields() {
+      const selected = document.querySelector('input[name="hourlyServiceType"]:checked');
+      const allFields = document.getElementById('hourlyAllFields');
+      const guideFields = document.getElementById('guideFields');
+      const chauffeurFields = document.getElementById('chauffeurOnlyFields');
+      const durationField = document.getElementById('durationField');
+      
+      if (selected) {
+        // Show all fields when any option is selected
+        allFields.classList.add('show');
+        
+        if (selected.value === 'sightseeing') {
+          // Sightseeing: show guide options, hide route fields & duration
+          guideFields.classList.add('show');
+          chauffeurFields.classList.remove('show');
+          durationField.classList.remove('show');
+        } else {
+          // Chauffeur: hide guide options, show route fields & duration
+          guideFields.classList.remove('show');
+          chauffeurFields.classList.add('show');
+          durationField.classList.add('show');
+        }
+      } else {
+        allFields.classList.remove('show');
+        guideFields.classList.remove('show');
+        chauffeurFields.classList.remove('show');
+        durationField.classList.remove('show');
+      }
+    }
+    
+    function toggleVehicleQty(checkbox) {
+      var row = checkbox.closest('.vb-vehicle-row');
+      var qtyDiv = row.querySelector('.vb-vehicle-qty');
+      var checkboxItem = checkbox.closest('.vb-checkbox-item');
+      
+      if (checkbox.checked) {
+        qtyDiv.style.display = 'flex';
+        checkboxItem.classList.add('checked');
+      } else {
+        qtyDiv.style.display = 'none';
+        checkboxItem.classList.remove('checked');
+      }
+    }
+    
+    function toggleCustomTour() {
+      const selected = document.querySelector('input[name="tourPackage"]:checked');
+      const customFields = document.getElementById('customTourFields');
+      
+      if (selected && selected.value === 'custom') {
+        customFields.classList.add('show');
+      } else {
+        customFields.classList.remove('show');
+      }
+    }
+    
+    // FORMINATOR AJAX INTEGRATION - Form ID: 18754
+    const VB_AJAX = {
+      FORM_ID: 18754,
+      URL: 'https://vanbudapest.com/wp-admin/admin-ajax.php',
+      
+      collectAllData: function() {
+        const data = { services: services, timestamp: new Date().toISOString() };
+        
+        // Contact info from Step 4
+        document.querySelectorAll('#step4 input, #step4 select, #step4 textarea').forEach(input => {
+          if (input.type === 'email') data.email = input.value;
+          if (input.type === 'tel' && !data.phone) data.phone = input.value;
+          if (input.placeholder && input.placeholder.includes('First')) data.firstName = input.value;
+          if (input.placeholder && input.placeholder.includes('Last')) data.lastName = input.value;
+        });
+        
+        const payment = document.querySelector('input[name="paymentMethod"]:checked');
+        if (payment) data.payment = payment.value;
+        
+        return data;
+      },
+      
+      showLoading: function(show) {
+        let overlay = document.getElementById('vbLoadingOverlay');
+        if (!overlay && show) {
+          overlay = document.createElement('div');
+          overlay.id = 'vbLoadingOverlay';
+          overlay.style.cssText = 'display:flex;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(10,31,68,0.9);z-index:99999;align-items:center;justify-content:center;flex-direction:column;';
+          overlay.innerHTML = '<div style="border:4px solid #12306A;border-top:4px solid #C8B560;border-radius:50%;width:50px;height:50px;animation:spin 1s linear infinite;"></div><div style="color:#fff;margin-top:16px;">Submitting...</div><style>@keyframes spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}</style>';
+          document.body.appendChild(overlay);
+        }
+        if (overlay) overlay.style.display = show ? 'flex' : 'none';
+      },
+      
+      submit: async function() {
+        this.showLoading(true);
+        try {
+          const data = this.collectAllData();
+          const formData = new FormData();
+          formData.append('action', 'forminator_submit_form_custom-forms');
+          formData.append('form_id', this.FORM_ID);
+          formData.append('hidden-1', services.length > 0 ? services[0].name : 'General');
+          formData.append('hidden-2', JSON.stringify(data, null, 2));
+          formData.append('text-1', data.email || '');
+          formData.append('text-2', ((data.firstName || '') + ' ' + (data.lastName || '')).trim());
+          formData.append('text-3', data.phone || '');
+          
+          await fetch(this.URL, { method: 'POST', body: formData, credentials: 'include' });
+          return true;
+        } catch (e) {
+          console.error('Submit error:', e);
+          return true;
+        } finally {
+          this.showLoading(false);
+        }
+      }
+    };
+    
+    async function submitForm() {
+      if (services.length === 0) {
+        alert('Please add at least one service before submitting.');
+        return;
+      }
+      
+      const emailInput = document.querySelector('#step4 input[type="email"]');
+      if (!emailInput || !emailInput.value) {
+        alert('Please enter your email address.');
+        return;
+      }
+      
+      const termsCheckbox = document.getElementById('terms');
+      if (termsCheckbox && !termsCheckbox.checked) {
+        alert('Please accept the Terms & Conditions.');
+        return;
+      }
+      
+      await VB_AJAX.submit();
+      
+      document.querySelectorAll('.vb-form-card').forEach(card => card.classList.remove('active'));
+      document.getElementById('confirmation').classList.add('active');
+      document.querySelectorAll('.vb-step').forEach(s => s.classList.add('completed'
