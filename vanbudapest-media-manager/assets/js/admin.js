@@ -162,6 +162,43 @@
                 self.updateExportCode(format);
             });
 
+            // Live URL panel: copy all URLs
+            $('#vbmm-copy-all-urls').on('click', function () {
+                var selected = self.getSelectedItems();
+                var urls = selected.map(function (item) { return item.url; }).join('\n');
+                self.copyToClipboard(urls);
+            });
+
+            // Live URL panel: copy as HTML
+            $('#vbmm-copy-all-html').on('click', function () {
+                var selected = self.getSelectedItems();
+                var html = self.exportHtml(selected);
+                self.copyToClipboard(html);
+            });
+
+            // Live URL panel: copy as Claude prompt
+            $('#vbmm-copy-claude-prompt').on('click', function () {
+                var selected = self.getSelectedItems();
+                var prompt = self.exportClaude(selected);
+                self.copyToClipboard(prompt);
+            });
+
+            // Copy single URL from panel
+            $(document).on('click', '.vbmm-url-item-copy', function (e) {
+                e.stopPropagation();
+                self.copyToClipboard($(this).data('url'));
+            });
+
+            // Remove single item from selection via panel
+            $(document).on('click', '.vbmm-url-item-remove', function (e) {
+                e.stopPropagation();
+                var id = parseInt($(this).data('id'));
+                self.toggleSelect(id, false);
+                // Also uncheck the card
+                var $card = $('.vbmm-media-card[data-id="' + id + '"]');
+                $card.removeClass('selected').find('.vbmm-card-checkbox').prop('checked', false);
+            });
+
             // Keyboard shortcut: Escape to close panels
             $(document).on('keydown', function (e) {
                 if (e.key === 'Escape') {
@@ -419,9 +456,12 @@
                 $('#vbmm-count-number').text(count);
                 $('#vbmm-bulk-bar').show();
                 $('#vbmm-bulk-count').text(count);
+                $('#vbmm-url-panel').show();
+                this.renderUrlPanel();
             } else {
                 $('#vbmm-selected-count').hide();
                 $('#vbmm-bulk-bar').hide();
+                $('#vbmm-url-panel').hide();
             }
 
             // Update select all checkbox state
@@ -430,6 +470,52 @@
             } else {
                 $('#vbmm-select-all').prop('checked', false);
             }
+        },
+
+        /**
+         * Render the live URL list panel
+         */
+        renderUrlPanel: function () {
+            var self = this;
+            var selected = this.getSelectedItems();
+            var $list = $('#vbmm-url-panel-list');
+
+            $('#vbmm-url-panel-count').text(selected.length);
+
+            var html = '';
+            selected.forEach(function (item, i) {
+                var ext = (item.mime_type || '').split('/')[1] || '';
+                if (ext === 'jpeg') ext = 'jpg';
+                if (ext === 'svg+xml') ext = 'svg';
+
+                var thumbUrl = item.thumbnail || item.medium || item.url;
+                var dims = (item.width && item.height) ? item.width + 'x' + item.height : '';
+
+                // Warnings
+                var badges = '<span class="vbmm-url-item-badge type-badge">' + self.escHtml(ext.toUpperCase()) + '</span>';
+                if (dims) {
+                    badges += '<span class="vbmm-url-item-badge size-badge">' + self.escHtml(dims) + '</span>';
+                }
+                if (!item.alt) {
+                    badges += '<span class="vbmm-url-item-badge warn-badge">ALT!</span>';
+                }
+
+                html += '<div class="vbmm-url-item" data-id="' + item.id + '">' +
+                    '<span class="vbmm-url-item-num">' + (i + 1) + '.</span>' +
+                    '<img class="vbmm-url-item-thumb" src="' + self.escHtml(thumbUrl) + '" alt="" loading="lazy">' +
+                    '<div class="vbmm-url-item-info">' +
+                        '<div class="vbmm-url-item-name">' + self.escHtml(item.title) + '</div>' +
+                        '<div class="vbmm-url-item-url">' + self.escHtml(item.url) + '</div>' +
+                    '</div>' +
+                    '<div class="vbmm-url-item-badges">' + badges + '</div>' +
+                    '<button type="button" class="vbmm-url-item-copy" data-url="' + self.escHtml(item.url) + '" title="URL másolása">' +
+                        '<span class="dashicons dashicons-clipboard"></span>' +
+                    '</button>' +
+                    '<button type="button" class="vbmm-url-item-remove" data-id="' + item.id + '" title="Eltávolítás">&times;</button>' +
+                '</div>';
+            });
+
+            $list.html(html);
         },
 
         /**

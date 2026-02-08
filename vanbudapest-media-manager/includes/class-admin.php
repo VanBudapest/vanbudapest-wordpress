@@ -207,6 +207,34 @@ class VBMM_Admin {
                 </div>
             </div>
 
+            <!-- Live URL List Panel (shown when items selected) -->
+            <div class="vbmm-url-panel" id="vbmm-url-panel" style="display:none;">
+                <div class="vbmm-url-panel-header">
+                    <span class="vbmm-url-panel-title">
+                        <span class="dashicons dashicons-admin-links"></span>
+                        <?php esc_html_e( 'Kijelölt képek URL-jei', 'vanbudapest-media-manager' ); ?>
+                        (<strong id="vbmm-url-panel-count">0</strong>)
+                    </span>
+                    <div class="vbmm-url-panel-actions">
+                        <button type="button" class="button button-primary" id="vbmm-copy-all-urls" title="Összes URL másolása">
+                            <span class="dashicons dashicons-clipboard"></span>
+                            <?php esc_html_e( 'Összes URL másolása', 'vanbudapest-media-manager' ); ?>
+                        </button>
+                        <button type="button" class="button" id="vbmm-copy-all-html" title="HTML img tagek másolása">
+                            <span class="dashicons dashicons-editor-code"></span>
+                            HTML
+                        </button>
+                        <button type="button" class="button" id="vbmm-copy-claude-prompt" title="Claude prompt másolása">
+                            <span class="dashicons dashicons-format-chat"></span>
+                            Claude
+                        </button>
+                    </div>
+                </div>
+                <div class="vbmm-url-panel-list" id="vbmm-url-panel-list">
+                    <!-- URL items rendered by JS -->
+                </div>
+            </div>
+
             <!-- Stats Bar -->
             <div class="vbmm-stats-bar" id="vbmm-stats-bar">
                 <span class="vbmm-stat">
