@@ -1,0 +1,1746 @@
+{
+  "form_name": "VanBudapest Booking Form v2",
+  "form_status": "publish",
+  "version": "1.0",
+  "settings": {
+    "pagination-header": "nav",
+    "paginationData": {
+      "pagination-header-design": "show",
+      "pagination-header": "nav"
+    },
+    "formName": "VanBudapest Booking Form v2",
+    "form-type": "default",
+    "submission-behaviour": "behaviour-thankyou",
+    "thankyou-message": "Thank you for your booking request! We will contact you within 24 hours with a personalized quote.",
+    "submitData": {
+      "button-text": "Request a Quote →",
+      "button-processing-text": "Submitting..."
+    },
+    "enable-ajax": "true",
+    "validation-inline": true,
+    "form-style": "default",
+    "fields-style": "open",
+    "form-padding": "custom",
+    "form-padding-top": "0",
+    "form-padding-right": "0",
+    "form-padding-bottom": "0",
+    "form-padding-left": "0",
+    "form-border": "none"
+  },
+  "wrappers": [
+    {
+      "wrapper_id": "wrapper-step1-header",
+      "fields": ["html-step1-title", "select-service"]
+    },
+    {
+      "wrapper_id": "wrapper-step2-header",
+      "fields": ["page-break-2", "html-step2-title"]
+    },
+    {
+      "wrapper_id": "wrapper-vehicles",
+      "fields": ["html-vehicle-help", "vehicle-business-car", "vehicle-business-car-qty", "vehicle-premium-van", "vehicle-premium-van-qty", "vehicle-minibus", "vehicle-minibus-qty", "vehicle-coach", "vehicle-coach-qty", "vehicle-luxury-minibus", "vehicle-luxury-minibus-qty", "vehicle-luxury-car", "vehicle-luxury-car-qty"]
+    },
+    {
+      "wrapper_id": "wrapper-group",
+      "fields": ["total-guests", "total-luggage", "special-items"]
+    },
+    {
+      "wrapper_id": "wrapper-step3",
+      "fields": ["page-break-3"]
+    },
+    {
+      "wrapper_id": "wrapper-airport",
+      "fields": ["html-airport-title", "airport-pickup-date", "airport-pickup-time", "airport-pickup-address", "airport-dropoff-address", "airport-flight-number", "airport-return-transfer", "airport-return-date", "airport-return-time", "airport-return-pickup", "airport-return-dropoff", "airport-special-requirements", "airport-additional-preferences"]
+    },
+    {
+      "wrapper_id": "wrapper-hourly",
+      "fields": ["html-hourly-title", "hourly-service-type", "guide-language", "tour-package", "custom-tour-requests", "hourly-pickup-date", "hourly-pickup-time", "html-duration-help", "hourly-duration", "hourly-pickup-address", "hourly-destination", "hourly-route-stops", "hourly-dropoff-address", "hourly-special-requirements", "hourly-additional-preferences"]
+    },
+    {
+      "wrapper_id": "wrapper-countryside",
+      "fields": ["html-countryside-title", "countryside-start-date", "countryside-pickup-time", "countryside-total-days", "countryside-pickup-address", "countryside-itinerary", "countryside-special-requirements", "countryside-additional-preferences"]
+    },
+    {
+      "wrapper_id": "wrapper-f1",
+      "fields": ["html-f1-title", "f1-days", "html-f1-help", "f1-pickup-address", "f1-destination", "f1-dropoff-address", "f1-special-requirements", "f1-additional-preferences"]
+    },
+    {
+      "wrapper_id": "wrapper-uefa",
+      "fields": ["html-uefa-title", "uefa-days", "html-uefa-help", "uefa-pickup-address", "uefa-route-stops", "uefa-special-requirements", "uefa-additional-preferences"]
+    },
+    {
+      "wrapper_id": "wrapper-event",
+      "fields": ["html-event-title", "html-event-substeps", "event-name", "event-organization", "event-type", "event-expected-guests", "event-start-date", "event-end-date", "event-city", "event-venue", "event-venue-2", "event-venue-3", "event-services-needed", "event-other-details", "event-fleet-preferences", "html-fleet-help", "event-fleet-notes", "event-special-requirements", "event-schedule", "event-itinerary-upload", "event-additional-preferences"]
+    },
+    {
+      "wrapper_id": "wrapper-step4",
+      "fields": ["page-break-4", "html-step4-title"]
+    },
+    {
+      "wrapper_id": "wrapper-contact",
+      "fields": ["contact-title", "contact-first-name", "contact-last-name", "contact-email", "contact-phone"]
+    },
+    {
+      "wrapper_id": "wrapper-booking-other",
+      "fields": ["booking-for-other", "client-title", "client-first-name", "client-last-name", "client-phone"]
+    },
+    {
+      "wrapper_id": "wrapper-signage",
+      "fields": ["custom-signage", "signage-text"]
+    },
+    {
+      "wrapper_id": "wrapper-billing",
+      "fields": ["need-billing", "billing-name", "billing-address", "billing-vat", "billing-notes"]
+    },
+    {
+      "wrapper_id": "wrapper-additional",
+      "fields": ["how-heard", "promo-code"]
+    },
+    {
+      "wrapper_id": "wrapper-payment",
+      "fields": ["html-payment-help", "payment-method"]
+    },
+    {
+      "wrapper_id": "wrapper-terms",
+      "fields": ["terms-consent"]
+    }
+  ],
+  "fields": [
+    {
+      "element_id": "html-step1-title",
+      "type": "html",
+      "field_label": "",
+      "variations": "<h2 class=\"vb-form-title\">How can we help you today?</h2>\n<p class=\"vb-form-subtitle\">Select the service that best fits your needs</p>"
+    },
+    {
+      "element_id": "select-service",
+      "type": "radio",
+      "field_label": "Select Service",
+      "required": "true",
+      "options": [
+        {"label": "✈️ Transfers (Airport & Long-Distance) — One-way or return, any distance", "value": "airport", "default": false},
+        {"label": "⏰ Hourly Ride & Sightseeing — Chauffeur service or guided tours", "value": "hourly", "default": false},
+        {"label": "🗺️ Multi-day Trips — Private tours & trips", "value": "countryside", "default": false},
+        {"label": "🎪 Event Transportation — Conferences & groups", "value": "event", "default": false},
+        {"label": "⚽ UEFA CL Final — May 28-31, 2026", "value": "uefa", "default": false},
+        {"label": "🏎️ F1 Grand Prix — July 23-26, 2026", "value": "f1", "default": false}
+      ],
+      "value_type": "radio",
+      "layout": "vertical",
+      "custom_class": "vb-service-cards"
+    },
+    {
+      "element_id": "page-break-2",
+      "type": "page-break",
+      "field_label": "Vehicle & Group"
+    },
+    {
+      "element_id": "html-step2-title",
+      "type": "html",
+      "field_label": "",
+      "variations": "<h2 class=\"vb-form-title\">Vehicle & Group Details</h2>\n<p class=\"vb-form-subtitle\">Select your preferred vehicle(s) and group size</p>"
+    },
+    {
+      "element_id": "html-vehicle-help",
+      "type": "html",
+      "field_label": "",
+      "variations": "<p class=\"vb-help-text\">Select one or more vehicles. For mixed groups, choose multiple vehicle types.</p>"
+    },
+    {
+      "element_id": "vehicle-business-car",
+      "type": "checkbox",
+      "field_label": "🚗 Business Car – up to 3 pax – Mercedes E-Class",
+      "required": "false",
+      "options": [
+        {"label": "🚗 Business Car – up to 3 pax – Mercedes E-Class", "value": "business-car", "default": false}
+      ]
+    },
+    {
+      "element_id": "vehicle-business-car-qty",
+      "type": "number",
+      "field_label": "Qty",
+      "required": "false",
+      "default_value": "1",
+      "number_min": "1",
+      "number_max": "20",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "vehicle-business-car", "rule": "is", "value": "business-car"}
+        ]
+      }
+    },
+    {
+      "element_id": "vehicle-premium-van",
+      "type": "checkbox",
+      "field_label": "🚐 Premium VAN – up to 6-7 pax – Mercedes V-Class",
+      "required": "false",
+      "options": [
+        {"label": "🚐 Premium VAN – up to 6-7 pax – Mercedes V-Class", "value": "premium-van", "default": false}
+      ]
+    },
+    {
+      "element_id": "vehicle-premium-van-qty",
+      "type": "number",
+      "field_label": "Qty",
+      "required": "false",
+      "default_value": "1",
+      "number_min": "1",
+      "number_max": "20",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "vehicle-premium-van", "rule": "is", "value": "premium-van"}
+        ]
+      }
+    },
+    {
+      "element_id": "vehicle-minibus",
+      "type": "checkbox",
+      "field_label": "🚌 Minibus – up to 14-20 pax – Mercedes Sprinter",
+      "required": "false",
+      "options": [
+        {"label": "🚌 Minibus – up to 14-20 pax – Mercedes Sprinter", "value": "minibus", "default": false}
+      ]
+    },
+    {
+      "element_id": "vehicle-minibus-qty",
+      "type": "number",
+      "field_label": "Qty",
+      "required": "false",
+      "default_value": "1",
+      "number_min": "1",
+      "number_max": "20",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "vehicle-minibus", "rule": "is", "value": "minibus"}
+        ]
+      }
+    },
+    {
+      "element_id": "vehicle-coach",
+      "type": "checkbox",
+      "field_label": "🚍 Coach Bus – up to 49 pax – Mercedes Tourismo",
+      "required": "false",
+      "options": [
+        {"label": "🚍 Coach Bus – up to 49 pax – Mercedes Tourismo", "value": "coach", "default": false}
+      ]
+    },
+    {
+      "element_id": "vehicle-coach-qty",
+      "type": "number",
+      "field_label": "Qty",
+      "required": "false",
+      "default_value": "1",
+      "number_min": "1",
+      "number_max": "10",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "vehicle-coach", "rule": "is", "value": "coach"}
+        ]
+      }
+    },
+    {
+      "element_id": "vehicle-luxury-minibus",
+      "type": "checkbox",
+      "field_label": "🚐 Luxury Minibus VIP – up to 8 pax – Mercedes Sprinter",
+      "required": "false",
+      "custom_class": "vip-vehicle",
+      "options": [
+        {"label": "🚐 Luxury Minibus VIP – up to 8 pax – Mercedes Sprinter", "value": "luxury-minibus", "default": false}
+      ]
+    },
+    {
+      "element_id": "vehicle-luxury-minibus-qty",
+      "type": "number",
+      "field_label": "Qty",
+      "required": "false",
+      "default_value": "1",
+      "number_min": "1",
+      "number_max": "10",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "vehicle-luxury-minibus", "rule": "is", "value": "luxury-minibus"}
+        ]
+      }
+    },
+    {
+      "element_id": "vehicle-luxury-car",
+      "type": "checkbox",
+      "field_label": "👔 Luxury Car VIP – up to 3 pax – Mercedes S-Class",
+      "required": "false",
+      "custom_class": "vip-vehicle",
+      "options": [
+        {"label": "👔 Luxury Car VIP – up to 3 pax – Mercedes S-Class", "value": "luxury-car", "default": false}
+      ]
+    },
+    {
+      "element_id": "vehicle-luxury-car-qty",
+      "type": "number",
+      "field_label": "Qty",
+      "required": "false",
+      "default_value": "1",
+      "number_min": "1",
+      "number_max": "10",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "vehicle-luxury-car", "rule": "is", "value": "luxury-car"}
+        ]
+      }
+    },
+    {
+      "element_id": "total-guests",
+      "type": "number",
+      "field_label": "Total Number of Guests",
+      "required": "true",
+      "default_value": "1",
+      "number_min": "1",
+      "number_max": "500"
+    },
+    {
+      "element_id": "total-luggage",
+      "type": "number",
+      "field_label": "Pieces of Luggage",
+      "required": "false",
+      "default_value": "0",
+      "number_min": "0",
+      "number_max": "100"
+    },
+    {
+      "element_id": "special-items",
+      "type": "text",
+      "field_label": "Special Items / Notes",
+      "required": "false",
+      "placeholder": "e.g., Golf bags, Ski equipment, Wheelchair, Child seats"
+    },
+    {
+      "element_id": "page-break-3",
+      "type": "page-break",
+      "field_label": "Service Details"
+    },
+    {
+      "element_id": "html-airport-title",
+      "type": "html",
+      "field_label": "",
+      "variations": "<h2 class=\"vb-form-title\">Transfer Details</h2>\n<p class=\"vb-form-subtitle\">One-way or return transfers, any distance</p>",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "airport"}
+        ]
+      }
+    },
+    {
+      "element_id": "airport-pickup-date",
+      "type": "date",
+      "field_label": "Pickup Date",
+      "required": "true",
+      "date_format": "yyyy-mm-dd",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "airport"}
+        ]
+      }
+    },
+    {
+      "element_id": "airport-pickup-time",
+      "type": "time",
+      "field_label": "Pickup Time",
+      "required": "true",
+      "time_format": "24",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "airport"}
+        ]
+      }
+    },
+    {
+      "element_id": "airport-pickup-address",
+      "type": "text",
+      "field_label": "Pickup Address",
+      "required": "true",
+      "placeholder": "e.g., Budapest Airport Terminal 2B, Hotel name, or any address",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "airport"}
+        ]
+      }
+    },
+    {
+      "element_id": "airport-dropoff-address",
+      "type": "text",
+      "field_label": "Drop-off Address",
+      "required": "true",
+      "placeholder": "e.g., Hilton Budapest, Airport, or any destination",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "airport"}
+        ]
+      }
+    },
+    {
+      "element_id": "airport-flight-number",
+      "type": "text",
+      "field_label": "Flight Number (if airport transfer)",
+      "required": "false",
+      "placeholder": "e.g., FR1023",
+      "description": "Optional – for airport pickups, we monitor your flight for delays",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "airport"}
+        ]
+      }
+    },
+    {
+      "element_id": "airport-return-transfer",
+      "type": "radio",
+      "field_label": "Do you require a return transfer?",
+      "required": "true",
+      "options": [
+        {"label": "Yes", "value": "yes", "default": false},
+        {"label": "No", "value": "no", "default": true}
+      ],
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "airport"}
+        ]
+      }
+    },
+    {
+      "element_id": "airport-return-date",
+      "type": "date",
+      "field_label": "Return Date",
+      "required": "true",
+      "date_format": "yyyy-mm-dd",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "airport"},
+          {"element_id": "airport-return-transfer", "rule": "is", "value": "yes"}
+        ]
+      }
+    },
+    {
+      "element_id": "airport-return-time",
+      "type": "time",
+      "field_label": "Return Time",
+      "required": "true",
+      "time_format": "24",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "airport"},
+          {"element_id": "airport-return-transfer", "rule": "is", "value": "yes"}
+        ]
+      }
+    },
+    {
+      "element_id": "airport-return-pickup",
+      "type": "text",
+      "field_label": "Return Pickup Address",
+      "required": "true",
+      "placeholder": "e.g., Hotel address for return journey",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "airport"},
+          {"element_id": "airport-return-transfer", "rule": "is", "value": "yes"}
+        ]
+      }
+    },
+    {
+      "element_id": "airport-return-dropoff",
+      "type": "text",
+      "field_label": "Return Drop-off Address",
+      "required": "true",
+      "placeholder": "e.g., Budapest Airport Terminal 2B",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "airport"},
+          {"element_id": "airport-return-transfer", "rule": "is", "value": "yes"}
+        ]
+      }
+    },
+    {
+      "element_id": "airport-special-requirements",
+      "type": "checkbox",
+      "field_label": "Special Requirements (optional)",
+      "required": "false",
+      "options": [
+        {"label": "♿ Wheelchair accessible", "value": "wheelchair", "default": false},
+        {"label": "👶 Child safety seats", "value": "child-seats", "default": false},
+        {"label": "🎀 Hostess / Additional Staff", "value": "hostess", "default": false},
+        {"label": "👤 On-site coordinator", "value": "coordinator", "default": false},
+        {"label": "🗣️ English-speaking driver", "value": "english-driver", "default": false},
+        {"label": "🔒 Security / Protocol", "value": "security", "default": false}
+      ],
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "airport"}
+        ]
+      }
+    },
+    {
+      "element_id": "airport-additional-preferences",
+      "type": "textarea",
+      "field_label": "Additional Preferences (optional)",
+      "required": "false",
+      "placeholder": "Any other requests or preferences...",
+      "field_rows": "2",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "airport"}
+        ]
+      }
+    },
+    {
+      "element_id": "html-hourly-title",
+      "type": "html",
+      "field_label": "",
+      "variations": "<h2 class=\"vb-form-title\">Hourly Ride & Sightseeing</h2>\n<p class=\"vb-form-subtitle\">Chauffeur service or private guided tour in Budapest</p>",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "hourly"}
+        ]
+      }
+    },
+    {
+      "element_id": "hourly-service-type",
+      "type": "radio",
+      "field_label": "What type of service do you need?",
+      "required": "true",
+      "options": [
+        {"label": "<strong>Chauffeur Service</strong> <span style=\"color:#666;\">(driver only)</span><br><small style=\"color:#666;\">You direct the route – perfect for business, shopping, or custom itineraries</small>", "value": "chauffeur", "default": false},
+        {"label": "<strong>Private Sightseeing Tour</strong> <span style=\"color:#C8B560;\">(driver + licensed guide)</span><br><small style=\"color:#666;\">Expert guide plans the tour – history, culture, local insights included</small>", "value": "sightseeing", "default": false}
+      ],
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "hourly"}
+        ]
+      }
+    },
+    {
+      "element_id": "guide-language",
+      "type": "select",
+      "field_label": "Guide Language",
+      "required": "true",
+      "options": [
+        {"label": "-- Select language --", "value": ""},
+        {"label": "English", "value": "english"},
+        {"label": "German (Deutsch)", "value": "german"},
+        {"label": "Spanish (Español)", "value": "spanish"},
+        {"label": "French (Français)", "value": "french"},
+        {"label": "Italian (Italiano)", "value": "italian"},
+        {"label": "Russian (Русский)", "value": "russian"},
+        {"label": "Chinese (中文)", "value": "chinese"},
+        {"label": "Polish (Polski)", "value": "polish"}
+      ],
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "hourly"},
+          {"element_id": "hourly-service-type", "rule": "is", "value": "sightseeing"}
+        ]
+      }
+    },
+    {
+      "element_id": "tour-package",
+      "type": "radio",
+      "field_label": "Tour Package",
+      "required": "true",
+      "options": [
+        {"label": "<strong>Castle District Focus</strong> <span style=\"color:#666; font-size:13px;\">(3-4 hours)</span><br><small style=\"color:#666;\">Buda Castle, Fisherman's Bastion, Matthias Church, Gellért Hill</small>", "value": "castle", "default": false},
+        {"label": "<strong>Pest Highlights</strong> <span style=\"color:#666; font-size:13px;\">(3-4 hours)</span><br><small style=\"color:#666;\">Downtown, Basilica, Parliament, Andrássy Avenue, Heroes' Square</small>", "value": "pest", "default": false},
+        {"label": "<strong>Budapest Classic</strong> <span style=\"color:#666; font-size:13px;\">(4-5 hours)</span> ★ MOST POPULAR<br><small style=\"color:#666;\">Best of both Buda & Pest sides — the complete introduction</small>", "value": "classic", "default": false},
+        {"label": "<strong>Grand Budapest Tour</strong> <span style=\"color:#666; font-size:13px;\">(6+ hours)</span><br><small style=\"color:#666;\">Full-day comprehensive tour with hidden gems & local favorites</small>", "value": "grand", "default": false},
+        {"label": "<strong>Jewish Heritage</strong> <span style=\"color:#666; font-size:13px;\">(3-4 hours)</span><br><small style=\"color:#666;\">Jewish Quarter, Great Synagogue, memorials & historic sites</small>", "value": "jewish", "default": false},
+        {"label": "<strong>Custom Tour</strong><br><small style=\"color:#666;\">I have specific preferences or interests</small>", "value": "custom", "default": false}
+      ],
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "hourly"},
+          {"element_id": "hourly-service-type", "rule": "is", "value": "sightseeing"}
+        ]
+      }
+    },
+    {
+      "element_id": "custom-tour-requests",
+      "type": "textarea",
+      "field_label": "Special Requests",
+      "required": "true",
+      "placeholder": "Tell us about your interests, must-see places, or any special requirements...",
+      "field_rows": "3",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "hourly"},
+          {"element_id": "hourly-service-type", "rule": "is", "value": "sightseeing"},
+          {"element_id": "tour-package", "rule": "is", "value": "custom"}
+        ]
+      }
+    },
+    {
+      "element_id": "hourly-pickup-date",
+      "type": "date",
+      "field_label": "Pickup Date",
+      "required": "true",
+      "date_format": "yyyy-mm-dd",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "hourly"}
+        ]
+      }
+    },
+    {
+      "element_id": "hourly-pickup-time",
+      "type": "time",
+      "field_label": "Pickup Time",
+      "required": "true",
+      "time_format": "24",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "hourly"}
+        ]
+      }
+    },
+    {
+      "element_id": "html-duration-help",
+      "type": "html",
+      "field_label": "",
+      "variations": "<p class=\"vb-help-text\">Minimum rental duration is 3+1 hours.</p>",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "hourly"},
+          {"element_id": "hourly-service-type", "rule": "is", "value": "chauffeur"}
+        ]
+      }
+    },
+    {
+      "element_id": "hourly-duration",
+      "type": "select",
+      "field_label": "Ride Duration",
+      "required": "true",
+      "options": [
+        {"label": "-- Select duration --", "value": ""},
+        {"label": "3 hours (3+1)", "value": "3"},
+        {"label": "4 hours (4+1)", "value": "4"},
+        {"label": "5 hours (5+1)", "value": "5"},
+        {"label": "6 hours (6+1)", "value": "6"},
+        {"label": "7 hours (7+1)", "value": "7"},
+        {"label": "8 hours (8+1)", "value": "8"},
+        {"label": "9 hours (9+1)", "value": "9"},
+        {"label": "10 hours (10+1)", "value": "10"},
+        {"label": "11 hours (11+1)", "value": "11"},
+        {"label": "12 hours (12+1)", "value": "12"}
+      ],
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "hourly"},
+          {"element_id": "hourly-service-type", "rule": "is", "value": "chauffeur"}
+        ]
+      }
+    },
+    {
+      "element_id": "hourly-pickup-address",
+      "type": "text",
+      "field_label": "Pickup Address",
+      "required": "true",
+      "placeholder": "Enter Pickup Address",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "hourly"}
+        ]
+      }
+    },
+    {
+      "element_id": "hourly-destination",
+      "type": "text",
+      "field_label": "Destination Address",
+      "required": "false",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "hourly"},
+          {"element_id": "hourly-service-type", "rule": "is", "value": "chauffeur"}
+        ]
+      }
+    },
+    {
+      "element_id": "hourly-route-stops",
+      "type": "textarea",
+      "field_label": "Route & Stops",
+      "required": "false",
+      "placeholder": "Any optional stops along the route",
+      "field_rows": "2",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "hourly"},
+          {"element_id": "hourly-service-type", "rule": "is", "value": "chauffeur"}
+        ]
+      }
+    },
+    {
+      "element_id": "hourly-dropoff-address",
+      "type": "text",
+      "field_label": "Drop-off Address",
+      "required": "true",
+      "placeholder": "Final Destination Address",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "hourly"}
+        ]
+      }
+    },
+    {
+      "element_id": "hourly-special-requirements",
+      "type": "checkbox",
+      "field_label": "Special Requirements (optional)",
+      "required": "false",
+      "options": [
+        {"label": "♿ Wheelchair accessible", "value": "wheelchair", "default": false},
+        {"label": "👶 Child safety seats", "value": "child-seats", "default": false},
+        {"label": "🎀 Hostess / Additional Staff", "value": "hostess", "default": false},
+        {"label": "👤 On-site coordinator", "value": "coordinator", "default": false},
+        {"label": "🗣️ English-speaking driver", "value": "english-driver", "default": false},
+        {"label": "🔒 Security / Protocol", "value": "security", "default": false}
+      ],
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "hourly"}
+        ]
+      }
+    },
+    {
+      "element_id": "hourly-additional-preferences",
+      "type": "textarea",
+      "field_label": "Additional Preferences (optional)",
+      "required": "false",
+      "placeholder": "Any other requests or preferences...",
+      "field_rows": "2",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "hourly"}
+        ]
+      }
+    },
+    {
+      "element_id": "html-countryside-title",
+      "type": "html",
+      "field_label": "",
+      "variations": "<h2 class=\"vb-form-title\">Multi-day Trip Details</h2>\n<p class=\"vb-form-subtitle\">Plan your private tour or extended trip</p>",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "countryside"}
+        ]
+      }
+    },
+    {
+      "element_id": "countryside-start-date",
+      "type": "date",
+      "field_label": "Start Date",
+      "required": "true",
+      "date_format": "yyyy-mm-dd",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "countryside"}
+        ]
+      }
+    },
+    {
+      "element_id": "countryside-pickup-time",
+      "type": "time",
+      "field_label": "Pickup Time",
+      "required": "true",
+      "time_format": "24",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "countryside"}
+        ]
+      }
+    },
+    {
+      "element_id": "countryside-total-days",
+      "type": "number",
+      "field_label": "Total Days",
+      "required": "true",
+      "number_min": "2",
+      "number_max": "30",
+      "placeholder": "e.g., 3",
+      "description": "Minimum 2 days for multi-day trips",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "countryside"}
+        ]
+      }
+    },
+    {
+      "element_id": "countryside-pickup-address",
+      "type": "text",
+      "field_label": "Pickup Address",
+      "required": "true",
+      "placeholder": "e.g., Hotel in Budapest",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "countryside"}
+        ]
+      }
+    },
+    {
+      "element_id": "countryside-itinerary",
+      "type": "textarea",
+      "field_label": "Trip Itinerary / Details",
+      "required": "true",
+      "placeholder": "Describe your trip, e.g.:\n\nDay 1: Budapest → Eger (wine tasting) → overnight in Eger\nDay 2: Eger → Tokaj wine region → return to Budapest\nDay 3: Budapest sightseeing → Airport transfer",
+      "field_rows": "6",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "countryside"}
+        ]
+      }
+    },
+    {
+      "element_id": "countryside-special-requirements",
+      "type": "checkbox",
+      "field_label": "Special Requirements (optional)",
+      "required": "false",
+      "options": [
+        {"label": "♿ Wheelchair accessible", "value": "wheelchair", "default": false},
+        {"label": "👶 Child safety seats", "value": "child-seats", "default": false},
+        {"label": "🎀 Hostess / Additional Staff", "value": "hostess", "default": false},
+        {"label": "👤 On-site coordinator", "value": "coordinator", "default": false},
+        {"label": "🗣️ English-speaking driver", "value": "english-driver", "default": false},
+        {"label": "🔒 Security / Protocol", "value": "security", "default": false}
+      ],
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "countryside"}
+        ]
+      }
+    },
+    {
+      "element_id": "countryside-additional-preferences",
+      "type": "textarea",
+      "field_label": "Additional Preferences (optional)",
+      "required": "false",
+      "placeholder": "Any other requests or preferences...",
+      "field_rows": "2",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "countryside"}
+        ]
+      }
+    },
+    {
+      "element_id": "html-f1-title",
+      "type": "html",
+      "field_label": "",
+      "variations": "<h2 class=\"vb-form-title\">F1 Grand Prix Transfers</h2>\n<p class=\"vb-form-subtitle\">July 23-26, 2026 • Hungaroring</p>",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "f1"}
+        ]
+      }
+    },
+    {
+      "element_id": "f1-days",
+      "type": "checkbox",
+      "field_label": "Select the days you need transportation",
+      "required": "true",
+      "options": [
+        {"label": "Thursday, July 23, 2026", "value": "thu", "default": false},
+        {"label": "Friday, July 24, 2026", "value": "fri", "default": false},
+        {"label": "Saturday, July 25, 2026", "value": "sat", "default": false},
+        {"label": "Sunday, July 26, 2026", "value": "sun", "default": false}
+      ],
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "f1"}
+        ]
+      }
+    },
+    {
+      "element_id": "html-f1-help",
+      "type": "html",
+      "field_label": "",
+      "variations": "<p class=\"vb-help-text\">Maximum 10 hours per day. Service ends upon return to Budapest.</p>",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "f1"}
+        ]
+      }
+    },
+    {
+      "element_id": "f1-pickup-address",
+      "type": "text",
+      "field_label": "Pickup Address",
+      "required": "true",
+      "placeholder": "e.g., Hilton Budapest",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "f1"}
+        ]
+      }
+    },
+    {
+      "element_id": "f1-destination",
+      "type": "text",
+      "field_label": "Event Destination",
+      "required": "false",
+      "default_value": "Hungaroring – Formula 1 Hungarian Grand Prix",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "f1"}
+        ]
+      }
+    },
+    {
+      "element_id": "f1-dropoff-address",
+      "type": "text",
+      "field_label": "Final Drop-off Address",
+      "required": "true",
+      "placeholder": "e.g., Same as pickup, or Airport",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "f1"}
+        ]
+      }
+    },
+    {
+      "element_id": "f1-special-requirements",
+      "type": "checkbox",
+      "field_label": "Special Requirements (optional)",
+      "required": "false",
+      "options": [
+        {"label": "♿ Wheelchair accessible", "value": "wheelchair", "default": false},
+        {"label": "👶 Child safety seats", "value": "child-seats", "default": false},
+        {"label": "🎀 Hostess / Additional Staff", "value": "hostess", "default": false},
+        {"label": "👤 On-site coordinator", "value": "coordinator", "default": false},
+        {"label": "🗣️ English-speaking driver", "value": "english-driver", "default": false},
+        {"label": "🔒 Security / Protocol", "value": "security", "default": false}
+      ],
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "f1"}
+        ]
+      }
+    },
+    {
+      "element_id": "f1-additional-preferences",
+      "type": "textarea",
+      "field_label": "Additional Preferences (optional)",
+      "required": "false",
+      "placeholder": "Any other requests or preferences...",
+      "field_rows": "2",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "f1"}
+        ]
+      }
+    },
+    {
+      "element_id": "html-uefa-title",
+      "type": "html",
+      "field_label": "",
+      "variations": "<h2 class=\"vb-form-title\">UEFA Champions League Final</h2>\n<p class=\"vb-form-subtitle\">May 28-31, 2026 • Puskás Aréna, Budapest</p>",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "uefa"}
+        ]
+      }
+    },
+    {
+      "element_id": "uefa-days",
+      "type": "checkbox",
+      "field_label": "Select the days you need transportation",
+      "required": "true",
+      "options": [
+        {"label": "Thursday, May 28, 2026 (min. 6 hours)", "value": "thu", "default": false},
+        {"label": "Friday, May 29, 2026 (min. 6 hours)", "value": "fri", "default": false},
+        {"label": "Saturday, May 30, 2026 (MATCH DAY - min. 12 hours)", "value": "sat", "default": false},
+        {"label": "Sunday, May 31, 2026 (min. 6 hours)", "value": "sun", "default": false}
+      ],
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "uefa"}
+        ]
+      }
+    },
+    {
+      "element_id": "html-uefa-help",
+      "type": "html",
+      "field_label": "",
+      "variations": "<p class=\"vb-help-text\">Hourly service only within Budapest during the listed days.</p>",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "uefa"}
+        ]
+      }
+    },
+    {
+      "element_id": "uefa-pickup-address",
+      "type": "text",
+      "field_label": "Pickup Address",
+      "required": "true",
+      "placeholder": "e.g., Corinthia Hotel Budapest",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "uefa"}
+        ]
+      }
+    },
+    {
+      "element_id": "uefa-route-stops",
+      "type": "textarea",
+      "field_label": "Destination & Route / Stops",
+      "required": "true",
+      "placeholder": "e.g., Corinthia Hotel → Puskás Aréna → City Park → Return to hotel",
+      "description": "Enter the planned route with stops (in order)",
+      "field_rows": "3",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "uefa"}
+        ]
+      }
+    },
+    {
+      "element_id": "uefa-special-requirements",
+      "type": "checkbox",
+      "field_label": "Special Requirements (optional)",
+      "required": "false",
+      "options": [
+        {"label": "♿ Wheelchair accessible", "value": "wheelchair", "default": false},
+        {"label": "👶 Child safety seats", "value": "child-seats", "default": false},
+        {"label": "🎀 Hostess / Additional Staff", "value": "hostess", "default": false},
+        {"label": "👤 On-site coordinator", "value": "coordinator", "default": false},
+        {"label": "🗣️ English-speaking driver", "value": "english-driver", "default": false},
+        {"label": "🔒 Security / Protocol", "value": "security", "default": false}
+      ],
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "uefa"}
+        ]
+      }
+    },
+    {
+      "element_id": "uefa-additional-preferences",
+      "type": "textarea",
+      "field_label": "Additional Preferences (optional)",
+      "required": "false",
+      "placeholder": "Any other requests or preferences...",
+      "field_rows": "2",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "uefa"}
+        ]
+      }
+    },
+    {
+      "element_id": "html-event-title",
+      "type": "html",
+      "field_label": "",
+      "variations": "<h2 class=\"vb-form-title\">Event Transportation – Request a Proposal</h2>\n<p class=\"vb-form-subtitle\">Tell us about your event and transportation needs</p>",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "event"}
+        ]
+      }
+    },
+    {
+      "element_id": "html-event-substeps",
+      "type": "html",
+      "field_label": "",
+      "variations": "<div class=\"vb-event-substeps\">\n  <div class=\"vb-event-substep active\" data-substep=\"1\">\n    <div class=\"vb-event-substep-num\">1</div>\n    <span>Event Details</span>\n  </div>\n  <div class=\"vb-event-substep\" data-substep=\"2\">\n    <div class=\"vb-event-substep-num\">2</div>\n    <span>Transportation Needs</span>\n  </div>\n</div>",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "event"}
+        ]
+      }
+    },
+    {
+      "element_id": "event-name",
+      "type": "text",
+      "field_label": "Event Name",
+      "required": "true",
+      "placeholder": "e.g., Budapest Tech Summit 2026",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "event"}
+        ]
+      }
+    },
+    {
+      "element_id": "event-organization",
+      "type": "text",
+      "field_label": "Organization Name",
+      "required": "true",
+      "placeholder": "Company or organization name",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "event"}
+        ]
+      }
+    },
+    {
+      "element_id": "event-type",
+      "type": "select",
+      "field_label": "Event Type",
+      "required": "true",
+      "options": [
+        {"label": "-- Select event type --", "value": ""},
+        {"label": "Conference / Summit", "value": "conference"},
+        {"label": "Corporate Meeting / Incentive", "value": "corporate"},
+        {"label": "Wedding / Private Celebration", "value": "wedding"},
+        {"label": "Gala / Award Ceremony", "value": "gala"},
+        {"label": "Sports Event", "value": "sports"},
+        {"label": "Film / TV Production", "value": "film"},
+        {"label": "Diplomatic / Government", "value": "diplomatic"},
+        {"label": "Other", "value": "other"}
+      ],
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "event"}
+        ]
+      }
+    },
+    {
+      "element_id": "event-expected-guests",
+      "type": "number",
+      "field_label": "Expected Guests",
+      "required": "true",
+      "placeholder": "Enter number of guests",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "event"}
+        ]
+      }
+    },
+    {
+      "element_id": "event-start-date",
+      "type": "date",
+      "field_label": "Event Start Date",
+      "required": "true",
+      "date_format": "yyyy-mm-dd",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "event"}
+        ]
+      }
+    },
+    {
+      "element_id": "event-end-date",
+      "type": "date",
+      "field_label": "Event End Date",
+      "required": "true",
+      "date_format": "yyyy-mm-dd",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "event"}
+        ]
+      }
+    },
+    {
+      "element_id": "event-city",
+      "type": "text",
+      "field_label": "Event City",
+      "required": "true",
+      "placeholder": "e.g., Budapest",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "event"}
+        ]
+      }
+    },
+    {
+      "element_id": "event-venue",
+      "type": "text",
+      "field_label": "Event Venue / Location",
+      "required": "true",
+      "placeholder": "e.g., Hilton Budapest, Buda Castle",
+      "description": "Main event location (hotel, conference center, etc.)",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "event"}
+        ]
+      }
+    },
+    {
+      "element_id": "event-venue-2",
+      "type": "text",
+      "field_label": "Additional Venue 2",
+      "required": "false",
+      "placeholder": "e.g., Gundel Restaurant",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "event"}
+        ]
+      }
+    },
+    {
+      "element_id": "event-venue-3",
+      "type": "text",
+      "field_label": "Additional Venue 3",
+      "required": "false",
+      "placeholder": "e.g., Széchenyi Thermal Bath",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "event"}
+        ]
+      }
+    },
+    {
+      "element_id": "event-services-needed",
+      "type": "checkbox",
+      "field_label": "Services Needed",
+      "required": "true",
+      "options": [
+        {"label": "Airport transfers", "value": "airport", "default": false},
+        {"label": "Hotel ↔ Venue shuttle", "value": "shuttle", "default": false},
+        {"label": "Hourly VIP / Chauffeur", "value": "hourly-vip", "default": false},
+        {"label": "Multi-day program", "value": "multi-day", "default": false},
+        {"label": "Staff / Crew transport", "value": "staff", "default": false},
+        {"label": "Other (specify below)", "value": "other", "default": false}
+      ],
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "event"}
+        ]
+      }
+    },
+    {
+      "element_id": "event-other-details",
+      "type": "textarea",
+      "field_label": "Please specify",
+      "required": "true",
+      "placeholder": "Describe your specific transportation needs...",
+      "field_rows": "3",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "event"},
+          {"element_id": "event-services-needed", "rule": "contains", "value": "other"}
+        ]
+      }
+    },
+    {
+      "element_id": "event-fleet-preferences",
+      "type": "checkbox",
+      "field_label": "Fleet Preferences (optional)",
+      "required": "false",
+      "options": [
+        {"label": "🎯 Recommend optimal vehicle mix for my event", "value": "recommend-mix", "default": false},
+        {"label": "🚐 Prefer uniform fleet (same vehicle type throughout)", "value": "uniform-fleet", "default": false},
+        {"label": "⭐ Prioritize VIP vehicles for executives/speakers", "value": "vip-priority", "default": false}
+      ],
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "event"}
+        ]
+      }
+    },
+    {
+      "element_id": "html-fleet-help",
+      "type": "html",
+      "field_label": "",
+      "variations": "<p class=\"vb-help-text\">You've selected your preferred vehicles in Step 2. Let us know if you have additional preferences for your event.</p>",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "event"}
+        ]
+      }
+    },
+    {
+      "element_id": "event-fleet-notes",
+      "type": "textarea",
+      "field_label": "Additional fleet notes (optional)",
+      "required": "false",
+      "placeholder": "e.g., Need 2 separate vehicles for VIP speakers, rest can be mixed...",
+      "field_rows": "2",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "event"}
+        ]
+      }
+    },
+    {
+      "element_id": "event-special-requirements",
+      "type": "checkbox",
+      "field_label": "Special Requirements (optional)",
+      "required": "false",
+      "options": [
+        {"label": "♿ Wheelchair accessible", "value": "wheelchair", "default": false},
+        {"label": "👶 Child safety seats", "value": "child-seats", "default": false},
+        {"label": "🎀 Hostess / Additional Staff", "value": "hostess", "default": false},
+        {"label": "👤 On-site coordinator", "value": "coordinator", "default": false},
+        {"label": "🗣️ English-speaking driver", "value": "english-driver", "default": false},
+        {"label": "🔒 Security / Protocol", "value": "security", "default": false}
+      ],
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "event"}
+        ]
+      }
+    },
+    {
+      "element_id": "event-schedule",
+      "type": "textarea",
+      "field_label": "Schedule / Key Moves (recommended)",
+      "required": "false",
+      "placeholder": "Example:\n• May 15, 10:00 – Airport → Hilton Budapest – 25 guests\n• May 15, 18:00 – Hilton → Buda Castle – 25 guests\n• May 17, 14:00 – Hilton → Airport – 25 guests",
+      "description": "For accurate pricing, please share at least your top 3 key moves",
+      "field_rows": "6",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "event"}
+        ]
+      }
+    },
+    {
+      "element_id": "event-itinerary-upload",
+      "type": "upload",
+      "field_label": "Upload Itinerary (optional)",
+      "required": "false",
+      "description": "Optional: itinerary, flight list, venue schedule, or RFP brief",
+      "file_types": ["pdf", "xlsx", "docx"],
+      "max_size": "20",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "event"}
+        ]
+      }
+    },
+    {
+      "element_id": "event-additional-preferences",
+      "type": "textarea",
+      "field_label": "Additional Preferences (optional)",
+      "required": "false",
+      "placeholder": "Any other requests or preferences...",
+      "field_rows": "2",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "select-service", "rule": "is", "value": "event"}
+        ]
+      }
+    },
+    {
+      "element_id": "page-break-4",
+      "type": "page-break",
+      "field_label": "Contact & Billing"
+    },
+    {
+      "element_id": "html-step4-title",
+      "type": "html",
+      "field_label": "",
+      "variations": "<h2 class=\"vb-form-title\">Contact & Billing</h2>\n<p class=\"vb-form-subtitle\">Review your services and provide contact details</p>"
+    },
+    {
+      "element_id": "contact-title",
+      "type": "select",
+      "field_label": "Title",
+      "required": "false",
+      "options": [
+        {"label": "--", "value": ""},
+        {"label": "Mr", "value": "mr"},
+        {"label": "Mrs", "value": "mrs"},
+        {"label": "Ms", "value": "ms"},
+        {"label": "Miss", "value": "miss"},
+        {"label": "Dr", "value": "dr"}
+      ]
+    },
+    {
+      "element_id": "contact-first-name",
+      "type": "text",
+      "field_label": "First Name",
+      "required": "true",
+      "placeholder": "First name"
+    },
+    {
+      "element_id": "contact-last-name",
+      "type": "text",
+      "field_label": "Last Name",
+      "required": "true",
+      "placeholder": "Last name"
+    },
+    {
+      "element_id": "contact-email",
+      "type": "email",
+      "field_label": "Email",
+      "required": "true",
+      "placeholder": "email@example.com"
+    },
+    {
+      "element_id": "contact-phone",
+      "type": "phone",
+      "field_label": "Phone",
+      "required": "true",
+      "placeholder": "+36 70 XXX XXXX"
+    },
+    {
+      "element_id": "booking-for-other",
+      "type": "checkbox",
+      "field_label": "",
+      "required": "false",
+      "custom_class": "vb-toggle-checkbox",
+      "options": [
+        {"label": "I'm booking for someone else (e.g., guest, colleague, or client)", "value": "yes", "default": false}
+      ]
+    },
+    {
+      "element_id": "client-title",
+      "type": "select",
+      "field_label": "Title",
+      "required": "false",
+      "options": [
+        {"label": "--", "value": ""},
+        {"label": "Mr", "value": "mr"},
+        {"label": "Mrs", "value": "mrs"},
+        {"label": "Ms", "value": "ms"},
+        {"label": "Miss", "value": "miss"},
+        {"label": "Dr", "value": "dr"}
+      ],
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "booking-for-other", "rule": "is", "value": "yes"}
+        ]
+      }
+    },
+    {
+      "element_id": "client-first-name",
+      "type": "text",
+      "field_label": "Passenger First Name",
+      "required": "true",
+      "placeholder": "First name",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "booking-for-other", "rule": "is", "value": "yes"}
+        ]
+      }
+    },
+    {
+      "element_id": "client-last-name",
+      "type": "text",
+      "field_label": "Passenger Last Name",
+      "required": "true",
+      "placeholder": "Last name",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "booking-for-other", "rule": "is", "value": "yes"}
+        ]
+      }
+    },
+    {
+      "element_id": "client-phone",
+      "type": "phone",
+      "field_label": "Passenger Mobile",
+      "required": "true",
+      "placeholder": "+36 70 XXX XXXX",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "booking-for-other", "rule": "is", "value": "yes"}
+        ]
+      }
+    },
+    {
+      "element_id": "custom-signage",
+      "type": "checkbox",
+      "field_label": "",
+      "required": "false",
+      "custom_class": "vb-toggle-checkbox",
+      "options": [
+        {"label": "Use alternative text on the sign (for airport meet & greet service)", "value": "yes", "default": false}
+      ]
+    },
+    {
+      "element_id": "signage-text",
+      "type": "text",
+      "field_label": "Text on sign",
+      "required": "true",
+      "placeholder": "e.g., Company Name or Group Name",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "custom-signage", "rule": "is", "value": "yes"}
+        ]
+      }
+    },
+    {
+      "element_id": "need-billing",
+      "type": "checkbox",
+      "field_label": "",
+      "required": "false",
+      "custom_class": "vb-billing-toggle",
+      "options": [
+        {"label": "I need an invoice with specific billing details", "value": "yes", "default": false}
+      ]
+    },
+    {
+      "element_id": "billing-name",
+      "type": "text",
+      "field_label": "Name or Company Name",
+      "required": "true",
+      "placeholder": "e.g., John Doe or ABC Company Ltd.",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "need-billing", "rule": "is", "value": "yes"}
+        ]
+      }
+    },
+    {
+      "element_id": "billing-address",
+      "type": "text",
+      "field_label": "Billing Address",
+      "required": "true",
+      "placeholder": "Street, City, Postal Code, Country",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "need-billing", "rule": "is", "value": "yes"}
+        ]
+      }
+    },
+    {
+      "element_id": "billing-vat",
+      "type": "text",
+      "field_label": "VAT / Tax Number",
+      "required": "false",
+      "placeholder": "e.g., HU12345678",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "need-billing", "rule": "is", "value": "yes"}
+        ]
+      }
+    },
+    {
+      "element_id": "billing-notes",
+      "type": "textarea",
+      "field_label": "Billing Notes",
+      "required": "false",
+      "placeholder": "Any additional billing instructions or references...",
+      "field_rows": "2",
+      "conditions": {
+        "action": "show",
+        "rule": "all",
+        "conditions": [
+          {"element_id": "need-billing", "rule": "is", "value": "yes"}
+        ]
+      }
+    },
+    {
+      "element_id": "how-heard",
+      "type": "select",
+      "field_label": "How did you hear about us?",
+      "required": "false",
+      "options": [
+        {"label": "-- Select --", "value": ""},
+        {"label": "Google Search", "value": "google"},
+        {"label": "Social Media", "value": "social"},
+        {"label": "Recommendation", "value": "recommendation"},
+        {"label": "Travel Agency / DMC", "value": "travel-agency"},
+        {"label": "Returning Customer", "value": "returning"},
+        {"label": "Hotel Concierge", "value": "hotel"},
+        {"label": "Other", "value": "other"}
+      ]
+    },
+    {
+      "element_id": "promo-code",
+      "type": "text",
+      "field_label": "Promo Code (optional)",
+      "required": "false",
+      "placeholder": "Enter promo code if you have one"
+    },
+    {
+      "element_id": "html-payment-help",
+      "type": "html",
+      "field_label": "",
+      "variations": "<p class=\"vb-help-text\">For credit card payments, a minimal processing fee applies. Any applicable fees will be included in the quote.</p>"
+    },
+    {
+      "element_id": "payment-method",
+      "type": "radio",
+      "field_label": "Preferred Payment Method",
+      "required": "true",
+      "options": [
+        {"label": "<strong>Bank Transfer</strong> <span style=\"color: #2d5016; font-weight: 600;\">— No additional fees</span>", "value": "bank_transfer", "default": true},
+        {"label": "<strong>Credit Card</strong> <span style=\"color: #8B6914; font-weight: 600;\">— +3% processing fee</span>", "value": "credit_card", "default": false}
+      ]
+    },
+    {
+      "element_id": "terms-consent",
+      "type": "consent",
+      "field_label": "I accept the Terms & Conditions and Privacy Policy",
+      "required": "true",
+      "consent_description": "I accept the <a href=\"/terms\" target=\"_blank\">Terms & Conditions</a> and <a href=\"/privacy\" target=\"_blank\">Privacy Policy</a>",
+      "required_message": "You must accept the Terms & Conditions to proceed."
+    }
+  ],
+  "notifications": [
+    {
+      "slug": "notification-admin",
+      "label": "Admin Notification",
+      "email-recipients": "routing",
+      "recipients": ["admin@vanbudapest.com"],
+      "email-subject": "🚗 New VanBudapest Booking #{submission_id} | {select-service}",
+      "email-content": "<!DOCTYPE html><html><head><style>body{font-family:'Inter',Arial,sans-serif;background:#f5f5f5;padding:20px}.container{max-width:600px;margin:0 auto;background:#fff;border-radius:12px;overflow:hidden}.header{background:#0A1F44;padding:24px;text-align:center}.content{padding:32px}.section{margin-bottom:24px}.section-title{font-size:14px;font-weight:700;color:#C8B560;text-transform:uppercase;letter-spacing:.5px;margin-bottom:12px;border-bottom:2px solid #C8B560;padding-bottom:8px;display:inline-block}.field{margin-bottom:8px}.field-label{font-weight:600;color:#0A1F44}.field-value{color:#4a5568}.btn{display:inline-block;background:#C8B560;color:#0A1F44;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:600;margin-top:16px}.footer{background:#f8f6f0;padding:20px;text-align:center;font-size:12px;color:#666}</style></head><body><div class=\"container\"><div class=\"header\"><h1 style=\"color:#fff;margin:0;\">VanBudapest</h1></div><div class=\"content\"><h2 style=\"color:#0A1F44;margin-bottom:24px;\">New Booking Request #{submission_id}</h2><div class=\"section\"><div class=\"section-title\">Service Details</div><div class=\"field\"><span class=\"field-label\">Service Type:</span> <span class=\"field-value\">{select-service}</span></div><div class=\"field\"><span class=\"field-label\">Total Guests:</span> <span class=\"field-value\">{total-guests}</span></div><div class=\"field\"><span class=\"field-label\">Luggage:</span> <span class=\"field-value\">{total-luggage}</span></div></div><div class=\"section\"><div class=\"section-title\">Contact Information</div><div class=\"field\"><span class=\"field-label\">Name:</span> <span class=\"field-value\">{contact-title} {contact-first-name} {contact-last-name}</span></div><div class=\"field\"><span class=\"field-label\">Email:</span> <span class=\"field-value\">{contact-email}</span></div><div class=\"field\"><span class=\"field-label\">Phone:</span> <span class=\"field-value\">{contact-phone}</span></div></div><div class=\"section\"><div class=\"section-title\">Payment & Marketing</div><div class=\"field\"><span class=\"field-label\">Payment Method:</span> <span class=\"field-value\">{payment-method}</span></div><div class=\"field\"><span class=\"field-label\">How heard:</span> <span class=\"field-value\">{how-heard}</span></div><div class=\"field\"><span class=\"field-label\">Promo Code:</span> <span class=\"field-value\">{promo-code}</span></div></div></div><div class=\"footer\">VanBudapest Booking System | Submission #{submission_id}</div></div></body></html>"
+    }
+  ],
+  "custom_css": "/* VANBUDAPEST BOOKING FORM v2 - CUSTOM CSS */\n:root{--vb-navy:#0A1F44;--vb-gold:#C8B560;--vb-gold-dark:#B78D38;--vb-gold-light:#D4C470;--vb-cream:#F5F0E8;--vb-gray-dark:#4a5568;--vb-error:#e53e3e;--vb-shadow:0 4px 6px rgba(0,0,0,0.1);--vb-shadow-lg:0 10px 25px rgba(0,0,0,0.15);--vb-transition:all 0.3s ease}.forminator-custom-form{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;max-width:800px;margin:0 auto}.forminator-pagination-progress{background:var(--vb-cream)!important;padding:20px!important;border-radius:12px!important;margin-bottom:24px!important}.forminator-step-number{background:var(--vb-gold)!important;color:var(--vb-navy)!important;font-weight:700!important}.forminator-step.forminator-current .forminator-step-number{background:var(--vb-navy)!important;color:#fff!important}.forminator-section--title{font-family:'Playfair Display',Georgia,serif;font-size:16px!important;font-weight:600!important;color:var(--vb-navy)!important;padding-bottom:8px!important;border-bottom:2px solid var(--vb-gold)!important;display:inline-block!important;margin-bottom:20px!important}.vb-form-title{font-family:'Playfair Display',Georgia,serif;font-size:28px;font-weight:700;color:var(--vb-navy);margin-bottom:8px}.vb-form-subtitle{color:var(--vb-gray-dark);margin-bottom:32px}.forminator-input,.forminator-select,.forminator-textarea{border:2px solid #e0e0e0!important;border-radius:8px!important;padding:14px 16px!important;font-size:15px!important;transition:var(--vb-transition)!important}.forminator-input:focus,.forminator-select:focus,.forminator-textarea:focus{border-color:var(--vb-gold)!important;outline:none!important;box-shadow:0 0 0 3px rgba(200,181,96,0.2)!important}.forminator-radio,.forminator-checkbox{border:2px solid #e0e0e0!important;border-radius:8px!important;padding:12px 16px!important;margin-bottom:8px!important;transition:var(--vb-transition)!important}.forminator-radio:hover,.forminator-checkbox:hover{border-color:var(--vb-gold-light)!important}.forminator-radio.forminator-is_active,.forminator-checkbox.forminator-is_active{border-color:var(--vb-gold)!important;background:rgba(200,181,96,0.1)!important}.vip-vehicle .forminator-checkbox-label::after{content:\"VIP\";display:inline-block;background:linear-gradient(135deg,#c9a227 0%,#d4af37 50%,#c9a227 100%);color:var(--vb-navy);font-size:11px;font-weight:700;padding:2px 8px;border-radius:4px;margin-left:8px;text-transform:uppercase;letter-spacing:.5px}.vb-toggle-checkbox{background:#f8f9fa!important;border-radius:8px!important;padding:12px 16px!important}.vb-toggle-checkbox .forminator-checkbox-label{font-weight:500!important}.vb-billing-toggle{background:linear-gradient(135deg,#f8f6f0 0%,#f0ede4 100%)!important;border:1px solid #d4c9a8!important;border-radius:8px!important;padding:14px 18px!important}.vb-billing-toggle .forminator-checkbox-label{font-weight:600!important;color:var(--vb-navy)!important}.vb-help-text,.forminator-description{font-size:12px!important;color:var(--vb-gray-dark)!important;margin-top:6px!important}.forminator-button{background:var(--vb-gold)!important;color:var(--vb-navy)!important;font-weight:600!important;text-transform:uppercase!important;letter-spacing:1.5px!important;padding:16px 32px!important;border-radius:8px!important;border:none!important;transition:var(--vb-transition)!important}.forminator-button:hover{background:var(--vb-gold-dark)!important;transform:translateY(-2px)!important;box-shadow:var(--vb-shadow-lg)!important}.forminator-button-back{background:transparent!important;border:2px solid var(--vb-navy)!important;color:var(--vb-navy)!important}.forminator-button-back:hover{background:var(--vb-navy)!important;color:#fff!important}.vb-event-substeps{display:flex;justify-content:center;gap:32px;margin-bottom:32px}.vb-event-substep{display:flex;align-items:center;gap:8px;opacity:.5}.vb-event-substep.active{opacity:1}.vb-event-substep-num{width:28px;height:28px;border-radius:50%;background:var(--vb-gold);color:var(--vb-navy);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px}@media(max-width:768px){.vb-form-title{font-size:24px}.forminator-row{flex-direction:column}.forminator-col{width:100%!important}}"
+}
