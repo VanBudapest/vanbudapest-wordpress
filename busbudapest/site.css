@@ -28,6 +28,7 @@ body.home{background:#F2EEE4}
 .bb h1,.bb h2,.bb h3{color:inherit}
 .bb-nav-cta{white-space:nowrap}
 .bb-footer-word{white-space:nowrap}
+.bb-cover{object-fit:cover}
 @keyframes bbpulse{0%,100%{opacity:1}50%{opacity:.35}}
 .bb-dot{animation:bbpulse 2.4s ease-in-out infinite}
 
