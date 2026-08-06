@@ -1,0 +1,78 @@
+/* Bus Budapest — site-wide CSS (deployed via WordPress.com Global Styles css field).
+   The page markup carries inline styles for its base layout (intrinsically responsive:
+   auto-fit grids + flex-wrap), so it stays usable even without this file. This layer
+   adds what inline styles cannot: media queries, hover states, pseudo-element labels,
+   Jetpack form styling, and fallbacks for constrained templates. No CSS custom
+   properties and no @import — the wp.com CSS sanitizer strips/mangles them. */
+
+html{scroll-behavior:smooth;overflow-x:hidden;overflow-x:clip}
+body{overflow-x:hidden;overflow-x:clip}
+#top,#services,#routes,#fleet,#why,#quote{scroll-margin-top:80px}
+
+/* Fallbacks if the home page ever renders in a constrained template instead of template-blank.
+   Scoped to body.home so other pages keep their theme chrome. */
+body.home .wp-site-blocks > header{display:none}
+body.home .wp-site-blocks > footer{display:none}
+body.home h1.wp-block-post-title{display:none}
+body.home .entry-content,body.home .wp-block-post-content{overflow:visible;max-width:none}
+body.home .wp-block-post-content > .bb,body.home .wp-block-post-content > .bb-nav{max-width:none;width:100%}
+body.home .bb-bleed{width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw)}
+body.home .wp-block-post-content > *{margin-top:0;margin-bottom:0}
+body.home{background:#F2EEE4}
+
+/* Brand resets and details */
+.bb *,.bb-nav *,.bb-quote *{box-sizing:border-box}
+.bb ::selection,.bb-nav ::selection,.bb-quote ::selection{background:#DC4B27;color:#fff}
+.bb summary::-webkit-details-marker{display:none}
+@keyframes bbpulse{0%,100%{opacity:1}50%{opacity:.35}}
+.bb-dot{animation:bbpulse 2.4s ease-in-out infinite}
+
+/* Sticky nav: keep clear of the admin bar for logged-in users */
+.bb-nav{top:var(--wp-admin--admin-bar--height,0px)}
+
+/* Hover states (inline styles cannot express these) */
+.bb-row{transition:background .15s}
+.bb-row:hover{background:rgba(23,21,15,0.04)}
+.bb-arrow{transition:transform .15s}
+.bb-row:hover .bb-arrow{transform:translate(3px,-3px)}
+
+@media (max-width:1000px){
+  .bb-row .desc{flex-basis:100% !important;padding-top:0 !important;margin-top:-6px}
+  .bb-why-left{position:static !important}
+}
+@media (max-width:760px){
+  .bb-nav-links a:not(.bb-nav-cta){display:none}
+  .bb-nav-in,.bb-wrap,.bb-routes-in,.bb-why-in,.bb-footer-in,.bb-faq{padding-left:16px !important;padding-right:16px !important}
+  .bb-quote-cols.wp-block-columns{padding-left:16px !important;padding-right:16px !important;gap:40px}
+  .bb-pad-lg{padding-top:60px !important;padding-bottom:60px !important}
+  .bb-services.bb-pad-lg{padding-bottom:40px !important}
+  section.bb-quote{padding-top:60px !important;padding-bottom:60px !important}
+  .bb-band-ph{height:180px !important}
+  .bb-row{padding:24px 4px !important}
+  .bb-row h3{font-size:22px !important}
+}
+@media (max-width:400px){
+  .bb-logo-name{display:none}
+  .bb-nav-links a.bb-nav-cta{padding:11px 12px}
+}
+
+/* ===== Jetpack quote form (markup rendered by Jetpack, unstylable inline) ===== */
+.bb-qform{background:#F2EEE4;color:#17150F;border:1.5px solid #DC4B27;padding:30px}
+.bb-qform::before{content:"QUOTE REQUEST FORM";display:block;font:700 12px/1 'Space Mono','Courier New',monospace;color:#6B6457;letter-spacing:.06em;margin-bottom:22px}
+.bb-qform::after{content:"Details used only to handle this request. No payment taken here.";display:block;font:400 11px/1.5 'Space Mono','Courier New',monospace;color:#6B6457;margin-top:16px;text-align:center}
+.bb-qform form{display:grid;grid-template-columns:1fr 1fr;gap:22px 18px}
+.bb-qform form > *{min-width:0}
+.bb-qform form > :not(.grunion-field-wrap):not(.wp-block-jetpack-button):not(.wp-block-button){grid-column:1 / -1}
+.bb-qform .grunion-field-wrap,.bb-qform .jetpack-field{display:flex;flex-direction:column;gap:8px;margin:0}
+.bb-qform .bb-span2{grid-column:span 2}
+.bb-qform label,.bb-qform .grunion-field-label,.bb-qform .jetpack-field-label{font:700 11px/1 'Space Mono','Courier New',monospace;color:#6B6457;letter-spacing:.04em;text-transform:uppercase;margin:0}
+.bb-qform input:not([type=submit]):not([type=checkbox]):not([type=radio]),.bb-qform select,.bb-qform textarea{background:transparent;border:0 solid #17150F;border-bottom-width:1.5px;border-radius:0;color:#17150F;padding:8px 0;font:600 16px/1.2 'Archivo','Inter',Helvetica,Arial,sans-serif;outline:none;width:100%;box-shadow:none;color-scheme:light}
+.bb-qform input::placeholder,.bb-qform textarea::placeholder{color:#6B6457;opacity:.6}
+.bb-qform textarea{resize:vertical;min-height:64px}
+.bb-qform .wp-block-jetpack-button,.bb-qform .wp-block-button{grid-column:span 2;margin:6px 0 0}
+.bb-qform button,.bb-qform .wp-block-button__link,.bb-qform input[type=submit]{width:100%;display:flex;align-items:center;justify-content:center;gap:9px;background:#17150F;color:#F2EEE4;border:none;border-radius:0;padding:16px;font:700 13px/1 'Space Mono','Courier New',monospace;letter-spacing:.04em;text-transform:uppercase;cursor:pointer}
+.bb-quote-cols.wp-block-columns{gap:56px;max-width:1240px;margin:0 auto;padding:0 28px}
+@media (max-width:760px){
+  .bb-qform form{grid-template-columns:1fr}
+  .bb-qform .bb-span2,.bb-qform .wp-block-jetpack-button,.bb-qform .wp-block-button{grid-column:span 1}
+}

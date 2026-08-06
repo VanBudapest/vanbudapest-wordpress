@@ -1,433 +1,225 @@
 <!-- wp:html -->
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap');
-
-/* ===== Page chrome: hide theme header/footer/title, paper background ===== */
-.wp-site-blocks > header{display:none !important}
-.wp-site-blocks > footer{display:none !important}
-h1.wp-block-post-title,.entry-title{display:none !important}
-html,body{overflow-x:hidden}
-body{background:#F2EEE4 !important}
-.wp-site-blocks,.wp-block-post-content{padding-top:0 !important;margin-top:0 !important}
-.entry-content,.wp-block-post-content{overflow:visible !important;max-width:none !important}
-.wp-block-post-content > *{margin-top:0;margin-bottom:0}
-
-/* ===== Tokens (paper theme) ===== */
-.bb{--bg:#F2EEE4;--surface:#FBF8F1;--ink:#17150F;--muted:#6B6457;--accent:#DC4B27;--accentInk:#FFFFFF;--line:rgba(23,21,15,0.16);--soft:rgba(23,21,15,0.035)}
-.bb{background:var(--bg);color:var(--ink);font-family:'Archivo',sans-serif}
-.bb *{box-sizing:border-box;margin:0;padding:0}
-.bb ::selection{background:#DC4B27;color:#fff}
-.bb a{color:inherit}
-.bb summary::-webkit-details-marker{display:none}
-@keyframes bbpulse{0%,100%{opacity:1}50%{opacity:.35}}
-
-/* ===== Layout helpers ===== */
-.bb-bleed{width:100vw;position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;overflow:visible !important}
-.bb-wrap{max-width:1240px;margin:0 auto;padding-left:28px;padding-right:28px}
-.bb-mono{font-family:'Space Mono',monospace}
-
-/* ===== Nav ===== */
-.bb-nav{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px solid var(--ink)}
-.bb-nav-in{max-width:1240px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;justify-content:space-between;gap:24px}
-.bb-logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}
-.bb-logo-badge{border:1.5px solid var(--ink);padding:5px 8px;font:700 13px/1 'Space Mono',monospace;letter-spacing:.02em}
-.bb-logo-name{font:800 16px/1 'Archivo',sans-serif;letter-spacing:-.01em}
-.bb-nav-links{display:flex;align-items:center;gap:28px}
-.bb-nav-links a{font:700 12px/1 'Space Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);text-decoration:none}
-.bb-nav-links a.bb-nav-cta{display:inline-flex;align-items:center;gap:8px;color:#fff;background:var(--ink);padding:11px 16px;white-space:nowrap}
-.bb-nav-cta span{color:var(--accent)}
-
-/* ===== Hero ===== */
-.bb-hero{padding-top:30px}
-.bb-kicker{display:flex;align-items:center;gap:14px;padding-bottom:30px}
-.bb-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);animation:bbpulse 2.4s ease-in-out infinite}
-.bb-kicker-text{font:700 12px/1 'Space Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-.bb-hero-grid{display:grid;grid-template-columns:1.35fr .85fr;gap:48px;align-items:end;border-top:1px solid var(--ink);padding-top:40px}
-.bb-h1{font:800 clamp(40px,6.2vw,82px)/0.96 'Archivo',sans-serif;letter-spacing:-.035em;text-wrap:balance}
-.bb-h1 span{color:var(--accent)}
-.bb-hero-sub{font:400 19px/1.5 'Archivo',sans-serif;color:var(--muted);margin-top:28px;max-width:540px;text-wrap:pretty}
-.bb-hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
-.bb-btn-dark{display:inline-flex;align-items:center;gap:10px;font:700 14px/1 'Space Mono',monospace;letter-spacing:.04em;text-transform:uppercase;color:#fff;background:var(--ink);text-decoration:none;padding:18px 26px;border:none;cursor:pointer}
-.bb-btn-dark span{color:var(--accent)}
-.bb-btn-ghost{display:inline-flex;align-items:center;gap:10px;font:700 14px/1 'Space Mono',monospace;letter-spacing:.04em;text-transform:uppercase;color:var(--ink);background:transparent;border:1.5px solid var(--ink);text-decoration:none;padding:16.5px 24px}
-/* Route board */
-.bb-board{border:1.5px solid var(--ink);background:var(--surface)}
-.bb-board-head{background:var(--ink);color:var(--bg);padding:13px 18px;display:flex;justify-content:space-between;align-items:center}
-.bb-board-head .l{font:700 12px/1 'Space Mono',monospace;letter-spacing:.08em}
-.bb-board-head .r{font:700 12px/1 'Space Mono',monospace;letter-spacing:.06em;color:var(--accent)}
-.bb-board-body{padding:6px 18px 14px}
-.bb-board-row{display:flex;align-items:baseline;gap:10px;padding:13px 0;border-bottom:1px solid var(--line)}
-.bb-board-row:last-child{border-bottom:none}
-.bb-board-row .n{font:700 14px/1.2 'Space Mono',monospace;color:var(--ink)}
-.bb-dots{flex:1;border-bottom:1px dotted var(--muted);transform:translateY(-4px);min-width:14px}
-.bb-board-row .p{font:700 15px/1 'Space Mono',monospace;color:var(--accent)}
-.bb-board-foot{border-top:1.5px solid var(--ink);padding:12px 18px;font:400 11px/1.4 'Space Mono',monospace;color:var(--muted)}
-/* Trust strip */
-.bb-trust{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--ink);margin-top:44px}
-.bb-trust > div{padding:20px 22px;border-right:1px solid var(--line)}
-.bb-trust > div:last-child{border-right:none}
-.bb-trust .no{font:700 11px/1 'Space Mono',monospace;color:var(--accent);letter-spacing:.06em}
-.bb-trust .t{font:700 15px/1.2 'Archivo',sans-serif;margin-top:10px}
-.bb-trust .d{font:400 13px/1.4 'Archivo',sans-serif;color:var(--muted);margin-top:4px}
-
-/* ===== Image band / placeholders ===== */
-.bb-band{margin-top:60px}
-.bb-ph{display:flex;align-items:center;justify-content:center;border:1px solid var(--ink);background:repeating-linear-gradient(-45deg,var(--soft),var(--soft) 1px,transparent 1px,transparent 12px),var(--surface)}
-.bb-ph span{font:700 11px/1.4 'Space Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:center;padding:0 16px}
-.bb-band .bb-ph{height:300px}
-
-/* ===== Section headers ===== */
-.bb-sec-head{display:flex;align-items:baseline;gap:18px;margin-bottom:10px}
-.bb-sec-no{font:700 14px/1 'Space Mono',monospace;color:var(--accent)}
-.bb-h2{font:800 clamp(30px,4.4vw,52px)/1 'Archivo',sans-serif;letter-spacing:-.03em}
-.bb-h2-s{font:800 clamp(28px,3.8vw,46px)/1 'Archivo',sans-serif;letter-spacing:-.03em}
-.bb-sec-lead{font:400 15px/1.5 'Archivo',sans-serif;color:var(--muted);max-width:520px}
-
-/* ===== Services ===== */
-.bb-services{padding:90px 0 40px}
-.bb-services-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:8px;flex-wrap:wrap}
-.bb-services-head p{font:400 15px/1.5 'Archivo',sans-serif;color:var(--muted);max-width:320px}
-.bb-rows{border-bottom:1px solid var(--ink)}
-.bb-row{display:grid;grid-template-columns:64px 1.25fr 1.15fr 36px;gap:28px;align-items:start;padding:32px 10px;border-top:1px solid var(--ink);text-decoration:none;color:inherit;transition:background .15s}
-.bb-row:hover{background:var(--soft)}
-.bb-row:hover .bb-arrow{transform:translate(3px,-3px)}
-.bb-row .no{font:700 22px/1 'Space Mono',monospace;color:var(--muted)}
-.bb-row h3{font:700 27px/1.05 'Archivo',sans-serif;letter-spacing:-.02em}
-.bb-tags{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
-.bb-tag{font:400 11px/1 'Space Mono',monospace;border:1px solid var(--line);padding:5px 9px;color:var(--muted)}
-.bb-row .desc{font:400 16px/1.55 'Archivo',sans-serif;color:var(--muted);padding-top:4px}
-.bb-arrow{font:400 22px/1 'Archivo',sans-serif;color:var(--accent);justify-self:end;transition:transform .15s}
-
-/* ===== Routes (dark) ===== */
-.bb-routes{background:var(--ink);color:var(--bg)}
-.bb-routes-in{max-width:1240px;margin:0 auto;padding:84px 28px}
-.bb-routes .bb-h2{color:var(--bg)}
-.bb-routes-lead{font:400 15px/1.5 'Archivo',sans-serif;color:rgba(242,238,228,0.65);max-width:520px;margin-bottom:44px}
-.bb-routes-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 64px}
-.bb-rt{display:flex;align-items:baseline;gap:14px;padding:20px 0;border-bottom:1px solid rgba(242,238,228,0.18)}
-.bb-rt .m{min-width:0}
-.bb-rt .n{font:700 17px/1.2 'Space Mono',monospace}
-.bb-rt .s{font:400 12px/1 'Space Mono',monospace;color:rgba(242,238,228,0.5);margin-top:5px}
-.bb-rt .bb-dots{border-bottom:1px dotted rgba(242,238,228,0.4);transform:translateY(-8px)}
-.bb-rt .p{font:700 22px/1 'Space Mono',monospace;color:var(--accent)}
-.bb-routes-note{font:400 14px/1.5 'Space Mono',monospace;color:rgba(242,238,228,0.65);margin-top:30px}
-.bb-routes-note a{color:var(--accent);text-decoration:none;border-bottom:1px solid currentColor}
-
-/* ===== Fleet ===== */
-.bb-fleet{padding:90px 0}
-.bb-fleet .bb-sec-lead{margin-bottom:42px}
-.bb-fleet-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--ink);border-left:1px solid var(--ink)}
-.bb-fleet-card{border-right:1px solid var(--ink);border-bottom:1px solid var(--ink)}
-.bb-fleet-card .bb-ph{height:140px;border:none;border-bottom:1px solid var(--ink)}
-.bb-fleet-card .pad{padding:22px}
-.bb-fleet-card .cap{font:700 13px/1 'Space Mono',monospace;color:var(--accent)}
-.bb-fleet-card h3{font:700 22px/1.1 'Archivo',sans-serif;letter-spacing:-.02em;margin-top:12px}
-.bb-fleet-card p{font:400 13.5px/1.5 'Archivo',sans-serif;color:var(--muted);margin-top:10px}
-
-/* ===== Why ===== */
-.bb-why{border-top:1px solid var(--ink);background:var(--soft)}
-.bb-why-in{max-width:1240px;margin:0 auto;padding:90px 28px}
-.bb-why-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:start}
-.bb-why-left{position:sticky;top:90px}
-.bb-why-left .bb-sec-head{margin-bottom:18px}
-.bb-why-left p{font:400 16px/1.55 'Archivo',sans-serif;color:var(--muted);margin-bottom:26px;max-width:320px}
-.bb-btn-sm{display:inline-flex;align-items:center;gap:10px;font:700 13px/1 'Space Mono',monospace;letter-spacing:.04em;text-transform:uppercase;color:#fff;background:var(--ink);text-decoration:none;padding:16px 22px}
-.bb-btn-sm span{color:var(--accent)}
-.bb-why-cards{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--ink);border-left:1px solid var(--ink)}
-.bb-why-card{border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:26px}
-.bb-why-card .no{font:700 12px/1 'Space Mono',monospace;color:var(--accent)}
-.bb-why-card h3{font:700 18px/1.2 'Archivo',sans-serif;margin:14px 0 8px}
-.bb-why-card p{font:400 14px/1.55 'Archivo',sans-serif;color:var(--muted)}
-
-/* ===== Reviews ===== */
-.bb-reviews{padding:90px 0}
-.bb-reviews .bb-sec-head{margin-bottom:44px}
-.bb-reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ink);border-left:1px solid var(--ink)}
-.bb-review{border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:30px}
-.bb-review .q{font:700 40px/1 'Archivo',sans-serif;color:var(--accent)}
-.bb-review p{font:500 17px/1.5 'Archivo',sans-serif;margin:6px 0 22px}
-.bb-review .who{font:700 12px/1.4 'Space Mono',monospace;color:var(--muted)}
-.bb-reviews-note{font:400 13px/1.5 'Space Mono',monospace;color:var(--muted);margin-top:18px}
-
-/* ===== Quote section (dark, native columns + Jetpack form) ===== */
-.bb-quote{background:#17150F;color:#F2EEE4;padding:84px 0}
-.bb-quote .bb-quote-cols{max-width:1240px;margin:0 auto;padding:0 28px;gap:56px}
-.bb-quote-left .bb-sec-head{margin-bottom:18px}
-.bb-quote-left .bb-h2{color:#F2EEE4}
-.bb-quote-left .lead{font:400 17px/1.55 'Archivo',sans-serif;color:rgba(242,238,228,0.7);margin-bottom:30px;max-width:380px}
-.bb-contact-list{display:flex;flex-direction:column;border-top:1px solid rgba(242,238,228,0.2)}
-.bb-contact-list a{display:flex;align-items:center;justify-content:space-between;gap:11px;font:700 15px/1 'Space Mono',monospace;color:#F2EEE4;text-decoration:none;padding:18px 0;border-bottom:1px solid rgba(242,238,228,0.2)}
-.bb-contact-list a .v{color:#DC4B27}
-.bb-qform-head{font:700 12px/1 'Space Mono',monospace;color:#6B6457;letter-spacing:.06em;margin-bottom:22px}
-.bb-qform.wp-block-jetpack-contact-form,.bb-qform .wp-block-jetpack-contact-form{background:#F2EEE4;color:#17150F;border:1.5px solid #DC4B27;padding:30px}
-.bb-qform form{display:grid;grid-template-columns:1fr 1fr;gap:22px 18px}
-.bb-qform form > *{min-width:0}
-.bb-qform .grunion-field-wrap,.bb-qform .jetpack-field{display:flex;flex-direction:column;gap:8px;margin:0}
-.bb-qform label,.bb-qform .grunion-field-label,.bb-qform .jetpack-field-label{font:700 11px/1 'Space Mono',monospace !important;color:#6B6457 !important;letter-spacing:.04em;text-transform:uppercase;margin:0}
-.bb-qform input:not([type=submit]),.bb-qform select,.bb-qform textarea{background:transparent !important;border:none !important;border-bottom:1.5px solid #17150F !important;border-radius:0 !important;color:#17150F !important;padding:8px 0 !important;font:600 16px/1.2 'Archivo',sans-serif !important;outline:none;width:100%;box-shadow:none !important}
-.bb-qform textarea{resize:vertical;min-height:64px}
-.bb-qform .bb-span2{grid-column:span 2}
-.bb-qform .wp-block-jetpack-button,.bb-qform .wp-block-button{grid-column:span 2;margin-top:6px}
-.bb-qform button,.bb-qform .wp-block-button__link,.bb-qform input[type=submit]{width:100%;display:flex;align-items:center;justify-content:center;gap:9px;background:#17150F !important;color:#F2EEE4 !important;border:none !important;border-radius:0 !important;padding:16px !important;font:700 13px/1 'Space Mono',monospace !important;letter-spacing:.04em;text-transform:uppercase;cursor:pointer}
-.bb-qform .contact-form__checkboxes,.bb-qform .grunion-field-checkbox-wrap{grid-column:span 2}
-.bb-qform-note{grid-column:span 2;font:400 11px/1.5 'Space Mono',monospace;color:#6B6457;margin-top:4px;text-align:center}
-
-/* ===== FAQ ===== */
-.bb-faq{max-width:900px;margin:0 auto;padding:90px 28px}
-.bb-faq .bb-sec-head{margin-bottom:34px}
-.bb-faq-list{border-top:1px solid var(--ink)}
-.bb-faq-list details{border-bottom:1px solid var(--ink);padding:22px 4px}
-.bb-faq-list summary{font:700 18px/1.4 'Archivo',sans-serif;cursor:pointer;display:flex;justify-content:space-between;gap:16px;align-items:center;list-style:none}
-.bb-faq-list summary .pl{color:var(--accent);font:400 22px/1 'Archivo',sans-serif}
-.bb-faq-list details p{font:400 15px/1.65 'Archivo',sans-serif;color:var(--muted);margin-top:14px}
-
-/* ===== Footer ===== */
-.bb-footer{border-top:1px solid var(--ink);background:var(--ink);color:var(--bg)}
-.bb-footer-in{max-width:1240px;margin:0 auto;padding:64px 28px 30px}
-.bb-footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:36px;padding-bottom:48px}
-.bb-footer-brand{display:flex;align-items:center;gap:12px;margin-bottom:16px}
-.bb-footer-badge{border:1.5px solid var(--bg);padding:5px 8px;font:700 13px/1 'Space Mono',monospace}
-.bb-footer-name{font:800 16px/1 'Archivo',sans-serif}
-.bb-footer-desc{font:400 14px/1.6 'Archivo',sans-serif;color:rgba(242,238,228,0.6);max-width:280px}
-.bb-footer-col .h{font:700 11px/1 'Space Mono',monospace;color:rgba(242,238,228,0.5);letter-spacing:.06em;margin-bottom:16px}
-.bb-footer-col .ls{display:flex;flex-direction:column;gap:11px}
-.bb-footer-col .ls a{font:500 14px/1 'Archivo',sans-serif;color:var(--bg);text-decoration:none}
-.bb-footer-col .ls span{font:500 14px/1.4 'Archivo',sans-serif;color:rgba(242,238,228,0.6)}
-.bb-footer-word{font:800 clamp(48px,13vw,170px)/0.85 'Archivo',sans-serif;letter-spacing:-.04em;color:rgba(242,238,228,0.1);border-top:1px solid rgba(242,238,228,0.2);padding-top:30px}
-.bb-footer-meta{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:24px}
-.bb-footer-meta span{font:400 12px/1.4 'Space Mono',monospace;color:rgba(242,238,228,0.55)}
-
-/* ===== Responsive ===== */
-@media (max-width:1000px){
-  .bb-hero-grid{grid-template-columns:1fr;gap:36px;align-items:start}
-  .bb-trust{grid-template-columns:1fr 1fr}
-  .bb-trust > div{border-bottom:1px solid var(--line)}
-  .bb-trust > div:nth-child(2n){border-right:none}
-  .bb-trust > div:nth-child(3),.bb-trust > div:nth-child(4){border-bottom:none}
-  .bb-row{grid-template-columns:44px 1fr 36px;grid-template-areas:"no title arrow" "no desc arrow"}
-  .bb-row .no{grid-area:no}
-  .bb-row .mid{grid-area:title}
-  .bb-row .desc{grid-area:desc;padding-top:0;margin-top:12px}
-  .bb-arrow{grid-area:arrow}
-  .bb-routes-grid{grid-template-columns:1fr;gap:0}
-  .bb-fleet-grid{grid-template-columns:1fr 1fr}
-  .bb-why-grid{grid-template-columns:1fr;gap:40px}
-  .bb-why-left{position:static}
-  .bb-reviews-grid{grid-template-columns:1fr}
-}
-@media (max-width:760px){
-  .bb-nav-links a:not(.bb-nav-cta){display:none}
-  .bb-nav-in,.bb-wrap{padding-left:16px;padding-right:16px}
-  .bb-routes-in,.bb-why-in,.bb-footer-in,.bb-faq{padding-left:16px;padding-right:16px}
-  .bb-quote .bb-quote-cols{padding-left:16px;padding-right:16px}
-  .bb-services,.bb-fleet,.bb-reviews{padding-top:60px}
-  .bb-routes-in,.bb-why-in{padding-top:60px;padding-bottom:60px}
-  .bb-quote{padding:60px 0}
-  .bb-faq{padding-top:60px;padding-bottom:60px}
-  .bb-trust{grid-template-columns:1fr}
-  .bb-trust > div{border-right:none;border-bottom:1px solid var(--line)}
-  .bb-trust > div:last-child{border-bottom:none}
-  .bb-band .bb-ph{height:180px}
-  .bb-fleet-grid{grid-template-columns:1fr}
-  .bb-why-cards{grid-template-columns:1fr}
-  .bb-footer-grid{grid-template-columns:1fr;gap:28px}
-  .bb-qform form{grid-template-columns:1fr}
-  .bb-qform .bb-span2,.bb-qform .wp-block-jetpack-button,.bb-qform .wp-block-button,.bb-qform-note{grid-column:span 1}
-  .bb-row{padding:24px 4px}
-  .bb-row h3{font-size:22px}
-}
-</style>
-
-<div class="bb">
-
-<header class="bb-nav bb-bleed">
-  <div class="bb-nav-in">
-    <a href="#top" class="bb-logo"><span class="bb-logo-badge">BB</span><span class="bb-logo-name">BUS BUDAPEST</span></a>
-    <nav class="bb-nav-links">
-      <a href="#services">Services</a>
-      <a href="#routes">Routes</a>
-      <a href="#fleet">Fleet</a>
-      <a href="#why">Why</a>
-      <a href="#quote" class="bb-nav-cta">Get a quote <span>→</span></a>
+<header id="top" class="bb bb-nav bb-bleed" style="position:sticky;top:0;z-index:50;background:#F2EEE4;border-bottom:1px solid #17150F;font-family:'Archivo','Inter',Helvetica,Arial,sans-serif;color:#17150F">
+  <div class="bb-nav-in" style="max-width:1240px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;justify-content:space-between;gap:16px 24px;flex-wrap:wrap">
+    <a href="#top" class="bb-logo" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit">
+      <span style="border:1.5px solid #17150F;padding:5px 8px;font:700 13px/1 'Space Mono','Courier New',monospace;letter-spacing:.02em">BB</span>
+      <span class="bb-logo-name" style="font:800 16px/1 'Archivo','Inter',Helvetica,Arial,sans-serif;letter-spacing:-.01em">BUS BUDAPEST</span>
+    </a>
+    <nav class="bb-nav-links" style="display:flex;align-items:center;gap:16px 28px;flex-wrap:wrap">
+      <a href="#services" style="font:700 12px/1 'Space Mono','Courier New',monospace;letter-spacing:.06em;text-transform:uppercase;color:#17150F;text-decoration:none">Services</a>
+      <a href="#routes" style="font:700 12px/1 'Space Mono','Courier New',monospace;letter-spacing:.06em;text-transform:uppercase;color:#17150F;text-decoration:none">Routes</a>
+      <a href="#fleet" style="font:700 12px/1 'Space Mono','Courier New',monospace;letter-spacing:.06em;text-transform:uppercase;color:#17150F;text-decoration:none">Fleet</a>
+      <a href="#why" style="font:700 12px/1 'Space Mono','Courier New',monospace;letter-spacing:.06em;text-transform:uppercase;color:#17150F;text-decoration:none">Why</a>
+      <a href="#quote" class="bb-nav-cta" style="display:inline-flex;align-items:center;gap:8px;font:700 12px/1 'Space Mono','Courier New',monospace;letter-spacing:.06em;text-transform:uppercase;color:#FFFFFF;background:#17150F;text-decoration:none;padding:11px 16px;white-space:nowrap">Get a quote <span style="color:#DC4B27">→</span></a>
     </nav>
   </div>
 </header>
+<!-- /wp:html -->
 
-<section id="top" class="bb-hero bb-wrap">
-  <div class="bb-kicker"><span class="bb-dot"></span><span class="bb-kicker-text">01 / Budapest &amp; Central Europe — available 24/7</span></div>
-  <div class="bb-hero-grid">
-    <div>
-      <h2 class="bb-h1">Airport transfers, chauffeur rides <span>&amp; group transport.</span></h2>
-      <p class="bb-hero-sub">Pre-booked, fixed-price ground transport for travellers, businesses and groups — from a single airport pickup to multi-day itineraries across the region. One operator, start to finish.</p>
-      <div class="bb-hero-ctas">
-        <a href="#quote" class="bb-btn-dark">Get a free quote <span>→</span></a>
-        <a href="https://wa.me/36700000000?text=Bus%20Budapest%20%E2%80%94%20Quote%20request" class="bb-btn-ghost" target="_blank" rel="noopener">WhatsApp us</a>
+<!-- wp:html -->
+<div class="bb" style="background:#F2EEE4;color:#17150F;font-family:'Archivo','Inter',Helvetica,Arial,sans-serif">
+
+<section class="bb-hero bb-wrap" style="max-width:1240px;margin:0 auto;padding:30px 28px 0;scroll-margin-top:80px">
+  <div style="display:flex;align-items:center;gap:14px;padding-bottom:30px">
+    <span class="bb-dot" style="width:8px;height:8px;border-radius:50%;background:#DC4B27;flex:0 0 auto"></span>
+    <span style="font:700 12px/1.4 'Space Mono','Courier New',monospace;letter-spacing:.08em;text-transform:uppercase;color:#6B6457">01 / Budapest &amp; Central Europe — available 24/7</span>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;gap:48px;align-items:flex-end;border-top:1px solid #17150F;padding-top:40px">
+    <div style="flex:1.35 1 min(100%,420px)">
+      <h1 class="bb-h1" style="font:800 clamp(40px,6.2vw,82px)/0.96 'Archivo','Inter',Helvetica,Arial,sans-serif;letter-spacing:-.035em;margin:0">Airport transfers, chauffeur rides <span style="color:#DC4B27">&amp; group transport.</span></h1>
+      <p style="font:400 19px/1.5 'Archivo','Inter',Helvetica,Arial,sans-serif;color:#6B6457;margin:28px 0 0;max-width:540px">Pre-booked, fixed-price ground transport for travellers, businesses and groups — from a single airport pickup to multi-day itineraries across the region. One operator, start to finish.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:34px">
+        <a href="#quote" style="display:inline-flex;align-items:center;gap:10px;font:700 14px/1 'Space Mono','Courier New',monospace;letter-spacing:.04em;text-transform:uppercase;color:#FFFFFF;background:#17150F;text-decoration:none;padding:18px 26px">Get a free quote <span style="color:#DC4B27">→</span></a>
+        <a href="https://wa.me/36700000000?text=Bus%20Budapest%20%E2%80%94%20Quote%20request" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;font:700 14px/1 'Space Mono','Courier New',monospace;letter-spacing:.04em;text-transform:uppercase;color:#17150F;background:transparent;border:1.5px solid #17150F;text-decoration:none;padding:16.5px 24px">WhatsApp us</a>
       </div>
     </div>
-    <div class="bb-board">
-      <div class="bb-board-head"><span class="l">DEPARTURES · FROM</span><span class="r">PRIVATE</span></div>
-      <div class="bb-board-body">
-        <div class="bb-board-row"><span class="n">BUD → City centre</span><span class="bb-dots"></span><span class="p">€38</span></div>
-        <div class="bb-board-row"><span class="n">Budapest → Vienna</span><span class="bb-dots"></span><span class="p">€220</span></div>
-        <div class="bb-board-row"><span class="n">Budapest → Bratislava</span><span class="bb-dots"></span><span class="p">€190</span></div>
-        <div class="bb-board-row"><span class="n">Lake Balaton</span><span class="bb-dots"></span><span class="p">€140</span></div>
-        <div class="bb-board-row"><span class="n">Danube Bend (day)</span><span class="bb-dots"></span><span class="p">€180</span></div>
+    <div style="flex:.85 1 min(100%,300px);border:1.5px solid #17150F;background:#FBF8F1">
+      <div style="background:#17150F;color:#F2EEE4;padding:13px 18px;display:flex;justify-content:space-between;align-items:center;gap:10px">
+        <span style="font:700 12px/1 'Space Mono','Courier New',monospace;letter-spacing:.08em">DEPARTURES · FROM</span>
+        <span style="font:700 12px/1 'Space Mono','Courier New',monospace;letter-spacing:.06em;color:#DC4B27">PRIVATE</span>
       </div>
-      <div class="bb-board-foot">ALL-IN · FIXED · CONFIRMED IN WRITING</div>
+      <div style="padding:6px 18px 14px">
+        <div style="display:flex;align-items:baseline;gap:10px;padding:13px 0;border-bottom:1px solid rgba(23,21,15,0.16)"><span style="font:700 14px/1.2 'Space Mono','Courier New',monospace">BUD → City centre</span><span style="flex:1;border-bottom:1px dotted #6B6457;position:relative;top:-4px;min-width:14px"></span><span style="font:700 15px/1 'Space Mono','Courier New',monospace;color:#DC4B27">€38</span></div>
+        <div style="display:flex;align-items:baseline;gap:10px;padding:13px 0;border-bottom:1px solid rgba(23,21,15,0.16)"><span style="font:700 14px/1.2 'Space Mono','Courier New',monospace">Budapest → Vienna</span><span style="flex:1;border-bottom:1px dotted #6B6457;position:relative;top:-4px;min-width:14px"></span><span style="font:700 15px/1 'Space Mono','Courier New',monospace;color:#DC4B27">€220</span></div>
+        <div style="display:flex;align-items:baseline;gap:10px;padding:13px 0;border-bottom:1px solid rgba(23,21,15,0.16)"><span style="font:700 14px/1.2 'Space Mono','Courier New',monospace">Budapest → Bratislava</span><span style="flex:1;border-bottom:1px dotted #6B6457;position:relative;top:-4px;min-width:14px"></span><span style="font:700 15px/1 'Space Mono','Courier New',monospace;color:#DC4B27">€190</span></div>
+        <div style="display:flex;align-items:baseline;gap:10px;padding:13px 0;border-bottom:1px solid rgba(23,21,15,0.16)"><span style="font:700 14px/1.2 'Space Mono','Courier New',monospace">Lake Balaton</span><span style="flex:1;border-bottom:1px dotted #6B6457;position:relative;top:-4px;min-width:14px"></span><span style="font:700 15px/1 'Space Mono','Courier New',monospace;color:#DC4B27">€140</span></div>
+        <div style="display:flex;align-items:baseline;gap:10px;padding:13px 0"><span style="font:700 14px/1.2 'Space Mono','Courier New',monospace">Danube Bend (day)</span><span style="flex:1;border-bottom:1px dotted #6B6457;position:relative;top:-4px;min-width:14px"></span><span style="font:700 15px/1 'Space Mono','Courier New',monospace;color:#DC4B27">€180</span></div>
+      </div>
+      <div style="border-top:1.5px solid #17150F;padding:12px 18px;font:400 11px/1.4 'Space Mono','Courier New',monospace;color:#6B6457">ALL-IN · FIXED · CONFIRMED IN WRITING</div>
     </div>
   </div>
-  <div class="bb-trust">
-    <div><div class="no">01</div><div class="t">Fixed price</div><div class="d">No hidden fees, ever</div></div>
-    <div><div class="no">02</div><div class="t">Flight monitoring</div><div class="d">We track your arrival</div></div>
-    <div><div class="no">03</div><div class="t">Free waiting</div><div class="d">60 min after landing</div></div>
-    <div><div class="no">04</div><div class="t">24/7 support</div><div class="d">Phone · WhatsApp · email</div></div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:1px;background:rgba(23,21,15,0.16);border:1px solid #17150F;margin-top:44px">
+    <div style="background:#F2EEE4;padding:20px 22px"><div style="font:700 11px/1 'Space Mono','Courier New',monospace;color:#DC4B27;letter-spacing:.06em">01</div><div style="font:700 15px/1.2 'Archivo','Inter',Helvetica,Arial,sans-serif;margin-top:10px">Fixed price</div><div style="font:400 13px/1.4 'Archivo','Inter',Helvetica,Arial,sans-serif;color:#6B6457;margin-top:4px">No hidden fees, ever</div></div>
+    <div style="background:#F2EEE4;padding:20px 22px"><div style="font:700 11px/1 'Space Mono','Courier New',monospace;color:#DC4B27;letter-spacing:.06em">02</div><div style="font:700 15px/1.2 'Archivo','Inter',Helvetica,Arial,sans-serif;margin-top:10px">Flight monitoring</div><div style="font:400 13px/1.4 'Archivo','Inter',Helvetica,Arial,sans-serif;color:#6B6457;margin-top:4px">We track your arrival</div></div>
+    <div style="background:#F2EEE4;padding:20px 22px"><div style="font:700 11px/1 'Space Mono','Courier New',monospace;color:#DC4B27;letter-spacing:.06em">03</div><div style="font:700 15px/1.2 'Archivo','Inter',Helvetica,Arial,sans-serif;margin-top:10px">Free waiting</div><div style="font:400 13px/1.4 'Archivo','Inter',Helvetica,Arial,sans-serif;color:#6B6457;margin-top:4px">60 min after landing</div></div>
+    <div style="background:#F2EEE4;padding:20px 22px"><div style="font:700 11px/1 'Space Mono','Courier New',monospace;color:#DC4B27;letter-spacing:.06em">04</div><div style="font:700 15px/1.2 'Archivo','Inter',Helvetica,Arial,sans-serif;margin-top:10px">24/7 support</div><div style="font:400 13px/1.4 'Archivo','Inter',Helvetica,Arial,sans-serif;color:#6B6457;margin-top:4px">Phone · WhatsApp · email</div></div>
   </div>
 </section>
 
-<section class="bb-band bb-wrap">
-  <div class="bb-ph"><span>Photo coming soon — Budapest skyline / our vehicle on the road</span></div>
-</section>
-
-<section id="services" class="bb-services bb-wrap">
-  <div class="bb-services-head">
-    <div class="bb-sec-head"><span class="bb-sec-no">02</span><h2 class="bb-h2">Services</h2></div>
-    <p>One operator for every journey — not just a bus rental. Pick the service; we handle the logistics, vehicle and driver.</p>
-  </div>
-  <div class="bb-rows">
-    <a href="#quote" class="bb-row">
-      <span class="no">01</span>
-      <div class="mid">
-        <h3>Airport &amp; Point-to-Point</h3>
-        <div class="bb-tags"><span class="bb-tag">SEDAN</span><span class="bb-tag">VAN</span><span class="bb-tag">MINIBUS</span></div>
-      </div>
-      <p class="desc">Meet &amp; greet at BUD, fixed-price rides to your hotel, office, station or river port — and city-to-city across the region.</p>
-      <span class="bb-arrow">↗</span>
-    </a>
-    <a href="#quote" class="bb-row">
-      <span class="no">02</span>
-      <div class="mid">
-        <h3>Hourly Ride &amp; Sightseeing</h3>
-        <div class="bb-tags"><span class="bb-tag">AS DIRECTED</span><span class="bb-tag">3H MIN</span></div>
-      </div>
-      <p class="desc">A driver at your disposal by the hour — business days with multiple stops, private city highlights and tailored leisure routes.</p>
-      <span class="bb-arrow">↗</span>
-    </a>
-    <a href="#quote" class="bb-row">
-      <span class="no">03</span>
-      <div class="mid">
-        <h3>Day Trips from Budapest</h3>
-        <div class="bb-tags"><span class="bb-tag">DANUBE BEND</span><span class="bb-tag">BALATON</span><span class="bb-tag">EGER</span></div>
-      </div>
-      <p class="desc">Private, driver-led excursions — the Danube Bend, Lake Balaton, Eger wine country, or a day in Vienna and back.</p>
-      <span class="bb-arrow">↗</span>
-    </a>
-    <a href="#quote" class="bb-row">
-      <span class="no">04</span>
-      <div class="mid">
-        <h3>Multi-day Trips</h3>
-        <div class="bb-tags"><span class="bb-tag">HOTEL-TO-HOTEL</span><span class="bb-tag">CROSS-BORDER</span></div>
-      </div>
-      <p class="desc">Complete itinerary transport across Hungary and Central Europe — one driver and vehicle for the whole route.</p>
-      <span class="bb-arrow">↗</span>
-    </a>
-    <a href="#quote" class="bb-row">
-      <span class="no">05</span>
-      <div class="mid">
-        <h3>Event &amp; Corporate Transport</h3>
-        <div class="bb-tags"><span class="bb-tag">MICE</span><span class="bb-tag">WEDDINGS</span><span class="bb-tag">VIP</span></div>
-      </div>
-      <p class="desc">Coordinated ground logistics for conferences, weddings and delegations — multiple pickups, staggered departures, on-site coordination and one point of contact.</p>
-      <span class="bb-arrow">↗</span>
-    </a>
+<section class="bb-wrap" style="max-width:1240px;margin:60px auto 0;padding:0 28px">
+  <div class="bb-band-ph" style="display:flex;align-items:center;justify-content:center;height:300px;border:1px solid #17150F;background-color:#FBF8F1;background-image:repeating-linear-gradient(-45deg,rgba(23,21,15,0.05),rgba(23,21,15,0.05) 1px,transparent 1px,transparent 12px)">
+    <span style="font:700 11px/1.4 'Space Mono','Courier New',monospace;letter-spacing:.08em;text-transform:uppercase;color:#6B6457;text-align:center;padding:0 16px">Photo coming soon — Budapest skyline / our vehicle on the road</span>
   </div>
 </section>
 
-<section id="routes" class="bb-routes bb-bleed">
-  <div class="bb-routes-in">
-    <div class="bb-sec-head"><span class="bb-sec-no">03</span><h2 class="bb-h2">Routes &amp; fixed prices</h2></div>
-    <p class="bb-routes-lead">Indicative from-prices for a private vehicle, one-way. Confirmed exactly when you request a quote.</p>
-    <div class="bb-routes-grid">
+<section id="services" class="bb-services bb-wrap bb-pad-lg" style="max-width:1240px;margin:0 auto;padding:90px 28px 40px;scroll-margin-top:80px">
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:8px;flex-wrap:wrap">
+    <div style="display:flex;align-items:baseline;gap:18px">
+      <span style="font:700 14px/1 'Space Mono','Courier New',monospace;color:#DC4B27">02</span>
+      <h2 style="font:800 clamp(30px,4.4vw,52px)/1 'Archivo','Inter',Helvetica,Arial,sans-serif;letter-spacing:-.03em;margin:0">Services</h2>
+    </div>
+    <p style="font:400 15px/1.5 'Archivo','Inter',Helvetica,Arial,sans-serif;color:#6B6457;max-width:320px;margin:0">One operator for every journey — not just a bus rental. Pick the service; we handle the logistics, vehicle and driver.</p>
+  </div>
+  <div style="border-bottom:1px solid #17150F">
+    <a href="#quote" class="bb-row" style="display:flex;flex-wrap:wrap;gap:16px 28px;align-items:flex-start;padding:32px 10px;border-top:1px solid #17150F;text-decoration:none;color:inherit">
+      <span class="no" style="flex:0 0 40px;font:700 22px/1 'Space Mono','Courier New',monospace;color:#6B6457">01</span>
+      <span class="mid" style="flex:1 1 260px;display:block">
+        <h3 style="font:700 27px/1.05 'Archivo','Inter',Helvetica,Arial,sans-serif;letter-spacing:-.02em;margin:0">Airport &amp; Point-to-Point</h3>
+        <span style="display:flex;gap:8px;margin-top:14px;flex-wrap:wrap"><span style="font:400 11px/1 'Space Mono','Courier New',monospace;border:1px solid rgba(23,21,15,0.16);padding:5px 9px;color:#6B6457">SEDAN</span><span style="font:400 11px/1 'Space Mono','Courier New',monospace;border:1px solid rgba(23,21,15,0.16);padding:5px 9px;color:#6B6457">VAN</span><span style="font:400 11px/1 'Space Mono','Courier New',monospace;border:1px solid rgba(23,21,15,0.16);padding:5px 9px;color:#6B6457">MINIBUS</span></span>
+      </span>
+      <span class="desc" style="flex:1 1 260px;font:400 16px/1.55 'Archivo','Inter',Helvetica,Arial,sans-serif;color:#6B6457;padding-top:4px">Meet &amp; greet at BUD, fixed-price rides to your hotel, office, station or river port — and city-to-city across the region.</span>
+      <span class="bb-arrow" style="flex:0 0 auto;margin-left:auto;font:400 22px/1 'Archivo','Inter',Helvetica,Arial,sans-serif;color:#DC4B27">↗</span>
+    </a>
+    <a href="#quote" class="bb-row" style="display:flex;flex-wrap:wrap;gap:16px 28px;align-items:flex-start;padding:32px 10px;border-top:1px solid #17150F;text-decoration:none;color:inherit">
+      <span class="no" style="flex:0 0 40px;font:700 22px/1 'Space Mono','Courier New',monospace;color:#6B6457">02</span>
+      <span class="mid" style="flex:1 1 260px;display:block">
+        <h3 style="font:700 27px/1.05 'Archivo','Inter',Helvetica,Arial,sans-serif;letter-spacing:-.02em;margin:0">Hourly Ride &amp; Sightseeing</h3>
+        <span style="display:flex;gap:8px;margin-top:14px;flex-wrap:wrap"><span style="font:400 11px/1 'Space Mono','Courier New',monospace;border:1px solid rgba(23,21,15,0.16);padding:5px 9px;color:#6B6457">AS DIRECTED</span><span style="font:400 11px/1 'Space Mono','Courier New',monospace;border:1px solid rgba(23,21,15,0.16);padding:5px 9px;color:#6B6457">3H MIN</span></span>
+      </span>
+      <span class="desc" style="flex:1 1 260px;font:400 16px/1.55 'Archivo','Inter',Helvetica,Arial,sans-serif;color:#6B6457;padding-top:4px">A driver at your disposal by the hour — business days with multiple stops, private city highlights and tailored leisure routes.</span>
+      <span class="bb-arrow" style="flex:0 0 auto;margin-left:auto;font:400 22px/1 'Archivo','Inter',Helvetica,Arial,sans-serif;color:#DC4B27">↗</span>
+    </a>
+    <a href="#quote" class="bb-row" style="display:flex;flex-wrap:wrap;gap:16px 28px;align-items:flex-start;padding:32px 10px;border-top:1px solid #17150F;text-decoration:none;color:inherit">
+      <span class="no" style="flex:0 0 40px;font:700 22px/1 'Space Mono','Courier New',monospace;color:#6B6457">03</span>
+      <span class="mid" style="flex:1 1 260px;display:block">
+        <h3 style="font:700 27px/1.05 'Archivo','Inter',Helvetica,Arial,sans-serif;letter-spacing:-.02em;margin:0">Day Trips from Budapest</h3>
+        <span style="display:flex;gap:8px;margin-top:14px;flex-wrap:wrap"><span style="font:400 11px/1 'Space Mono','Courier New',monospace;border:1px solid rgba(23,21,15,0.16);padding:5px 9px;color:#6B6457">DANUBE BEND</span><span style="font:400 11px/1 'Space Mono','Courier New',monospace;border:1px solid rgba(23,21,15,0.16);padding:5px 9px;color:#6B6457">BALATON</span><span style="font:400 11px/1 'Space Mono','Courier New',monospace;border:1px solid rgba(23,21,15,0.16);padding:5px 9px;color:#6B6457">EGER</span></span>
+      </span>
+      <span class="desc" style="flex:1 1 260px;font:400 16px/1.55 'Archivo','Inter',Helvetica,Arial,sans-serif;color:#6B6457;padding-top:4px">Private, driver-led excursions — the Danube Bend, Lake Balaton, Eger wine country, or a day in Vienna and back.</span>
+      <span class="bb-arrow" style="flex:0 0 auto;margin-left:auto;font:400 22px/1 'Archivo','Inter',Helvetica,Arial,sans-serif;color:#DC4B27">↗</span>
+    </a>
+    <a href="#quote" class="bb-row" style="display:flex;flex-wrap:wrap;gap:16px 28px;align-items:flex-start;padding:32px 10px;border-top:1px solid #17150F;text-decoration:none;color:inherit">
+      <span class="no" style="flex:0 0 40px;font:700 22px/1 'Space Mono','Courier New',monospace;color:#6B6457">04</span>
+      <span class="mid" style="flex:1 1 260px;display:block">
+        <h3 style="font:700 27px/1.05 'Archivo','Inter',Helvetica,Arial,sans-serif;letter-spacing:-.02em;margin:0">Multi-day Trips</h3>
+        <span style="display:flex;gap:8px;margin-top:14px;flex-wrap:wrap"><span style="font:400 11px/1 'Space Mono','Courier New',monospace;border:1px solid rgba(23,21,15,0.16);padding:5px 9px;color:#6B6457">HOTEL-TO-HOTEL</span><span style="font:400 11px/1 'Space Mono','Courier New',monospace;border:1px solid rgba(23,21,15,0.16);padding:5px 9px;color:#6B6457">CROSS-BORDER</span></span>
+      </span>
+      <span class="desc" style="flex:1 1 260px;font:400 16px/1.55 'Archivo','Inter',Helvetica,Arial,sans-serif;color:#6B6457;padding-top:4px">Complete itinerary transport across Hungary and Central Europe — one driver and vehicle for the whole route.</span>
+      <span class="bb-arrow" style="flex:0 0 auto;margin-left:auto;font:400 22px/1 'Archivo','Inter',Helvetica,Arial,sans-serif;color:#DC4B27">↗</span>
+    </a>
+    <a href="#quote" class="bb-row" style="display:flex;flex-wrap:wrap;gap:16px 28px;align-items:flex-start;padding:32px 10px;border-top:1px solid #17150F;text-decoration:none;color:inherit">
+      <span class="no" style="flex:0 0 40px;font:700 22px/1 'Space Mono','Courier New',monospace;color:#6B6457">05</span>
+      <span class="mid" style="flex:1 1 260px;display:block">
+        <h3 style="font:700 27px/1.05 'Archivo','Inter',Helvetica,Arial,sans-serif;letter-spacing:-.02em;margin:0">Event &amp; Corporate Transport</h3>
+        <span style="display:flex;gap:8px;margin-top:14px;flex-wrap:wrap"><span style="font:400 11px/1 'Space Mono','Courier New',monospace;border:1px solid rgba(23,21,15,0.16);padding:5px 9px;color:#6B6457">MICE</span><span style="font:400 11px/1 'Space Mono','Courier New',monospace;border:1px solid rgba(23,21,15,0.16);padding:5px 9px;color:#6B6457">WEDDINGS</span><span style="font:400 11px/1 'Space Mono','Courier New',monospace;border:1px solid rgba(23,21,15,0.16);padding:5px 9px;color:#6B6457">VIP</span></span>
+      </span>
+      <span class="desc" style="flex:1 1 260px;font:400 16px/1.55 'Archivo','Inter',Helvetica,Arial,sans-serif;color:#6B6457;padding-top:4px">Coordinated ground logistics for conferences, weddings and delegations — multiple pickups, staggered departures, on-site coordination and one point of contact.</span>
+      <span class="bb-arrow" style="flex:0 0 auto;margin-left:auto;font:400 22px/1 'Archivo','Inter',Helvetica,Arial,sans-serif;color:#DC4B27">↗</span>
+    </a>
+  </div>
+</section>
+
+<section id="routes" class="bb-routes bb-bleed" style="background:#17150F;color:#F2EEE4;scroll-margin-top:80px">
+  <div class="bb-routes-in bb-pad-lg" style="max-width:1240px;margin:0 auto;padding:84px 28px">
+    <div style="display:flex;align-items:baseline;gap:18px;margin-bottom:10px">
+      <span style="font:700 14px/1 'Space Mono','Courier New',monospace;color:#DC4B27">03</span>
+      <h2 style="font:800 clamp(30px,4.4vw,52px)/1 'Archivo','Inter',Helvetica,Arial,sans-serif;letter-spacing:-.03em;margin:0;color:#F2EEE4">Routes &amp; fixed prices</h2>
+    </div>
+    <p style="font:400 15px/1.5 'Archivo','Inter',Helvetica,Arial,sans-serif;color:rgba(242,238,228,0.65);max-width:520px;margin:0 0 44px">Indicative from-prices for a private vehicle, one-way. Confirmed exactly when you request a quote.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:0 64px">
       <div>
-        <div class="bb-rt"><div class="m"><div class="n">BUD Airport → City centre</div><div class="s">~25 MIN · MEET &amp; GREET</div></div><span class="bb-dots"></span><span class="p">€38</span></div>
-        <div class="bb-rt"><div class="m"><div class="n">Budapest → Bratislava</div><div class="s">~2H · CROSS-BORDER</div></div><span class="bb-dots"></span><span class="p">€190</span></div>
-        <div class="bb-rt"><div class="m"><div class="n">Budapest → Lake Balaton</div><div class="s">~1H 30 · DAY TRIP</div></div><span class="bb-dots"></span><span class="p">€140</span></div>
+        <div style="display:flex;align-items:baseline;gap:14px;padding:20px 0;border-bottom:1px solid rgba(242,238,228,0.18)"><div style="min-width:0"><div style="font:700 17px/1.2 'Space Mono','Courier New',monospace">BUD Airport → City centre</div><div style="font:400 12px/1 'Space Mono','Courier New',monospace;color:rgba(242,238,228,0.5);margin-top:5px">~25 MIN · MEET &amp; GREET</div></div><span style="flex:1;border-bottom:1px dotted rgba(242,238,228,0.4);position:relative;top:-8px;min-width:14px"></span><span style="font:700 22px/1 'Space Mono','Courier New',monospace;color:#DC4B27">€38</span></div>
+        <div style="display:flex;align-items:baseline;gap:14px;padding:20px 0;border-bottom:1px solid rgba(242,238,228,0.18)"><div style="min-width:0"><div style="font:700 17px/1.2 'Space Mono','Courier New',monospace">Budapest → Bratislava</div><div style="font:400 12px/1 'Space Mono','Courier New',monospace;color:rgba(242,238,228,0.5);margin-top:5px">~2H · CROSS-BORDER</div></div><span style="flex:1;border-bottom:1px dotted rgba(242,238,228,0.4);position:relative;top:-8px;min-width:14px"></span><span style="font:700 22px/1 'Space Mono','Courier New',monospace;color:#DC4B27">€190</span></div>
+        <div style="display:flex;align-items:baseline;gap:14px;padding:20px 0;border-bottom:1px solid rgba(242,238,228,0.18)"><div style="min-width:0"><div style="font:700 17px/1.2 'Space Mono','Courier New',monospace">Budapest → Lake Balaton</div><div style="font:400 12px/1 'Space Mono','Courier New',monospace;color:rgba(242,238,228,0.5);margin-top:5px">~1H 30 · DAY TRIP</div></div><span style="flex:1;border-bottom:1px dotted rgba(242,238,228,0.4);position:relative;top:-8px;min-width:14px"></span><span style="font:700 22px/1 'Space Mono','Courier New',monospace;color:#DC4B27">€140</span></div>
       </div>
       <div>
-        <div class="bb-rt"><div class="m"><div class="n">Budapest → Vienna</div><div class="s">~2H 40 · DOOR-TO-DOOR</div></div><span class="bb-dots"></span><span class="p">€220</span></div>
-        <div class="bb-rt"><div class="m"><div class="n">Budapest → Vienna Airport</div><div class="s">~3H · FLIGHT CONNECTION</div></div><span class="bb-dots"></span><span class="p">€250</span></div>
-        <div class="bb-rt"><div class="m"><div class="n">Danube Bend day trip</div><div class="s">SZENTENDRE · VISEGRÁD · ESZTERGOM</div></div><span class="bb-dots"></span><span class="p">€180</span></div>
+        <div style="display:flex;align-items:baseline;gap:14px;padding:20px 0;border-bottom:1px solid rgba(242,238,228,0.18)"><div style="min-width:0"><div style="font:700 17px/1.2 'Space Mono','Courier New',monospace">Budapest → Vienna</div><div style="font:400 12px/1 'Space Mono','Courier New',monospace;color:rgba(242,238,228,0.5);margin-top:5px">~2H 40 · DOOR-TO-DOOR</div></div><span style="flex:1;border-bottom:1px dotted rgba(242,238,228,0.4);position:relative;top:-8px;min-width:14px"></span><span style="font:700 22px/1 'Space Mono','Courier New',monospace;color:#DC4B27">€220</span></div>
+        <div style="display:flex;align-items:baseline;gap:14px;padding:20px 0;border-bottom:1px solid rgba(242,238,228,0.18)"><div style="min-width:0"><div style="font:700 17px/1.2 'Space Mono','Courier New',monospace">Budapest → Vienna Airport</div><div style="font:400 12px/1 'Space Mono','Courier New',monospace;color:rgba(242,238,228,0.5);margin-top:5px">~3H · FLIGHT CONNECTION</div></div><span style="flex:1;border-bottom:1px dotted rgba(242,238,228,0.4);position:relative;top:-8px;min-width:14px"></span><span style="font:700 22px/1 'Space Mono','Courier New',monospace;color:#DC4B27">€250</span></div>
+        <div style="display:flex;align-items:baseline;gap:14px;padding:20px 0;border-bottom:1px solid rgba(242,238,228,0.18)"><div style="min-width:0"><div style="font:700 17px/1.2 'Space Mono','Courier New',monospace">Danube Bend day trip</div><div style="font:400 12px/1 'Space Mono','Courier New',monospace;color:rgba(242,238,228,0.5);margin-top:5px">SZENTENDRE · VISEGRÁD · ESZTERGOM</div></div><span style="flex:1;border-bottom:1px dotted rgba(242,238,228,0.4);position:relative;top:-8px;min-width:14px"></span><span style="font:700 22px/1 'Space Mono','Courier New',monospace;color:#DC4B27">€180</span></div>
       </div>
     </div>
-    <p class="bb-routes-note">Route not listed? <a href="#quote">Ask for a custom quote →</a></p>
+    <p style="font:400 14px/1.5 'Space Mono','Courier New',monospace;color:rgba(242,238,228,0.65);margin:30px 0 0">Route not listed? <a href="#quote" style="color:#DC4B27;text-decoration:none;border-bottom:1px solid currentColor">Ask for a custom quote →</a></p>
   </div>
 </section>
 
-<section id="fleet" class="bb-fleet bb-wrap">
-  <div class="bb-sec-head"><span class="bb-sec-no">04</span><h2 class="bb-h2">The fleet</h2></div>
-  <p class="bb-sec-lead">Choose by group size — we confirm the right vehicle. Clean, regularly maintained, with luggage space to match.</p>
-  <div class="bb-fleet-grid">
-    <div class="bb-fleet-card">
-      <div class="bb-ph"><span>Executive sedan</span></div>
-      <div class="pad"><div class="cap">1–3 SEATS · 2–3 BAGS</div><h3>Executive Sedan</h3><p>Business travel, couples, single airport pickups.</p></div>
-    </div>
-    <div class="bb-fleet-card">
-      <div class="bb-ph"><span>Premium van</span></div>
-      <div class="pad"><div class="cap">4–8 SEATS · 8 BAGS</div><h3>Premium Van</h3><p>Families, small groups, golf or ski luggage.</p></div>
-    </div>
-    <div class="bb-fleet-card">
-      <div class="bb-ph"><span>Minibus</span></div>
-      <div class="pad"><div class="cap">9–19 SEATS · TRAILER OPT</div><h3>Minibus</h3><p>Group transfers, weddings, conference shuttles.</p></div>
-    </div>
-    <div class="bb-fleet-card">
-      <div class="bb-ph"><span>Coach</span></div>
-      <div class="pad"><div class="cap">20–55 SEATS · FULL HOLD</div><h3>Coach</h3><p>Large groups, tours, multi-day itineraries.</p></div>
-    </div>
+<section id="fleet" class="bb-fleet bb-wrap bb-pad-lg" style="max-width:1240px;margin:0 auto;padding:90px 28px;scroll-margin-top:80px">
+  <div style="display:flex;align-items:baseline;gap:18px;margin-bottom:10px">
+    <span style="font:700 14px/1 'Space Mono','Courier New',monospace;color:#DC4B27">04</span>
+    <h2 style="font:800 clamp(30px,4.4vw,52px)/1 'Archivo','Inter',Helvetica,Arial,sans-serif;letter-spacing:-.03em;margin:0">The fleet</h2>
   </div>
-</section>
-
-<section id="why" class="bb-why bb-bleed">
-  <div class="bb-why-in">
-    <div class="bb-why-grid">
-      <div class="bb-why-left">
-        <div class="bb-sec-head"><span class="bb-sec-no">05</span><h2 class="bb-h2-s">Why book<br>with us</h2></div>
-        <p>Every booking is pre-arranged and confirmed in writing — so you know the price, the driver and the meeting point in advance.</p>
-        <a href="#quote" class="bb-btn-sm">Request a quote <span>→</span></a>
-      </div>
-      <div class="bb-why-cards">
-        <div class="bb-why-card"><div class="no">01</div><h3>Licensed &amp; insured</h3><p>Properly permitted operation with insured vehicles. Documents on request.</p></div>
-        <div class="bb-why-card"><div class="no">02</div><h3>Driver details ahead</h3><p>After booking we send your driver's name, vehicle, contact and meeting point.</p></div>
-        <div class="bb-why-card"><div class="no">03</div><h3>One all-in price</h3><p>Tolls, taxes and waiting included. The price you confirm is the price you pay.</p></div>
-        <div class="bb-why-card"><div class="no">04</div><h3>English-speaking drivers</h3><p>Courteous, experienced drivers used to international travellers and groups.</p></div>
-        <div class="bb-why-card"><div class="no">05</div><h3>Flexible cancellation</h3><p>Clear cancellation terms shared up front — before you commit to anything.</p></div>
-        <div class="bb-why-card"><div class="no">06</div><h3>24/7 coordination</h3><p>Reach a person any time — especially useful around flights and events.</p></div>
-      </div>
+  <p style="font:400 15px/1.5 'Archivo','Inter',Helvetica,Arial,sans-serif;color:#6B6457;max-width:520px;margin:0 0 42px">Choose by group size — we confirm the right vehicle. Clean, regularly maintained, with luggage space to match.</p>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:1px;background:#17150F;border:1px solid #17150F">
+    <div style="background:#F2EEE4">
+      <div style="display:flex;align-items:center;justify-content:center;height:140px;border-bottom:1px solid #17150F;background-color:#FBF8F1;background-image:repeating-linear-gradient(-45deg,rgba(23,21,15,0.05),rgba(23,21,15,0.05) 1px,transparent 1px,transparent 12px)"><span style="font:700 11px/1.4 'Space Mono','Courier New',monospace;letter-spacing:.08em;text-transform:uppercase;color:#6B6457">Executive sedan</span></div>
+      <div style="padding:22px"><div style="font:700 13px/1 'Space Mono','Courier New',monospace;color:#DC4B27">1–3 SEATS · 2–3 BAGS</div><h3 style="font:700 22px/1.1 'Archivo','Inter',Helvetica,Arial,sans-serif;letter-spacing:-.02em;margin:12px 0 0">Executive Sedan</h3><p style="font:400 13.5px/1.5 'Archivo','Inter',Helvetica,Arial,sans-serif;color:#6B6457;margin:10px 0 0">Business travel, couples, single airport pickups.</p></div>
+    </div>
+    <div style="background:#F2EEE4">
+      <div style="display:flex;align-items:center;justify-content:center;height:140px;border-bottom:1px solid #17150F;background-color:#FBF8F1;background-image:repeating-linear-gradient(-45deg,rgba(23,21,15,0.05),rgba(23,21,15,0.05) 1px,transparent 1px,transparent 12px)"><span style="font:700 11px/1.4 'Space Mono','Courier New',monospace;letter-spacing:.08em;text-transform:uppercase;color:#6B6457">Premium van</span></div>
+      <div style="padding:22px"><div style="font:700 13px/1 'Space Mono','Courier New',monospace;color:#DC4B27">4–8 SEATS · 8 BAGS</div><h3 style="font:700 22px/1.1 'Archivo','Inter',Helvetica,Arial,sans-serif;letter-spacing:-.02em;margin:12px 0 0">Premium Van</h3><p style="font:400 13.5px/1.5 'Archivo','Inter',Helvetica,Arial,sans-serif;color:#6B6457;margin:10px 0 0">Families, small groups, golf or ski luggage.</p></div>
+    </div>
+    <div style="background:#F2EEE4">
+      <div style="display:flex;align-items:center;justify-content:center;height:140px;border-bottom:1px solid #17150F;background-color:#FBF8F1;background-image:repeating-linear-gradient(-45deg,rgba(23,21,15,0.05),rgba(23,21,15,0.05) 1px,transparent 1px,transparent 12px)"><span style="font:700 11px/1.4 'Space Mono','Courier New',monospace;letter-spacing:.08em;text-transform:uppercase;color:#6B6457">Minibus</span></div>
+      <div style="padding:22px"><div style="font:700 13px/1 'Space Mono','Courier New',monospace;color:#DC4B27">9–19 SEATS · TRAILER OPT</div><h3 style="font:700 22px/1.1 'Archivo','Inter',Helvetica,Arial,sans-serif;letter-spacing:-.02em;margin:12px 0 0">Minibus</h3><p style="font:400 13.5px/1.5 'Archivo','Inter',Helvetica,Arial,sans-serif;color:#6B6457;margin:10px 0 0">Group transfers, weddings, conference shuttles.</p></div>
+    </div>
+    <div style="background:#F2EEE4">
+      <div style="display:flex;align-items:center;justify-content:center;height:140px;border-bottom:1px solid #17150F;background-color:#FBF8F1;background-image:repeating-linear-gradient(-45deg,rgba(23,21,15,0.05),rgba(23,21,15,0.05) 1px,transparent 1px,transparent 12px)"><span style="font:700 11px/1.4 'Space Mono','Courier New',monospace;letter-spacing:.08em;text-transform:uppercase;color:#6B6457">Coach</span></div>
+      <div style="padding:22px"><div style="font:700 13px/1 'Space Mono','Courier New',monospace;color:#DC4B27">20–55 SEATS · FULL HOLD</div><h3 style="font:700 22px/1.1 'Archivo','Inter',Helvetica,Arial,sans-serif;letter-spacing:-.02em;margin:12px 0 0">Coach</h3><p style="font:400 13.5px/1.5 'Archivo','Inter',Helvetica,Arial,sans-serif;color:#6B6457;margin:10px 0 0">Large groups, tours, multi-day itineraries.</p></div>
     </div>
   </div>
 </section>
 
-<section class="bb-reviews bb-wrap">
-  <div class="bb-sec-head"><span class="bb-sec-no">—</span><h2 class="bb-h2-s">What guests say</h2></div>
-  <div class="bb-reviews-grid">
-    <div class="bb-review"><div class="q">"</div><p>Driver was waiting with a name sign the moment we cleared customs. Fixed price, spotless car, zero stress after a long flight.</p><div class="who">AIRPORT TRANSFER<br>★★★★★ · SAMPLE — REPLACE</div></div>
-    <div class="bb-review"><div class="q">"</div><p>We moved 40 conference guests across three hotels. Staggered pickups ran exactly on time and one contact handled everything.</p><div class="who">EVENT TRANSPORT<br>★★★★★ · SAMPLE — REPLACE</div></div>
-    <div class="bb-review"><div class="q">"</div><p>Booked a full day to the Danube Bend. The driver adjusted the plan to our pace and knew exactly where to stop. Felt private and easy.</p><div class="who">DAY TRIP<br>★★★★★ · SAMPLE — REPLACE</div></div>
+<section id="why" class="bb-why bb-bleed" style="border-top:1px solid #17150F;background:#EAE6DC;scroll-margin-top:80px">
+  <div class="bb-why-in bb-pad-lg" style="max-width:1240px;margin:0 auto;padding:90px 28px">
+    <div style="display:flex;flex-wrap:wrap;gap:56px;align-items:flex-start">
+      <div class="bb-why-left" style="flex:.8 1 min(100%,280px);position:sticky;top:90px">
+        <div style="display:flex;align-items:baseline;gap:18px;margin-bottom:18px">
+          <span style="font:700 14px/1 'Space Mono','Courier New',monospace;color:#DC4B27">05</span>
+          <h2 style="font:800 clamp(28px,3.8vw,46px)/1 'Archivo','Inter',Helvetica,Arial,sans-serif;letter-spacing:-.03em;margin:0">Why book<br>with us</h2>
+        </div>
+        <p style="font:400 16px/1.55 'Archivo','Inter',Helvetica,Arial,sans-serif;color:#6B6457;margin:0 0 26px;max-width:320px">Every booking is pre-arranged and confirmed in writing — so you know the price, the driver and the meeting point in advance.</p>
+        <a href="#quote" style="display:inline-flex;align-items:center;gap:10px;font:700 13px/1 'Space Mono','Courier New',monospace;letter-spacing:.04em;text-transform:uppercase;color:#FFFFFF;background:#17150F;text-decoration:none;padding:16px 22px">Request a quote <span style="color:#DC4B27">→</span></a>
+      </div>
+      <div style="flex:1.2 1 min(100%,320px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:1px;background:#17150F;border:1px solid #17150F">
+        <div style="background:#EAE6DC;padding:26px"><div style="font:700 12px/1 'Space Mono','Courier New',monospace;color:#DC4B27">01</div><h3 style="font:700 18px/1.2 'Archivo','Inter',Helvetica,Arial,sans-serif;margin:14px 0 8px">Licensed &amp; insured</h3><p style="font:400 14px/1.55 'Archivo','Inter',Helvetica,Arial,sans-serif;color:#6B6457;margin:0">Properly permitted operation with insured vehicles. Documents on request.</p></div>
+        <div style="background:#EAE6DC;padding:26px"><div style="font:700 12px/1 'Space Mono','Courier New',monospace;color:#DC4B27">02</div><h3 style="font:700 18px/1.2 'Archivo','Inter',Helvetica,Arial,sans-serif;margin:14px 0 8px">Driver details ahead</h3><p style="font:400 14px/1.55 'Archivo','Inter',Helvetica,Arial,sans-serif;color:#6B6457;margin:0">After booking we send your driver's name, vehicle, contact and meeting point.</p></div>
+        <div style="background:#EAE6DC;padding:26px"><div style="font:700 12px/1 'Space Mono','Courier New',monospace;color:#DC4B27">03</div><h3 style="font:700 18px/1.2 'Archivo','Inter',Helvetica,Arial,sans-serif;margin:14px 0 8px">One all-in price</h3><p style="font:400 14px/1.55 'Archivo','Inter',Helvetica,Arial,sans-serif;color:#6B6457;margin:0">Tolls, taxes and waiting included. The price you confirm is the price you pay.</p></div>
+        <div style="background:#EAE6DC;padding:26px"><div style="font:700 12px/1 'Space Mono','Courier New',monospace;color:#DC4B27">04</div><h3 style="font:700 18px/1.2 'Archivo','Inter',Helvetica,Arial,sans-serif;margin:14px 0 8px">English-speaking drivers</h3><p style="font:400 14px/1.55 'Archivo','Inter',Helvetica,Arial,sans-serif;color:#6B6457;margin:0">Courteous, experienced drivers used to international travellers and groups.</p></div>
+        <div style="background:#EAE6DC;padding:26px"><div style="font:700 12px/1 'Space Mono','Courier New',monospace;color:#DC4B27">05</div><h3 style="font:700 18px/1.2 'Archivo','Inter',Helvetica,Arial,sans-serif;margin:14px 0 8px">Flexible cancellation</h3><p style="font:400 14px/1.55 'Archivo','Inter',Helvetica,Arial,sans-serif;color:#6B6457;margin:0">Clear cancellation terms shared up front — before you commit to anything.</p></div>
+        <div style="background:#EAE6DC;padding:26px"><div style="font:700 12px/1 'Space Mono','Courier New',monospace;color:#DC4B27">06</div><h3 style="font:700 18px/1.2 'Archivo','Inter',Helvetica,Arial,sans-serif;margin:14px 0 8px">24/7 coordination</h3><p style="font:400 14px/1.55 'Archivo','Inter',Helvetica,Arial,sans-serif;color:#6B6457;margin:0">Reach a person any time — especially useful around flights and events.</p></div>
+      </div>
+    </div>
   </div>
-  <p class="bb-reviews-note">Placeholder reviews — swap in verified Google / TripAdvisor quotes once live.</p>
+</section>
+
+<section class="bb-reviews bb-wrap bb-pad-lg" style="max-width:1240px;margin:0 auto;padding:90px 28px">
+  <div style="display:flex;align-items:baseline;gap:18px;margin-bottom:44px">
+    <span style="font:700 14px/1 'Space Mono','Courier New',monospace;color:#DC4B27">—</span>
+    <h2 style="font:800 clamp(28px,3.8vw,46px)/1 'Archivo','Inter',Helvetica,Arial,sans-serif;letter-spacing:-.03em;margin:0">What guests say</h2>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:1px;background:#17150F;border:1px solid #17150F">
+    <div style="background:#F2EEE4;padding:30px"><div style="font:700 40px/1 'Archivo','Inter',Helvetica,Arial,sans-serif;color:#DC4B27">"</div><p style="font:500 17px/1.5 'Archivo','Inter',Helvetica,Arial,sans-serif;margin:6px 0 22px">Driver was waiting with a name sign the moment we cleared customs. Fixed price, spotless car, zero stress after a long flight.</p><div style="font:700 12px/1.4 'Space Mono','Courier New',monospace;color:#6B6457">AIRPORT TRANSFER<br>★★★★★ · SAMPLE — REPLACE</div></div>
+    <div style="background:#F2EEE4;padding:30px"><div style="font:700 40px/1 'Archivo','Inter',Helvetica,Arial,sans-serif;color:#DC4B27">"</div><p style="font:500 17px/1.5 'Archivo','Inter',Helvetica,Arial,sans-serif;margin:6px 0 22px">We moved 40 conference guests across three hotels. Staggered pickups ran exactly on time and one contact handled everything.</p><div style="font:700 12px/1.4 'Space Mono','Courier New',monospace;color:#6B6457">EVENT TRANSPORT<br>★★★★★ · SAMPLE — REPLACE</div></div>
+    <div style="background:#F2EEE4;padding:30px"><div style="font:700 40px/1 'Archivo','Inter',Helvetica,Arial,sans-serif;color:#DC4B27">"</div><p style="font:500 17px/1.5 'Archivo','Inter',Helvetica,Arial,sans-serif;margin:6px 0 22px">Booked a full day to the Danube Bend. The driver adjusted the plan to our pace and knew exactly where to stop. Felt private and easy.</p><div style="font:700 12px/1.4 'Space Mono','Courier New',monospace;color:#6B6457">DAY TRIP<br>★★★★★ · SAMPLE — REPLACE</div></div>
+  </div>
+  <p style="font:400 13px/1.5 'Space Mono','Courier New',monospace;color:#6B6457;margin:18px 0 0">Placeholder reviews — swap in verified Google / TripAdvisor quotes once live.</p>
 </section>
 
 </div>
 <!-- /wp:html -->
 
-<!-- wp:group {"tagName":"section","anchor":"quote","align":"full","className":"bb-quote"} -->
-<section id="quote" class="wp-block-group alignfull bb-quote"><!-- wp:columns {"className":"bb-quote-cols"} -->
-<div class="wp-block-columns bb-quote-cols"><!-- wp:column {"width":"45%"} -->
+<!-- wp:group {"tagName":"section","anchor":"quote","align":"full","className":"bb-quote","style":{"color":{"background":"#17150f"},"spacing":{"padding":{"top":"84px","bottom":"84px"}}},"layout":{"type":"default"}} -->
+<section id="quote" class="wp-block-group alignfull bb-quote has-background" style="background-color:#17150f;padding-top:84px;padding-bottom:84px"><!-- wp:columns {"className":"bb-quote-cols"} -->
+<div class="wp-block-columns bb-quote-cols" style="max-width:1240px;margin:0 auto;padding:0 28px;gap:56px"><!-- wp:column {"width":"45%"} -->
 <div class="wp-block-column" style="flex-basis:45%"><!-- wp:html -->
-<div class="bb bb-quote-left" style="background:transparent">
-  <div class="bb-sec-head"><span class="bb-sec-no">06</span><h2 class="bb-h2">Get a quote</h2></div>
-  <p class="lead">Tell us the trip and send it with the form — usually answered within a couple of hours. Or reach us directly:</p>
-  <div class="bb-contact-list">
-    <a href="https://wa.me/36700000000?text=Bus%20Budapest%20%E2%80%94%20Quote%20request" target="_blank" rel="noopener"><span>WHATSAPP</span><span class="v">+36 70 000 0000</span></a>
-    <a href="mailto:hello@busbudapest.com?subject=Quote%20request%20%E2%80%94%20Bus%20Budapest"><span>EMAIL</span><span class="v">hello@busbudapest.com</span></a>
+<div class="bb bb-quote-left" style="color:#F2EEE4;font-family:'Archivo','Inter',Helvetica,Arial,sans-serif">
+  <div style="display:flex;align-items:baseline;gap:18px;margin-bottom:18px">
+    <span style="font:700 14px/1 'Space Mono','Courier New',monospace;color:#DC4B27">06</span>
+    <h2 style="font:800 clamp(30px,4.4vw,52px)/1 'Archivo','Inter',Helvetica,Arial,sans-serif;letter-spacing:-.03em;margin:0;color:#F2EEE4">Get a quote</h2>
+  </div>
+  <p style="font:400 17px/1.55 'Archivo','Inter',Helvetica,Arial,sans-serif;color:rgba(242,238,228,0.7);margin:0 0 30px;max-width:380px">Tell us the trip and send it with the form — usually answered within a couple of hours. Or reach us directly:</p>
+  <div style="display:flex;flex-direction:column;border-top:1px solid rgba(242,238,228,0.2)">
+    <a href="https://wa.me/36700000000?text=Bus%20Budapest%20%E2%80%94%20Quote%20request" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;gap:11px;font:700 15px/1 'Space Mono','Courier New',monospace;color:#F2EEE4;text-decoration:none;padding:18px 0;border-bottom:1px solid rgba(242,238,228,0.2)"><span>WHATSAPP</span><span style="color:#DC4B27">+36 70 000 0000</span></a>
+    <a href="mailto:hello@busbudapest.com?subject=Quote%20request%20%E2%80%94%20Bus%20Budapest" style="display:flex;align-items:center;justify-content:space-between;gap:11px;font:700 15px/1 'Space Mono','Courier New',monospace;color:#F2EEE4;text-decoration:none;padding:18px 0;border-bottom:1px solid rgba(242,238,228,0.2)"><span>EMAIL</span><span style="color:#DC4B27">hello@busbudapest.com</span></a>
   </div>
 </div>
 <!-- /wp:html --></div>
@@ -466,76 +258,82 @@ body{background:#F2EEE4 !important}
 <!-- /wp:group -->
 
 <!-- wp:html -->
-<div class="bb">
+<div class="bb" style="background:#F2EEE4;color:#17150F;font-family:'Archivo','Inter',Helvetica,Arial,sans-serif">
 
-<section class="bb-faq">
-  <div class="bb-sec-head"><span class="bb-sec-no">—</span><h2 class="bb-h2-s">Frequently asked</h2></div>
-  <div class="bb-faq-list">
-    <details>
-      <summary>How does airport pickup work? <span class="pl">+</span></summary>
-      <p>We track your flight and adjust to delays. Your driver meets you in the arrivals hall with a name sign, helps with luggage and takes you straight to the vehicle. Up to 60 minutes of waiting is included after landing.</p>
+<section class="bb-faq bb-pad-lg" style="max-width:900px;margin:0 auto;padding:90px 28px">
+  <div style="display:flex;align-items:baseline;gap:18px;margin-bottom:34px">
+    <span style="font:700 14px/1 'Space Mono','Courier New',monospace;color:#DC4B27">—</span>
+    <h2 style="font:800 clamp(28px,3.8vw,46px)/1 'Archivo','Inter',Helvetica,Arial,sans-serif;letter-spacing:-.03em;margin:0">Frequently asked</h2>
+  </div>
+  <div style="border-top:1px solid #17150F">
+    <details style="border-bottom:1px solid #17150F;padding:22px 4px">
+      <summary style="font:700 18px/1.4 'Archivo','Inter',Helvetica,Arial,sans-serif;cursor:pointer;display:flex;justify-content:space-between;gap:16px;align-items:center;list-style:none">How does airport pickup work? <span style="color:#DC4B27;font:400 22px/1 'Archivo','Inter',Helvetica,Arial,sans-serif">+</span></summary>
+      <p style="font:400 15px/1.65 'Archivo','Inter',Helvetica,Arial,sans-serif;color:#6B6457;margin:14px 0 0">We track your flight and adjust to delays. Your driver meets you in the arrivals hall with a name sign, helps with luggage and takes you straight to the vehicle. Up to 60 minutes of waiting is included after landing.</p>
     </details>
-    <details>
-      <summary>Is the price really fixed? <span class="pl">+</span></summary>
-      <p>Yes. The price we confirm in writing is all-in — tolls, taxes and included waiting. It doesn't change with traffic or minor delays.</p>
+    <details style="border-bottom:1px solid #17150F;padding:22px 4px">
+      <summary style="font:700 18px/1.4 'Archivo','Inter',Helvetica,Arial,sans-serif;cursor:pointer;display:flex;justify-content:space-between;gap:16px;align-items:center;list-style:none">Is the price really fixed? <span style="color:#DC4B27;font:400 22px/1 'Archivo','Inter',Helvetica,Arial,sans-serif">+</span></summary>
+      <p style="font:400 15px/1.65 'Archivo','Inter',Helvetica,Arial,sans-serif;color:#6B6457;margin:14px 0 0">Yes. The price we confirm in writing is all-in — tolls, taxes and included waiting. It doesn't change with traffic or minor delays.</p>
     </details>
-    <details>
-      <summary>How do I pay? <span class="pl">+</span></summary>
-      <p>No payment is taken on this site. We agree the method when we confirm your booking — convenient options for travellers and companies, with an invoice on request.</p>
+    <details style="border-bottom:1px solid #17150F;padding:22px 4px">
+      <summary style="font:700 18px/1.4 'Archivo','Inter',Helvetica,Arial,sans-serif;cursor:pointer;display:flex;justify-content:space-between;gap:16px;align-items:center;list-style:none">How do I pay? <span style="color:#DC4B27;font:400 22px/1 'Archivo','Inter',Helvetica,Arial,sans-serif">+</span></summary>
+      <p style="font:400 15px/1.65 'Archivo','Inter',Helvetica,Arial,sans-serif;color:#6B6457;margin:14px 0 0">No payment is taken on this site. We agree the method when we confirm your booking — convenient options for travellers and companies, with an invoice on request.</p>
     </details>
-    <details>
-      <summary>Can you handle large groups and events? <span class="pl">+</span></summary>
-      <p>Yes — from a single minibus to multiple coaches with staggered pickups and on-site coordination. Tell us the headcount, venues and timings and we'll build the plan.</p>
+    <details style="border-bottom:1px solid #17150F;padding:22px 4px">
+      <summary style="font:700 18px/1.4 'Archivo','Inter',Helvetica,Arial,sans-serif;cursor:pointer;display:flex;justify-content:space-between;gap:16px;align-items:center;list-style:none">Can you handle large groups and events? <span style="color:#DC4B27;font:400 22px/1 'Archivo','Inter',Helvetica,Arial,sans-serif">+</span></summary>
+      <p style="font:400 15px/1.65 'Archivo','Inter',Helvetica,Arial,sans-serif;color:#6B6457;margin:14px 0 0">Yes — from a single minibus to multiple coaches with staggered pickups and on-site coordination. Tell us the headcount, venues and timings and we'll build the plan.</p>
     </details>
-    <details>
-      <summary>Do you drive outside Hungary? <span class="pl">+</span></summary>
-      <p>We regularly drive cross-border across Central Europe — Vienna, Bratislava, Prague and beyond — as point-to-point transfers or multi-day itineraries.</p>
+    <details style="border-bottom:1px solid #17150F;padding:22px 4px">
+      <summary style="font:700 18px/1.4 'Archivo','Inter',Helvetica,Arial,sans-serif;cursor:pointer;display:flex;justify-content:space-between;gap:16px;align-items:center;list-style:none">Do you drive outside Hungary? <span style="color:#DC4B27;font:400 22px/1 'Archivo','Inter',Helvetica,Arial,sans-serif">+</span></summary>
+      <p style="font:400 15px/1.65 'Archivo','Inter',Helvetica,Arial,sans-serif;color:#6B6457;margin:14px 0 0">We regularly drive cross-border across Central Europe — Vienna, Bratislava, Prague and beyond — as point-to-point transfers or multi-day itineraries.</p>
     </details>
-    <details>
-      <summary>What if my plans change? <span class="pl">+</span></summary>
-      <p>We share clear cancellation terms before you confirm. Reach us any time by phone, WhatsApp or email and we'll do our best to adjust.</p>
+    <details style="border-bottom:1px solid #17150F;padding:22px 4px">
+      <summary style="font:700 18px/1.4 'Archivo','Inter',Helvetica,Arial,sans-serif;cursor:pointer;display:flex;justify-content:space-between;gap:16px;align-items:center;list-style:none">What if my plans change? <span style="color:#DC4B27;font:400 22px/1 'Archivo','Inter',Helvetica,Arial,sans-serif">+</span></summary>
+      <p style="font:400 15px/1.65 'Archivo','Inter',Helvetica,Arial,sans-serif;color:#6B6457;margin:14px 0 0">We share clear cancellation terms before you confirm. Reach us any time by phone, WhatsApp or email and we'll do our best to adjust.</p>
     </details>
   </div>
 </section>
 
-<footer class="bb-footer bb-bleed">
-  <div class="bb-footer-in">
-    <div class="bb-footer-grid">
+<footer class="bb-footer bb-bleed" style="border-top:1px solid #17150F;background:#17150F;color:#F2EEE4">
+  <div class="bb-footer-in" style="max-width:1240px;margin:0 auto;padding:64px 28px 30px">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:36px;padding-bottom:48px">
       <div>
-        <div class="bb-footer-brand"><span class="bb-footer-badge">BB</span><span class="bb-footer-name">BUS BUDAPEST</span></div>
-        <p class="bb-footer-desc">Private airport transfers, chauffeur rides and group transport in Budapest and across Central Europe. Licensed &amp; insured.</p>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
+          <span style="border:1.5px solid #F2EEE4;padding:5px 8px;font:700 13px/1 'Space Mono','Courier New',monospace">BB</span>
+          <span style="font:800 16px/1 'Archivo','Inter',Helvetica,Arial,sans-serif">BUS BUDAPEST</span>
+        </div>
+        <p style="font:400 14px/1.6 'Archivo','Inter',Helvetica,Arial,sans-serif;color:rgba(242,238,228,0.6);max-width:280px;margin:0">Private airport transfers, chauffeur rides and group transport in Budapest and across Central Europe. Licensed &amp; insured.</p>
       </div>
-      <div class="bb-footer-col">
-        <div class="h">SERVICES</div>
-        <div class="ls">
-          <a href="#services">Airport &amp; point-to-point</a>
-          <a href="#services">Hourly &amp; sightseeing</a>
-          <a href="#services">Day trips</a>
-          <a href="#services">Events &amp; corporate</a>
+      <div>
+        <div style="font:700 11px/1 'Space Mono','Courier New',monospace;color:rgba(242,238,228,0.5);letter-spacing:.06em;margin-bottom:16px">SERVICES</div>
+        <div style="display:flex;flex-direction:column;gap:11px">
+          <a href="#services" style="font:500 14px/1 'Archivo','Inter',Helvetica,Arial,sans-serif;color:#F2EEE4;text-decoration:none">Airport &amp; point-to-point</a>
+          <a href="#services" style="font:500 14px/1 'Archivo','Inter',Helvetica,Arial,sans-serif;color:#F2EEE4;text-decoration:none">Hourly &amp; sightseeing</a>
+          <a href="#services" style="font:500 14px/1 'Archivo','Inter',Helvetica,Arial,sans-serif;color:#F2EEE4;text-decoration:none">Day trips</a>
+          <a href="#services" style="font:500 14px/1 'Archivo','Inter',Helvetica,Arial,sans-serif;color:#F2EEE4;text-decoration:none">Events &amp; corporate</a>
         </div>
       </div>
-      <div class="bb-footer-col">
-        <div class="h">COMPANY</div>
-        <div class="ls">
-          <a href="#why">Why us</a>
-          <a href="#fleet">Fleet</a>
-          <a href="#routes">Routes &amp; prices</a>
-          <a href="#quote">Terms &amp; privacy</a>
+      <div>
+        <div style="font:700 11px/1 'Space Mono','Courier New',monospace;color:rgba(242,238,228,0.5);letter-spacing:.06em;margin-bottom:16px">COMPANY</div>
+        <div style="display:flex;flex-direction:column;gap:11px">
+          <a href="#why" style="font:500 14px/1 'Archivo','Inter',Helvetica,Arial,sans-serif;color:#F2EEE4;text-decoration:none">Why us</a>
+          <a href="#fleet" style="font:500 14px/1 'Archivo','Inter',Helvetica,Arial,sans-serif;color:#F2EEE4;text-decoration:none">Fleet</a>
+          <a href="#routes" style="font:500 14px/1 'Archivo','Inter',Helvetica,Arial,sans-serif;color:#F2EEE4;text-decoration:none">Routes &amp; prices</a>
+          <a href="#" style="font:500 14px/1 'Archivo','Inter',Helvetica,Arial,sans-serif;color:#F2EEE4;text-decoration:none">Terms &amp; privacy</a>
         </div>
       </div>
-      <div class="bb-footer-col">
-        <div class="h">CONTACT</div>
-        <div class="ls">
-          <a href="https://wa.me/36700000000?text=Bus%20Budapest%20%E2%80%94%20Quote%20request" target="_blank" rel="noopener">+36 70 000 0000</a>
-          <a href="mailto:hello@busbudapest.com">hello@busbudapest.com</a>
-          <span>Budapest, Hungary · 24/7</span>
+      <div>
+        <div style="font:700 11px/1 'Space Mono','Courier New',monospace;color:rgba(242,238,228,0.5);letter-spacing:.06em;margin-bottom:16px">CONTACT</div>
+        <div style="display:flex;flex-direction:column;gap:11px">
+          <a href="https://wa.me/36700000000?text=Bus%20Budapest%20%E2%80%94%20Quote%20request" target="_blank" rel="noopener" style="font:500 14px/1 'Archivo','Inter',Helvetica,Arial,sans-serif;color:#F2EEE4;text-decoration:none">+36 70 000 0000</a>
+          <a href="mailto:hello@busbudapest.com" style="font:500 14px/1 'Archivo','Inter',Helvetica,Arial,sans-serif;color:#F2EEE4;text-decoration:none">hello@busbudapest.com</a>
+          <span style="font:500 14px/1.4 'Archivo','Inter',Helvetica,Arial,sans-serif;color:rgba(242,238,228,0.6)">Budapest, Hungary · 24/7</span>
         </div>
       </div>
     </div>
-    <div class="bb-footer-word">BUS BUDAPEST</div>
-    <div class="bb-footer-meta">
-      <span>© 2026 BUS BUDAPEST · LICENSING &amp; INSURANCE ON REQUEST</span>
-      <span>PLACEHOLDER SITE — REPLACE CONTACT &amp; PHOTOS BEFORE LAUNCH</span>
+    <div class="bb-footer-word" style="font:800 clamp(40px,10.5vw,148px)/0.85 'Archivo','Inter',Helvetica,Arial,sans-serif;letter-spacing:-.04em;color:rgba(242,238,228,0.1);border-top:1px solid rgba(242,238,228,0.2);padding-top:30px;white-space:nowrap;overflow:hidden">BUS BUDAPEST</div>
+    <div style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:24px">
+      <span style="font:400 12px/1.4 'Space Mono','Courier New',monospace;color:rgba(242,238,228,0.55)">© 2026 BUS BUDAPEST · LICENSING &amp; INSURANCE ON REQUEST</span>
+      <span style="font:400 12px/1.4 'Space Mono','Courier New',monospace;color:rgba(242,238,228,0.55)">PLACEHOLDER SITE — REPLACE CONTACT &amp; PHOTOS BEFORE LAUNCH</span>
     </div>
   </div>
 </footer>
