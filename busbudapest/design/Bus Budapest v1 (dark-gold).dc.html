@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:#0E1320}
+  ::selection{background:var(--accent,#C9A86A);color:var(--accentInk,#11151F)}
+  input,select,textarea,button{font-family:'Hanken Grotesk',sans-serif}
+  input::placeholder,textarea::placeholder{color:var(--muted,#9BA3B7);opacity:.7}
+  @keyframes bbfloat{0%{transform:translateY(0)}50%{transform:translateY(-7px)}100%{transform:translateY(0)}}
+</style>
+<script src="./image-slot.js"></script>
+</helmet>
+
+<main data-screen-label="Bus Budapest — Home" style="{{ themeVars }};background:var(--bg,#0E1320);color:var(--ink,#F3EEE6);font-family:'Hanken Grotesk',sans-serif;min-height:100vh;overflow-x:hidden">
+
+  <!-- ============ NAV ============ -->
+  <header style="position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:color-mix(in srgb, var(--bg,#0E1320) 78%, transparent);border-bottom:1px solid var(--line,rgba(255,255,255,.10))">
+    <div style="max-width:1180px;margin:0 auto;padding:16px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px">
+      <a href="#top" style="display:flex;align-items:center;gap:11px;text-decoration:none;color:inherit">
+        <span style="width:34px;height:34px;border-radius:9px;background:var(--accent,#C9A86A);color:var(--accentInk,#11151F);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10"/><path d="M2 16h20"/><path d="M7 20a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"/><path d="M17 20a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"/><path d="M6 8h12"/></svg>
+        </span>
+        <span style="display:flex;flex-direction:column;line-height:1">
+          <span style="font:700 16px/1 'Hanken Grotesk';letter-spacing:.02em">BUS BUDAPEST</span>
+          <span style="font:500 10px/1.4 'Hanken Grotesk';letter-spacing:.22em;text-transform:uppercase;color:var(--muted,#9BA3B7);margin-top:3px">Private Transfers</span>
+        </span>
+      </a>
+      <nav style="display:flex;align-items:center;gap:30px">
+        <a href="#services" style="font:500 14.5px/1 'Hanken Grotesk';color:var(--muted,#9BA3B7);text-decoration:none">Services</a>
+        <a href="#routes" style="font:500 14.5px/1 'Hanken Grotesk';color:var(--muted,#9BA3B7);text-decoration:none">Routes</a>
+        <a href="#fleet" style="font:500 14.5px/1 'Hanken Grotesk';color:var(--muted,#9BA3B7);text-decoration:none">Fleet</a>
+        <a href="#why" style="font:500 14.5px/1 'Hanken Grotesk';color:var(--muted,#9BA3B7);text-decoration:none">Why us</a>
+        <a href="#quote" style="font:600 14.5px/1 'Hanken Grotesk';color:var(--accentInk,#11151F);background:var(--accent,#C9A86A);text-decoration:none;padding:11px 20px;border-radius:999px;white-space:nowrap">Get a quote</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section id="top" style="position:relative;max-width:1180px;margin:0 auto;padding:72px 32px 40px;display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center">
+    <div>
+      <div style="display:inline-flex;align-items:center;gap:9px;padding:7px 14px;border:1px solid var(--line,rgba(255,255,255,.10));border-radius:999px;margin-bottom:26px">
+        <span style="width:7px;height:7px;border-radius:50%;background:#37C871;box-shadow:0 0 0 3px color-mix(in srgb,#37C871 28%,transparent)"></span>
+        <span style="font:500 13px/1 'Hanken Grotesk';color:var(--muted,#9BA3B7);letter-spacing:.02em">Available 24/7 · Budapest &amp; Central Europe</span>
+      </div>
+      <h1 style="font:300 clamp(40px,5.4vw,64px)/1.04 'Newsreader';letter-spacing:-.015em;color:var(--ink,#F3EEE6);text-wrap:balance">
+        Private airport transfers, chauffeur rides &amp; group transport in <span style="font-style:italic;color:var(--accent,#C9A86A)">Budapest</span>.
+      </h1>
+      <p style="font:400 19px/1.6 'Hanken Grotesk';color:var(--muted,#9BA3B7);margin-top:24px;max-width:520px;text-wrap:pretty">
+        Pre-booked, fixed-price ground transport for travellers, businesses and groups — from a single airport pickup to multi-day itineraries across the region.
+      </p>
+      <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:34px">
+        <a href="#quote" style="display:inline-flex;align-items:center;gap:9px;font:600 16px/1 'Hanken Grotesk';color:var(--accentInk,#11151F);background:var(--accent,#C9A86A);text-decoration:none;padding:16px 26px;border-radius:999px">
+          Get a free quote
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+        <a href="#" onClick="{{ sendWhatsapp }}" style="display:inline-flex;align-items:center;gap:9px;font:600 16px/1 'Hanken Grotesk';color:var(--ink,#F3EEE6);background:transparent;border:1px solid var(--line,rgba(255,255,255,.18));text-decoration:none;padding:15px 24px;border-radius:999px">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.82 11.82 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.512 5.26l-.999 3.648 3.876-1.017zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.247-.694.247-1.289.173-1.413z"/></svg>
+          WhatsApp us
+        </a>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;margin-top:26px">
+        <div style="display:flex;gap:2px">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--accent,#C9A86A)"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 20.4l1.4-6.8L2.2 9l6.9-.7z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--accent,#C9A86A)"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 20.4l1.4-6.8L2.2 9l6.9-.7z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--accent,#C9A86A)"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 20.4l1.4-6.8L2.2 9l6.9-.7z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--accent,#C9A86A)"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 20.4l1.4-6.8L2.2 9l6.9-.7z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--accent,#C9A86A)"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 20.4l1.4-6.8L2.2 9l6.9-.7z"/></svg>
+        </div>
+        <span style="font:500 14px/1 'Hanken Grotesk';color:var(--muted,#9BA3B7)">Trusted by travellers &amp; companies — licensed, insured drivers</span>
+      </div>
+    </div>
+    <div style="position:relative">
+      <image-slot id="bb-hero" style="width:100%;aspect-ratio:4/5;display:block" shape="rounded" radius="20" placeholder="Drop a hero photo (Budapest / your vehicle)"></image-slot>
+      <div style="position:absolute;left:-22px;bottom:34px;background:var(--surface,#161D2E);border:1px solid var(--line,rgba(255,255,255,.10));border-radius:14px;padding:16px 20px;box-shadow:0 18px 40px rgba(0,0,0,.28);animation:bbfloat 5s ease-in-out infinite">
+        <div style="font:700 22px/1 'Newsreader';color:var(--ink,#F3EEE6)">€38</div>
+        <div style="font:500 12.5px/1.3 'Hanken Grotesk';color:var(--muted,#9BA3B7);margin-top:5px">Airport → city centre<br>fixed, all-in</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TRUST BAR ============ -->
+  <section style="border-top:1px solid var(--line,rgba(255,255,255,.10));border-bottom:1px solid var(--line,rgba(255,255,255,.10));background:var(--soft,rgba(255,255,255,.02))">
+    <div style="max-width:1180px;margin:0 auto;padding:26px 32px;display:grid;grid-template-columns:repeat(4,1fr);gap:24px">
+      <div style="display:flex;align-items:center;gap:13px">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--accent,#C9A86A)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18v10H3z"/><path d="M7 11h.01M17 11h.01"/><path d="M12 9.5v5M10.5 11h3M10.5 13h3"/></svg>
+        <div><div style="font:600 15px/1.2 'Hanken Grotesk';color:var(--ink,#F3EEE6)">Fixed, confirmed price</div><div style="font:500 13px/1.3 'Hanken Grotesk';color:var(--muted,#9BA3B7)">No hidden fees</div></div>
+      </div>
+      <div style="display:flex;align-items:center;gap:13px">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--accent,#C9A86A)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5a2.12 2.12 0 0 0-3-3L13 8 4.8 6.2a1 1 0 0 0-.9.3l-.9.9a1 1 0 0 0 .2 1.6L9 12l-2 2H4l-1 1 3 2 2 3 1-1v-3l2-2 3.1 5.8a1 1 0 0 0 1.6.2l.9-.9a1 1 0 0 0 .3-.9z"/></svg>
+        <div><div style="font:600 15px/1.2 'Hanken Grotesk';color:var(--ink,#F3EEE6)">Flight monitoring</div><div style="font:500 13px/1.3 'Hanken Grotesk';color:var(--muted,#9BA3B7)">We track your arrival</div></div>
+      </div>
+      <div style="display:flex;align-items:center;gap:13px">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--accent,#C9A86A)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        <div><div style="font:600 15px/1.2 'Hanken Grotesk';color:var(--ink,#F3EEE6)">Free airport waiting</div><div style="font:500 13px/1.3 'Hanken Grotesk';color:var(--muted,#9BA3B7)">60 min after landing</div></div>
+      </div>
+      <div style="display:flex;align-items:center;gap:13px">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--accent,#C9A86A)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a8 8 0 0 1 16 0"/><path d="M3 14h3v5H4a1 1 0 0 1-1-1z"/><path d="M21 14h-3v5h2a1 1 0 0 0 1-1z"/><path d="M18 19a3 3 0 0 1-3 3h-1"/></svg>
+        <div><div style="font:600 15px/1.2 'Hanken Grotesk';color:var(--ink,#F3EEE6)">24/7 human support</div><div style="font:500 13px/1.3 'Hanken Grotesk';color:var(--muted,#9BA3B7)">Phone, WhatsApp, email</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SERVICES ============ -->
+  <section id="services" style="max-width:1180px;margin:0 auto;padding:96px 32px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:46px;flex-wrap:wrap">
+      <div>
+        <div style="font:600 13px/1 'Hanken Grotesk';letter-spacing:.16em;text-transform:uppercase;color:var(--accent,#C9A86A);margin-bottom:14px">What we do</div>
+        <h2 style="font:300 clamp(30px,4vw,46px)/1.05 'Newsreader';letter-spacing:-.01em;color:var(--ink,#F3EEE6);max-width:620px;text-wrap:balance">One operator for every journey — not just a bus rental</h2>
+      </div>
+      <p style="font:400 16px/1.6 'Hanken Grotesk';color:var(--muted,#9BA3B7);max-width:330px">Tell us the brief; we handle the logistics, the vehicle and the driver. Choose the service that fits.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
+
+      <div style="grid-column:span 1;background:var(--surface,#161D2E);border:1px solid var(--line,rgba(255,255,255,.10));border-radius:16px;padding:30px;display:flex;flex-direction:column;gap:16px">
+        <div style="width:48px;height:48px;border-radius:12px;background:var(--soft,rgba(255,255,255,.05));display:flex;align-items:center;justify-content:center;color:var(--accent,#C9A86A)">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5a2.12 2.12 0 0 0-3-3L13 8 4.8 6.2a1 1 0 0 0-.9.3l-.9.9a1 1 0 0 0 .2 1.6L9 12l-2 2H4l-1 1 3 2 2 3 1-1v-3l2-2 3.1 5.8a1 1 0 0 0 1.6.2l.9-.9a1 1 0 0 0 .3-.9z"/></svg>
+        </div>
+        <h3 style="font:500 21px/1.2 'Newsreader';color:var(--ink,#F3EEE6)">Airport &amp; Point-to-Point</h3>
+        <p style="font:400 15px/1.6 'Hanken Grotesk';color:var(--muted,#9BA3B7)">Meet &amp; greet at BUD, fixed-price rides to your hotel, office, station or river port — and city-to-city across the region.</p>
+        <div style="margin-top:auto;font:600 13.5px/1 'Hanken Grotesk';color:var(--accent,#C9A86A)">Sedan · Van · Minibus</div>
+      </div>
+
+      <div style="grid-column:span 1;background:var(--surface,#161D2E);border:1px solid var(--line,rgba(255,255,255,.10));border-radius:16px;padding:30px;display:flex;flex-direction:column;gap:16px">
+        <div style="width:48px;height:48px;border-radius:12px;background:var(--soft,rgba(255,255,255,.05));display:flex;align-items:center;justify-content:center;color:var(--accent,#C9A86A)">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        </div>
+        <h3 style="font:500 21px/1.2 'Newsreader';color:var(--ink,#F3EEE6)">Hourly Ride &amp; Sightseeing</h3>
+        <p style="font:400 15px/1.6 'Hanken Grotesk';color:var(--muted,#9BA3B7)">A driver at your disposal by the hour — business days with multiple stops, private city highlights and tailored leisure routes.</p>
+        <div style="margin-top:auto;font:600 13.5px/1 'Hanken Grotesk';color:var(--accent,#C9A86A)">As directed · 3h minimum</div>
+      </div>
+
+      <div style="grid-column:span 1;background:var(--surface,#161D2E);border:1px solid var(--line,rgba(255,255,255,.10));border-radius:16px;padding:30px;display:flex;flex-direction:column;gap:16px">
+        <div style="width:48px;height:48px;border-radius:12px;background:var(--soft,rgba(255,255,255,.05));display:flex;align-items:center;justify-content:center;color:var(--accent,#C9A86A)">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6 3 9l6 3 6-3-6-3z" opacity=".5"/><circle cx="6" cy="6" r="1.6"/><path d="M6 6c0 3 6 4 6 9"/><circle cx="12" cy="18" r="2.4"/><path d="M16 5h5M18.5 3v5"/></svg>
+        </div>
+        <h3 style="font:500 21px/1.2 'Newsreader';color:var(--ink,#F3EEE6)">Day Trips from Budapest</h3>
+        <p style="font:400 15px/1.6 'Hanken Grotesk';color:var(--muted,#9BA3B7)">Private, driver-led excursions — the Danube Bend, Lake Balaton, Eger wine country, or a day in Vienna and back.</p>
+        <div style="margin-top:auto;font:600 13.5px/1 'Hanken Grotesk';color:var(--accent,#C9A86A)">Door-to-door · Your pace</div>
+      </div>
+
+      <div style="grid-column:span 1;background:var(--surface,#161D2E);border:1px solid var(--line,rgba(255,255,255,.10));border-radius:16px;padding:30px;display:flex;flex-direction:column;gap:16px">
+        <div style="width:48px;height:48px;border-radius:12px;background:var(--soft,rgba(255,255,255,.05));display:flex;align-items:center;justify-content:center;color:var(--accent,#C9A86A)">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7"/><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M7 12v4M12 13v5M17 12v4"/></svg>
+        </div>
+        <h3 style="font:500 21px/1.2 'Newsreader';color:var(--ink,#F3EEE6)">Multi-day Trips</h3>
+        <p style="font:400 15px/1.6 'Hanken Grotesk';color:var(--muted,#9BA3B7)">Complete itinerary transport across Hungary and Central Europe — hotel-to-hotel, one driver and vehicle for the whole route.</p>
+        <div style="margin-top:auto;font:600 13.5px/1 'Hanken Grotesk';color:var(--accent,#C9A86A)">Custom itineraries · Cross-border</div>
+      </div>
+
+      <div style="grid-column:span 2;background:var(--surface,#161D2E);border:1px solid var(--line,rgba(255,255,255,.10));border-radius:16px;padding:30px;display:flex;gap:24px;align-items:center;flex-wrap:wrap">
+        <div style="flex:1;min-width:240px;display:flex;flex-direction:column;gap:16px">
+          <div style="width:48px;height:48px;border-radius:12px;background:var(--soft,rgba(255,255,255,.05));display:flex;align-items:center;justify-content:center;color:var(--accent,#C9A86A)">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13A4 4 0 0 1 16 11"/></svg>
+          </div>
+          <h3 style="font:500 21px/1.2 'Newsreader';color:var(--ink,#F3EEE6)">Event &amp; Corporate Transport</h3>
+          <p style="font:400 15px/1.6 'Hanken Grotesk';color:var(--muted,#9BA3B7);max-width:440px">Coordinated ground logistics for conferences, weddings, delegations and roadshows — multiple pickups, staggered departures, on-site coordination and one point of contact.</p>
+          <div style="font:600 13.5px/1 'Hanken Grotesk';color:var(--accent,#C9A86A)">MICE · Weddings · Staff shuttles · VIP</div>
+        </div>
+        <image-slot id="bb-event" style="width:280px;height:200px;display:block;flex-shrink:0" shape="rounded" radius="12" placeholder="Drop an event / coach photo"></image-slot>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ ROUTES ============ -->
+  <section id="routes" style="background:var(--soft,rgba(255,255,255,.02));border-top:1px solid var(--line,rgba(255,255,255,.10));border-bottom:1px solid var(--line,rgba(255,255,255,.10))">
+    <div style="max-width:1180px;margin:0 auto;padding:84px 32px">
+      <div style="font:600 13px/1 'Hanken Grotesk';letter-spacing:.16em;text-transform:uppercase;color:var(--accent,#C9A86A);margin-bottom:14px">Popular routes</div>
+      <h2 style="font:300 clamp(30px,4vw,44px)/1.05 'Newsreader';letter-spacing:-.01em;color:var(--ink,#F3EEE6);margin-bottom:12px">Fixed prices on the journeys we drive most</h2>
+      <p style="font:400 16px/1.6 'Hanken Grotesk';color:var(--muted,#9BA3B7);max-width:540px;margin-bottom:40px">Indicative from-prices for a private vehicle, one-way. Confirmed exactly when you request a quote.</p>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px">
+        <div style="background:var(--surface,#161D2E);border:1px solid var(--line,rgba(255,255,255,.10));border-radius:13px;padding:22px 24px;display:flex;justify-content:space-between;align-items:center;gap:14px">
+          <div><div style="font:600 16px/1.3 'Hanken Grotesk';color:var(--ink,#F3EEE6)">BUD Airport → City centre</div><div style="font:500 13px/1.3 'Hanken Grotesk';color:var(--muted,#9BA3B7);margin-top:3px">~25 min · meet &amp; greet</div></div>
+          <div style="text-align:right;flex-shrink:0"><div style="font:300 24px/1 'Newsreader';color:var(--accent,#C9A86A)">€38</div><div style="font:500 11px/1 'Hanken Grotesk';color:var(--muted,#9BA3B7);margin-top:4px">from</div></div>
+        </div>
+        <div style="background:var(--surface,#161D2E);border:1px solid var(--line,rgba(255,255,255,.10));border-radius:13px;padding:22px 24px;display:flex;justify-content:space-between;align-items:center;gap:14px">
+          <div><div style="font:600 16px/1.3 'Hanken Grotesk';color:var(--ink,#F3EEE6)">Budapest → Vienna</div><div style="font:500 13px/1.3 'Hanken Grotesk';color:var(--muted,#9BA3B7);margin-top:3px">~2h 40 · door-to-door</div></div>
+          <div style="text-align:right;flex-shrink:0"><div style="font:300 24px/1 'Newsreader';color:var(--accent,#C9A86A)">€220</div><div style="font:500 11px/1 'Hanken Grotesk';color:var(--muted,#9BA3B7);margin-top:4px">from</div></div>
+        </div>
+        <div style="background:var(--surface,#161D2E);border:1px solid var(--line,rgba(255,255,255,.10));border-radius:13px;padding:22px 24px;display:flex;justify-content:space-between;align-items:center;gap:14px">
+          <div><div style="font:600 16px/1.3 'Hanken Grotesk';color:var(--ink,#F3EEE6)">Budapest → Bratislava</div><div style="font:500 13px/1.3 'Hanken Grotesk';color:var(--muted,#9BA3B7);margin-top:3px">~2h · cross-border</div></div>
+          <div style="text-align:right;flex-shrink:0"><div style="font:300 24px/1 'Newsreader';color:var(--accent,#C9A86A)">€190</div><div style="font:500 11px/1 'Hanken Grotesk';color:var(--muted,#9BA3B7);margin-top:4px">from</div></div>
+        </div>
+        <div style="background:var(--surface,#161D2E);border:1px solid var(--line,rgba(255,255,255,.10));border-radius:13px;padding:22px 24px;display:flex;justify-content:space-between;align-items:center;gap:14px">
+          <div><div style="font:600 16px/1.3 'Hanken Grotesk';color:var(--ink,#F3EEE6)">Budapest → Lake Balaton</div><div style="font:500 13px/1.3 'Hanken Grotesk';color:var(--muted,#9BA3B7);margin-top:3px">~1h 30 · day trip</div></div>
+          <div style="text-align:right;flex-shrink:0"><div style="font:300 24px/1 'Newsreader';color:var(--accent,#C9A86A)">€140</div><div style="font:500 11px/1 'Hanken Grotesk';color:var(--muted,#9BA3B7);margin-top:4px">from</div></div>
+        </div>
+        <div style="background:var(--surface,#161D2E);border:1px solid var(--line,rgba(255,255,255,.10));border-radius:13px;padding:22px 24px;display:flex;justify-content:space-between;align-items:center;gap:14px">
+          <div><div style="font:600 16px/1.3 'Hanken Grotesk';color:var(--ink,#F3EEE6)">Budapest → Vienna Airport</div><div style="font:500 13px/1.3 'Hanken Grotesk';color:var(--muted,#9BA3B7);margin-top:3px">~3h · flight connection</div></div>
+          <div style="text-align:right;flex-shrink:0"><div style="font:300 24px/1 'Newsreader';color:var(--accent,#C9A86A)">€250</div><div style="font:500 11px/1 'Hanken Grotesk';color:var(--muted,#9BA3B7);margin-top:4px">from</div></div>
+        </div>
+        <div style="background:var(--surface,#161D2E);border:1px solid var(--line,rgba(255,255,255,.10));border-radius:13px;padding:22px 24px;display:flex;justify-content:space-between;align-items:center;gap:14px">
+          <div><div style="font:600 16px/1.3 'Hanken Grotesk';color:var(--ink,#F3EEE6)">Danube Bend day trip</div><div style="font:500 13px/1.3 'Hanken Grotesk';color:var(--muted,#9BA3B7);margin-top:3px">Szentendre · Visegrád · Esztergom</div></div>
+          <div style="text-align:right;flex-shrink:0"><div style="font:300 24px/1 'Newsreader';color:var(--accent,#C9A86A)">€180</div><div style="font:500 11px/1 'Hanken Grotesk';color:var(--muted,#9BA3B7);margin-top:4px">from</div></div>
+        </div>
+      </div>
+      <p style="font:500 14px/1.5 'Hanken Grotesk';color:var(--muted,#9BA3B7);margin-top:24px">Need a route that isn't listed? <a href="#quote" style="color:var(--accent,#C9A86A);text-decoration:none;border-bottom:1px solid currentColor">Ask for a custom quote →</a></p>
+    </div>
+  </section>
+
+  <!-- ============ FLEET ============ -->
+  <section id="fleet" style="max-width:1180px;margin:0 auto;padding:96px 32px">
+    <div style="font:600 13px/1 'Hanken Grotesk';letter-spacing:.16em;text-transform:uppercase;color:var(--accent,#C9A86A);margin-bottom:14px">The fleet</div>
+    <h2 style="font:300 clamp(30px,4vw,44px)/1.05 'Newsreader';letter-spacing:-.01em;color:var(--ink,#F3EEE6);margin-bottom:12px">Choose by group size — we'll confirm the right vehicle</h2>
+    <p style="font:400 16px/1.6 'Hanken Grotesk';color:var(--muted,#9BA3B7);max-width:540px;margin-bottom:44px">Clean, regularly maintained vehicles with luggage space to match. Capacities are a guide; tell us your numbers and we'll allocate accordingly.</p>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px">
+      <div style="background:var(--surface,#161D2E);border:1px solid var(--line,rgba(255,255,255,.10));border-radius:16px;overflow:hidden">
+        <image-slot id="bb-fleet-1" style="width:100%;height:150px;display:block" shape="rect" placeholder="Executive sedan"></image-slot>
+        <div style="padding:22px">
+          <h3 style="font:500 19px/1.2 'Newsreader';color:var(--ink,#F3EEE6)">Executive Sedan</h3>
+          <div style="display:flex;gap:16px;margin:12px 0 14px">
+            <span style="font:600 13px/1 'Hanken Grotesk';color:var(--muted,#9BA3B7)">1–3 seats</span>
+            <span style="font:600 13px/1 'Hanken Grotesk';color:var(--muted,#9BA3B7)">2–3 bags</span>
+          </div>
+          <p style="font:400 13.5px/1.5 'Hanken Grotesk';color:var(--muted,#9BA3B7)">Business travel, couples, single airport pickups.</p>
+        </div>
+      </div>
+      <div style="background:var(--surface,#161D2E);border:1px solid var(--line,rgba(255,255,255,.10));border-radius:16px;overflow:hidden">
+        <image-slot id="bb-fleet-2" style="width:100%;height:150px;display:block" shape="rect" placeholder="Premium van"></image-slot>
+        <div style="padding:22px">
+          <h3 style="font:500 19px/1.2 'Newsreader';color:var(--ink,#F3EEE6)">Premium Van</h3>
+          <div style="display:flex;gap:16px;margin:12px 0 14px">
+            <span style="font:600 13px/1 'Hanken Grotesk';color:var(--muted,#9BA3B7)">4–8 seats</span>
+            <span style="font:600 13px/1 'Hanken Grotesk';color:var(--muted,#9BA3B7)">8 bags</span>
+          </div>
+          <p style="font:400 13.5px/1.5 'Hanken Grotesk';color:var(--muted,#9BA3B7)">Families, small groups, golf or ski luggage.</p>
+        </div>
+      </div>
+      <div style="background:var(--surface,#161D2E);border:1px solid var(--line,rgba(255,255,255,.10));border-radius:16px;overflow:hidden">
+        <image-slot id="bb-fleet-3" style="width:100%;height:150px;display:block" shape="rect" placeholder="Minibus"></image-slot>
+        <div style="padding:22px">
+          <h3 style="font:500 19px/1.2 'Newsreader';color:var(--ink,#F3EEE6)">Minibus</h3>
+          <div style="display:flex;gap:16px;margin:12px 0 14px">
+            <span style="font:600 13px/1 'Hanken Grotesk';color:var(--muted,#9BA3B7)">9–19 seats</span>
+            <span style="font:600 13px/1 'Hanken Grotesk';color:var(--muted,#9BA3B7)">Trailer opt.</span>
+          </div>
+          <p style="font:400 13.5px/1.5 'Hanken Grotesk';color:var(--muted,#9BA3B7)">Group transfers, weddings, conference shuttles.</p>
+        </div>
+      </div>
+      <div style="background:var(--surface,#161D2E);border:1px solid var(--line,rgba(255,255,255,.10));border-radius:16px;overflow:hidden">
+        <image-slot id="bb-fleet-4" style="width:100%;height:150px;display:block" shape="rect" placeholder="Coach"></image-slot>
+        <div style="padding:22px">
+          <h3 style="font:500 19px/1.2 'Newsreader';color:var(--ink,#F3EEE6)">Coach</h3>
+          <div style="display:flex;gap:16px;margin:12px 0 14px">
+            <span style="font:600 13px/1 'Hanken Grotesk';color:var(--muted,#9BA3B7)">20–55 seats</span>
+            <span style="font:600 13px/1 'Hanken Grotesk';color:var(--muted,#9BA3B7)">Full hold</span>
+          </div>
+          <p style="font:400 13.5px/1.5 'Hanken Grotesk';color:var(--muted,#9BA3B7)">Large groups, tours, multi-day itineraries.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHY US ============ -->
+  <section id="why" style="background:var(--soft,rgba(255,255,255,.02));border-top:1px solid var(--line,rgba(255,255,255,.10));border-bottom:1px solid var(--line,rgba(255,255,255,.10))">
+    <div style="max-width:1180px;margin:0 auto;padding:90px 32px;display:grid;grid-template-columns:.85fr 1.15fr;gap:64px;align-items:start">
+      <div style="position:sticky;top:96px">
+        <div style="font:600 13px/1 'Hanken Grotesk';letter-spacing:.16em;text-transform:uppercase;color:var(--accent,#C9A86A);margin-bottom:14px">Why book with us</div>
+        <h2 style="font:300 clamp(30px,4vw,44px)/1.05 'Newsreader';letter-spacing:-.01em;color:var(--ink,#F3EEE6);margin-bottom:20px;text-wrap:balance">Less to worry about, before you even land</h2>
+        <p style="font:400 16px/1.6 'Hanken Grotesk';color:var(--muted,#9BA3B7);margin-bottom:30px">Every booking is pre-arranged and confirmed in writing — so you know the price, the driver and the meeting point in advance.</p>
+        <a href="#quote" style="display:inline-flex;align-items:center;gap:9px;font:600 15px/1 'Hanken Grotesk';color:var(--accentInk,#11151F);background:var(--accent,#C9A86A);text-decoration:none;padding:14px 24px;border-radius:999px">Request a quote
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+        <div style="background:var(--surface,#161D2E);border:1px solid var(--line,rgba(255,255,255,.10));border-radius:14px;padding:24px">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent,#C9A86A)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:14px"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+          <h3 style="font:600 16px/1.3 'Hanken Grotesk';color:var(--ink,#F3EEE6);margin-bottom:7px">Licensed &amp; insured</h3>
+          <p style="font:400 14px/1.55 'Hanken Grotesk';color:var(--muted,#9BA3B7)">Properly permitted operation with insured vehicles. Documents available on request.</p>
+        </div>
+        <div style="background:var(--surface,#161D2E);border:1px solid var(--line,rgba(255,255,255,.10));border-radius:14px;padding:24px">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent,#C9A86A)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:14px"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 9h.01M11 9h6M7 13h.01M11 13h6"/></svg>
+          <h3 style="font:600 16px/1.3 'Hanken Grotesk';color:var(--ink,#F3EEE6);margin-bottom:7px">Driver details in advance</h3>
+          <p style="font:400 14px/1.55 'Hanken Grotesk';color:var(--muted,#9BA3B7)">After booking we send your driver's name, vehicle and contact — and a clear meeting point.</p>
+        </div>
+        <div style="background:var(--surface,#161D2E);border:1px solid var(--line,rgba(255,255,255,.10));border-radius:14px;padding:24px">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent,#C9A86A)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:14px"><path d="M3 7h18v10H3z"/><path d="M12 9.5v5M10 11h4M10 13h4"/></svg>
+          <h3 style="font:600 16px/1.3 'Hanken Grotesk';color:var(--ink,#F3EEE6);margin-bottom:7px">One all-in price</h3>
+          <p style="font:400 14px/1.55 'Hanken Grotesk';color:var(--muted,#9BA3B7)">Tolls, taxes and waiting included. The price you confirm is the price you pay.</p>
+        </div>
+        <div style="background:var(--surface,#161D2E);border:1px solid var(--line,rgba(255,255,255,.10));border-radius:14px;padding:24px">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent,#C9A86A)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:14px"><circle cx="12" cy="12" r="9"/><path d="M2 12h20M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
+          <h3 style="font:600 16px/1.3 'Hanken Grotesk';color:var(--ink,#F3EEE6);margin-bottom:7px">English-speaking drivers</h3>
+          <p style="font:400 14px/1.55 'Hanken Grotesk';color:var(--muted,#9BA3B7)">Courteous, experienced drivers used to international travellers and group logistics.</p>
+        </div>
+        <div style="background:var(--surface,#161D2E);border:1px solid var(--line,rgba(255,255,255,.10));border-radius:14px;padding:24px">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent,#C9A86A)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:14px"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          <h3 style="font:600 16px/1.3 'Hanken Grotesk';color:var(--ink,#F3EEE6);margin-bottom:7px">Flexible cancellation</h3>
+          <p style="font:400 14px/1.55 'Hanken Grotesk';color:var(--muted,#9BA3B7)">Clear cancellation terms shared up front — before you commit to anything.</p>
+        </div>
+        <div style="background:var(--surface,#161D2E);border:1px solid var(--line,rgba(255,255,255,.10));border-radius:14px;padding:24px">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent,#C9A86A)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:14px"><path d="M4 14a8 8 0 0 1 16 0"/><path d="M3 14h3v5H4a1 1 0 0 1-1-1zM21 14h-3v5h2a1 1 0 0 0 1-1z"/></svg>
+          <h3 style="font:600 16px/1.3 'Hanken Grotesk';color:var(--ink,#F3EEE6);margin-bottom:7px">24/7 coordination</h3>
+          <p style="font:400 14px/1.55 'Hanken Grotesk';color:var(--muted,#9BA3B7)">Reach a person any time by phone, WhatsApp or email — especially useful around flights and events.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ REVIEWS ============ -->
+  <section style="max-width:1180px;margin:0 auto;padding:90px 32px">
+    <div style="text-align:center;margin-bottom:48px">
+      <div style="font:600 13px/1 'Hanken Grotesk';letter-spacing:.16em;text-transform:uppercase;color:var(--accent,#C9A86A);margin-bottom:14px">What guests say</div>
+      <h2 style="font:300 clamp(30px,4vw,44px)/1.05 'Newsreader';letter-spacing:-.01em;color:var(--ink,#F3EEE6)">Reassurance, from first message to drop-off</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px">
+      <div style="background:var(--surface,#161D2E);border:1px solid var(--line,rgba(255,255,255,.10));border-radius:16px;padding:28px">
+        <div style="display:flex;gap:2px;margin-bottom:14px">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="var(--accent,#C9A86A)"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 20.4l1.4-6.8L2.2 9l6.9-.7z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="var(--accent,#C9A86A)"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 20.4l1.4-6.8L2.2 9l6.9-.7z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="var(--accent,#C9A86A)"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 20.4l1.4-6.8L2.2 9l6.9-.7z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="var(--accent,#C9A86A)"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 20.4l1.4-6.8L2.2 9l6.9-.7z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="var(--accent,#C9A86A)"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 20.4l1.4-6.8L2.2 9l6.9-.7z"/></svg>
+        </div>
+        <p style="font:400 16px/1.6 'Newsreader';color:var(--ink,#F3EEE6);margin-bottom:18px;font-style:italic">"Driver was waiting with a name sign the moment we cleared customs. Fixed price, spotless car, zero stress after a long flight."</p>
+        <div style="font:600 14px/1.2 'Hanken Grotesk';color:var(--ink,#F3EEE6)">Sample guest review</div>
+        <div style="font:500 12.5px/1.2 'Hanken Grotesk';color:var(--muted,#9BA3B7);margin-top:3px">Airport transfer · replace with real review</div>
+      </div>
+      <div style="background:var(--surface,#161D2E);border:1px solid var(--line,rgba(255,255,255,.10));border-radius:16px;padding:28px">
+        <div style="display:flex;gap:2px;margin-bottom:14px">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="var(--accent,#C9A86A)"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 20.4l1.4-6.8L2.2 9l6.9-.7z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="var(--accent,#C9A86A)"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 20.4l1.4-6.8L2.2 9l6.9-.7z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="var(--accent,#C9A86A)"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 20.4l1.4-6.8L2.2 9l6.9-.7z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="var(--accent,#C9A86A)"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 20.4l1.4-6.8L2.2 9l6.9-.7z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="var(--accent,#C9A86A)"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 20.4l1.4-6.8L2.2 9l6.9-.7z"/></svg>
+        </div>
+        <p style="font:400 16px/1.6 'Newsreader';color:var(--ink,#F3EEE6);margin-bottom:18px;font-style:italic">"We moved 40 conference guests across three hotels. Staggered pickups ran exactly on time and one contact handled everything."</p>
+        <div style="font:600 14px/1.2 'Hanken Grotesk';color:var(--ink,#F3EEE6)">Sample corporate review</div>
+        <div style="font:500 12.5px/1.2 'Hanken Grotesk';color:var(--muted,#9BA3B7);margin-top:3px">Event transport · replace with real review</div>
+      </div>
+      <div style="background:var(--surface,#161D2E);border:1px solid var(--line,rgba(255,255,255,.10));border-radius:16px;padding:28px">
+        <div style="display:flex;gap:2px;margin-bottom:14px">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="var(--accent,#C9A86A)"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 20.4l1.4-6.8L2.2 9l6.9-.7z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="var(--accent,#C9A86A)"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 20.4l1.4-6.8L2.2 9l6.9-.7z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="var(--accent,#C9A86A)"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 20.4l1.4-6.8L2.2 9l6.9-.7z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="var(--accent,#C9A86A)"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 20.4l1.4-6.8L2.2 9l6.9-.7z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="var(--accent,#C9A86A)"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 20.4l1.4-6.8L2.2 9l6.9-.7z"/></svg>
+        </div>
+        <p style="font:400 16px/1.6 'Newsreader';color:var(--ink,#F3EEE6);margin-bottom:18px;font-style:italic">"Booked a full day to the Danube Bend. The driver adjusted the plan to our pace and knew exactly where to stop. Felt private and easy."</p>
+        <div style="font:600 14px/1.2 'Hanken Grotesk';color:var(--ink,#F3EEE6)">Sample day-trip review</div>
+        <div style="font:500 12.5px/1.2 'Hanken Grotesk';color:var(--muted,#9BA3B7);margin-top:3px">Day trip · replace with real review</div>
+      </div>
+    </div>
+    <p style="text-align:center;font:500 13.5px/1.5 'Hanken Grotesk';color:var(--muted,#9BA3B7);margin-top:24px">Placeholder reviews — swap in verified Google / TripAdvisor quotes once live.</p>
+  </section>
+
+  <!-- ============ QUOTE FORM ============ -->
+  <section id="quote" style="background:var(--accent,#C9A86A);color:var(--accentInk,#11151F)">
+    <div style="max-width:1180px;margin:0 auto;padding:84px 32px;display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:start">
+      <div>
+        <div style="font:600 13px/1 'Hanken Grotesk';letter-spacing:.16em;text-transform:uppercase;opacity:.7;margin-bottom:14px">Get a quote</div>
+        <h2 style="font:300 clamp(32px,4.4vw,48px)/1.04 'Newsreader';letter-spacing:-.01em;margin-bottom:18px;text-wrap:balance">Tell us the trip. We'll confirm a fixed price.</h2>
+        <p style="font:400 17px/1.6 'Hanken Grotesk';opacity:.82;margin-bottom:30px;max-width:380px">Fill in the details and send it straight to us on WhatsApp or by email — usually answered within a couple of hours.</p>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <a href="#" onClick="{{ sendWhatsapp }}" style="display:inline-flex;align-items:center;gap:11px;font:600 16px/1 'Hanken Grotesk';color:var(--accentInk,#11151F);text-decoration:none">
+            <span style="width:38px;height:38px;border-radius:10px;background:rgba(0,0,0,.10);display:flex;align-items:center;justify-content:center"><svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.82 11.82 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.512 5.26l-.999 3.648 3.876-1.017zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.247-.694.247-1.289.173-1.413z"/></svg></span>
+            {{ whatsappDisplay }}
+          </a>
+          <a href="#" onClick="{{ sendEmail }}" style="display:inline-flex;align-items:center;gap:11px;font:600 16px/1 'Hanken Grotesk';color:var(--accentInk,#11151F);text-decoration:none">
+            <span style="width:38px;height:38px;border-radius:10px;background:rgba(0,0,0,.10);display:flex;align-items:center;justify-content:center"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
+            {{ emailDisplay }}
+          </a>
+        </div>
+      </div>
+
+      <div style="background:var(--bg,#0E1320);border-radius:20px;padding:32px;box-shadow:0 24px 60px rgba(0,0,0,.22)">
+        <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+          <div style="text-align:center;padding:40px 12px">
+            <div style="width:60px;height:60px;border-radius:50%;background:var(--accent,#C9A86A);display:flex;align-items:center;justify-content:center;margin:0 auto 20px">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="var(--accentInk,#11151F)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m20 6-11 11-5-5"/></svg>
+            </div>
+            <h3 style="font:400 26px/1.2 'Newsreader';color:var(--ink,#F3EEE6);margin-bottom:10px">Your request is ready to send</h3>
+            <p style="font:400 15px/1.6 'Hanken Grotesk';color:var(--muted,#9BA3B7)">We've opened your message with all the details filled in. If nothing opened, reach us directly on WhatsApp or email above.</p>
+          </div>
+        </sc-if>
+        <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+        <div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+            <label style="grid-column:span 2;display:flex;flex-direction:column;gap:7px">
+              <span style="font:600 12.5px/1 'Hanken Grotesk';color:var(--muted,#9BA3B7);letter-spacing:.04em;text-transform:uppercase">Service</span>
+              <select name="service" onChange="{{ onField }}" style="background:var(--surface,#161D2E);border:1px solid var(--line,rgba(255,255,255,.12));color:var(--ink,#F3EEE6);border-radius:10px;padding:13px 14px;font:500 15px/1 'Hanken Grotesk';outline:none">
+                <option>Airport transfer</option>
+                <option>Point-to-point / intercity</option>
+                <option>Hourly ride / sightseeing</option>
+                <option>Day trip from Budapest</option>
+                <option>Multi-day trip</option>
+                <option>Event / corporate transport</option>
+              </select>
+            </label>
+            <label style="display:flex;flex-direction:column;gap:7px">
+              <span style="font:600 12.5px/1 'Hanken Grotesk';color:var(--muted,#9BA3B7);letter-spacing:.04em;text-transform:uppercase">Pickup</span>
+              <input name="pickup" onChange="{{ onField }}" placeholder="e.g. BUD Airport T2" style="background:var(--surface,#161D2E);border:1px solid var(--line,rgba(255,255,255,.12));color:var(--ink,#F3EEE6);border-radius:10px;padding:13px 14px;font:500 15px/1 'Hanken Grotesk';outline:none">
+            </label>
+            <label style="display:flex;flex-direction:column;gap:7px">
+              <span style="font:600 12.5px/1 'Hanken Grotesk';color:var(--muted,#9BA3B7);letter-spacing:.04em;text-transform:uppercase">Drop-off</span>
+              <input name="dropoff" onChange="{{ onField }}" placeholder="e.g. Hotel, city centre" style="background:var(--surface,#161D2E);border:1px solid var(--line,rgba(255,255,255,.12));color:var(--ink,#F3EEE6);border-radius:10px;padding:13px 14px;font:500 15px/1 'Hanken Grotesk';outline:none">
+            </label>
+            <label style="display:flex;flex-direction:column;gap:7px">
+              <span style="font:600 12.5px/1 'Hanken Grotesk';color:var(--muted,#9BA3B7);letter-spacing:.04em;text-transform:uppercase">Date</span>
+              <input name="date" type="date" onChange="{{ onField }}" style="background:var(--surface,#161D2E);border:1px solid var(--line,rgba(255,255,255,.12));color:var(--ink,#F3EEE6);border-radius:10px;padding:12px 14px;font:500 15px/1 'Hanken Grotesk';outline:none;color-scheme:dark">
+            </label>
+            <label style="display:flex;flex-direction:column;gap:7px">
+              <span style="font:600 12.5px/1 'Hanken Grotesk';color:var(--muted,#9BA3B7);letter-spacing:.04em;text-transform:uppercase">Time</span>
+              <input name="time" type="time" onChange="{{ onField }}" style="background:var(--surface,#161D2E);border:1px solid var(--line,rgba(255,255,255,.12));color:var(--ink,#F3EEE6);border-radius:10px;padding:12px 14px;font:500 15px/1 'Hanken Grotesk';outline:none;color-scheme:dark">
+            </label>
+            <label style="display:flex;flex-direction:column;gap:7px">
+              <span style="font:600 12.5px/1 'Hanken Grotesk';color:var(--muted,#9BA3B7);letter-spacing:.04em;text-transform:uppercase">Passengers</span>
+              <input name="pax" type="number" min="1" onChange="{{ onField }}" placeholder="2" style="background:var(--surface,#161D2E);border:1px solid var(--line,rgba(255,255,255,.12));color:var(--ink,#F3EEE6);border-radius:10px;padding:13px 14px;font:500 15px/1 'Hanken Grotesk';outline:none">
+            </label>
+            <label style="display:flex;flex-direction:column;gap:7px">
+              <span style="font:600 12.5px/1 'Hanken Grotesk';color:var(--muted,#9BA3B7);letter-spacing:.04em;text-transform:uppercase">Luggage</span>
+              <input name="luggage" onChange="{{ onField }}" placeholder="e.g. 3 cases" style="background:var(--surface,#161D2E);border:1px solid var(--line,rgba(255,255,255,.12));color:var(--ink,#F3EEE6);border-radius:10px;padding:13px 14px;font:500 15px/1 'Hanken Grotesk';outline:none">
+            </label>
+            <label style="display:flex;flex-direction:column;gap:7px">
+              <span style="font:600 12.5px/1 'Hanken Grotesk';color:var(--muted,#9BA3B7);letter-spacing:.04em;text-transform:uppercase">Flight no. <span style="text-transform:none;opacity:.6">(optional)</span></span>
+              <input name="flight" onChange="{{ onField }}" placeholder="e.g. W6 2302" style="background:var(--surface,#161D2E);border:1px solid var(--line,rgba(255,255,255,.12));color:var(--ink,#F3EEE6);border-radius:10px;padding:13px 14px;font:500 15px/1 'Hanken Grotesk';outline:none">
+            </label>
+            <label style="display:flex;flex-direction:column;gap:7px">
+              <span style="font:600 12.5px/1 'Hanken Grotesk';color:var(--muted,#9BA3B7);letter-spacing:.04em;text-transform:uppercase">Return trip?</span>
+              <select name="ret" onChange="{{ onField }}" style="background:var(--surface,#161D2E);border:1px solid var(--line,rgba(255,255,255,.12));color:var(--ink,#F3EEE6);border-radius:10px;padding:13px 14px;font:500 15px/1 'Hanken Grotesk';outline:none">
+                <option>No</option>
+                <option>Yes</option>
+              </select>
+            </label>
+            <label style="grid-column:span 2;display:flex;flex-direction:column;gap:7px">
+              <span style="font:600 12.5px/1 'Hanken Grotesk';color:var(--muted,#9BA3B7);letter-spacing:.04em;text-transform:uppercase">Anything else</span>
+              <textarea name="message" onChange="{{ onField }}" rows="2" placeholder="Child seats, multiple stops, special requests…" style="background:var(--surface,#161D2E);border:1px solid var(--line,rgba(255,255,255,.12));color:var(--ink,#F3EEE6);border-radius:10px;padding:13px 14px;font:500 15px/1.5 'Hanken Grotesk';outline:none;resize:vertical"></textarea>
+            </label>
+          </div>
+          <div style="display:flex;gap:12px;margin-top:18px">
+            <button onClick="{{ sendWhatsapp }}" style="flex:1;display:flex;align-items:center;justify-content:center;gap:9px;background:var(--accent,#C9A86A);color:var(--accentInk,#11151F);border:none;border-radius:11px;padding:15px;font:600 15.5px/1 'Hanken Grotesk';cursor:pointer">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.82 11.82 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.512 5.26l-.999 3.648 3.876-1.017zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.247-.694.247-1.289.173-1.413z"/></svg>
+              Send on WhatsApp
+            </button>
+            <button onClick="{{ sendEmail }}" style="flex:0 0 auto;display:flex;align-items:center;justify-content:center;gap:9px;background:transparent;color:var(--ink,#F3EEE6);border:1px solid var(--line,rgba(255,255,255,.18));border-radius:11px;padding:15px 20px;font:600 15.5px/1 'Hanken Grotesk';cursor:pointer">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+              Email
+            </button>
+          </div>
+          <p style="font:500 12px/1.5 'Hanken Grotesk';color:var(--muted,#9BA3B7);margin-top:14px;text-align:center">We use your details only to handle this request. No payment is taken here.</p>
+        </div>
+        </sc-if>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section style="max-width:900px;margin:0 auto;padding:90px 32px">
+    <div style="text-align:center;margin-bottom:44px">
+      <div style="font:600 13px/1 'Hanken Grotesk';letter-spacing:.16em;text-transform:uppercase;color:var(--accent,#C9A86A);margin-bottom:14px">Good to know</div>
+      <h2 style="font:300 clamp(30px,4vw,44px)/1.05 'Newsreader';letter-spacing:-.01em;color:var(--ink,#F3EEE6)">Frequently asked</h2>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <details style="background:var(--surface,#161D2E);border:1px solid var(--line,rgba(255,255,255,.10));border-radius:13px;padding:20px 24px">
+        <summary style="font:600 16.5px/1.4 'Hanken Grotesk';color:var(--ink,#F3EEE6);cursor:pointer;list-style:none">How does airport pickup work?</summary>
+        <p style="font:400 15px/1.65 'Hanken Grotesk';color:var(--muted,#9BA3B7);margin-top:12px">We track your flight and adjust to delays. Your driver meets you in the arrivals hall with a name sign, helps with luggage and takes you straight to the vehicle. Up to 60 minutes of waiting is included after landing.</p>
+      </details>
+      <details style="background:var(--surface,#161D2E);border:1px solid var(--line,rgba(255,255,255,.10));border-radius:13px;padding:20px 24px">
+        <summary style="font:600 16.5px/1.4 'Hanken Grotesk';color:var(--ink,#F3EEE6);cursor:pointer;list-style:none">Is the price really fixed?</summary>
+        <p style="font:400 15px/1.65 'Hanken Grotesk';color:var(--muted,#9BA3B7);margin-top:12px">Yes. The price we confirm in writing is all-in — tolls, taxes and included waiting. It doesn't change with traffic or minor delays.</p>
+      </details>
+      <details style="background:var(--surface,#161D2E);border:1px solid var(--line,rgba(255,255,255,.10));border-radius:13px;padding:20px 24px">
+        <summary style="font:600 16.5px/1.4 'Hanken Grotesk';color:var(--ink,#F3EEE6);cursor:pointer;list-style:none">How do I pay?</summary>
+        <p style="font:400 15px/1.65 'Hanken Grotesk';color:var(--muted,#9BA3B7);margin-top:12px">No payment is taken on this site. We agree the method when we confirm your booking — convenient options for both travellers and companies, with an invoice available on request.</p>
+      </details>
+      <details style="background:var(--surface,#161D2E);border:1px solid var(--line,rgba(255,255,255,.10));border-radius:13px;padding:20px 24px">
+        <summary style="font:600 16.5px/1.4 'Hanken Grotesk';color:var(--ink,#F3EEE6);cursor:pointer;list-style:none">Can you handle large groups and events?</summary>
+        <p style="font:400 15px/1.65 'Hanken Grotesk';color:var(--muted,#9BA3B7);margin-top:12px">Yes — from a single minibus to multiple coaches with staggered pickups and on-site coordination. Tell us the headcount, venues and timings and we'll build the plan.</p>
+      </details>
+      <details style="background:var(--surface,#161D2E);border:1px solid var(--line,rgba(255,255,255,.10));border-radius:13px;padding:20px 24px">
+        <summary style="font:600 16.5px/1.4 'Hanken Grotesk';color:var(--ink,#F3EEE6);cursor:pointer;list-style:none">Do you drive outside Hungary?</summary>
+        <p style="font:400 15px/1.65 'Hanken Grotesk';color:var(--muted,#9BA3B7);margin-top:12px">We regularly drive cross-border across Central Europe — Vienna, Bratislava, Prague and beyond — as point-to-point transfers or multi-day itineraries.</p>
+      </details>
+      <details style="background:var(--surface,#161D2E);border:1px solid var(--line,rgba(255,255,255,.10));border-radius:13px;padding:20px 24px">
+        <summary style="font:600 16.5px/1.4 'Hanken Grotesk';color:var(--ink,#F3EEE6);cursor:pointer;list-style:none">What if my plans change?</summary>
+        <p style="font:400 15px/1.65 'Hanken Grotesk';color:var(--muted,#9BA3B7);margin-top:12px">We share clear cancellation terms before you confirm. Reach us any time by phone, WhatsApp or email and we'll do our best to adjust.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer style="border-top:1px solid var(--line,rgba(255,255,255,.10));background:var(--soft,rgba(255,255,255,.02))">
+    <div style="max-width:1180px;margin:0 auto;padding:64px 32px 40px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px">
+      <div>
+        <div style="display:flex;align-items:center;gap:11px;margin-bottom:18px">
+          <span style="width:34px;height:34px;border-radius:9px;background:var(--accent,#C9A86A);color:var(--accentInk,#11151F);display:flex;align-items:center;justify-content:center">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10"/><path d="M2 16h20"/><path d="M7 20a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"/><path d="M17 20a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"/><path d="M6 8h12"/></svg>
+          </span>
+          <span style="font:700 17px/1 'Hanken Grotesk';color:var(--ink,#F3EEE6)">BUS BUDAPEST</span>
+        </div>
+        <p style="font:400 14.5px/1.6 'Hanken Grotesk';color:var(--muted,#9BA3B7);max-width:280px">Private airport transfers, chauffeur rides and group transport in Budapest and across Central Europe. Licensed &amp; insured.</p>
+      </div>
+      <div>
+        <div style="font:600 13px/1 'Hanken Grotesk';color:var(--ink,#F3EEE6);letter-spacing:.06em;text-transform:uppercase;margin-bottom:16px">Services</div>
+        <div style="display:flex;flex-direction:column;gap:11px">
+          <a href="#services" style="font:500 14px/1 'Hanken Grotesk';color:var(--muted,#9BA3B7);text-decoration:none">Airport &amp; point-to-point</a>
+          <a href="#services" style="font:500 14px/1 'Hanken Grotesk';color:var(--muted,#9BA3B7);text-decoration:none">Hourly &amp; sightseeing</a>
+          <a href="#services" style="font:500 14px/1 'Hanken Grotesk';color:var(--muted,#9BA3B7);text-decoration:none">Day trips</a>
+          <a href="#services" style="font:500 14px/1 'Hanken Grotesk';color:var(--muted,#9BA3B7);text-decoration:none">Events &amp; corporate</a>
+        </div>
+      </div>
+      <div>
+        <div style="font:600 13px/1 'Hanken Grotesk';color:var(--ink,#F3EEE6);letter-spacing:.06em;text-transform:uppercase;margin-bottom:16px">Company</div>
+        <div style="display:flex;flex-direction:column;gap:11px">
+          <a href="#why" style="font:500 14px/1 'Hanken Grotesk';color:var(--muted,#9BA3B7);text-decoration:none">Why us</a>
+          <a href="#fleet" style="font:500 14px/1 'Hanken Grotesk';color:var(--muted,#9BA3B7);text-decoration:none">Fleet</a>
+          <a href="#routes" style="font:500 14px/1 'Hanken Grotesk';color:var(--muted,#9BA3B7);text-decoration:none">Routes &amp; prices</a>
+          <a href="#" style="font:500 14px/1 'Hanken Grotesk';color:var(--muted,#9BA3B7);text-decoration:none">Terms &amp; privacy</a>
+        </div>
+      </div>
+      <div>
+        <div style="font:600 13px/1 'Hanken Grotesk';color:var(--ink,#F3EEE6);letter-spacing:.06em;text-transform:uppercase;margin-bottom:16px">Contact</div>
+        <div style="display:flex;flex-direction:column;gap:11px">
+          <a href="#" onClick="{{ sendWhatsapp }}" style="font:500 14px/1 'Hanken Grotesk';color:var(--muted,#9BA3B7);text-decoration:none">{{ whatsappDisplay }}</a>
+          <a href="#" onClick="{{ sendEmail }}" style="font:500 14px/1 'Hanken Grotesk';color:var(--muted,#9BA3B7);text-decoration:none">{{ emailDisplay }}</a>
+          <span style="font:500 14px/1.4 'Hanken Grotesk';color:var(--muted,#9BA3B7)">Budapest, Hungary · 24/7</span>
+        </div>
+      </div>
+    </div>
+    <div style="max-width:1180px;margin:0 auto;padding:0 32px 40px">
+      <div style="border-top:1px solid var(--line,rgba(255,255,255,.10));padding-top:24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap">
+        <span style="font:500 13px/1.4 'Hanken Grotesk';color:var(--muted,#9BA3B7)">© 2026 Bus Budapest. Licensing &amp; insurance documents available on request.</span>
+        <span style="font:500 13px/1.4 'Hanken Grotesk';color:var(--muted,#9BA3B7)">Placeholder site — replace contact details &amp; photos before launch.</span>
+      </div>
+    </div>
+  </footer>
+
+</main>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1180,&quot;height&quot;:900},&quot;theme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;midnight&quot;,&quot;danube&quot;,&quot;stone&quot;],&quot;default&quot;:&quot;midnight&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Style&quot;},&quot;whatsapp&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;+36 70 000 0000&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Contact&quot;},&quot;email&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;hello@busbudapest.com&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Contact&quot;}}">
+class Component extends DCLogic {
+  state = {
+    form: { service: 'Airport transfer', pickup: '', dropoff: '', date: '', time: '', pax: '', luggage: '', flight: '', ret: 'No', message: '' },
+    sent: false
+  };
+
+  themes = {
+    midnight: { bg:'#0E1320', surface:'#161D2E', ink:'#F3EEE6', muted:'#9BA3B7', accent:'#C9A86A', accentInk:'#11151F', line:'rgba(255,255,255,0.10)', soft:'rgba(255,255,255,0.03)' },
+    danube:   { bg:'#F4F7FB', surface:'#FFFFFF', ink:'#0F2440', muted:'#5A6B82', accent:'#1C5FB0', accentInk:'#FFFFFF', line:'rgba(15,36,64,0.12)', soft:'rgba(15,36,64,0.03)' },
+    stone:    { bg:'#F3EDE3', surface:'#FBF7F0', ink:'#2A2420', muted:'#6F6358', accent:'#B5572F', accentInk:'#FFFFFF', line:'rgba(42,36,32,0.14)', soft:'rgba(42,36,32,0.035)' }
+  };
+
+  onField = (e) => {
+    const { name, value } = e.target;
+    this.setState(s => ({ form: { ...s.form, [name]: value } }));
+  };
+
+  buildText() {
+    const f = this.state.form;
+    const lines = [
+      'Bus Budapest — Quote request',
+      '',
+      'Service: ' + f.service,
+      'Pickup: ' + (f.pickup || '—'),
+      'Drop-off: ' + (f.dropoff || '—'),
+      'Date: ' + (f.date || '—') + '  Time: ' + (f.time || '—'),
+      'Passengers: ' + (f.pax || '—') + '  Luggage: ' + (f.luggage || '—'),
+      'Flight no.: ' + (f.flight || '—'),
+      'Return trip: ' + f.ret,
+      'Notes: ' + (f.message || '—')
+    ];
+    return lines.join('\n');
+  }
+
+  sendWhatsapp = (e) => {
+    if (e) e.preventDefault();
+    const digits = (this.props.whatsapp || '+36 70 000 0000').replace(/[^0-9]/g, '');
+    window.open('https://wa.me/' + digits + '?text=' + encodeURIComponent(this.buildText()), '_blank');
+    this.setState({ sent: true });
+  };
+
+  sendEmail = (e) => {
+    if (e) e.preventDefault();
+    const email = this.props.email || 'hello@busbudapest.com';
+    const subject = 'Quote request — ' + this.state.form.service;
+    window.location.href = 'mailto:' + email + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(this.buildText());
+    this.setState({ sent: true });
+  };
+
+  renderVals() {
+    const key = this.props.theme || 'midnight';
+    const t = this.themes[key] || this.themes.midnight;
+    const themeVars = Object.keys(t).map(k => '--' + k + ':' + t[k]).join(';');
+    return {
+      themeVars,
+      onField: this.onField,
+      sendWhatsapp: this.sendWhatsapp,
+      sendEmail: this.sendEmail,
+      sent: this.state.sent,
+      notSent: !this.state.sent,
+      whatsappDisplay: this.props.whatsapp || '+36 70 000 0000',
+      emailDisplay: this.props.email || 'hello@busbudapest.com'
+    };
+  }
+}
+</script>
+</body>
+</html>
