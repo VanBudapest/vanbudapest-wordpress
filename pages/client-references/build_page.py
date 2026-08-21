@@ -30,7 +30,7 @@ def gal(cls, imgs, extra_cls=""):
     return f'<div class="vb-cr-gal {cls}{(" " + extra_cls) if extra_cls else ""}">\n    {inner}\n  </div>'
 
 FRAMEWORK_CSS = """
-  .vb-cr{position:relative;width:100vw;left:50%;margin-left:-50vw;margin-right:-50vw;box-sizing:border-box;padding:clamp(64px,7vw,108px) 0;margin-top:0;margin-bottom:0;font-family:'Montserrat',system-ui,-apple-system,sans-serif;overflow:visible}
+  .vb-cr{position:relative;width:100vw;max-width:100vw !important;margin-left:calc(50% - 50vw) !important;margin-right:calc(50% - 50vw) !important;margin-top:0;margin-bottom:0;box-sizing:border-box;padding:clamp(64px,7vw,108px) 0;font-family:'Montserrat',system-ui,-apple-system,sans-serif;overflow:visible}
   .vb-cr, .vb-cr *{box-sizing:border-box}
   .vb-cr-wrap{max-width:1320px;margin:0 auto;padding:0 clamp(18px,4vw,28px)}
   .vb-cr-txt{max-width:920px;margin:0 auto;text-align:center}
