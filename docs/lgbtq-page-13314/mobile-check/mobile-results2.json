@@ -1,0 +1,1242 @@
+[
+ {
+  "width": 320,
+  "scrollWidth": 320,
+  "clientWidth": 320,
+  "overflowPx": 0,
+  "pageHeight": 51121,
+  "overflowing": [],
+  "overflowCount": 0,
+  "sticky": {
+   "display": "flex",
+   "position": "fixed",
+   "height": 57,
+   "bottom": 844,
+   "width": 320,
+   "links": [
+    {
+     "text": "Book Now",
+     "w": 160,
+     "h": 57
+    },
+    {
+     "text": "★ WhatsApp",
+     "w": 160,
+     "h": 57
+    }
+   ]
+  },
+  "bodyPadBottom": "56px",
+  "grids": [
+   {
+    "items": 3,
+    "cols": 1
+   },
+   {
+    "items": 2,
+    "cols": 1
+   },
+   {
+    "items": 3,
+    "cols": 1
+   },
+   {
+    "items": 3,
+    "cols": 1
+   }
+  ],
+  "fontSizes": {
+   "p": "16px",
+   "h2": "23.2px",
+   "caption": "15.2px",
+   "align": "left"
+  },
+  "ctas": [
+   {
+    "text": "Book Now",
+    "w": 291,
+    "h": 62
+   },
+   {
+    "text": "Explore Our Fleet",
+    "w": 291,
+    "h": 62
+   },
+   {
+    "text": "Luxury VIP",
+    "w": 291,
+    "h": 62
+   }
+  ],
+  "chips": {
+   "count": 7,
+   "maxRight": 295,
+   "minH": 44,
+   "sample": [
+    {
+     "t": "Discretion",
+     "w": 112,
+     "h": 44,
+     "r": 153
+    },
+    {
+     "t": "Chauffeurs",
+     "w": 117,
+     "h": 44,
+     "r": 279
+    },
+    {
+     "t": "Fleet",
+     "w": 73,
+     "h": 44,
+     "r": 98
+    }
+   ]
+  },
+  "sections": [
+   320,
+   320,
+   320,
+   320,
+   320,
+   320,
+   320,
+   320,
+   320,
+   320,
+   320
+  ],
+  "sectionGaps": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "faqSummary": {
+   "w": 291,
+   "h": 120
+  }
+ },
+ {
+  "width": 360,
+  "scrollWidth": 360,
+  "clientWidth": 360,
+  "overflowPx": 0,
+  "pageHeight": 47866,
+  "overflowing": [],
+  "overflowCount": 0,
+  "sticky": {
+   "display": "flex",
+   "position": "fixed",
+   "height": 57,
+   "bottom": 844,
+   "width": 360,
+   "links": [
+    {
+     "text": "Book Now",
+     "w": 180,
+     "h": 57
+    },
+    {
+     "text": "★ WhatsApp",
+     "w": 180,
+     "h": 57
+    }
+   ]
+  },
+  "bodyPadBottom": "56px",
+  "grids": [
+   {
+    "items": 3,
+    "cols": 1
+   },
+   {
+    "items": 2,
+    "cols": 1
+   },
+   {
+    "items": 3,
+    "cols": 1
+   },
+   {
+    "items": 3,
+    "cols": 1
+   }
+  ],
+  "fontSizes": {
+   "p": "16px",
+   "h2": "23.2px",
+   "caption": "15.2px",
+   "align": "left"
+  },
+  "ctas": [
+   {
+    "text": "Book Now",
+    "w": 331,
+    "h": 62
+   },
+   {
+    "text": "Explore Our Fleet",
+    "w": 331,
+    "h": 62
+   },
+   {
+    "text": "Luxury VIP",
+    "w": 331,
+    "h": 62
+   }
+  ],
+  "chips": {
+   "count": 7,
+   "maxRight": 339,
+   "minH": 44,
+   "sample": [
+    {
+     "t": "Discretion",
+     "w": 112,
+     "h": 44,
+     "r": 133
+    },
+    {
+     "t": "Chauffeurs",
+     "w": 117,
+     "h": 44,
+     "r": 258
+    },
+    {
+     "t": "Fleet",
+     "w": 73,
+     "h": 44,
+     "r": 339
+    }
+   ]
+  },
+  "sections": [
+   360,
+   360,
+   360,
+   360,
+   360,
+   360,
+   360,
+   360,
+   360,
+   360,
+   360
+  ],
+  "sectionGaps": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "faqSummary": {
+   "w": 331,
+   "h": 120
+  }
+ },
+ {
+  "width": 390,
+  "scrollWidth": 390,
+  "clientWidth": 390,
+  "overflowPx": 0,
+  "pageHeight": 46015,
+  "overflowing": [],
+  "overflowCount": 0,
+  "sticky": {
+   "display": "flex",
+   "position": "fixed",
+   "height": 57,
+   "bottom": 844,
+   "width": 390,
+   "links": [
+    {
+     "text": "Book Now",
+     "w": 195,
+     "h": 57
+    },
+    {
+     "text": "★ WhatsApp",
+     "w": 195,
+     "h": 57
+    }
+   ]
+  },
+  "bodyPadBottom": "56px",
+  "grids": [
+   {
+    "items": 3,
+    "cols": 1
+   },
+   {
+    "items": 2,
+    "cols": 1
+   },
+   {
+    "items": 3,
+    "cols": 1
+   },
+   {
+    "items": 3,
+    "cols": 1
+   }
+  ],
+  "fontSizes": {
+   "p": "16px",
+   "h2": "23.2px",
+   "caption": "15.2px",
+   "align": "left"
+  },
+  "ctas": [
+   {
+    "text": "Book Now",
+    "w": 361,
+    "h": 62
+   },
+   {
+    "text": "Explore Our Fleet",
+    "w": 361,
+    "h": 62
+   },
+   {
+    "text": "Luxury VIP",
+    "w": 361,
+    "h": 62
+   }
+  ],
+  "chips": {
+   "count": 7,
+   "maxRight": 366,
+   "minH": 44,
+   "sample": [
+    {
+     "t": "Discretion",
+     "w": 112,
+     "h": 44,
+     "r": 148
+    },
+    {
+     "t": "Chauffeurs",
+     "w": 117,
+     "h": 44,
+     "r": 273
+    },
+    {
+     "t": "Fleet",
+     "w": 73,
+     "h": 44,
+     "r": 354
+    }
+   ]
+  },
+  "sections": [
+   390,
+   390,
+   390,
+   390,
+   390,
+   390,
+   390,
+   390,
+   390,
+   390,
+   390
+  ],
+  "sectionGaps": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "faqSummary": {
+   "w": 361,
+   "h": 91
+  }
+ },
+ {
+  "width": 414,
+  "scrollWidth": 414,
+  "clientWidth": 414,
+  "overflowPx": 0,
+  "pageHeight": 44982,
+  "overflowing": [],
+  "overflowCount": 0,
+  "sticky": {
+   "display": "flex",
+   "position": "fixed",
+   "height": 57,
+   "bottom": 844,
+   "width": 414,
+   "links": [
+    {
+     "text": "Book Now",
+     "w": 207,
+     "h": 57
+    },
+    {
+     "text": "★ WhatsApp",
+     "w": 207,
+     "h": 57
+    }
+   ]
+  },
+  "bodyPadBottom": "56px",
+  "grids": [
+   {
+    "items": 3,
+    "cols": 1
+   },
+   {
+    "items": 2,
+    "cols": 1
+   },
+   {
+    "items": 3,
+    "cols": 1
+   },
+   {
+    "items": 3,
+    "cols": 1
+   }
+  ],
+  "fontSizes": {
+   "p": "16px",
+   "h2": "23.2px",
+   "caption": "15.2px",
+   "align": "left"
+  },
+  "ctas": [
+   {
+    "text": "Book Now",
+    "w": 385,
+    "h": 62
+   },
+   {
+    "text": "Explore Our Fleet",
+    "w": 385,
+    "h": 62
+   },
+   {
+    "text": "Luxury VIP",
+    "w": 385,
+    "h": 62
+   }
+  ],
+  "chips": {
+   "count": 7,
+   "maxRight": 378,
+   "minH": 44,
+   "sample": [
+    {
+     "t": "Discretion",
+     "w": 112,
+     "h": 44,
+     "r": 160
+    },
+    {
+     "t": "Chauffeurs",
+     "w": 117,
+     "h": 44,
+     "r": 285
+    },
+    {
+     "t": "Fleet",
+     "w": 73,
+     "h": 44,
+     "r": 366
+    }
+   ]
+  },
+  "sections": [
+   414,
+   414,
+   414,
+   414,
+   414,
+   414,
+   414,
+   414,
+   414,
+   414,
+   414
+  ],
+  "sectionGaps": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "faqSummary": {
+   "w": 385,
+   "h": 91
+  }
+ },
+ {
+  "width": 430,
+  "scrollWidth": 430,
+  "clientWidth": 430,
+  "overflowPx": 0,
+  "pageHeight": 44390,
+  "overflowing": [],
+  "overflowCount": 0,
+  "sticky": {
+   "display": "flex",
+   "position": "fixed",
+   "height": 57,
+   "bottom": 844,
+   "width": 430,
+   "links": [
+    {
+     "text": "Book Now",
+     "w": 215,
+     "h": 57
+    },
+    {
+     "text": "★ WhatsApp",
+     "w": 215,
+     "h": 57
+    }
+   ]
+  },
+  "bodyPadBottom": "56px",
+  "grids": [
+   {
+    "items": 3,
+    "cols": 1
+   },
+   {
+    "items": 2,
+    "cols": 1
+   },
+   {
+    "items": 3,
+    "cols": 1
+   },
+   {
+    "items": 3,
+    "cols": 1
+   }
+  ],
+  "fontSizes": {
+   "p": "16px",
+   "h2": "23.2px",
+   "caption": "15.2px",
+   "align": "left"
+  },
+  "ctas": [
+   {
+    "text": "Book Now",
+    "w": 401,
+    "h": 62
+   },
+   {
+    "text": "Explore Our Fleet",
+    "w": 401,
+    "h": 62
+   },
+   {
+    "text": "Luxury VIP",
+    "w": 401,
+    "h": 62
+   }
+  ],
+  "chips": {
+   "count": 7,
+   "maxRight": 386,
+   "minH": 44,
+   "sample": [
+    {
+     "t": "Discretion",
+     "w": 112,
+     "h": 44,
+     "r": 168
+    },
+    {
+     "t": "Chauffeurs",
+     "w": 117,
+     "h": 44,
+     "r": 293
+    },
+    {
+     "t": "Fleet",
+     "w": 73,
+     "h": 44,
+     "r": 374
+    }
+   ]
+  },
+  "sections": [
+   430,
+   430,
+   430,
+   430,
+   430,
+   430,
+   430,
+   430,
+   430,
+   430,
+   430
+  ],
+  "sectionGaps": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "faqSummary": {
+   "w": 401,
+   "h": 91
+  }
+ },
+ {
+  "width": 480,
+  "scrollWidth": 480,
+  "clientWidth": 480,
+  "overflowPx": 0,
+  "pageHeight": 43059,
+  "overflowing": [],
+  "overflowCount": 0,
+  "sticky": {
+   "display": "flex",
+   "position": "fixed",
+   "height": 57,
+   "bottom": 844,
+   "width": 480,
+   "links": [
+    {
+     "text": "Book Now",
+     "w": 240,
+     "h": 57
+    },
+    {
+     "text": "★ WhatsApp",
+     "w": 240,
+     "h": 57
+    }
+   ]
+  },
+  "bodyPadBottom": "56px",
+  "grids": [
+   {
+    "items": 3,
+    "cols": 1
+   },
+   {
+    "items": 2,
+    "cols": 1
+   },
+   {
+    "items": 3,
+    "cols": 1
+   },
+   {
+    "items": 3,
+    "cols": 1
+   }
+  ],
+  "fontSizes": {
+   "p": "16px",
+   "h2": "23.2px",
+   "caption": "15.2px",
+   "align": "left"
+  },
+  "ctas": [
+   {
+    "text": "Book Now",
+    "w": 420,
+    "h": 62
+   },
+   {
+    "text": "Explore Our Fleet",
+    "w": 420,
+    "h": 62
+   },
+   {
+    "text": "Luxury VIP",
+    "w": 420,
+    "h": 62
+   }
+  ],
+  "chips": {
+   "count": 7,
+   "maxRight": 451,
+   "minH": 44,
+   "sample": [
+    {
+     "t": "Discretion",
+     "w": 112,
+     "h": 44,
+     "r": 141
+    },
+    {
+     "t": "Chauffeurs",
+     "w": 117,
+     "h": 44,
+     "r": 266
+    },
+    {
+     "t": "Fleet",
+     "w": 73,
+     "h": 44,
+     "r": 347
+    }
+   ]
+  },
+  "sections": [
+   480,
+   480,
+   480,
+   480,
+   480,
+   480,
+   480,
+   480,
+   480,
+   480,
+   480
+  ],
+  "sectionGaps": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "faqSummary": {
+   "w": 451,
+   "h": 91
+  }
+ },
+ {
+  "width": 600,
+  "scrollWidth": 600,
+  "clientWidth": 600,
+  "overflowPx": 0,
+  "pageHeight": 34299,
+  "overflowing": [],
+  "overflowCount": 0,
+  "sticky": {
+   "display": "flex",
+   "position": "fixed",
+   "height": 57,
+   "bottom": 844,
+   "width": 600,
+   "links": [
+    {
+     "text": "Book Now",
+     "w": 300,
+     "h": 57
+    },
+    {
+     "text": "★ WhatsApp",
+     "w": 300,
+     "h": 57
+    }
+   ]
+  },
+  "bodyPadBottom": "56px",
+  "grids": [
+   {
+    "items": 3,
+    "cols": 2
+   },
+   {
+    "items": 2,
+    "cols": 2
+   },
+   {
+    "items": 3,
+    "cols": 2
+   },
+   {
+    "items": 3,
+    "cols": 2
+   }
+  ],
+  "fontSizes": {
+   "p": "16px",
+   "h2": "27.2px",
+   "caption": "15.2px",
+   "align": "left"
+  },
+  "ctas": [
+   {
+    "text": "Book Now",
+    "w": 420,
+    "h": 62
+   },
+   {
+    "text": "Explore Our Fleet",
+    "w": 420,
+    "h": 62
+   },
+   {
+    "text": "Luxury VIP",
+    "w": 420,
+    "h": 62
+   }
+  ],
+  "chips": {
+   "count": 7,
+   "maxRight": 558,
+   "minH": 44,
+   "sample": [
+    {
+     "t": "Discretion",
+     "w": 112,
+     "h": 44,
+     "r": 155
+    },
+    {
+     "t": "Chauffeurs",
+     "w": 117,
+     "h": 44,
+     "r": 280
+    },
+    {
+     "t": "Fleet",
+     "w": 73,
+     "h": 44,
+     "r": 361
+    }
+   ]
+  },
+  "sections": [
+   600,
+   600,
+   600,
+   600,
+   600,
+   600,
+   600,
+   600,
+   600,
+   600,
+   600
+  ],
+  "sectionGaps": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "faqSummary": {
+   "w": 568,
+   "h": 91
+  }
+ },
+ {
+  "width": 768,
+  "scrollWidth": 768,
+  "clientWidth": 768,
+  "overflowPx": 0,
+  "pageHeight": 33139,
+  "overflowing": [],
+  "overflowCount": 0,
+  "sticky": {
+   "display": "flex",
+   "position": "fixed",
+   "height": 57,
+   "bottom": 844,
+   "width": 768,
+   "links": [
+    {
+     "text": "Book Now",
+     "w": 384,
+     "h": 57
+    },
+    {
+     "text": "★ WhatsApp",
+     "w": 384,
+     "h": 57
+    }
+   ]
+  },
+  "bodyPadBottom": "56px",
+  "grids": [
+   {
+    "items": 3,
+    "cols": 2
+   },
+   {
+    "items": 2,
+    "cols": 2
+   },
+   {
+    "items": 3,
+    "cols": 2
+   },
+   {
+    "items": 3,
+    "cols": 2
+   }
+  ],
+  "fontSizes": {
+   "p": "16px",
+   "h2": "27.2px",
+   "caption": "15.2px",
+   "align": "left"
+  },
+  "ctas": [
+   {
+    "text": "Book Now",
+    "w": 420,
+    "h": 62
+   },
+   {
+    "text": "Explore Our Fleet",
+    "w": 420,
+    "h": 62
+   },
+   {
+    "text": "Luxury VIP",
+    "w": 420,
+    "h": 62
+   }
+  ],
+  "chips": {
+   "count": 7,
+   "maxRight": 719,
+   "minH": 44,
+   "sample": [
+    {
+     "t": "Discretion",
+     "w": 112,
+     "h": 44,
+     "r": 162
+    },
+    {
+     "t": "Chauffeurs",
+     "w": 117,
+     "h": 44,
+     "r": 287
+    },
+    {
+     "t": "Fleet",
+     "w": 73,
+     "h": 44,
+     "r": 368
+    }
+   ]
+  },
+  "sections": [
+   768,
+   768,
+   768,
+   768,
+   768,
+   768,
+   768,
+   768,
+   768,
+   768,
+   768
+  ],
+  "sectionGaps": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "faqSummary": {
+   "w": 736,
+   "h": 61
+  }
+ },
+ {
+  "width": 781,
+  "scrollWidth": 781,
+  "clientWidth": 781,
+  "overflowPx": 0,
+  "pageHeight": 33157,
+  "overflowing": [],
+  "overflowCount": 0,
+  "sticky": {
+   "display": "flex",
+   "position": "fixed",
+   "height": 57,
+   "bottom": 844,
+   "width": 781,
+   "links": [
+    {
+     "text": "Book Now",
+     "w": 391,
+     "h": 57
+    },
+    {
+     "text": "★ WhatsApp",
+     "w": 391,
+     "h": 57
+    }
+   ]
+  },
+  "bodyPadBottom": "56px",
+  "grids": [
+   {
+    "items": 3,
+    "cols": 2
+   },
+   {
+    "items": 2,
+    "cols": 2
+   },
+   {
+    "items": 3,
+    "cols": 2
+   },
+   {
+    "items": 3,
+    "cols": 2
+   }
+  ],
+  "fontSizes": {
+   "p": "16px",
+   "h2": "27.2px",
+   "caption": "15.2px",
+   "align": "left"
+  },
+  "ctas": [
+   {
+    "text": "Book Now",
+    "w": 420,
+    "h": 62
+   },
+   {
+    "text": "Explore Our Fleet",
+    "w": 420,
+    "h": 62
+   },
+   {
+    "text": "Luxury VIP",
+    "w": 420,
+    "h": 62
+   }
+  ],
+  "chips": {
+   "count": 7,
+   "maxRight": 725,
+   "minH": 44,
+   "sample": [
+    {
+     "t": "Discretion",
+     "w": 112,
+     "h": 44,
+     "r": 168
+    },
+    {
+     "t": "Chauffeurs",
+     "w": 117,
+     "h": 44,
+     "r": 293
+    },
+    {
+     "t": "Fleet",
+     "w": 73,
+     "h": 44,
+     "r": 374
+    }
+   ]
+  },
+  "sections": [
+   781,
+   781,
+   781,
+   781,
+   781,
+   781,
+   781,
+   781,
+   781,
+   781,
+   781
+  ],
+  "sectionGaps": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "faqSummary": {
+   "w": 749,
+   "h": 61
+  }
+ },
+ {
+  "width": 820,
+  "scrollWidth": 820,
+  "clientWidth": 820,
+  "overflowPx": 0,
+  "pageHeight": 31785,
+  "overflowing": [],
+  "overflowCount": 0,
+  "sticky": {
+   "display": "none",
+   "position": "static",
+   "height": 0,
+   "bottom": 0,
+   "width": 0,
+   "links": [
+    {
+     "text": "Book Now",
+     "w": 0,
+     "h": 0
+    },
+    {
+     "text": "★ WhatsApp",
+     "w": 0,
+     "h": 0
+    }
+   ]
+  },
+  "bodyPadBottom": "0px",
+  "grids": [
+   {
+    "items": 3,
+    "cols": 2
+   },
+   {
+    "items": 2,
+    "cols": 2
+   },
+   {
+    "items": 3,
+    "cols": 2
+   },
+   {
+    "items": 3,
+    "cols": 2
+   }
+  ],
+  "fontSizes": {
+   "p": "16px",
+   "h2": "36.9px",
+   "caption": "15.2px",
+   "align": "left"
+  },
+  "ctas": [
+   {
+    "text": "Book Now",
+    "w": 171,
+    "h": 62
+   },
+   {
+    "text": "Explore Our Fleet",
+    "w": 259,
+    "h": 62
+   },
+   {
+    "text": "Luxury VIP",
+    "w": 176,
+    "h": 62
+   }
+  ],
+  "chips": {
+   "count": 7,
+   "maxRight": 745,
+   "minH": 44,
+   "sample": [
+    {
+     "t": "Discretion",
+     "w": 112,
+     "h": 44,
+     "r": 188
+    },
+    {
+     "t": "Chauffeurs",
+     "w": 117,
+     "h": 44,
+     "r": 313
+    },
+    {
+     "t": "Fleet",
+     "w": 73,
+     "h": 44,
+     "r": 394
+    }
+   ]
+  },
+  "sections": [
+   820,
+   820,
+   820,
+   820,
+   820,
+   820,
+   820,
+   820,
+   820,
+   820,
+   820
+  ],
+  "sectionGaps": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "faqSummary": {
+   "w": 771,
+   "h": 61
+  }
+ }
+]

@@ -212,6 +212,48 @@ is hozzá kell igazítani — ez tartalmi döntés.
 | ES brand-javítás („desde 1988") | 827 |
 | FR brand-javítás („depuis 1988") | 828 |
 
+---
+
+## Mobil-mérés böngészőben (2026-08-21, a 2. kör után)
+
+A vanbudapest.com nem érhető el ebből a környezetből, ezért a mérés a valódi
+tartalom + a deployolt szkópolt stíluslap hű lokális másolatán készült
+(a képek azonos arányú helyőrzők, a téma constrained konténere szimulálva).
+Chromium/Playwright, 10 szélesség: 320, 360, 390, 414, 430, 480, 600, 768, 781, 820 px.
+Szkriptek és képernyőképek: `mobile-check/`.
+
+### Amit a mérés talált — és javítva lett
+
+**A hero kép minden szélességen 1100 px maradt** (320 px-en 794 px-nyit lógott ki),
+és a szekció `overflow: clip`-je levágta, tehát mobilon a kép jobb oldala nem
+látszott. Ok: a `width: 100%` csak a `.vb-img` és a `figure img` selectorokra
+vonatkozott, a hero egyikbe sem esik (nincs `vb-img` osztálya, és nincs
+`<figure>`-ben). A WordPress `html :where(img[class*=wp-image-])` szabálya nem
+segít, mert `:where()` nulla specificitású, így a `max-width: 1100px` felülírja.
+Javítás: `.vb-lx .vb-hero-img { width: 100%; height: auto; }`.
+
+A horgony-chipek 39 px magasak voltak; a tapintási célméret miatt 44 px-re nőttek
+(`padding: .58rem 1rem`).
+
+Mindkét javítás mind a négy nyelv scope-jára felment: **832** (EN), **833** (DE),
+**834** (ES), **835** (FR).
+
+### Újramérés a javítás után — minden szélességen tiszta
+
+| Mit | Eredmény |
+|---|---|
+| Vízszintes túllógás | **0 px** mind a 10 szélességen |
+| Kilógó elem | **0 db** (előtte: 1, minden szélességen) |
+| Szekciók szélessége | pontosan a viewport (faltól falig) |
+| Szekciók közti rés | **0 px** minden átmenetnél |
+| Rács ≤480 px | 1 oszlop · 600 px-től 2 oszlop |
+| Törzsszöveg | 16 px, `text-align: left` (nincs sorkizárás) |
+| CTA gomb | 291–420 × 62 px |
+| Sticky sáv | ≤781 px: látható, 57 px magas, 160 px-es gombok · 820 px: eltűnik |
+| Lábléc takarás | nincs (`body { padding-bottom: 56px }`) |
+| FAQ nyitósáv | 91–120 px magas mobilon |
+| Horgony-chipek | 44 px magas, nem lógnak ki (320 px-en a legszélső 292 px-nél) |
+
 ## Továbbra is nyitott
 - Ajánlások/„(verified)" hitelesítése vagy valódi Google-értékelésre cserélése
   (üzleti döntés — az audit 12d/1 pontja). Ez mind a négy nyelvet érinti.
