@@ -27,7 +27,7 @@ sportolónevek ALT-ban, 175 HTTP-kérés) alapján az oldal teljes újraépíté
 ## Scoped CSS (FlowExto plugin, rule_id: vb-cr-page-7246)
 
 ```css
-body.page-id-7246{overflow-x:clip}
+body.page-id-7246{overflow-x:hidden}
 body.page-id-7246 .wp-block-post-title{display:none}
 body.page-id-7246 .entry-content>.wp-block-html{margin-block-start:0;margin-block-end:0}
 body.page-id-7246 .entry-content{margin-top:0;margin-bottom:0;padding-top:0;padding-bottom:0}
