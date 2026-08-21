@@ -258,6 +258,18 @@ A 7 chip a valódi eszközön 3 sorba tört, és ~150 px-t vitt el rögtön a c�
 félig kilátszik, ami jelzi, hogy van még. Scope-onként: **841** (EN), **842** (DE),
 **843** (ES), **844** (FR).
 
+### Élő visszaigazolás
+A teljes renderelt HTML-t n8n-en át lekérve (424 750 byte): a
+`.vb-lx .vb-hero-img { width: 100%` szabály **benne van** (pontos egyezés), a
+`padding: .58rem 1rem` szintén, a `sflmcp-scoped-css` style tag betöltődik
+(10 574 karakter), és a hero `<img` osztálya helyes. A négy oldal gyorsítótárát
+egy tartalom nélküli mentéssel ürítettük (**837–840**), hogy a friss stíluslap
+biztosan kimenjen a látogatókhoz.
+
+A hero `src` a ShortPixel CDN-en megy ki `to_auto,s_webp:avif` paraméterrel,
+tehát a formátumot a CDN választja — most már JPEG forrásból, ahol a WebP
+valóban kisebb.
+
 ### Újramérés a javítás után — minden szélességen tiszta
 
 | Mit | Eredmény |
