@@ -1,0 +1,855 @@
+<!-- wp:html -->
+<!-- VanBudapest.com – Premium Transport Intro Fullbleed Darkgold (Pure CSS, WP-ready) -->
+<section class="vb-section alignfull vb-darkgold" aria-label="Premium Transport Safety Intro">
+  <div class="vb-bg">
+    <img class="vb-bg__image" src="https://vanbudapest.com/wp-content/uploads/2025/01/vip-limousine-budapest-rent.jpg" alt="Rear cabin of a Mercedes S-Class with cream leather seats - VanBudapest chauffeur service, Budapest" fetchpriority="high" decoding="async" />
+    <div class="vb-bg__overlay"></div>
+  </div>
+
+  <div class="vb-container">
+    <h1 class="vb-heading">Continuing Our Commitment to Safe, Premium Transport in Budapest</h1>
+    <p class="vb-lead">We continue to offer private passenger transport throughout Budapest and beyond. Travelers rely on us for comfortable and reliable airport transfers, corporate shuttles, long distance trips, and VIP events. Our chauffeurs are known for their professionalism, punctuality and discretion, and they follow meticulous hygiene protocols to ensure a safe, tranquil journey.</p>
+
+    <a class="vb-cta" href="https://vanbudapest.com/contact-customer-reviews/">Book Your Premium Ride</a>
+  </div>
+</section><style>
+
+
+  /* ==========================
+     VanBudapest – Darkgold System (Pure CSS)
+     Full‑bleed, gradient overlays, gold glow hovers, WP alignfull compatible
+     ========================== */
+  :root{
+    --vb-navy:#0A1F44;
+    --vb-navy-2:#12306A;
+    --vb-black:#05070C;
+    --vb-gold:#C8B560;
+    --vb-gold-dark:#B78D38;
+    --vb-white:#FCFCFC;
+    --vb-maxw: min(1160px, 94vw);
+    --vb-pad: clamp(20px, 4vw, 48px);
+    --vb-radius: 18px;
+    --vb-blur: 24px;
+    --vb-elev: 0 12px 40px rgba(0,0,0,.45);
+    --vb-gold-glow: 0 0 0px rgba(200,181,96,0), 0 0 30px rgba(200,181,96,.25), 0 0 60px rgba(183,141,56,.18);
+  }
+
+  /* Full‑bleed section shell */
+  .vb-section{position:relative; width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw); overflow:hidden; color:var(--vb-white); font-family: "Montserrat","Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;}
+
+  /* Background stack: photo + linear gradient + radial gold wash + subtle stripes */
+  .vb-bg{position:absolute; inset:0; pointer-events:none;}
+  .vb-bg__image{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; filter:contrast(1.05) saturate(1.05) brightness(.74); transform:scale(1.03);} 
+  .vb-bg__overlay{position:absolute; inset:0; background:
+      radial-gradient(1200px 600px at 72% 24%, rgba(200,181,96,.22), transparent 60%),
+      linear-gradient(180deg, rgba(10,31,68,.92) 0%, rgba(18,48,106,.86) 38%, rgba(5,7,12,.96) 100%),
+      repeating-linear-gradient( 135deg, rgba(200,181,96,.06) 0 2px, rgba(255,255,255,0) 2px 10px);
+    mix-blend-mode:luminosity;
+  }
+
+  /* Content container */
+  .vb-container{position:relative; z-index:1; max-width:var(--vb-maxw); margin-inline:auto; padding:clamp(72px, 12vw, 168px) var(--vb-pad); text-align:center;}
+
+  /* Heading with gold gradient and soft glow */
+  .vb-heading{display:inline-block; margin:0 0 18px; font-weight:800; line-height:1.1; letter-spacing:.2px; font-size:clamp(28px, 4.4vw, 56px);
+    background:linear-gradient(90deg, var(--vb-gold) 0%, var(--vb-gold-dark) 100%);
+    -webkit-background-clip:text; background-clip:text; color:transparent; text-shadow:0 1px 0 rgba(0,0,0,.2);
+  }
+
+  /* Lead copy – keep EXACT text, premium readability */
+  .vb-lead{margin:0 auto 28px; max-width: min(860px, 92vw); font-size:clamp(16px, 1.8vw, 20px); line-height:1.7; color:rgba(255,255,255,.92);}
+
+  /* CTA button with gold gradient, lift + halo on hover */
+  .vb-cta{display:inline-block; margin-top:6px; padding:.95rem 1.6rem; border-radius:999px; text-decoration:none; font-weight:700; letter-spacing:.4px; 
+    color:var(--vb-black); background:linear-gradient(90deg, var(--vb-gold), var(--vb-gold-dark)); box-shadow:var(--vb-elev);
+    position:relative; transition:transform .28s ease, box-shadow .28s ease, color .28s ease;
+  }
+  .vb-cta::after{content:""; position:absolute; inset:-6px; border-radius:999px; background: radial-gradient(60% 60% at 50% 40%, rgba(200,181,96,.35), rgba(183,141,56,0)); filter:blur(10px); opacity:0; transition:opacity .28s ease;}
+  .vb-cta:hover{transform:translateY(-3px); color:var(--vb-white); box-shadow:var(--vb-elev), var(--vb-gold-glow);} 
+  .vb-cta:hover::after{opacity:1;}
+  .vb-cta:focus-visible{outline:2px solid var(--vb-gold); outline-offset:4px;}
+
+  /* Accessibility &amp; motion */
+  @media (prefers-reduced-motion: reduce){
+    .vb-cta, .vb-bg__image{transition:none; transform:none}
+  }
+
+  /* Ensure overlay priority in WP contexts */
+  .vb-darkgold{isolation:isolate}
+
+  /* Fix potential WP block padding collisions */
+  .wp-block-group.alignfull &gt; .vb-section{margin-block:0}
+
+
+</style><!-- /wp:html -->
+
+<!-- wp:html -->
+<!-- VanBudapest.com – Text Only Section (Darkgold Style, Pure CSS) -->
+<section class="vb-section alignfull vb-darkgold-text" aria-label="Why Choose a Private Transfer">
+  <div class="vb-container">
+    <h2 class="vb-h2">Why Choose a Private Transfer Over Public Transport?</h2>
+    <p class="vb-copy">
+      • <strong>Health &amp; Safety:</strong> Public transport exposes passengers to more people and high touch surfaces. Private transfers provide a clean environment where contact is limited to your party and our trained chauffeurs.<br><br>
+      • <strong>Comfort &amp; Convenience:</strong> Our vehicles are spacious, well maintained and equipped with high speed Wi-Fi, bottled water and optional refreshments. We monitor flight arrivals in real time and adjust pick ups accordingly.<br><br>
+      • <strong>Reliability:</strong> With decades of experience and an extensive fleet of sedans, SUVs, vans and coaches, we guarantee on time performance for airport transfers, corporate travel, sporting events and special occasions.<br><br>
+      • <strong>Peace of Mind:</strong> Our customer support team is available 24/7 to answer questions and respond to urgent safety issues. All bookings include full insurance coverage, and we work with leading providers to protect you in the event of a covered incident.
+    </p>
+  </div>
+</section><style>
+
+
+  :root{
+    --vb-navy:#0A1F44; --vb-navy-2:#12306A; --vb-black:#05070C;
+    --vb-gold:#C8B560; --vb-gold-dark:#B78D38; --vb-white:#FCFCFC;
+  }
+  .vb-darkgold-text{position:relative; width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw); color:var(--vb-white); font-family:"Montserrat","Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif; background:linear-gradient(180deg, var(--vb-navy) 0%, var(--vb-navy-2) 40%, var(--vb-black) 100%); padding:clamp(60px, 10vw, 140px) clamp(20px, 6vw, 100px);}
+  .vb-h2{margin:0 0 20px; font-weight:800; font-size:clamp(26px, 3vw, 44px); line-height:1.2; background:linear-gradient(90deg, var(--vb-gold), var(--vb-gold-dark)); -webkit-background-clip:text; background-clip:text; color:transparent; text-shadow:0 1px 0 rgba(0,0,0,.2);} 
+  .vb-copy{font-size:clamp(16px,1.6vw,20px); line-height:1.7; color:rgba(255,255,255,.9);} 
+  .vb-copy strong{color:var(--vb-gold); font-weight:700;}
+
+</style><!-- /wp:html -->
+
+<!-- wp:html -->
+<!-- VanBudapest.com – Contact / Book Now Block (Pure CSS, WP-ready, centered gold design) -->
+<section class="vb-section alignfull vb-darkgold-contact" aria-label="Contact &amp; Booking">
+  <div class="vb-contact">
+
+    <!-- EMAIL -->
+    <a class="vb-contact__tile" href="mailto:info@vanbudapest.com">
+      <div class="vb-contact__inner">
+        <p class="vb-h3">Email</p>
+        <p class="vb-contact__value">info@vanbudapest.com</p>
+      </div>
+    </a>
+
+    <!-- BOOK NOW (Contact Page) -->
+    <a class="vb-contact__tile" href="https://vanbudapest.com/contact-customer-reviews/">
+      <div class="vb-contact__inner">
+        <p class="vb-h3">Book&nbsp;<span style="white-space:nowrap">Now</span></p>
+        <p class="vb-contact__value">Secure &amp; Premium Booking</p>
+      </div>
+    </a>
+
+    <!-- SOCIALS -->
+    <div class="vb-contact__tile" role="group" aria-label="Social Media">
+      <div class="vb-contact__inner">
+        <p class="vb-h3">Social Media</p>
+        <p class="vb-contact__socials">
+          <a href="https://www.facebook.com/people/VanBudapestcom/61581875129965/" class="vb-social" target="_blank" rel="noopener">Facebook</a><br>
+          <a href="https://x.com/BudapestVan" class="vb-social" target="_blank" rel="noopener">X (Twitter)</a><br>
+          <a href="https://www.instagram.com/van_bus_budapest_/" class="vb-social" target="_blank" rel="noopener">Instagram</a><br>
+          <a href="https://www.tiktok.com/@vanbudapest" class="vb-social" target="_blank" rel="noopener">TikTok</a>
+        </p>
+      </div>
+    </div>
+
+    <!-- PHONE &amp; WHATSAPP -->
+    <div class="vb-contact__tile" role="group" aria-label="Phone &amp; WhatsApp">
+      <div class="vb-contact__inner">
+        <p class="vb-h3">Phone &amp; WhatsApp</p>
+        <p class="vb-contact__value"><a href="tel:+36707536333">Phone: +36 70 753 6333</a></p>
+        <p class="vb-contact__value"><a href="https://wa.me/36707536333?text=Hello%20VanBudapest!" target="_blank" rel="noopener">WhatsApp Chat</a></p>
+      </div>
+    </div>
+
+  </div>
+</section><style>
+
+
+  :root{
+    --vb-navy:#0A1F44; --vb-navy-2:#12306A; --vb-black:#05070C;
+    --vb-gold:#C8B560; --vb-gold-dark:#B78D38; --vb-white:#FCFCFC;
+    --vb-maxw:min(1100px, 94vw); --vb-pad: clamp(20px, 4vw, 48px);
+    --vb-radius: 18px; --vb-elev: 0 12px 40px rgba(0,0,0,.45);
+    --vb-gold-glow: 0 0 0 rgba(200,181,96,0), 0 0 30px rgba(200,181,96,.25), 0 0 60px rgba(183,141,56,.18);
+  }
+
+  .vb-darkgold-contact{position:relative; width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw); color:var(--vb-gold); font-family:"Montserrat","Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif; isolation:isolate; text-align:center;}
+  .vb-darkgold-contact::before{content:""; position:absolute; inset:0; background:
+    radial-gradient(1100px 540px at 82% 18%, rgba(200,181,96,.18), transparent 60%),
+    linear-gradient(180deg, rgba(10,31,68,.94) 0%, rgba(18,48,106,.88) 45%, rgba(5,7,12,.96) 100%),
+    repeating-linear-gradient(135deg, rgba(200,181,96,.06) 0 2px, rgba(255,255,255,0) 2px 10px);
+    z-index:0;}
+
+  .vb-contact{position:relative; z-index:1; max-width:var(--vb-maxw); margin-inline:auto; padding:clamp(56px, 8vw, 120px) var(--vb-pad); display:grid; gap:16px;}
+
+  .vb-contact__tile{display:block; text-decoration:none; color:var(--vb-gold); border:1px solid rgba(200,181,96,.25); border-radius:var(--vb-radius); background:linear-gradient(180deg, rgba(200,181,96,.06), rgba(183,141,56,.03)); box-shadow:var(--vb-elev); position:relative; overflow:hidden; text-align:center;}
+  .vb-contact__tile::after{content:""; position:absolute; inset:-10px; border-radius:inherit; background: radial-gradient(50% 46% at 50% 40%, rgba(200,181,96,.28), rgba(183,141,56,0)); filter:blur(16px); opacity:0; transition:opacity .3s ease;}
+  .vb-contact__tile:hover{box-shadow:var(--vb-elev), var(--vb-gold-glow); border-color:rgba(200,181,96,.6);} 
+  .vb-contact__tile:hover::after{opacity:1;}
+  .vb-contact__inner{padding:clamp(18px, 2.6vw, 28px) clamp(18px, 3vw, 34px);} 
+
+  .vb-h3{margin:0 0 8px; font-weight:800; font-size:clamp(18px, 2.2vw, 24px); line-height:1.22; color:var(--vb-gold);}
+  .vb-contact__value{margin:4px 0; font-size:clamp(16px, 1.8vw, 19px); color:var(--vb-gold);} 
+  .vb-contact__value a{color:var(--vb-gold); text-decoration:none;}
+  .vb-contact__value a:hover{color:var(--vb-white);} 
+
+  .vb-contact__socials{margin:8px 0; font-size:clamp(16px, 1.8vw, 19px);} 
+  .vb-social{color:var(--vb-gold); text-decoration:none; border-bottom:1px dashed rgba(200,181,96,.45); transition:color .2s ease, border-color .2s ease;}
+  .vb-social:hover{color:#fff; border-color:rgba(200,181,96,.8);} 
+
+  .vb-sep{opacity:.5; margin:0 .5ch;}
+  a:focus-visible{outline:2px solid var(--vb-gold); outline-offset:4px;}
+  @media (min-width: 860px){ .vb-contact{max-width: 760px;} }
+
+</style><!-- /wp:html -->
+
+<!-- wp:html -->
+<!-- VanBudapest.com – Hygiene &amp; Sanitation Standards Section (Darkgold PureCSS) -->
+<section class="vb-section alignfull vb-darkgold-text" aria-label="Hygiene &amp; Sanitation Standards">
+  <div class="vb-container">
+    <h2 class="vb-h2">Hygiene &amp; Sanitation Standards: Our Multi Layered Approach</h2>
+    <p class="vb-copy">
+      The safety and well being of passengers and chauffeurs is our top priority. We adhere to rigorous cleaning protocols based on guidance from public health authorities and industry best practices. All employees are instructed to stay home if they feel unwell; they must self monitor for symptoms and undergo daily temperature.
+    </p>
+  </div>
+</section><style>
+
+
+  :root{
+    --vb-navy:#0A1F44; --vb-navy-2:#12306A; --vb-black:#05070C;
+    --vb-gold:#C8B560; --vb-gold-dark:#B78D38; --vb-white:#FCFCFC;
+  }
+  .vb-darkgold-text{position:relative; width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw); color:var(--vb-gold); font-family:"Montserrat","Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif; background:linear-gradient(180deg, var(--vb-navy) 0%, var(--vb-navy-2) 40%, var(--vb-black) 100%); padding:clamp(60px, 10vw, 140px) clamp(20px, 6vw, 100px); text-align:center;}
+  .vb-h2{margin:0 0 20px; font-weight:800; font-size:clamp(26px, 3vw, 44px); line-height:1.2; background:linear-gradient(90deg, var(--vb-gold), var(--vb-gold-dark)); -webkit-background-clip:text; background-clip:text; color:transparent; text-shadow:0 1px 0 rgba(0,0,0,.2);} 
+  .vb-copy{font-size:clamp(16px,1.6vw,20px); line-height:1.7; color:var(--vb-gold); max-width: 960px; margin: 0 auto;} 
+
+
+</style><!-- /wp:html -->
+
+<!-- wp:html -->
+<!-- VanBudapest.com – Contact / Book Now Block (Pure CSS, WP-ready, centered gold design) -->
+<section class="vb-section alignfull vb-darkgold-contact" aria-label="Contact &amp; Booking">
+  <div class="vb-contact">
+
+    <!-- EMAIL -->
+    <a class="vb-contact__tile" href="mailto:info@vanbudapest.com">
+      <div class="vb-contact__inner">
+        <p class="vb-h3">Email</p>
+        <p class="vb-contact__value">info@vanbudapest.com</p>
+      </div>
+    </a>
+
+    <!-- BOOK NOW (Contact Page) -->
+    <a class="vb-contact__tile" href="https://vanbudapest.com/contact-customer-reviews/">
+      <div class="vb-contact__inner">
+        <p class="vb-h3">Book&nbsp;<span style="white-space:nowrap">Now</span></p>
+        <p class="vb-contact__value">Secure &amp; Premium Booking</p>
+      </div>
+    </a>
+
+    <!-- SOCIALS -->
+    <div class="vb-contact__tile" role="group" aria-label="Social Media">
+      <div class="vb-contact__inner">
+        <p class="vb-h3">Social Media</p>
+        <p class="vb-contact__socials">
+          <a href="https://www.facebook.com/people/VanBudapestcom/61581875129965/" class="vb-social" target="_blank" rel="noopener">Facebook</a><br>
+          <a href="https://x.com/BudapestVan" class="vb-social" target="_blank" rel="noopener">X (Twitter)</a><br>
+          <a href="https://www.instagram.com/van_bus_budapest_/" class="vb-social" target="_blank" rel="noopener">Instagram</a><br>
+          <a href="https://www.tiktok.com/@vanbudapest" class="vb-social" target="_blank" rel="noopener">TikTok</a>
+        </p>
+      </div>
+    </div>
+
+    <!-- PHONE &amp; WHATSAPP -->
+    <div class="vb-contact__tile" role="group" aria-label="Phone &amp; WhatsApp">
+      <div class="vb-contact__inner">
+        <p class="vb-h3">Phone &amp; WhatsApp</p>
+        <p class="vb-contact__value"><a href="tel:+36707536333">Phone: +36 70 753 6333</a></p>
+        <p class="vb-contact__value"><a href="https://wa.me/36707536333?text=Hello%20VanBudapest!" target="_blank" rel="noopener">WhatsApp Chat</a></p>
+      </div>
+    </div>
+
+  </div>
+</section><style>
+
+
+  :root{
+    --vb-navy:#0A1F44; --vb-navy-2:#12306A; --vb-black:#05070C;
+    --vb-gold:#C8B560; --vb-gold-dark:#B78D38; --vb-white:#FCFCFC;
+    --vb-maxw:min(1100px, 94vw); --vb-pad: clamp(20px, 4vw, 48px);
+    --vb-radius: 18px; --vb-elev: 0 12px 40px rgba(0,0,0,.45);
+    --vb-gold-glow: 0 0 0 rgba(200,181,96,0), 0 0 30px rgba(200,181,96,.25), 0 0 60px rgba(183,141,56,.18);
+  }
+
+  .vb-darkgold-contact{position:relative; width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw); color:var(--vb-gold); font-family:"Montserrat","Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif; isolation:isolate; text-align:center;}
+  .vb-darkgold-contact::before{content:""; position:absolute; inset:0; background:
+    radial-gradient(1100px 540px at 82% 18%, rgba(200,181,96,.18), transparent 60%),
+    linear-gradient(180deg, rgba(10,31,68,.94) 0%, rgba(18,48,106,.88) 45%, rgba(5,7,12,.96) 100%),
+    repeating-linear-gradient(135deg, rgba(200,181,96,.06) 0 2px, rgba(255,255,255,0) 2px 10px);
+    z-index:0;}
+
+  .vb-contact{position:relative; z-index:1; max-width:var(--vb-maxw); margin-inline:auto; padding:clamp(56px, 8vw, 120px) var(--vb-pad); display:grid; gap:16px;}
+
+  .vb-contact__tile{display:block; text-decoration:none; color:var(--vb-gold); border:1px solid rgba(200,181,96,.25); border-radius:var(--vb-radius); background:linear-gradient(180deg, rgba(200,181,96,.06), rgba(183,141,56,.03)); box-shadow:var(--vb-elev); position:relative; overflow:hidden; text-align:center;}
+  .vb-contact__tile::after{content:""; position:absolute; inset:-10px; border-radius:inherit; background: radial-gradient(50% 46% at 50% 40%, rgba(200,181,96,.28), rgba(183,141,56,0)); filter:blur(16px); opacity:0; transition:opacity .3s ease;}
+  .vb-contact__tile:hover{box-shadow:var(--vb-elev), var(--vb-gold-glow); border-color:rgba(200,181,96,.6);} 
+  .vb-contact__tile:hover::after{opacity:1;}
+  .vb-contact__inner{padding:clamp(18px, 2.6vw, 28px) clamp(18px, 3vw, 34px);} 
+
+  .vb-h3{margin:0 0 8px; font-weight:800; font-size:clamp(18px, 2.2vw, 24px); line-height:1.22; color:var(--vb-gold);}
+  .vb-contact__value{margin:4px 0; font-size:clamp(16px, 1.8vw, 19px); color:var(--vb-gold);} 
+  .vb-contact__value a{color:var(--vb-gold); text-decoration:none;}
+  .vb-contact__value a:hover{color:var(--vb-white);} 
+
+  .vb-contact__socials{margin:8px 0; font-size:clamp(16px, 1.8vw, 19px);} 
+  .vb-social{color:var(--vb-gold); text-decoration:none; border-bottom:1px dashed rgba(200,181,96,.45); transition:color .2s ease, border-color .2s ease;}
+  .vb-social:hover{color:#fff; border-color:rgba(200,181,96,.8);} 
+
+  .vb-sep{opacity:.5; margin:0 .5ch;}
+  a:focus-visible{outline:2px solid var(--vb-gold); outline-offset:4px;}
+  @media (min-width: 860px){ .vb-contact{max-width: 760px;} }
+
+</style><!-- /wp:html -->
+
+<!-- wp:html -->
+<!-- VanBudapest.com – Daily Vehicle Cleaning &amp; Disinfection Section (Darkgold Split + Gallery, PureCSS) -->
+<section class="vb-section alignfull vb-darkgold-gallery" aria-label="Daily Vehicle Cleaning &amp; Disinfection">
+  <div class="vb-container">
+    <h2 class="vb-h2">Daily Vehicle Cleaning &amp; Disinfection</h2>
+    <p class="vb-copy">
+      • <strong>Pre and Post Ride Sanitization:</strong> Every vehicle undergoes cleaning and sanitization before and after each trip. High touch surfaces — door handles, seat belts, arm rests, steering wheel and controls — are disinfected using EPA registered, quaternary ammonium based. Visible dirt is removed with detergent and water before disinfectant is.<br><br>
+      • <strong>Hand Sanitizer &amp; Wipes:</strong> Hand sanitizer and disinfectant wipes are provided to passengers in every vehicle.<br><br>
+      • <strong>Ventilation:</strong> When weather permits, chauffeurs open windows or adjust ventilation to increase fresh air. HVAC systems are regularly serviced and filters are replaced more frequently than manufacturer recommendations.<br><br>
+      • <strong>Removal of Shared Items:</strong> Printed magazines, snacks and shared amenities have been removed from vehicles to minimize cross contact. Sealed bottled water is offered on request, and refreshments are individually.
+    </p>
+
+    <h2 class="vb-h2">Advanced Disinfection Technologies</h2>
+    <p class="vb-copy">
+      • <strong>Stabilized Aqueous Ozone (SAO):</strong> Our fleet is periodically treated with stabilized aqueous ozone — a powerful chemical free solution that eliminates germs, odors, mold and mildew. SAO is more effective than bleach and kills the majority of viruses.<br><br>
+      • <strong>Ozone Generator Treatments:</strong> Vehicles are regularly treated with an ozone generator to deodorize and remove airborne particles. Ozone (O₃) is a reactive form of oxygen that alters the chemical composition of contaminants; however, it can cause respiratory irritation in occupied spaces. We run ozone treatments only when vehicles are unoccupied and follow industry recommended exposure.<br><br>
+      • <strong>Electrostatic Sprayers &amp; Foggers:</strong> After deep cleans, we apply hospital grade disinfectants using electrostatic sprayers to coat surfaces evenly. Fogging units emit a fine mist that penetrates fabrics and hard to reach areas.<br><br>
+      • <strong>UV-C Light Sanitization:</strong> Portable ultraviolet C devices are used to sanitize interior surfaces. UV-C light destroys the DNA or RNA of pathogens and is routinely used in medical facilities. We employ UV-C only when vehicles are unoccupied and ensure that no passengers or chauffeurs are exposed.<br><br>
+      • <strong>HEPA Grade Filtration:</strong> Select vehicles are equipped with HEPA or HEPA equivalent filters that capture fine particles and viruses. Filters are replaced frequently to maintain efficiency.<br><br>
+      • <strong>Antimicrobial Coatings:</strong> We work with suppliers to apply long lasting antimicrobial coatings on frequently touched surfaces. These coatings inhibit microbial growth between cleanings.
+    </p>
+  </div>
+
+  <div class="vb-gallery">
+    <img src="https://vanbudapest.com/wp-content/uploads/2022/01/8_van-and-bus-budapest-private-transfer-service-with-safety-precautions-program.jpg" alt="Vehicle cleaning and safety precautions" loading="lazy" decoding="async" />
+    <img src="https://vanbudapest.com/wp-content/uploads/2022/01/9_what-private-transfers-in-budapest-are-taking-additional-safety-precautions.jpg" alt="Disinfection protocols in private transport" loading="lazy" decoding="async" />
+    <img src="https://vanbudapest.com/wp-content/uploads/2022/01/7_pumps-ozone-safety-transfers-budapest.jpg" alt="Ozone pumps used for disinfection" loading="lazy" decoding="async" />
+    <img src="https://vanbudapest.com/wp-content/uploads/2020/05/18abe-disinfected-clean-vehicle-budapest-airport-7-1.jpg" alt="Gloved hand wiping the center console of a premium vehicle with a microfiber cloth - VanBudapest disinfection routine, Budapest" loading="lazy" decoding="async" />
+    <img src="https://vanbudapest.com/wp-content/uploads/2020/05/0bcf7-budapest-driver-masks-gloves-1.jpg" alt="Budapest driver with masks and gloves" loading="lazy" decoding="async" />
+    <img src="https://vanbudapest.com/wp-content/uploads/2020/05/55106-disinfected-clean-vehicle-budapest-airport-5.jpg" alt="Clean and disinfected car interior" loading="lazy" decoding="async" />
+    <img src="https://vanbudapest.com/wp-content/uploads/2020/05/0650c-disinfected-clean-vehicle-budapest-airport-2-1.jpg" alt="Vehicle ozone treatment Budapest" loading="lazy" decoding="async" />
+      <img src="https://vanbudapest.com/wp-content/uploads/2020/05/cfea1-disinfected-clean-vehicle-budapest-airport-4-1.jpg" alt="Additional disinfected clean vehicle photo 1" loading="lazy" decoding="async" />
+    <img src="https://vanbudapest.com/wp-content/uploads/2020/05/1f6f8-disinfected-clean-vehicle-budapest-airport-12-2.jpg" alt="Additional disinfected clean vehicle photo 2" loading="lazy" decoding="async" />
+    <img src="https://vanbudapest.com/wp-content/uploads/2020/05/a7111-disinfected-clean-vehicle-budapest-airport-11.jpg" alt="Additional disinfected clean vehicle photo 3" loading="lazy" decoding="async" />
+  </div>
+</section><style>
+
+
+  :root{
+    --vb-navy:#0A1F44; --vb-navy-2:#12306A; --vb-black:#05070C;
+    --vb-gold:#C8B560; --vb-gold-dark:#B78D38; --vb-white:#FCFCFC;
+  }
+  .vb-darkgold-gallery{position:relative; width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw); color:var(--vb-gold); font-family:"Montserrat","Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif; background:linear-gradient(180deg, var(--vb-navy) 0%, var(--vb-navy-2) 40%, var(--vb-black) 100%); padding:clamp(60px, 10vw, 140px) clamp(20px, 6vw, 100px); text-align:center;}
+  .vb-h2{margin:0 0 20px; font-weight:800; font-size:clamp(26px, 3vw, 44px); line-height:1.2; background:linear-gradient(90deg, var(--vb-gold), var(--vb-gold-dark)); -webkit-background-clip:text; background-clip:text; color:transparent; text-shadow:0 1px 0 rgba(0,0,0,.2);} 
+  .vb-copy{font-size:clamp(16px,1.6vw,20px); line-height:1.7; color:var(--vb-gold); max-width: 960px; margin: 0 auto 60px auto; text-align:left; white-space:pre-line;}
+
+  .vb-gallery{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:14px; margin-top:40px;}
+  .vb-gallery img{width:100%; height:100%; border-radius:12px; object-fit:cover; border:1px solid rgba(200,181,96,.3); transition:transform .4s ease, box-shadow .4s ease; box-shadow:0 8px 22px rgba(0,0,0,.35);}
+  .vb-gallery img:hover{transform:scale(1.03); box-shadow:0 12px 36px rgba(200,181,96,.4);}
+
+
+</style><!-- /wp:html -->
+
+<!-- wp:html -->
+<!-- VanBudapest.com – Interior Detailing &amp; Air Quality Section (Darkgold PureCSS) -->
+<section class="vb-section alignfull vb-darkgold-text" aria-label="Interior Detailing &amp; Air Quality">
+  <div class="vb-container">
+    <h2 class="vb-h2">Interior Detailing: Protecting Surfaces &amp; Electronics</h2>
+    <p class="vb-copy">
+      Cleaning soft materials requires special care. Leather seats are wiped with a microfiber cloth soaked in a mild detergent solution and then treated with a disinfectant; cloth upholstery is steam cleaned to remove dirt and pathogens. Steering wheels, shifter knobs, grab handles and door panels are wiped with quaternary ammonium. Touch screens are cleaned with at least 70% isopropyl alcohol sprayed onto a lint free cloth — never directly onto. We avoid bleach, hydrogen peroxide and ammonia based cleaners because they can damage interior.
+    </p>
+
+    <h2 class="vb-h2">Air Quality &amp; HVAC Maintenance</h2>
+    <p class="vb-copy">
+      We schedule more frequent replacement of cabin air and pollen filters — often weekly during high traffic periods and at least monthly otherwise. Air ducts and vents are disinfected using specialized sprays. HVAC systems undergo professional sanitization that removes biofilm and mold. Ozone and ionization treatments are performed after service intervals to neutralize odors and bacteria.
+    </p>
+  </div>
+</section><style>
+
+
+  :root{
+    --vb-navy:#0A1F44; --vb-navy-2:#12306A; --vb-black:#05070C;
+    --vb-gold:#C8B560; --vb-gold-dark:#B78D38; --vb-white:#FCFCFC;
+  }
+  .vb-darkgold-text{position:relative; width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw); color:var(--vb-gold); font-family:"Montserrat","Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif; background:linear-gradient(180deg, var(--vb-navy) 0%, var(--vb-navy-2) 40%, var(--vb-black) 100%); padding:clamp(60px, 10vw, 140px) clamp(20px, 6vw, 100px); text-align:center;}
+  .vb-h2{margin:0 0 20px; font-weight:800; font-size:clamp(26px, 3vw, 44px); line-height:1.2; background:linear-gradient(90deg, var(--vb-gold), var(--vb-gold-dark)); -webkit-background-clip:text; background-clip:text; color:transparent; text-shadow:0 1px 0 rgba(0,0,0,.2);} 
+  .vb-copy{font-size:clamp(16px,1.6vw,20px); line-height:1.7; color:var(--vb-gold); max-width: 960px; margin: 0 auto 60px auto; text-align:left;}
+
+</style><!-- /wp:html -->
+
+<!-- wp:html -->
+<!-- VanBudapest.com – Driver Health &amp; Personal Hygiene Section (Darkgold Split, PureCSS) -->
+<section class="vb-section alignfull vb-darkgold-split" aria-label="Driver Health &amp; Personal Hygiene">
+  <div class="vb-split">
+    <div class="vb-split__col vb-split__text">
+      <h2 class="vb-h2">Driver Health &amp; Personal Hygiene</h2>
+      <p class="vb-copy">
+        Our chauffeurs undergo rigorous training on infectious disease prevention, personal hygiene and customer interaction. Key practices include:
+      </p>
+      <ul class="vb-list">
+        <li><strong>Health Screening:</strong> Drivers self monitor symptoms, undergo daily temperature checks and stay home.</li>
+        <li><strong>Hand Hygiene:</strong> Frequent hand washing or use of hand sanitizer between trips.</li>
+        <li><strong>Physical Distancing:</strong> Whenever possible, chauffeurs maintain distance from passengers. Our booking system anonymizes order information to protect personal.</li>
+        <li><strong>Professional Appearance:</strong> Drivers wear freshly laundered uniforms and maintain personal grooming standards. They do not wear heavy cologne or fragrances that could trigger sensitivities.</li>
+      </ul>
+    </div>
+
+    <div class="vb-split__col vb-split__media">
+      <figure class="vb-frame">
+        <img class="vb-img" src="https://vanbudapest.com/wp-content/uploads/2020/06/budapest-driver-masks-gloves-1.jpg" alt="VanBudapest chauffeur wearing a mask and gloves while disinfecting a passenger seat, Budapest" loading="lazy" decoding="async" />
+      </figure>
+      <figure class="vb-frame">
+        <img class="vb-img" src="https://vanbudapest.com/wp-content/uploads/V-Class-fleet/belso/vanbudapest-mercedes-v-class-chauffeur-hire-budapest-083.webp" alt="Professional chauffeur Budapest VIP transfer" loading="lazy" decoding="async" />
+      </figure>
+    </div>
+  </div>
+</section><style>
+
+
+  :root {
+    --vb-navy:#0A1F44; --vb-navy-2:#12306A; --vb-black:#05070C;
+    --vb-gold:#C8B560; --vb-gold-dark:#B78D38; --vb-white:#FCFCFC;
+  }
+  .vb-darkgold-split {position: relative; width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); background: linear-gradient(180deg, var(--vb-navy) 0%, var(--vb-navy-2) 40%, var(--vb-black) 100%); color: var(--vb-gold); font-family: 'Montserrat','Segoe UI',system-ui,-apple-system,Roboto,Arial,sans-serif; padding: clamp(60px, 10vw, 140px) clamp(20px, 6vw, 100px);}
+
+  .vb-split {display: grid; gap: 40px; align-items: center;}
+  @media (min-width: 900px) {
+    .vb-split {grid-template-columns: 1fr 1fr;}
+  }
+
+  .vb-h2 {margin: 0 0 20px; font-weight: 800; font-size: clamp(26px, 3vw, 44px); line-height: 1.2; background: linear-gradient(90deg, var(--vb-gold), var(--vb-gold-dark)); -webkit-background-clip: text; background-clip: text; color: transparent; text-shadow: 0 1px 0 rgba(0,0,0,.2);}
+
+  .vb-copy {font-size: clamp(16px,1.6vw,20px); line-height: 1.7; color: var(--vb-gold); margin-bottom: 24px;}
+
+  .vb-list {list-style: none; padding: 0; margin: 0; text-align: left; max-width: 900px; margin-inline: auto;}
+  .vb-list li {margin-bottom: 14px; font-size: clamp(16px,1.6vw,20px); line-height: 1.6;}
+  .vb-list strong {color: var(--vb-gold-dark); font-weight: 700;}
+
+  .vb-split__media {display: grid; gap: 16px;}
+  .vb-img {width: 100%; height: auto; border-radius: 12px; border: 1px solid rgba(200,181,96,.3); object-fit: cover; box-shadow: 0 8px 22px rgba(0,0,0,.35); transition: transform .4s ease, box-shadow .4s ease;}
+  .vb-img:hover {transform: scale(1.03); box-shadow: 0 12px 36px rgba(200,181,96,.4);}
+
+</style><!-- /wp:html -->
+
+<!-- wp:html -->
+<!-- VanBudapest.com – Contact / Book Now Block (Pure CSS, WP-ready, centered gold design) -->
+<section class="vb-section alignfull vb-darkgold-contact" aria-label="Contact &amp; Booking">
+  <div class="vb-contact">
+
+    <!-- EMAIL -->
+    <a class="vb-contact__tile" href="mailto:info@vanbudapest.com">
+      <div class="vb-contact__inner">
+        <p class="vb-h3">Email</p>
+        <p class="vb-contact__value">info@vanbudapest.com</p>
+      </div>
+    </a>
+
+    <!-- BOOK NOW (Contact Page) -->
+    <a class="vb-contact__tile" href="https://vanbudapest.com/contact-customer-reviews/">
+      <div class="vb-contact__inner">
+        <p class="vb-h3">Book&nbsp;<span style="white-space:nowrap">Now</span></p>
+        <p class="vb-contact__value">Secure &amp; Premium Booking</p>
+      </div>
+    </a>
+
+    <!-- SOCIALS -->
+    <div class="vb-contact__tile" role="group" aria-label="Social Media">
+      <div class="vb-contact__inner">
+        <p class="vb-h3">Social Media</p>
+        <p class="vb-contact__socials">
+          <a href="https://www.facebook.com/people/VanBudapestcom/61581875129965/" class="vb-social" target="_blank" rel="noopener">Facebook</a><br>
+          <a href="https://x.com/BudapestVan" class="vb-social" target="_blank" rel="noopener">X (Twitter)</a><br>
+          <a href="https://www.instagram.com/van_bus_budapest_/" class="vb-social" target="_blank" rel="noopener">Instagram</a><br>
+          <a href="https://www.tiktok.com/@vanbudapest" class="vb-social" target="_blank" rel="noopener">TikTok</a>
+        </p>
+      </div>
+    </div>
+
+    <!-- PHONE &amp; WHATSAPP -->
+    <div class="vb-contact__tile" role="group" aria-label="Phone &amp; WhatsApp">
+      <div class="vb-contact__inner">
+        <p class="vb-h3">Phone &amp; WhatsApp</p>
+        <p class="vb-contact__value"><a href="tel:+36707536333">Phone: +36 70 753 6333</a></p>
+        <p class="vb-contact__value"><a href="https://wa.me/36707536333?text=Hello%20VanBudapest!" target="_blank" rel="noopener">WhatsApp Chat</a></p>
+      </div>
+    </div>
+
+  </div>
+</section><style>
+
+
+  :root{
+    --vb-navy:#0A1F44; --vb-navy-2:#12306A; --vb-black:#05070C;
+    --vb-gold:#C8B560; --vb-gold-dark:#B78D38; --vb-white:#FCFCFC;
+    --vb-maxw:min(1100px, 94vw); --vb-pad: clamp(20px, 4vw, 48px);
+    --vb-radius: 18px; --vb-elev: 0 12px 40px rgba(0,0,0,.45);
+    --vb-gold-glow: 0 0 0 rgba(200,181,96,0), 0 0 30px rgba(200,181,96,.25), 0 0 60px rgba(183,141,56,.18);
+  }
+
+  .vb-darkgold-contact{position:relative; width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw); color:var(--vb-gold); font-family:"Montserrat","Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif; isolation:isolate; text-align:center;}
+  .vb-darkgold-contact::before{content:""; position:absolute; inset:0; background:
+    radial-gradient(1100px 540px at 82% 18%, rgba(200,181,96,.18), transparent 60%),
+    linear-gradient(180deg, rgba(10,31,68,.94) 0%, rgba(18,48,106,.88) 45%, rgba(5,7,12,.96) 100%),
+    repeating-linear-gradient(135deg, rgba(200,181,96,.06) 0 2px, rgba(255,255,255,0) 2px 10px);
+    z-index:0;}
+
+  .vb-contact{position:relative; z-index:1; max-width:var(--vb-maxw); margin-inline:auto; padding:clamp(56px, 8vw, 120px) var(--vb-pad); display:grid; gap:16px;}
+
+  .vb-contact__tile{display:block; text-decoration:none; color:var(--vb-gold); border:1px solid rgba(200,181,96,.25); border-radius:var(--vb-radius); background:linear-gradient(180deg, rgba(200,181,96,.06), rgba(183,141,56,.03)); box-shadow:var(--vb-elev); position:relative; overflow:hidden; text-align:center;}
+  .vb-contact__tile::after{content:""; position:absolute; inset:-10px; border-radius:inherit; background: radial-gradient(50% 46% at 50% 40%, rgba(200,181,96,.28), rgba(183,141,56,0)); filter:blur(16px); opacity:0; transition:opacity .3s ease;}
+  .vb-contact__tile:hover{box-shadow:var(--vb-elev), var(--vb-gold-glow); border-color:rgba(200,181,96,.6);} 
+  .vb-contact__tile:hover::after{opacity:1;}
+  .vb-contact__inner{padding:clamp(18px, 2.6vw, 28px) clamp(18px, 3vw, 34px);} 
+
+  .vb-h3{margin:0 0 8px; font-weight:800; font-size:clamp(18px, 2.2vw, 24px); line-height:1.22; color:var(--vb-gold);}
+  .vb-contact__value{margin:4px 0; font-size:clamp(16px, 1.8vw, 19px); color:var(--vb-gold);} 
+  .vb-contact__value a{color:var(--vb-gold); text-decoration:none;}
+  .vb-contact__value a:hover{color:var(--vb-white);} 
+
+  .vb-contact__socials{margin:8px 0; font-size:clamp(16px, 1.8vw, 19px);} 
+  .vb-social{color:var(--vb-gold); text-decoration:none; border-bottom:1px dashed rgba(200,181,96,.45); transition:color .2s ease, border-color .2s ease;}
+  .vb-social:hover{color:#fff; border-color:rgba(200,181,96,.8);} 
+
+  .vb-sep{opacity:.5; margin:0 .5ch;}
+  a:focus-visible{outline:2px solid var(--vb-gold); outline-offset:4px;}
+  @media (min-width: 860px){ .vb-contact{max-width: 760px;} }
+
+</style><!-- /wp:html -->
+
+<!-- wp:html -->
+<!-- VanBudapest.com – Passenger Experience &amp; Hygiene Philosophy Section (Darkgold Gallery, PureCSS) -->
+<section class="vb-section alignfull vb-darkgold-gallery" aria-label="Passenger Experience &amp; Hygiene Philosophy">
+  <div class="vb-container">
+    <h2 class="vb-h2">Passenger Experience: Safety Without Compromise</h2>
+    <p class="vb-copy">
+      We take every precaution to ensure you feel comfortable and in control during your journey. Digital payment eliminates the need for cash exchange. Vehicles are fitted with optional polycarbonate barriers.
+    </p>
+
+    <h2 class="vb-h2">Refund &amp; Flexibility Guarantee</h2>
+    <p class="vb-copy">
+      We understand that circumstances can change quickly. If official restrictions prevent you from traveling to Hungary, we will refund 100% of the fare (minus bank charges). If you need to reschedule due to flight changes or health concerns, contact our support team — we will work with you to adjust pick up times, vehicle types or routes.
+    </p>
+
+    <h2 class="vb-h2">Our Ongoing Hygiene Philosophy</h2>
+    <p class="vb-copy">
+      A worldwide focus on sanitation set new expectations for passenger transport, but our dedication to cleanliness predates it and will continue long after. Prior to 2020, we outsourced vehicle cleaning to professional detailers after each passenger; vehicles underwent full exterior and interior cleaning, vacuuming and spot detailing daily. We later elevated these protocols by adding disinfectant treatments, SAO and ozone processing. Today, we maintain those enhanced standards because a pristine, hygienic environment is central to our brand.
+    </p>
+
+    <h2 class="vb-h2">The Science of Clean: Global Best Practices</h2>
+    <p class="vb-copy">
+      Our protocols draw from guidelines issued by health authorities, vehicle manufacturers and leading chauffeur services worldwide. Industry leaders recommend thoroughly cleaning vehicles before and after every job, disinfecting high touch points with EPA approved products, and offering hand sanitizer. Cleaning guidelines from vehicle manufacturers instruct us to open doors and windows for ventilation, wear disposable gloves when cleaning and discard gloves after. Interior surfaces should be cleaned with detergent before applying disinfectant, and quaternary ammonium cleaners are preferred for upholstered seats and plastics. High touch surfaces such as grab handles, seat belts, steering wheel, gear shift and air controls must be cleaned between trips. We also monitor emerging technologies like antimicrobial polymers, electrostatic coatings and aerosolized hydrogen peroxide systems. While some innovations (e.g., ozone generators) require caution due to potential respiratory irritation, they can be used safely when vehicles are unoccupied and properly ventilated.
+    </p>
+  </div>
+
+  <div class="vb-gallery">
+    <img src="https://vanbudapest.com/wp-content/uploads/2022/01/disinfected-and-cleaned-bus.jpeg" alt="Chauffeur in a dark suit wiping the dashboard of a premium transfer vehicle, Budapest" loading="lazy" decoding="async" />
+    <img src="https://vanbudapest.com/wp-content/uploads/2022/01/washing-cleaining-budapest-private-bus.jpg" alt="Passenger seat of a Mercedes-Benz van being cleaned with a microfiber cloth, Budapest" loading="lazy" decoding="async" />
+    <img src="https://vanbudapest.com/wp-content/uploads/2020/05/c7bcb-disinfected-clean-vehicle-budapest-airport-8-1.jpg" alt="Steam cleaning of the leather upholstery in a VanBudapest transfer vehicle, Budapest" loading="lazy" decoding="async" />
+    <img src="https://vanbudapest.com/wp-content/uploads/2020/05/55106-disinfected-clean-vehicle-budapest-airport-5.jpg" alt="Disinfected vehicle interior Budapest airport" loading="lazy" decoding="async" />
+  </div>
+</section><style>
+
+
+  :root{
+    --vb-navy:#0A1F44; --vb-navy-2:#12306A; --vb-black:#05070C;
+    --vb-gold:#C8B560; --vb-gold-dark:#B78D38; --vb-white:#FCFCFC;
+  }
+  .vb-darkgold-gallery{position:relative; width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw); color:var(--vb-gold); font-family:"Montserrat","Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif; background:linear-gradient(180deg, var(--vb-navy) 0%, var(--vb-navy-2) 40%, var(--vb-black) 100%); padding:clamp(60px, 10vw, 140px) clamp(20px, 6vw, 100px); text-align:center;}
+  .vb-h2{margin:0 0 20px; font-weight:800; font-size:clamp(26px, 3vw, 44px); line-height:1.2; background:linear-gradient(90deg, var(--vb-gold), var(--vb-gold-dark)); -webkit-background-clip:text; background-clip:text; color:transparent; text-shadow:0 1px 0 rgba(0,0,0,.2);} 
+  .vb-copy{font-size:clamp(16px,1.6vw,20px); line-height:1.7; color:var(--vb-gold); max-width: 960px; margin: 0 auto 60px auto; text-align:left; white-space:pre-line;}
+  .vb-gallery{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:14px; margin-top:40px;}
+  .vb-gallery img{width:100%; height:100%; border-radius:12px; object-fit:cover; border:1px solid rgba(200,181,96,.3); transition:transform .4s ease, box-shadow .4s ease; box-shadow:0 8px 22px rgba(0,0,0,.35);}
+  .vb-gallery img:hover{transform:scale(1.03); box-shadow:0 12px 36px rgba(200,181,96,.4);}
+
+
+</style><!-- /wp:html -->
+
+<!-- wp:html -->
+<!-- VanBudapest.com – Expanded Services &amp; Use Cases Section (Darkgold Gallery, PureCSS) -->
+<section class="vb-section alignfull vb-darkgold-gallery" aria-label="Expanded Services &amp; Use Cases">
+  <div class="vb-container">
+    <h2 class="vb-h2">Expanded Services &amp; Use Cases</h2>
+    <p class="vb-copy">
+      Although hygiene is the focus of this page, we also highlight the range of premium services our company offers. Whether you need a transfer between Budapest Ferenc Liszt International Airport and downtown, a long distance ride to another city (e.g., Vienna, Prague or Oradea), or transportation for a multi day corporate retreat, we tailor our service to your schedule. We provide:
+      <br><br>
+      • <strong>Airport &amp; Train Station Transfers:</strong> Stress free pick ups and drop offs with flight tracking and meet and greet signage.<br><br>
+      • <strong>Corporate Chauffeur Service:</strong> Hourly service for business meetings, conferences, road shows and site visits. Discreet vehicles with privacy glass and charging ports.<br><br>
+      • <strong>Event Transportation:</strong> Buses and vans for weddings, sporting events, concerts and festivals. Coordinated logistics and multi vehicle fleets.<br><br>
+      • <strong>Long Distance Journeys:</strong> Comfortable, point to point service to regional destinations such as the Adriatic coast, alpine ski resorts or the Tokaj wine region. Stops and routes are flexible.<br><br>
+      • <strong>Celebrity &amp; VIP Transport:</strong> Services for artists, DJs, musicians, athletes and executives. We offer security coordination, confidentiality agreements and bespoke amenities.<br><br>
+      • <strong>Luxury Tours &amp; Sightseeing:</strong> Customized tours with licensed guides, including day trips to historical towns, wine tastings or nightlife adventures.
+    </p>
+
+    <h2 class="vb-h2">Real World Examples (Anonymized)</h2>
+    <p class="vb-copy">
+      1. <strong>Last Minute Rescue:</strong> After a late night concert, a touring band’s manager called us because their transportation fell through. Within an hour we dispatched two sprinter vans cleaned with SAO and an ozone treatment; both vehicles arrived spotless and on time. The musicians were impressed with the fresh, neutral scent and the sealed refreshments provided.<br><br>
+      2. <strong>Corporate Road Show:</strong> A multinational company needed to transport executives between Budapest, Vienna and Prague over three days. We assigned bilingual chauffeurs and equipped each vehicle with HEPA filters.<br><br>
+      3. <strong>Medical Mission:</strong> When a family needed a sterile environment to transport an immune compromised relative to a clinic in another city, we deployed a Mercedes S Class treated with UV C light and SAO. The driver wore a medical grade mask and gloves and avoided handshakes. The trip went smoothly, and the family reported feeling at ease.
+    </p>
+  </div>
+</section><style>
+
+
+  :root{
+    --vb-navy:#0A1F44; --vb-navy-2:#12306A; --vb-black:#05070C;
+    --vb-gold:#C8B560; --vb-gold-dark:#B78D38; --vb-white:#FCFCFC;
+  }
+  .vb-darkgold-gallery{position:relative; width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw); color:var(--vb-gold); font-family:"Montserrat","Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif; background:linear-gradient(180deg, var(--vb-navy) 0%, var(--vb-navy-2) 40%, var(--vb-black) 100%); padding:clamp(60px, 10vw, 140px) clamp(20px, 6vw, 100px); text-align:center;}
+  .vb-h2{margin:0 0 20px; font-weight:800; font-size:clamp(26px, 3vw, 44px); line-height:1.2; background:linear-gradient(90deg, var(--vb-gold), var(--vb-gold-dark)); -webkit-background-clip:text; background-clip:text; color:transparent; text-shadow:0 1px 0 rgba(0,0,0,.2);} 
+  .vb-copy{font-size:clamp(16px,1.6vw,20px); line-height:1.7; color:var(--vb-gold); max-width: 960px; margin: 0 auto 60px auto; text-align:left; white-space:pre-line;}
+
+</style><!-- /wp:html -->
+
+<!-- wp:html -->
+<!-- VanBudapest.com – Conclusion Section (Darkgold PureCSS) -->
+<section class="vb-section alignfull vb-darkgold-text" aria-label="Conclusion">
+  <div class="vb-container">
+    <h2 class="vb-h2">Conclusion: Luxury That Takes Cleanliness Seriously</h2>
+    <p class="vb-copy">
+      Our dedication to cleanliness, hygiene and premium service distinguishes us in a crowded market. From daily disinfection using advanced technologies to multilingual chauffeurs and flexible services, we strive to deliver peace of mind to every client. Whether you’re traveling for business, leisure or a special occasion, our team ensures that your journey is safe, comfortable and memorable.
+    </p>
+  </div>
+</section><style>
+
+
+  :root {
+    --vb-navy:#0A1F44; --vb-navy-2:#12306A; --vb-black:#05070C;
+    --vb-gold:#C8B560; --vb-gold-dark:#B78D38; --vb-white:#FCFCFC;
+  }
+  .vb-darkgold-text {
+    position: relative;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    color: var(--vb-gold);
+    font-family: "Montserrat","Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;
+    background: linear-gradient(180deg, var(--vb-navy) 0%, var(--vb-navy-2) 40%, var(--vb-black) 100%);
+    padding: clamp(60px, 10vw, 140px) clamp(20px, 6vw, 100px);
+    text-align: center;
+  }
+  .vb-h2 {
+    margin: 0 0 20px;
+    font-weight: 800;
+    font-size: clamp(26px, 3vw, 44px);
+    line-height: 1.2;
+    background: linear-gradient(90deg, var(--vb-gold), var(--vb-gold-dark));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 1px 0 rgba(0,0,0,.2);
+  }
+  .vb-copy {
+    font-size: clamp(16px, 1.6vw, 20px);
+    line-height: 1.7;
+    color: var(--vb-gold);
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+</style><!-- /wp:html -->
+
+<!-- wp:html -->
+<!-- VanBudapest.com – Contact / Book Now Block (Pure CSS, WP-ready, centered gold design) -->
+<section class="vb-section alignfull vb-darkgold-contact" aria-label="Contact &amp; Booking">
+  <div class="vb-contact">
+
+    <!-- EMAIL -->
+    <a class="vb-contact__tile" href="mailto:info@vanbudapest.com">
+      <div class="vb-contact__inner">
+        <p class="vb-h3">Email</p>
+        <p class="vb-contact__value">info@vanbudapest.com</p>
+      </div>
+    </a>
+
+    <!-- BOOK NOW (Contact Page) -->
+    <a class="vb-contact__tile" href="https://vanbudapest.com/contact-customer-reviews/">
+      <div class="vb-contact__inner">
+        <p class="vb-h3">Book&nbsp;<span style="white-space:nowrap">Now</span></p>
+        <p class="vb-contact__value">Secure &amp; Premium Booking</p>
+      </div>
+    </a>
+
+    <!-- SOCIALS -->
+    <div class="vb-contact__tile" role="group" aria-label="Social Media">
+      <div class="vb-contact__inner">
+        <p class="vb-h3">Social Media</p>
+        <p class="vb-contact__socials">
+          <a href="https://www.facebook.com/people/VanBudapestcom/61581875129965/" class="vb-social" target="_blank" rel="noopener">Facebook</a><br>
+          <a href="https://x.com/BudapestVan" class="vb-social" target="_blank" rel="noopener">X (Twitter)</a><br>
+          <a href="https://www.instagram.com/van_bus_budapest_/" class="vb-social" target="_blank" rel="noopener">Instagram</a><br>
+          <a href="https://www.tiktok.com/@vanbudapest" class="vb-social" target="_blank" rel="noopener">TikTok</a>
+        </p>
+      </div>
+    </div>
+
+    <!-- PHONE &amp; WHATSAPP -->
+    <div class="vb-contact__tile" role="group" aria-label="Phone &amp; WhatsApp">
+      <div class="vb-contact__inner">
+        <p class="vb-h3">Phone &amp; WhatsApp</p>
+        <p class="vb-contact__value"><a href="tel:+36707536333">Phone: +36 70 753 6333</a></p>
+        <p class="vb-contact__value"><a href="https://wa.me/36707536333?text=Hello%20VanBudapest!" target="_blank" rel="noopener">WhatsApp Chat</a></p>
+      </div>
+    </div>
+
+  </div>
+</section><style>
+
+
+  :root{
+    --vb-navy:#0A1F44; --vb-navy-2:#12306A; --vb-black:#05070C;
+    --vb-gold:#C8B560; --vb-gold-dark:#B78D38; --vb-white:#FCFCFC;
+    --vb-maxw:min(1100px, 94vw); --vb-pad: clamp(20px, 4vw, 48px);
+    --vb-radius: 18px; --vb-elev: 0 12px 40px rgba(0,0,0,.45);
+    --vb-gold-glow: 0 0 0 rgba(200,181,96,0), 0 0 30px rgba(200,181,96,.25), 0 0 60px rgba(183,141,56,.18);
+  }
+
+  .vb-darkgold-contact{position:relative; width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw); color:var(--vb-gold); font-family:"Montserrat","Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif; isolation:isolate; text-align:center;}
+  .vb-darkgold-contact::before{content:""; position:absolute; inset:0; background:
+    radial-gradient(1100px 540px at 82% 18%, rgba(200,181,96,.18), transparent 60%),
+    linear-gradient(180deg, rgba(10,31,68,.94) 0%, rgba(18,48,106,.88) 45%, rgba(5,7,12,.96) 100%),
+    repeating-linear-gradient(135deg, rgba(200,181,96,.06) 0 2px, rgba(255,255,255,0) 2px 10px);
+    z-index:0;}
+
+  .vb-contact{position:relative; z-index:1; max-width:var(--vb-maxw); margin-inline:auto; padding:clamp(56px, 8vw, 120px) var(--vb-pad); display:grid; gap:16px;}
+
+  .vb-contact__tile{display:block; text-decoration:none; color:var(--vb-gold); border:1px solid rgba(200,181,96,.25); border-radius:var(--vb-radius); background:linear-gradient(180deg, rgba(200,181,96,.06), rgba(183,141,56,.03)); box-shadow:var(--vb-elev); position:relative; overflow:hidden; text-align:center;}
+  .vb-contact__tile::after{content:""; position:absolute; inset:-10px; border-radius:inherit; background: radial-gradient(50% 46% at 50% 40%, rgba(200,181,96,.28), rgba(183,141,56,0)); filter:blur(16px); opacity:0; transition:opacity .3s ease;}
+  .vb-contact__tile:hover{box-shadow:var(--vb-elev), var(--vb-gold-glow); border-color:rgba(200,181,96,.6);} 
+  .vb-contact__tile:hover::after{opacity:1;}
+  .vb-contact__inner{padding:clamp(18px, 2.6vw, 28px) clamp(18px, 3vw, 34px);} 
+
+  .vb-h3{margin:0 0 8px; font-weight:800; font-size:clamp(18px, 2.2vw, 24px); line-height:1.22; color:var(--vb-gold);}
+  .vb-contact__value{margin:4px 0; font-size:clamp(16px, 1.8vw, 19px); color:var(--vb-gold);} 
+  .vb-contact__value a{color:var(--vb-gold); text-decoration:none;}
+  .vb-contact__value a:hover{color:var(--vb-white);} 
+
+  .vb-contact__socials{margin:8px 0; font-size:clamp(16px, 1.8vw, 19px);} 
+  .vb-social{color:var(--vb-gold); text-decoration:none; border-bottom:1px dashed rgba(200,181,96,.45); transition:color .2s ease, border-color .2s ease;}
+  .vb-social:hover{color:#fff; border-color:rgba(200,181,96,.8);} 
+
+  .vb-sep{opacity:.5; margin:0 .5ch;}
+  a:focus-visible{outline:2px solid var(--vb-gold); outline-offset:4px;}
+  @media (min-width: 860px){ .vb-contact{max-width: 760px;} }
+
+</style><!-- /wp:html -->
+
+<!-- wp:html -->
+<!-- VanBudapest.com – SEO Microcopy: COVID Hungary Safety Notice (Small Text Block) -->
+<section class="vb-section alignfull vb-darkgold-micro" aria-label="COVID Hungary Safety Notice">
+  <div class="vb-container">
+    <p class="vb-microcopy">
+      We are pleased to inform you that we will continue to offer our private passenger transport services in Budapest, Hungary. Should your travel plans change due to flight cancellations or train cancellations, please remember that you can rely on us for safe short and long-distance travel wherever possible. Our chauffeurs are known for their ability to offer you peace of mind and tranquility and a safe environment.
+
+      COVID-19 – Refund Guaranteed: If there are any restrictions during your trip to Hungary due to the COVID-19 virus, we will refund 100% of the full amount (excluding bank charges).
+
+      Dear Passengers! COVID-19 Coronavirus: We are open as usual! Our office is always open (during business hours) and has our widest range of transfers, available to you 24/7. Ensuring the health and safety of our passengers and our drivers is our top priority and we have already introduced additional sanitary measures that allow us to do just that. Rest assured that we continue to work hard to ensure the safest private Budapest transportation and that we take every precaution to maintain a professional level of cleanliness.
+
+      Through incident prevention tools, insurance coverage, and technology that keeps you connected, we’re dedicated to helping you move safely. Guidance from health experts, these new measures are designed to help protect the health and safety of everyone who uses our Budapest Private Transfer Service.
+
+      Budapest Airport Service – For safe private transportation. We are currently paying particular attention to ensuring that our measures are effective while working hard to provide you with the very highest quality of service during your trip to Hungary. We will continue to monitor the situation regarding COVID-19 Coronavirus and the advice of the experts and will adapt our procedures as necessary to provide you with the safest private travel service possible in Budapest, Hungary.
+
+      All work areas of the employees are cleaned and disinfected daily. We provide all employees and passengers with hand disinfectants. A bottle of hand disinfectant is kept in each vehicle and is available on request. All drivers adhere to high standards of personal hygiene. This includes washing hands with soap and water for at least 20 seconds, covering coughs and sneezes with a handkerchief, and staying at home when they are ill.
+
+      For the safest private transportation in Hungary: All riders and drivers must wear a face cover or mask when using our Budapest Private Transfer Service. We are working to provide drivers with health and safety supplies like masks, disinfectants, and gloves. We are working with the World Health Organization (WHO) to share safety tips and resources. 24/7 Support: Our customer support team is specially trained to respond to urgent safety issues. Our system makes order information anonymous, so your personal information stays private.
+
+      COVID Hungary – Private Budapest Airport Transfer. Our drivers are monitored, employees who show symptoms of illness do not report for work and are instructed to seek medical assistance. As a further precautionary measure, our chauffeurs will temporarily wear medical face masks and gloves during the trip and have been asked to avoid shaking hands. We provide a mask for our passengers to give customers greater security.
+
+      Budapest Airport – Helping to keep each other safe during COVID-19. We’re actively monitoring the Budapest coronavirus (COVID-19) situation and are continually working to help keep those who rely on our platform healthy and safe. We want you to feel safe riding with VanBudapest.com as our communities start to move again. That’s why we’re introducing our new Door-to-Door Safety Standard.
+
+      Private Budapest Airport Transfer – Our commitment to safety. A specially trained team is available 24/7. Our vans and minibusses are cleaned and disinfected between each journey with cleaning and disinfectant agents (eco-friendly and vegan), paying particular attention to door handles, seat belts, armrests, lights, and air conditioning systems, and ventilation openings.
+
+      Our approach to COVID-19 – Budapest Airport Private Transfer. The safety and well-being of everyone who uses VanBudapest.com are at the heart of what we do. We’re continuing to expand our response to COVID-19 with new features, support, and initiatives that serve our passengers. The safety and well‑being of everyone who uses Private Budapest Transfer is always our priority.
+
+      Health and safety tips in Budapest, Hungary: We are pleased to be able to offer you safe transportation during the coronavirus pandemic in Budapest, Hungary. Benefit from a safer Budapest private transfer compared to public transport. Enjoy the best possible safe Budapest private transfer and protect yourself, your immediate family, and your business partners.
+
+      For safe private transportation in Hungary: If you’re driving, cover your mouth and nose. If you sneeze or cough, do so into your elbow or a tissue. Ask riders to maintain distance. Open the windows to improve ventilation. Please wash your hands or use hand sanitizer as often as you can.
+
+      Wash – Our company keeps the vehicles clean every day. We are working to provide drivers with disinfectants to help them keep their cars clean. Supplies are limited, but we’re partnering with manufacturers and distributors to source as much as possible. We look forward to taking care of your transportation needs and we wish you a safe journey! Stay healthy.
+    </p>
+  </div>
+</section><style>
+
+
+  .vb-darkgold-micro{position:relative;width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);background:linear-gradient(180deg,#0A1F44 0%,#12306A 40%,#05070C 100%);font-family:"Montserrat","Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;padding:60px 20px;text-align:center;}
+  .vb-microcopy{font-size:clamp(11px,1vw,13px);line-height:1.6;color:#C8B560;max-width:1100px;margin:0 auto;opacity:0.85;}
+
+
+</style><!-- /wp:html -->
+
+<!-- wp:html -->
+<!-- VanBudapest.com – Frequently Asked Questions Section (Darkgold Accordion, PureCSS) -->
+<section class="vb-section alignfull vb-darkgold-faq" aria-label="Frequently Asked Questions">
+  <div class="vb-container">
+    <h2 class="vb-h2">Frequently Asked Questions (FAQ)</h2>
+
+    <details class="vb-faq-item">
+      <summary>Do I have to wear a mask during the ride?</summary>
+      <p>We follow local regulations. At present, masks are optional, but we strongly recommend wearing them. Drivers wear masks when requested, and we provide masks, gloves and sanitizer on request.</p>
+    </details>
+
+    <details class="vb-faq-item">
+      <summary>How often are vehicles cleaned?</summary>
+      <p>Vehicles are cleaned and disinfected before and after every ride. High touch surfaces are wiped down with quaternary ammonium disinfectant, and deep cleaning with SAO and ozone occurs regularly.</p>
+    </details>
+
+    <details class="vb-faq-item">
+      <summary>What cleaning products do you use?</summary>
+      <p>We use EPA registered disinfectants approved for use against viruses and bacteria. Quaternary ammonium products are our primary choice. We avoid bleach or hydrogen peroxide because they can damage interiors.</p>
+    </details>
+
+    <details class="vb-faq-item">
+      <summary>What if I have allergies or chemical sensitivities?</summary>
+      <p>Please notify us when booking. We can assign vehicles cleaned exclusively with fragrance free, hypoallergenic products and avoid ozone treatments. Our chauffeurs use non scented hand sanitizer and avoid colognes.</p>
+    </details>
+
+    <details class="vb-faq-item">
+      <summary>Can I book a bilingual or multilingual chauffeur?</summary>
+      <p>Yes. Our team includes English, Hungarian, German, Spanish and Chinese speaking drivers. For other languages, please contact us in advance.</p>
+    </details>
+
+    <h3 class="vb-h3">Multilingual Message for Global Guests</h3>
+    <details class="vb-faq-item">
+      <summary>Spanish (Español)</summary>
+      <p lang="es">Transporte privado seguro en Budapest: Nuestro servicio de chófer cumple con los más altos estándares de higiene. Desinfectamos cada vehículo antes y después de cada viaje, utilizamos ozono y soluciones de limpieza sin químicos, y nuestros conductores llevan mascarilla y guantes. Puede reservar traslados al aeropuerto, viajes de larga distancia y servicios VIP con total confianza.</p>
+    </details>
+
+    <details class="vb-faq-item">
+      <summary>German (Deutsch)</summary>
+      <p lang="de">Sichere Privattransfers in Budapest: Wir desinfizieren unsere Fahrzeuge vor und nach jeder Fahrt gründlich, verwenden stabilisiertes Ozon zur Desinfektion und setzen Fahrer ein, die Masken und Handschuhe tragen. Buchen Sie Flughafentransfers, Geschäftsreisen oder private Touren mit dem beruhigenden Wissen, dass Sauberkeit und Hygiene oberste Priorität haben.</p>
+    </details>
+
+    <details class="vb-faq-item">
+      <summary>Chinese (中文)</summary>
+      <p lang="zh-Hans">布达佩斯私人接送服务—安全与卫生: 我们严格按照卫生标准消毒车辆，在每次行程前后使用臭氧和无化学成分的清洁剂。我们的司机会佩戴口罩和手套，并为您提供机场接送、商务出行和豪华旅游等服务，确保安全舒适。</p>
+    </details>
+
+    <details class="vb-faq-item">
+      <summary>Hungarian Reminder (Magyar)</summary>
+      <p lang="hu">Tiszta és biztonságos személyszállítás Budapesten: Minden járművet fertőtlenítünk minden út előtt és után, speciális ózonos és SAO kezelést alkalmazunk, a sofőrjeink pedig maszkot és kesztyűt viselnek. Foglalhat reptéri transzfert, céges utazást, VIP programot vagy hosszabb távú kirándulást teljes nyugalommal.</p>
+    </details>
+  </div>
+</section><style>
+
+
+  :root{
+    --vb-navy:#0A1F44; --vb-navy-2:#12306A; --vb-black:#05070C;
+    --vb-gold:#C8B560; --vb-gold-dark:#B78D38; --vb-white:#FCFCFC;
+  }
+  .vb-darkgold-faq{position:relative; width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw); color:var(--vb-gold); font-family:"Montserrat","Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif; background:linear-gradient(180deg, var(--vb-navy) 0%, var(--vb-navy-2) 40%, var(--vb-black) 100%); padding:clamp(60px, 10vw, 140px) clamp(20px, 6vw, 100px);}
+  .vb-h2, .vb-h3{font-weight:800; background:linear-gradient(90deg, var(--vb-gold), var(--vb-gold-dark)); -webkit-background-clip:text; background-clip:text; color:transparent; text-shadow:0 1px 0 rgba(0,0,0,.2); text-align:center;}
+  .vb-h2{font-size:clamp(26px, 3vw, 44px); margin-bottom:40px;}
+  .vb-h3{font-size:clamp(20px, 2.5vw, 28px); margin:40px 0 20px; text-align:center;}
+  .vb-faq-item{background:rgba(200,181,96,.06); border:1px solid rgba(200,181,96,.25); border-radius:14px; margin-bottom:14px; overflow:hidden;}
+  .vb-faq-item summary{cursor:pointer; padding:18px 24px; font-weight:600; font-size:clamp(16px,1.6vw,20px); color:var(--vb-gold); position:relative; transition:all .3s ease; list-style:none;}
+  .vb-faq-item summary::marker{display:none;}
+  .vb-faq-item[open] summary{background:rgba(200,181,96,.15); color:var(--vb-white);}
+  .vb-faq-item p{padding:0 24px 20px 24px; font-size:clamp(15px,1.5vw,19px); color:var(--vb-gold); line-height:1.7;}
+  .vb-faq-item summary:hover{color:var(--vb-white);}
+
+
+</style><!-- /wp:html -->

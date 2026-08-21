@@ -1,0 +1,174 @@
+/* ============================================================================
+   VanBudapest.com - Page 2594 "Clean Luxury Transfers | Hygiene & Safety"
+   MASTER scoped rule - audit 2026-08-21 (A-csomag + E2 + a11y)
+   Minden szabaly body.page-id-2594 prefixszel => KIZAROLAG ezt az oldalt erinti.
+   Nincs !important, nincs position:fixed, nincs globalis selector.
+   ============================================================================ */
+
+/* --- 0) Full-bleed biztonsag: 100vw + gorgetosav (A1/B9) ------------------- */
+body.page-id-2594{overflow-x:clip}
+body.page-id-2594 .vb-section{max-width:100vw}
+
+/* --- 1) Duplikalt oriascim elrejtese + 36px feher csikok (A5, E2) ---------- */
+body.page-id-2594 .wp-block-post-title{display:none}
+body.page-id-2594 .entry-content>*,
+body.page-id-2594 .wp-block-post-content>*{margin-block-start:0;margin-block-end:0}
+
+/* --- 2) Dupla fuggoleges padding (szekcio 140px + kontener 168px = 308px) -- */
+body.page-id-2594 .vb-section .vb-container{padding-top:0;padding-bottom:0}
+body.page-id-2594 .vb-darkgold-text,
+body.page-id-2594 .vb-darkgold-gallery,
+body.page-id-2594 .vb-darkgold-split,
+body.page-id-2594 .vb-darkgold-faq{
+  padding-top:clamp(44px,5.5vw,84px);
+  padding-bottom:clamp(44px,5.5vw,84px);
+}
+body.page-id-2594 .vb-darkgold-micro{
+  padding-top:clamp(32px,4vw,56px);
+  padding-bottom:clamp(32px,4vw,56px);
+}
+body.page-id-2594 .vb-darkgold-contact .vb-contact{
+  padding-top:clamp(36px,4.5vw,64px);
+  padding-bottom:clamp(36px,4.5vw,64px);
+}
+/* a hero levegos marad - ez a rule KESOBB all, ezert nyer az azonos sulyu #2-vel */
+body.page-id-2594 .vb-darkgold .vb-container{
+  padding-top:clamp(84px,11vw,140px);
+  padding-bottom:clamp(84px,11vw,140px);
+}
+
+/* --- 3) CSS-szivargas semlegesitese (osztalynevek blokkok kozt megosztva) -- */
+/* 3a) .vb-copy: a #12 blokk margin:0 auto-ja nullazta minden bekezdes also terkozet */
+body.page-id-2594 .vb-section .vb-copy{margin-bottom:clamp(18px,2vw,26px)}
+body.page-id-2594 .vb-section .vb-copy:last-child{margin-bottom:0}
+/* H2 ne tapadjon az elozo bekezdesre (egy blokkban tobb H2) */
+body.page-id-2594 .vb-section .vb-h2{margin-top:0}
+body.page-id-2594 .vb-section .vb-copy + .vb-h2,
+body.page-id-2594 .vb-section .vb-list + .vb-h2{margin-top:clamp(30px,3.6vw,52px)}
+
+/* 3b) .vb-h3: a #15 FAQ gradiens-cimstilusa (color:transparent + 40px margo)
+       szivargott a kontakt-csempekbe - ott vissza a csempe-stilusra */
+body.page-id-2594 .vb-darkgold-contact .vb-h3{
+  margin:0 0 8px;
+  font-size:clamp(18px,2.2vw,24px);
+  line-height:1.22;
+  background:none;
+  -webkit-background-clip:border-box;
+  background-clip:border-box;
+  color:#C8B560;
+  -webkit-text-fill-color:#C8B560;
+  text-align:center;
+}
+
+/* 3c) csupasz a:focus-visible ne fesse aranyra a fejlec/lablec/menu linkjeit */
+body.page-id-2594 :where(header,footer,nav) a:focus-visible{
+  outline:2px solid currentColor;
+  outline-offset:2px;
+}
+
+/* --- 4) Galeria: 1/2/3 oszlop, 3:2 arany, kozepre zart csonka sor ---------- */
+body.page-id-2594 .vb-gallery{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:16px;
+  margin-top:clamp(24px,3vw,40px);
+}
+body.page-id-2594 .vb-gallery img{
+  flex:0 1 100%;
+  width:100%;
+  height:auto;
+  aspect-ratio:3/2;
+  object-fit:cover;
+  display:block;
+}
+@media (min-width:600px){
+  body.page-id-2594 .vb-gallery img{flex-basis:calc(50% - 8px)}
+}
+@media (min-width:900px){
+  body.page-id-2594 .vb-gallery img{flex-basis:calc((100% - 32px)/3)}
+}
+
+/* --- 5) #8 split blokk kepei: azonos arany, CLS-stabil -------------------- */
+body.page-id-2594 .vb-split__media .vb-img{
+  width:100%;
+  height:auto;
+  aspect-ratio:3/2;
+  object-fit:cover;
+  display:block;
+}
+
+/* --- 6) #14 microcopy olvashatosag (11-13px + opacity .85 volt) ----------- */
+body.page-id-2594 .vb-microcopy{
+  font-size:clamp(14px,1.05vw,15.5px);
+  line-height:1.75;
+  opacity:1;
+  color:rgba(200,181,96,.92);
+  max-width:1000px;
+}
+@media (min-width:600px){
+  body.page-id-2594 .vb-microcopy{text-align:left}
+}
+
+/* --- 7) Kontakt-csempek: 2x2 racs >=782px (4x egymas alatt volt) ---------- */
+@media (min-width:782px){
+  body.page-id-2594 .vb-darkgold-contact .vb-contact{
+    max-width:1000px;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:18px;
+  }
+}
+/* social linkek tap-targetje (16-19px szoveg, ~30px sorkoz volt) */
+body.page-id-2594 .vb-contact__socials{line-height:2.2}
+body.page-id-2594 .vb-contact__socials .vb-social{display:inline-block;padding:4px 2px}
+
+/* --- 8) FAQ: nyitas-jelzo chevron (nem volt semmilyen affordancia) -------- */
+body.page-id-2594 .vb-faq-item summary{position:relative;padding-right:54px}
+body.page-id-2594 .vb-faq-item summary::after{
+  content:"";
+  position:absolute;
+  right:24px;
+  top:50%;
+  width:10px;
+  height:10px;
+  margin-top:-7px;
+  border-right:2px solid currentColor;
+  border-bottom:2px solid currentColor;
+  transform:rotate(45deg);
+  transition:transform .25s ease;
+}
+body.page-id-2594 .vb-faq-item[open] summary::after{
+  transform:rotate(-135deg);
+  margin-top:-2px;
+}
+
+/* --- 9) prefers-reduced-motion kiegeszitese (csak a hero volt lefedve) ---- */
+@media (prefers-reduced-motion:reduce){
+  body.page-id-2594 .vb-gallery img,
+  body.page-id-2594 .vb-gallery img:hover,
+  body.page-id-2594 .vb-img,
+  body.page-id-2594 .vb-img:hover,
+  body.page-id-2594 .vb-contact__tile,
+  body.page-id-2594 .vb-contact__tile::after,
+  body.page-id-2594 .vb-faq-item summary,
+  body.page-id-2594 .vb-faq-item summary::after{
+    transition:none;
+    transform:none;
+    animation:none;
+  }
+  body.page-id-2594 .vb-faq-item summary::after{transform:rotate(45deg)}
+  body.page-id-2594 .vb-faq-item[open] summary::after{transform:rotate(-135deg)}
+}
+
+/* --- 10) Kis kepernyok: ne szoruljon a tartalom a szelekhez --------------- */
+@media (max-width:480px){
+  body.page-id-2594 .vb-darkgold-text,
+  body.page-id-2594 .vb-darkgold-gallery,
+  body.page-id-2594 .vb-darkgold-split,
+  body.page-id-2594 .vb-darkgold-faq,
+  body.page-id-2594 .vb-darkgold-micro{
+    padding-left:18px;
+    padding-right:18px;
+  }
+  body.page-id-2594 .vb-contact__inner{padding-left:16px;padding-right:16px}
+}
