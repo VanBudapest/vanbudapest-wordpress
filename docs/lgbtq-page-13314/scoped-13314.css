@@ -204,3 +204,6 @@ section.vb-lx[id] { scroll-margin-top: 96px; }
 
 /* ---- 2. kör: teljes szélességű figure-képek felső korlátja ---- */
 .vb-lx .vb-content > figure img { max-width: 1100px; margin-inline: auto; }
+
+/* ---- 2. kör: a sticky sáv ne takarja a láblécet (csak ezen az oldalon) ---- */
+@media (max-width: 781px) { body { padding-bottom: 56px; } }
