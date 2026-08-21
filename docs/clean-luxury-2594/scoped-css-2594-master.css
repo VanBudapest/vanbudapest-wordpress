@@ -66,31 +66,50 @@ body.page-id-2594 :where(header,footer,nav) a:focus-visible{
   outline-offset:2px;
 }
 
-/* --- 4) Galeria: 1/2/3 oszlop, 3:2 arany, kozepre zart csonka sor ---------- */
+/* --- 4) Galeria: kompakt, meretkorlatos, kozepre zart racs ---------------- */
+/*     A galeria-doboz max 1140px es kozepre zart, igy 1920/2560px-en sem
+       fujodik fel a kep (korabban 776x517px volt egy thumbnail).            */
 body.page-id-2594 .vb-gallery{
   display:flex;
   flex-wrap:wrap;
   justify-content:center;
-  gap:16px;
-  margin-top:clamp(24px,3vw,40px);
+  align-items:flex-start;
+  gap:10px;
+  max-width:min(1140px,92vw);
+  margin-inline:auto;
+  margin-top:clamp(22px,2.6vw,36px);
 }
 body.page-id-2594 .vb-gallery img{
-  flex:0 1 100%;
+  flex:0 1 calc(50% - 5px);
+  /* min-width:0 KOTELEZO: enelkul a betoltodott kep sajat 1536px-es merete
+     szetfeszitene a flex-cellat (min-width:auto csapda), es 1 kep/sor lenne */
+  min-width:0;
+  max-width:100%;
   width:100%;
   height:auto;
   aspect-ratio:3/2;
   object-fit:cover;
   display:block;
 }
-@media (min-width:600px){
-  body.page-id-2594 .vb-gallery img{flex-basis:calc(50% - 8px)}
+@media (min-width:820px){
+  body.page-id-2594 .vb-gallery{gap:14px}
+  body.page-id-2594 .vb-gallery img{flex-basis:calc((100% - 28px)/3)}
 }
-@media (min-width:900px){
-  body.page-id-2594 .vb-gallery img{flex-basis:calc((100% - 32px)/3)}
+@media (min-width:1100px){
+  body.page-id-2594 .vb-gallery{gap:16px}
+  body.page-id-2594 .vb-gallery img{flex-basis:calc((100% - 48px)/4)}
 }
 
-/* --- 5) #8 split blokk kepei: azonos arany, CLS-stabil -------------------- */
+/* --- 5) #8 split blokk kepei: meretkorlat + azonos arany ----------------- */
+body.page-id-2594 .vb-split__media{
+  max-width:420px;
+  width:100%;
+  margin-inline:auto;
+  gap:14px;
+}
 body.page-id-2594 .vb-split__media .vb-img{
+  min-width:0;
+  max-width:100%;
   width:100%;
   height:auto;
   aspect-ratio:3/2;

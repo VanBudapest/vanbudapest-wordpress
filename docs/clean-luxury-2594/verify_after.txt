@@ -1,0 +1,16 @@
+szél. | magasság | túllógás | legnagyobb kép | galéria-kép | oszlop #6/#10 | #8 kép | kilógó elem
+  320 |    25466 | nincs    |            330 |         137 |           2/2 |    204 | IMG.vb-bg__image
+  360 |    22989 | nincs    |            371 |         157 |           2/2 |    244 | IMG.vb-bg__image
+  390 |    21508 | nincs    |            402 |         172 |           2/2 |    274 | IMG.vb-bg__image
+  414 |    20521 | nincs    |            426 |         184 |           2/2 |    298 | IMG.vb-bg__image
+  430 |    20108 | nincs    |            443 |         192 |           2/2 |    314 | IMG.vb-bg__image
+  480 |    18909 | nincs    |            494 |         216 |           2/2 |    340 | IMG.vb-bg__image
+  600 |    17110 | nincs    |            618 |         259 |           2/2 |    340 | IMG.vb-bg__image
+  768 |    15802 | nincs    |            791 |         333 |           2/2 |    340 | IMG.vb-bg__image
+  775 |    15746 | nincs    |            798 |         336 |           2/2 |    340 | IMG.vb-bg__image
+  900 |    13441 | nincs    |            927 |         255 |           3/3 |    296 | IMG.vb-bg__image
+ 1024 |    13765 | nincs    |           1055 |         291 |           3/3 |    340 | IMG.vb-bg__image
+ 1280 |    15181 | nincs    |           1318 |         270 |           4/4 |    340 | IMG.vb-bg__image
+ 1440 |    15748 | nincs    |           1483 |         273 |           4/4 |    340 | IMG.vb-bg__image
+ 1920 |    15757 | nincs    |           1978 |         273 |           4/4 |    340 | IMG.vb-bg__image
+ 2560 |    15757 | nincs    |           2637 |         273 |           4/4 |    340 | IMG.vb-bg__image

@@ -99,3 +99,39 @@ A mérés a 15 `wp:html` blokk lokális újrarenderelésén készült (valódi k
 valódi inline CSS + az új scoped CSS), a téma fejléce/lábléce és a fényképek
 nélkül — az abszolút magasságok ezért kisebbek az élő oldalénál, az arányok és
 az oszlopszámok viszont valósak.
+
+---
+
+## Kép-méretezés javítás (2026-08-21, 3. kör)
+
+**Gyökérok:** a galéria flex-cellái `min-width:auto`-val futottak. Amíg a
+`loading="lazy"` képek nem töltöttek be, a rács jó volt; betöltés után viszont a
+kép saját 1536 px-es intrinsic mérete szétfeszítette a cellát, és **1 kép került
+egy sorba, teljes szélességben**. 2560 px-en ez 776×517 px-es „bélyegképet",
+a #8 blokkban 1080×720 px-es képet jelentett.
+
+**Javítás** (`vb-cleanluxury-2594-master`, priority 20):
+
+| | |
+|---|---|
+| `min-width:0` + `max-width:100%` a galéria- és split-képekre | a flex-basis végre érvényesül |
+| galéria-doboz `max-width:min(1140px,92vw)` + `margin-inline:auto` | 1920/2560 px-en sem fúvódik fel |
+| oszlopszám | `<820px` 2 · `820–1099px` 3 · `≥1100px` 4 |
+| `.vb-split__media` `max-width:420px` | a #8 blokk képei 340 px-en megállnak |
+
+**Mérés végiggörgetés után** (`verify.js` → `verify_after.txt`), hogy minden
+lazy kép betöltsön:
+
+- legnagyobb galéria-kép **bármekkora képernyőn: 273 px** (előtte 776 px)
+- 0 vízszintes túllógás mind a 15 szélességen
+- oldalmagasság: 2560 px-en **−33%**, 1440 px-en **−30%**, 390 px-en **−18%**
+- az egyetlen „kilógó" elem a hero `img.vb-bg__image` — ez szándékos
+  (`transform:scale(1.03)`, a szekció `overflow:hidden`-je levágja)
+
+## Mi maradt hátra az auditból
+
+Tételes lista: `audit-hatralevo-tetelek.html`, illetve a `visual-report.html`
+végén. Nyolc csoport: (1) üzleti döntést igénylő állítások, (2) szövegmódosítás,
+(3) képek (ALT-ok, width/height, srcset, origin-súly, CDN-purge), (4) tartalom
+törlése, (5) globális, (6) konverzió/SEO javaslatok, (7) amit szándékosan
+kihagytam, (8) amit innen nem tudok megmérni.

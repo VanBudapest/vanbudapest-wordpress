@@ -1,0 +1,96 @@
+<hr class="rule">
+
+<section>
+  <h2>Mi az, ami az auditból még nincs kész</h2>
+  <p class="note" style="color:var(--text-dim);max-width:74ch">
+    Az eredeti audit minden tételét visszaellenőriztem az oldal mostani, élő tartalmán.
+    A lista aszerint van csoportosítva, hogy <em>miért</em> nincs kész — nem aszerint,
+    hogy mennyire fontos.
+  </p>
+</section>
+
+<section>
+  <h3>1. Döntést igényel tőletek — üzleti vagy ténybeli állítás</h3>
+  <p class="note" style="color:var(--text-dim);max-width:74ch">Ezekhez nem nyúlhatok, mert kitalált üzleti tartalom lenne. Az audit 6. és 7. szekciója.</p>
+  <ul>
+    <li><b>Refund &amp; Flexibility Guarantee</b> (#10) és „COVID-19 – Refund Guaranteed" (#14): 100%-os visszatérítés ígérete. Él-e még ez a policy? Összhangban van az ÁSZF-fel?</li>
+    <li><b>„All bookings include full insurance coverage"</b> (#2): pontosan mit fed? Utasbiztosítás? Felelősségbiztosítás?</li>
+    <li><b>SAO, ózongenerátor, elektrosztatikus permetező, UV-C, HEPA, antimikrobiális bevonat</b> (#6): ma is mind bevett gyakorlat, vagy „kérésre elérhető" szintre kellene hozni?</li>
+    <li><b>„Vehicles are fitted with optional polycarbonate barriers"</b> (#10): van még ilyen a flottában?</li>
+    <li><b>„English, Hungarian, German, Spanish and Chinese speaking drivers"</b> (#15): valós? A schema csak angolt és magyart sorol.</li>
+    <li><b>„Real World Examples (Anonymized)"</b> (#11): a 3 eset valós, vagy illusztráció? Ha illusztráció, a „Real World" cím félrevezető. A „Medical Mission" egészségügyi részletei érzékeny kontextus.</li>
+    <li><b>„Door-to-Door Safety Standard"</b> és <b>„eco-friendly and vegan"</b> tisztítószerek (#14): létező, nevesített szabvány? Igazolható?</li>
+    <li><b>„EPA registered / EPA approved"</b> — 7 helyen. Az EPA amerikai hatóság; az EU-ban a BPR (528/2012/EU) és az NNGYK a hatáskör. Amerikai ügyfélnek ismerős, de egy budapesti szolgáltatónál ténybelileg sántít.</li>
+    <li><b>TikTok-link</b> (4 helyen): a döntésed szerint maradt, de nincs a jóváhagyott social-listában, és nem tudom igazolni, hogy a tiétek.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>2. Szövegmódosítás — mert azt kérted, a szöveghez ne nyúljak</h3>
+  <ul>
+    <li><b>9 csonka mondat</b>, mind a 9 ott van még. Ellenőriztem: „…undergo daily temperature.", „…quaternary ammonium based.", „…before disinfectant is.", „…are individually.", „…recommended exposure.", „…never directly onto.", „…damage interior.", „…and stay home.", „…protect personal."</li>
+    <li><b>A #14 archív blokk elavult állításai:</b> „All riders and drivers <em>must</em> wear a face cover or mask" — ez ellentmond a saját FAQ-toknak („masks are optional"); „We are working with the World Health Organization (WHO)"; „Supplies are limited"; „as our communities start to move again".</li>
+    <li><b>„Since 1988" egyszer sem szerepel</b> az oldalon, pedig a márka-szabvány szerint ez a kötelező formula. A #2 blokkban helyette „With decades of experience" áll.</li>
+    <li><b>Ál-felsorolások:</b> 20 db „•" karakter és 19 db <code>&lt;br&gt;&lt;br&gt;</code>, mindössze <b>1</b> valódi <code>&lt;ul&gt;</code> az egész oldalon. Szemantikus listaként a felolvasó bejelentené a hosszát, és a térköz is stabil lenne.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>3. Képek — ami még hátra van</h3>
+  <ul>
+    <li><b>10 ALT még mindig generikus:</b> „Additional disinfected clean vehicle photo 1/2/3", „Clean and disinfected car interior", „Vehicle ozone treatment Budapest" stb. Az audit szerint a médiatárban az AI Kép SEO bővítmény már pontos, képleíró ALT-okat írt — azokat kellene bemásolni.</li>
+    <li><b>Nincs <code>width</code>/<code>height</code> attribútum</b> egyik képen sem (0/17). A CLS-t CSS <code>aspect-ratio</code>-val oldottam meg, ami működik, de az attribútum robusztusabb.</li>
+    <li><b>Nincs <code>srcset</code>/<code>sizes</code></b> (0/17). A ShortPixel <code>ret_auto</code> elvileg méretez, de saját srcset pontosabb lenne.</li>
+    <li><b>Origin képsúly ~24 MB:</b> 11 „jpg" valójában 1,7–2,6 MB-os PNG. WebP-re konvertálás és újratöltés kellene. Ezt innen nem tudom megcsinálni — a fájlokat nem tudom letölteni.</li>
+    <li><b>ShortPixel CDN-purge</b> a 10 „elavult" kép-URL-re. MCP-ből nem kiváltható. Megjegyzés: a saját mérésem szerint a CDN-derivált 2026-08-09-i, tehát <em>újabb</em>, mint az origin fájl (2026-05-02), vagyis valószínűleg már friss. Ha mégis régi képet láttok, ShortPixel admin → purge.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>4. Tartalom törlése — külön jóváhagyás kell hozzá</h3>
+  <ul>
+    <li><b>A kapcsolat-blokk 4-szer ismétlődik</b> (a tartalom ~30%-a). Az audit szerint 2 példány elég: a hero után és a zárásnál. Ez 2 teljes blokk törlése.</li>
+    <li><b>A #14 microcopy összecsukható „archív" blokkba</b> (<code>&lt;details&gt;</code>, „Our 2020–2021 safety notice"). Most csak a betűméretet és a kontrasztot javítottam.</li>
+    <li><b>A #6 galéria 10 képe</b> — az audit szerint sok; 9 (3×3) vagy 6 lenne ideális. Most 4+4+2-ként rendeződik.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>5. Globális — több oldalt érint, külön kör kell</h3>
+  <ul>
+    <li><b>Roboto Serif 3,16 MB TTF</b> + 12 betűcsalád + a Google Fonts 1,2 másodpercig render-blokkol. Ez az oldal legnagyobb egyedi erőforrása.</li>
+    <li><b>GTM 334 KB + Meta pixel 244 KB</b>, együtt ~480 ms főszál-idő.</li>
+    <li><b>A SEO-bővítmény 156 karakteren vágja a meta description-t</b> minden oldalon. Ezen az egy oldalon kézzel megoldottam.</li>
+    <li><b><code>html{overflow-x:hidden}</code> → <code>clip</code></b> globálisan (itt scoped megoldás van).</li>
+    <li><b>Címsor-betűtípus egységesítése</b> a testvéroldalakkal — most a téma Roboto Serifje nyer, a blokkok Montserratot kérnének.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>6. Konverzió és SEO — az audit proaktív javaslataiból egy sem valósult meg</h3>
+  <ul>
+    <li><b>CTA-stratégia:</b> 2 919 szó és mindössze egyetlen belső link-cél (a kapcsolat-oldal). Nincs link a flottára, az árakra, a reptéri transzferre. VIEW FLEET + reptéri ár + óradíj gombsor kellene.</li>
+    <li><b>Bizalmi jelek korán:</b> „Since 1988" kicker a heróba, Google-értékelés link a CTA mellé, 3 csempés trust-bar a hero alatt.</li>
+    <li><b>FAQPage schema</b> az 5 angol kérdés-válaszra — most 0 strukturált adat van a FAQ-ra.</li>
+    <li><b>6–8 kontextuális belső link</b> a meglévő mondatokba (reptér, Bécs/Prága, flotta, korporatív, esküvő/sport). A szöveg mindet említi, de sehova nem vezet.</li>
+    <li><b>Sticky mobil CTA</b> — mobilon a Book Now csempék között 8 000 px van CTA nélkül.</li>
+    <li><b>Stratégiai döntés:</b> ez evergreen higiénia-oldal lesz, vagy vállaltan COVID-archívum? A title és a hero már az előbbi, a #14 és a refund-garancia az utóbbi.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>7. Amit szándékosan kihagytam</h3>
+  <ul>
+    <li><b>Hero „kékre állítása"</b> (az audit E1 javaslata): a <code>mix-blend-mode:luminosity</code> elhagyása. Az overlay nagyon átlátszatlan (navy .92 → fekete .96), és ha egyszerűen kikapcsolom, a fotó szinte eltűnhet a fátyol alatt. Ezt látni kell hozzá — szívesen megcsinálom, ha vállaljuk a próbát. A jelenlegi kontraszt 3,8:1, ami nagy szövegre (≥24 px) WCAG AA-t teljesít.</li>
+    <li><b>Sorkizárás ≥782 px-en</b> (justify + hyphens): az audit is „opt-in"-nek jelöli, mert igazítás-változtatás.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>8. Amit innen nem tudok megmérni</h3>
+  <ul>
+    <li><b>Lighthouse újramérés.</b> Az audit szerint mobil 34 / desktop 51, LCP 6,3 s. Az oldal most ~30%-kal rövidebb, 8 kéréssel kevesebb (emoji-képek), a hero <code>fetchpriority="high"</code>-t kapott és 16 kép lazy-load lett — de a valódi számot PageSpeed Insightsszal kell megnézni.</li>
+    <li><b>Valódi eszközös ellenőrzés</b>, Search Console-forgalom, INP.</li>
+    <li><b>A #10 galéria V-Class flotta-fotója</b>: nem láttam. Ha rendszám vagy nem odaillő tartalom van rajta, egyetlen <code>&lt;img&gt;</code> cseréje a javítás.</li>
+  </ul>
+</section>

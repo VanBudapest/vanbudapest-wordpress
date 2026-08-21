@@ -2,7 +2,7 @@
  "preview_before.html": [
   {
    "w": 320,
-   "height": 28992,
+   "height": 28985,
    "scrollW": 320,
    "clientW": 320,
    "galleryCols": 1,
@@ -124,55 +124,55 @@
  "preview_after.html": [
   {
    "w": 320,
-   "height": 27708,
+   "height": 25549,
    "scrollW": 320,
    "clientW": 320,
-   "galleryCols": 1,
+   "galleryCols": 2,
    "overflow": false
   },
   {
    "w": 360,
-   "height": 25428,
+   "height": 22989,
    "scrollW": 360,
    "clientW": 360,
-   "galleryCols": 1,
+   "galleryCols": 2,
    "overflow": false
   },
   {
    "w": 390,
-   "height": 24157,
+   "height": 21508,
    "scrollW": 390,
    "clientW": 390,
-   "galleryCols": 1,
+   "galleryCols": 2,
    "overflow": false
   },
   {
    "w": 414,
-   "height": 23339,
+   "height": 20521,
    "scrollW": 414,
    "clientW": 414,
-   "galleryCols": 1,
+   "galleryCols": 2,
    "overflow": false
   },
   {
    "w": 430,
-   "height": 23038,
+   "height": 20108,
    "scrollW": 430,
    "clientW": 430,
-   "galleryCols": 1,
+   "galleryCols": 2,
    "overflow": false
   },
   {
    "w": 480,
-   "height": 22226,
+   "height": 18909,
    "scrollW": 480,
    "clientW": 480,
-   "galleryCols": 1,
+   "galleryCols": 2,
    "overflow": false
   },
   {
    "w": 600,
-   "height": 17276,
+   "height": 17110,
    "scrollW": 600,
    "clientW": 600,
    "galleryCols": 2,
@@ -180,7 +180,7 @@
   },
   {
    "w": 768,
-   "height": 16165,
+   "height": 15802,
    "scrollW": 768,
    "clientW": 768,
    "galleryCols": 2,
@@ -188,7 +188,7 @@
   },
   {
    "w": 775,
-   "height": 16117,
+   "height": 15746,
    "scrollW": 775,
    "clientW": 775,
    "galleryCols": 2,
@@ -196,7 +196,7 @@
   },
   {
    "w": 900,
-   "height": 13451,
+   "height": 13441,
    "scrollW": 900,
    "clientW": 900,
    "galleryCols": 3,
@@ -204,7 +204,7 @@
   },
   {
    "w": 1024,
-   "height": 13774,
+   "height": 13764,
    "scrollW": 1024,
    "clientW": 1024,
    "galleryCols": 3,
@@ -212,34 +212,34 @@
   },
   {
    "w": 1280,
-   "height": 15949,
+   "height": 15170,
    "scrollW": 1280,
    "clientW": 1280,
-   "galleryCols": 3,
+   "galleryCols": 4,
    "overflow": false
   },
   {
    "w": 1440,
-   "height": 16785,
+   "height": 15748,
    "scrollW": 1440,
    "clientW": 1440,
-   "galleryCols": 3,
+   "galleryCols": 4,
    "overflow": false
   },
   {
    "w": 1920,
-   "height": 17880,
+   "height": 15757,
    "scrollW": 1920,
    "clientW": 1920,
-   "galleryCols": 3,
+   "galleryCols": 4,
    "overflow": false
   },
   {
    "w": 2560,
-   "height": 19160,
+   "height": 15757,
    "scrollW": 2560,
    "clientW": 2560,
-   "galleryCols": 3,
+   "galleryCols": 4,
    "overflow": false
   }
  ]
