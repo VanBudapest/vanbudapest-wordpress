@@ -1,0 +1,121 @@
+/* ============================================================
+   VB CAREERS (13604) — MASTER scoped CSS — A-csomag + képcsere
+   2026-08-21 · Audit: VanBudapest_Careers_oldalaudit_20260821
+   A post_contenthez nem nyúl. Visszavonás: a szabály törlése.
+   ============================================================ */
+
+/* ---- 0. Blokkok közötti fehér varratok eltüntetése ---- */
+body.page-id-13604 .entry-content > .wp-block-html{margin-block-start:0;margin-block-end:0}
+body.page-id-13604 .entry-content > .vb-section.vb-fw{margin-top:0;margin-bottom:0}
+body.page-id-13604 .entry-content{margin-bottom:0;padding-bottom:0}
+
+/* ---- 1. Kaszkád-balesetek visszaállítása (a #3 blokk generikus
+        osztályai felülírták az #1/#2 blokk szándékát) ---- */
+
+/* #1 bevezető: a bekezdések fehérek (a #3 aranyra színezte őket) */
+body.page-id-13604 .vb-section:has(.vb-img) .vb-content p{color:#FFFFFF}
+
+/* #1 bevezető: függőleges belső tér visszaállítása az eredeti terv szerint */
+body.page-id-13604 .vb-section.vb-fw:has(.vb-img){padding:0}
+body.page-id-13604 .vb-section:has(.vb-img) .vb-inner{padding:80px 24px}
+
+/* #2 kártya-gombok + sticky gomb: tömör arany (a #3 ghost-stílusa írta felül) */
+body.page-id-13604 .vb-card .vb-cta,
+body.page-id-13604 .vb-sticky-cta .vb-cta{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:12px 28px;border:0;border-radius:40px;
+  background:#C8B560;color:#0A1F44;margin-top:0;
+  backdrop-filter:none;-webkit-backdrop-filter:none;
+  font-weight:700;letter-spacing:0.6px;font-size:0.98rem;
+  box-shadow:0 0 26px rgba(200,181,96,0.45);
+  transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
+}
+body.page-id-13604 .vb-card .vb-cta:hover,
+body.page-id-13604 .vb-sticky-cta .vb-cta:hover{
+  background:#E5D9A8;color:#0A1F44;
+  box-shadow:0 0 34px rgba(200,181,96,0.65);
+  transform:translateY(-1px);
+}
+
+/* ---- 2. .vb-footer osztály-ütközés semlegesítése ----
+   A site-lábléc (WPCode 20084) .vb-footer szabálya feketére festette és
+   faltól-falig húzta a #3 blokk záró sorát. Visszaállítás a blokk szándékára: */
+body.page-id-13604 .vb-section .vb-footer{
+  background:transparent !important;
+  width:auto !important;max-width:none !important;
+  position:static !important;left:auto !important;right:auto !important;
+  margin:50px 0 0 !important;padding:0 !important;
+  color:#C8B560 !important;font-family:inherit !important;
+  font-weight:600 !important;font-size:1.05rem !important;
+  letter-spacing:0.3px !important;line-height:inherit !important;
+  text-align:center !important;border:0 !important;box-shadow:none !important;
+}
+body.page-id-13604 .vb-section .vb-footer::before,
+body.page-id-13604 .vb-section .vb-footer::after{content:none !important;display:none !important}
+
+/* Fordított szivárgás: a #3 blokk .vb-footer szabályából a valódi láblécre
+   csak az szivárog át, amit a lábléc CSS-e nem definiál a gyökéren.
+   Ezek visszaállítása az alapértékre (csak ezen az oldalon fut): */
+footer.vb-footer{font-weight:400;font-size:1rem;letter-spacing:normal}
+
+/* ---- 3. 320–367 px: kártya-levágás javítása ---- */
+body.page-id-13604 .vb-grid{grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr))}
+
+/* ---- 4. Mobil jelentkezés-sáv: fixed → sticky a #2 blokkon belül
+        (nem takarja többé a #3 blokkot és a lábléc fizetési logóit) ---- */
+body.page-id-13604 .vb-section.vb-fw{overflow:clip}
+body.page-id-13604 .wp-site-blocks,
+body.page-id-13604 .entry-content,
+body.page-id-13604 .site-content{overflow-x:clip !important}
+@media (max-width:768px){
+  body.page-id-13604 .vb-sticky-bar{
+    position:sticky;bottom:0;left:auto;right:auto;
+    width:auto;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);
+    margin-top:40px;
+  }
+  body.page-id-13604 .vb-section.vb-fw:has(.vb-sticky-bar){padding-bottom:0}
+}
+
+/* ---- 5. Sorkizárás: mobilon balra zárt, desktopon elválasztással ---- */
+@media (max-width:781px){
+  body.page-id-13604 .vb-content,
+  body.page-id-13604 .vb-content p,
+  body.page-id-13604 .vb-card p{text-align:left}
+}
+@media (min-width:782px){
+  body.page-id-13604 .vb-content,
+  body.page-id-13604 .vb-card p{-webkit-hyphens:auto;hyphens:auto}
+}
+
+/* ---- 6. Címek: fix rem → clamp() (320 px-en nem lóg ki, desktopon változatlan) ---- */
+body.page-id-13604 .vb-title{font-size:clamp(1.75rem, 1rem + 2.2vw, 2.7rem)}
+body.page-id-13604 .vb-career-title{font-size:clamp(1.45rem, 1rem + 1.5vw, 2.1rem)}
+body.page-id-13604 .vb-content h3{font-size:clamp(1.35rem, 1rem + 1.05vw, 1.8rem)}
+body.page-id-13604 .vb-card h3{font-size:clamp(1.15rem, 1rem + 0.55vw, 1.4rem)}
+
+/* ---- 7. prefers-reduced-motion kivétel ---- */
+@media (prefers-reduced-motion:reduce){
+  body.page-id-13604 .vb-card,
+  body.page-id-13604 .vb-cta{transition:none}
+  body.page-id-13604 .vb-card:hover,
+  body.page-id-13604 .vb-cta:hover,
+  body.page-id-13604 .vb-cta:active{transform:none}
+}
+
+/* ---- 8. Bevezető kép: méret-stabilitás (CLS) ---- */
+body.page-id-13604 .vb-img{aspect-ratio:3/2;object-fit:cover;height:auto}
+
+/* ---- 9. Fejléc-logó átfedés enyhítése 1200–1500 px között ---- */
+@media (min-width:1200px) and (max-width:1500px){
+  body.page-id-13604 .vb-career-wrapper{padding-left:110px;padding-right:110px}
+}
+
+/* ---- 10. Licenc-kockázatos képek cseréje (fal.ai generálás, arc nélkül) ---- */
+body.page-id-13604 img[src*="customer-service-representative-csr"]{
+  content:url("https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2026/08/image-1787323300.webp")}
+body.page-id-13604 img[src*="Marketing-Communications-Expert"]{
+  content:url("https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2026/08/image-1787323322.webp")}
+body.page-id-13604 img[src*="funciones-de-social-media-manager"]{
+  content:url("https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2026/08/image-1787323330.webp")}
+body.page-id-13604 img[src*="Host-Hostess"]{
+  content:url("https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2026/08/image-1787323343.webp")}

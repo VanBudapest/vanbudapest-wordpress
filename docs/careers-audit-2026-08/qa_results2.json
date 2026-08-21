@@ -1,0 +1,330 @@
+{
+ "before": {
+  "320": {
+   "hscroll": 0,
+   "introPColor": "rgb(200, 181, 96)",
+   "introPAlign": "justify",
+   "innerPad": "0px 24px",
+   "titleSize": "43.2px",
+   "ctaBg": "rgba(255, 255, 255, 0.05)",
+   "ctaColor": "rgb(200, 181, 96)",
+   "ctaBorder": "2px",
+   "cardRight": 368,
+   "cardPAlign": "justify",
+   "gridCols": 1,
+   "sectionGaps": [
+    36,
+    36
+   ],
+   "blockFooter": {
+    "bg": "rgb(5, 14, 35)",
+    "pos": "relative",
+    "width": 320,
+    "color": "rgb(255, 255, 255)"
+   },
+   "realFooter": {
+    "fw": "600",
+    "fs": "16.8px",
+    "ls": "0.3px",
+    "bg": "rgb(5, 14, 35)",
+    "width": 320
+   },
+   "sticky": {
+    "display": "flex",
+    "position": "fixed",
+    "height": 146,
+    "width": 320
+   },
+   "bottomOverlap": {
+    "stickyVisibleAtBottom": true,
+    "overlapsPayments": true,
+    "stickyTop": 698,
+    "payTop": 774
+   }
+  },
+  "390": {
+   "hscroll": 0,
+   "introPColor": "rgb(200, 181, 96)",
+   "introPAlign": "justify",
+   "innerPad": "0px 24px",
+   "titleSize": "43.2px",
+   "ctaBg": "rgba(255, 255, 255, 0.05)",
+   "ctaColor": "rgb(200, 181, 96)",
+   "ctaBorder": "2px",
+   "cardRight": 368,
+   "cardPAlign": "justify",
+   "gridCols": 1,
+   "sectionGaps": [
+    36,
+    36
+   ],
+   "blockFooter": {
+    "bg": "rgb(5, 14, 35)",
+    "pos": "relative",
+    "width": 390,
+    "color": "rgb(255, 255, 255)"
+   },
+   "realFooter": {
+    "fw": "600",
+    "fs": "16.8px",
+    "ls": "0.3px",
+    "bg": "rgb(5, 14, 35)",
+    "width": 390
+   },
+   "sticky": {
+    "display": "flex",
+    "position": "fixed",
+    "height": 126,
+    "width": 390
+   },
+   "bottomOverlap": {
+    "stickyVisibleAtBottom": true,
+    "overlapsPayments": true,
+    "stickyTop": 718,
+    "payTop": 774
+   }
+  },
+  "768": {
+   "hscroll": 0,
+   "introPColor": "rgb(200, 181, 96)",
+   "introPAlign": "justify",
+   "innerPad": "0px 24px",
+   "titleSize": "43.2px",
+   "ctaBg": "rgba(255, 255, 255, 0.05)",
+   "ctaColor": "rgb(200, 181, 96)",
+   "ctaBorder": "2px",
+   "cardRight": 720,
+   "cardPAlign": "justify",
+   "gridCols": 1,
+   "sectionGaps": [
+    36,
+    36
+   ],
+   "blockFooter": {
+    "bg": "rgb(5, 14, 35)",
+    "pos": "relative",
+    "width": 768,
+    "color": "rgb(255, 255, 255)"
+   },
+   "realFooter": {
+    "fw": "600",
+    "fs": "16.8px",
+    "ls": "0.3px",
+    "bg": "rgb(5, 14, 35)",
+    "width": 768
+   },
+   "sticky": {
+    "display": "flex",
+    "position": "fixed",
+    "height": 112,
+    "width": 768
+   },
+   "bottomOverlap": {
+    "stickyVisibleAtBottom": true,
+    "overlapsPayments": true,
+    "stickyTop": 732,
+    "payTop": 774
+   }
+  },
+  "1440": {
+   "hscroll": 0,
+   "introPColor": "rgb(200, 181, 96)",
+   "introPAlign": "justify",
+   "innerPad": "0px 24px",
+   "titleSize": "43.2px",
+   "ctaBg": "rgba(255, 255, 255, 0.05)",
+   "ctaColor": "rgb(200, 181, 96)",
+   "ctaBorder": "2px",
+   "cardRight": 471,
+   "cardPAlign": "justify",
+   "gridCols": 3,
+   "sectionGaps": [
+    36,
+    36
+   ],
+   "blockFooter": {
+    "bg": "rgb(5, 14, 35)",
+    "pos": "relative",
+    "width": 1440,
+    "color": "rgb(255, 255, 255)"
+   },
+   "realFooter": {
+    "fw": "600",
+    "fs": "16.8px",
+    "ls": "0.3px",
+    "bg": "rgb(5, 14, 35)",
+    "width": 1440
+   },
+   "sticky": {
+    "display": "none",
+    "position": "fixed",
+    "height": 0,
+    "width": 0
+   }
+  }
+ },
+ "after": {
+  "320": {
+   "hscroll": 0,
+   "introPColor": "rgb(255, 255, 255)",
+   "introPAlign": "left",
+   "innerPad": "80px 24px",
+   "titleSize": "28px",
+   "ctaBg": "rgb(200, 181, 96)",
+   "ctaColor": "rgb(10, 31, 68)",
+   "ctaBorder": "0px",
+   "cardRight": 272,
+   "cardPAlign": "left",
+   "gridCols": 1,
+   "sectionGaps": [
+    0,
+    0
+   ],
+   "blockFooter": {
+    "bg": "rgba(0, 0, 0, 0)",
+    "pos": "static",
+    "width": 224,
+    "color": "rgb(200, 181, 96)"
+   },
+   "realFooter": {
+    "fw": "400",
+    "fs": "16px",
+    "ls": "normal",
+    "bg": "rgb(5, 14, 35)",
+    "width": 320
+   },
+   "sticky": {
+    "display": "flex",
+    "position": "sticky",
+    "height": 146,
+    "width": 320
+   },
+   "bottomOverlap": {
+    "stickyVisibleAtBottom": true,
+    "overlapsPayments": false,
+    "stickyTop": -1831,
+    "payTop": 774
+   }
+  },
+  "390": {
+   "hscroll": 0,
+   "introPColor": "rgb(255, 255, 255)",
+   "introPAlign": "left",
+   "innerPad": "80px 24px",
+   "titleSize": "28px",
+   "ctaBg": "rgb(200, 181, 96)",
+   "ctaColor": "rgb(10, 31, 68)",
+   "ctaBorder": "0px",
+   "cardRight": 342,
+   "cardPAlign": "left",
+   "gridCols": 1,
+   "sectionGaps": [
+    0,
+    0
+   ],
+   "blockFooter": {
+    "bg": "rgba(0, 0, 0, 0)",
+    "pos": "static",
+    "width": 294,
+    "color": "rgb(200, 181, 96)"
+   },
+   "realFooter": {
+    "fw": "400",
+    "fs": "16px",
+    "ls": "normal",
+    "bg": "rgb(5, 14, 35)",
+    "width": 390
+   },
+   "sticky": {
+    "display": "flex",
+    "position": "sticky",
+    "height": 106,
+    "width": 390
+   },
+   "bottomOverlap": {
+    "stickyVisibleAtBottom": true,
+    "overlapsPayments": false,
+    "stickyTop": -1256,
+    "payTop": 774
+   }
+  },
+  "768": {
+   "hscroll": 0,
+   "introPColor": "rgb(255, 255, 255)",
+   "introPAlign": "left",
+   "innerPad": "80px 24px",
+   "titleSize": "32.896px",
+   "ctaBg": "rgb(200, 181, 96)",
+   "ctaColor": "rgb(10, 31, 68)",
+   "ctaBorder": "0px",
+   "cardRight": 720,
+   "cardPAlign": "left",
+   "gridCols": 1,
+   "sectionGaps": [
+    0,
+    0
+   ],
+   "blockFooter": {
+    "bg": "rgba(0, 0, 0, 0)",
+    "pos": "static",
+    "width": 672,
+    "color": "rgb(200, 181, 96)"
+   },
+   "realFooter": {
+    "fw": "400",
+    "fs": "16px",
+    "ls": "normal",
+    "bg": "rgb(5, 14, 35)",
+    "width": 768
+   },
+   "sticky": {
+    "display": "flex",
+    "position": "sticky",
+    "height": 69,
+    "width": 768
+   },
+   "bottomOverlap": {
+    "stickyVisibleAtBottom": true,
+    "overlapsPayments": false,
+    "stickyTop": -487,
+    "payTop": 774
+   }
+  },
+  "1440": {
+   "hscroll": 0,
+   "introPColor": "rgb(255, 255, 255)",
+   "introPAlign": "justify",
+   "innerPad": "80px 24px",
+   "titleSize": "43.2px",
+   "ctaBg": "rgb(200, 181, 96)",
+   "ctaColor": "rgb(10, 31, 68)",
+   "ctaBorder": "0px",
+   "cardRight": 499,
+   "cardPAlign": "justify",
+   "gridCols": 3,
+   "sectionGaps": [
+    0,
+    0
+   ],
+   "blockFooter": {
+    "bg": "rgba(0, 0, 0, 0)",
+    "pos": "static",
+    "width": 1252,
+    "color": "rgb(200, 181, 96)"
+   },
+   "realFooter": {
+    "fw": "400",
+    "fs": "16px",
+    "ls": "normal",
+    "bg": "rgb(5, 14, 35)",
+    "width": 1440
+   },
+   "sticky": {
+    "display": "none",
+    "position": "fixed",
+    "height": 0,
+    "width": 0
+   }
+  }
+ }
+}

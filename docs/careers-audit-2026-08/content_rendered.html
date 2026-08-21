@@ -1,0 +1,332 @@
+
+<section class="vb-section vb-fw" data-theme="dark-premium" data-component="vb-motion-v4">
+  <style>
+    .vb-section, .vb-section * { box-sizing: border-box !important; }
+    .vb-section.vb-fw{
+      width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw);
+      overflow:hidden; position:relative; isolation:isolate; z-index:1;
+      background: linear-gradient(135deg, #050E23, #0A1F44, #12306A);
+      color:#FFFFFF;
+      font-family:"Montserrat","Segoe UI",system-ui,Arial,sans-serif;
+    }
+    .vb-inner{ max-width:1300px; margin:0 auto; padding:80px 24px; width:100%; }
+    .vb-title{ text-align:center; font-weight:800; color:#C8B560; font-size:2.8rem; margin-bottom:10px; }
+    .vb-subtitle{ text-align:center; opacity:.9; margin-bottom:50px; font-size:1.3rem; }
+    .vb-content{ text-align:justify; line-height:1.75; font-size:1.15rem; }
+    .vb-content h3{ text-align:center; color:#C8B560; margin:40px 0 20px; font-size:1.8rem; }
+    .vb-content h3::after{ content:""; display:block; width:70px; height:3px; background:#C8B560; margin:10px auto 0; }
+    .vb-img{ width:100%; max-width:900px; margin:40px auto; border-radius:14px; display:block; box-shadow:0 10px 30px rgba(0,0,0,0.45); }
+  </style>
+
+  <div class="vb-inner">
+    <h2 class="vb-title">Join VanBudapest’s Journey of Excellence</h2>
+    <p class="vb-subtitle">Where precision, elegance, and opportunity drive success.</p>
+
+    <img decoding="async" class="vb-img" src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2025/06/2024-Mercedes-Benz-S-Class-budapest.png" alt="2024 Mercedes-Benz S-Class Budapest">
+
+    <div class="vb-content">
+      <h3>Introductory Section</h3>
+      <p>Since 1988, VanBudapest has been a symbol of excellence in luxury transportation across Budapest and Central Europe. Our story is one of precision, professionalism, and hospitality — a commitment to delivering seamless journeys for discerning travelers, executives, and international guests.</p>
+
+      <p>As the region’s leading premium chauffeur brand, VanBudapest combines modern fleet sophistication with timeless service values. From private airport transfers to full-day business travel, our standards of safety, discretion, and elegance define every experience. Now, we invite dedicated professionals and luxury travel specialists to join our growing team and continue the legacy of trusted excellence that sets VanBudapest apart.</p>
+    </div>
+  </div>
+</section>
+
+
+
+
+<section class="vb-section vb-fw" data-theme="dark-premium" data-component="vb-motion-v4">
+  <style>
+    .vb-section, .vb-section * { box-sizing: border-box !important; }
+    .vb-section.vb-fw{
+      width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw);
+      overflow:hidden; position:relative; isolation:isolate; z-index:1;
+      background: linear-gradient(135deg,#050E23,#0A1F44,#12306A);
+      color:#FFFFFF; font-family:"Montserrat",system-ui,Arial; padding:80px 0 120px;
+    }
+
+    .vb-career-wrapper{
+      max-width:1400px; margin:0 auto; padding:0 24px;
+    }
+
+    .vb-career-title{
+      text-align:center; margin:0 0 40px; color:#C8B560; font-size:2.1rem; font-weight:800;
+    }
+    .vb-career-title::after{
+      content:""; display:block; width:90px; height:3px; background:#C8B560;
+      margin:14px auto 0; border-radius:2px;
+    }
+
+    .vb-grid{
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:36px;
+    }
+
+    .vb-card{
+      background:rgba(8,16,40,0.88);
+      border:1px solid rgba(200,181,96,0.35);
+      border-radius:20px;
+      padding:22px 24px 26px;
+      text-align:center;
+      backdrop-filter:blur(10px);
+      min-height:440px;
+      display:flex; flex-direction:column; justify-content:space-between;
+      box-shadow:0 18px 40px rgba(0,0,0,0.45);
+      transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+    }
+    .vb-card:nth-child(2n){ background:rgba(10,27,60,0.92); }
+    .vb-card:nth-child(3n){ background:rgba(16,24,52,0.95); }
+
+    .vb-card:hover{
+      transform:translateY(-6px);
+      box-shadow:0 26px 60px rgba(0,0,0,0.65);
+      border-color:rgba(200,181,96,0.7);
+    }
+
+    .vb-card-media{
+      width:100%; height:190px; border-radius:16px; overflow:hidden;
+      margin:0 auto 18px; background:#000;
+    }
+    .vb-card-media img{
+      width:100%; height:100%; object-fit:cover; display:block;
+    }
+
+    .vb-card h3{
+      color:#C8B560; font-size:1.4rem; font-weight:700; margin:8px 0 16px;
+    }
+    .vb-card p{
+      line-height:1.6; font-size:1rem; text-align:justify; margin:0 0 22px;
+      color:#F5F2E6;
+    }
+
+    .vb-cta{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:12px 28px; border-radius:40px; border:none;
+      background:#C8B560; color:#0A1F44; text-decoration:none; font-weight:700;
+      letter-spacing:0.6px; font-size:0.98rem;
+      box-shadow:0 0 26px rgba(200,181,96,0.45);
+      cursor:pointer;
+      transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
+    }
+    .vb-cta span{
+      margin-left:8px; font-size:1.1rem;
+    }
+    .vb-cta:hover{
+      background:#E5D9A8; box-shadow:0 0 34px rgba(200,181,96,0.65);
+      transform:translateY(-1px);
+    }
+    .vb-cta:active{ transform:translateY(0); box-shadow:0 0 16px rgba(200,181,96,0.5); }
+    .vb-cta:focus-visible{
+      outline:2px solid #FFFFFF; outline-offset:3px;
+    }
+
+    @media(max-width:768px){
+      .vb-section.vb-fw{ padding-bottom:170px; }
+    }
+
+    /* Sticky mobile CTA bar */
+    .vb-sticky-bar{
+      position:fixed; left:0; right:0; bottom:0;
+      background:rgba(5,14,35,0.96);
+      border-top:1px solid rgba(200,181,96,0.45);
+      padding:10px 16px 14px;
+      display:none; align-items:center; justify-content:space-between;
+      gap:10px; z-index:999;
+      backdrop-filter:blur(10px);
+    }
+    .vb-sticky-text{
+      font-size:0.9rem; color:#F5F2E6; line-height:1.4;
+    }
+    .vb-sticky-cta{
+      flex-shrink:0;
+    }
+
+    @media(max-width:768px){
+      .vb-sticky-bar{ display:flex; }
+    }
+  </style>
+
+  <div class="vb-career-wrapper">
+    <h2 class="vb-career-title">Career Opportunities at VanBudapest</h2>
+
+    <div class="vb-grid" role="list" aria-label="Open positions at VanBudapest">
+
+      <div class="vb-card" role="listitem">
+        <div>
+          <div class="vb-card-media">
+            <img decoding="async" src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2025/11/Chauffeur.jpg" alt="Professional chauffeur driving a luxury Mercedes in Budapest">
+          </div>
+          <h3>Full-Time Chauffeur (Budapest Based)</h3>
+          <p>As a full-time chauffeur, you embody VanBudapest’s promise of elegance and trust. You know the rhythm of Budapest and beyond, ensuring every client’s journey feels effortless and refined. Precision, calm confidence, and impeccable manners define you both on the road and off.<br><br>To apply, send your English CV and a short letter of introduction.</p>
+        </div>
+        <a class="vb-cta" href="mailto:info@vanbudapest.com" aria-label="Apply for Full-Time Chauffeur position at VanBudapest">
+          Apply Now <span>→</span>
+        </a>
+      </div>
+
+      <div class="vb-card" role="listitem">
+        <div>
+          <div class="vb-card-media">
+            <img decoding="async" src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2025/11/Chauffeur.jpg" alt="On-call chauffeur service for luxury transportation in Budapest">
+          </div>
+          <h3>On-Call Chauffeur (Flexible Schedule)</h3>
+          <p>This role offers freedom and prestige in equal measure. As an on-call chauffeur, you join our elite network during peak hours and special events, providing seamless, discreet service to international guests. You value flexibility but never compromise on professionalism or grace.<br><br>To apply, send your English CV and a short letter of introduction.</p>
+        </div>
+        <a class="vb-cta" href="mailto:info@vanbudapest.com" aria-label="Apply for On-Call Chauffeur position at VanBudapest">
+          Apply Now <span>→</span>
+        </a>
+      </div>
+
+      <div class="vb-card" role="listitem">
+        <div>
+          <div class="vb-card-media">
+            <img decoding="async" src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2025/11/customer-service-representative-csr.png" alt="Customer service specialist handling premium travel reservations">
+          </div>
+          <h3>Customer Service Specialist</h3>
+          <p>The heart of VanBudapest beats through the conversations you hold. You manage reservations and bespoke travel requests with precision, courtesy, and warmth — ensuring each client feels personally cared for. You are organized, articulate, and devoted to exceptional service.<br><br>To apply, send your English CV and a short letter of introduction.</p>
+        </div>
+        <a class="vb-cta" href="mailto:info@vanbudapest.com" aria-label="Apply for Customer Service Specialist position at VanBudapest">
+          Apply Now <span>→</span>
+        </a>
+      </div>
+
+      <div class="vb-card" role="listitem">
+        <div>
+          <div class="vb-card-media">
+            <img decoding="async" src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2025/11/Sales-Representative.png" alt="Sales representative building premium travel partnerships in Europe">
+          </div>
+          <h3>Sales Representative</h3>
+          <p>You are a connector — building relationships with hotels, embassies, and corporate partners across Europe. As a VanBudapest Sales Representative, you present our services with confidence and discretion, tailoring every offer to meet the expectations of a premium clientele.<br><br>To apply, send your English CV and a short letter of introduction.</p>
+        </div>
+        <a class="vb-cta" href="mailto:info@vanbudapest.com" aria-label="Apply for Sales Representative position at VanBudapest">
+          Apply Now <span>→</span>
+        </a>
+      </div>
+
+      <div class="vb-card" role="listitem">
+        <div>
+          <div class="vb-card-media">
+            <img decoding="async" src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2025/11/Marketing-Communications-Expert.webp" alt="Marketing and communications expert working on luxury brand campaigns">
+          </div>
+          <h3>Marketing &amp; Communications Expert</h3>
+          <p>This role shapes how the world perceives VanBudapest. You create sophisticated campaigns, press stories, and brand content that express our timeless elegance and modern precision. You combine creativity with a strategic mind and an instinct for luxury communication.<br><br>To apply, send your English CV and a short letter of introduction.</p>
+        </div>
+        <a class="vb-cta" href="mailto:info@vanbudapest.com" aria-label="Apply for Marketing and Communications Expert position at VanBudapest">
+          Apply Now <span>→</span>
+        </a>
+      </div>
+
+      <div class="vb-card" role="listitem">
+        <div>
+          <div class="vb-card-media">
+            <img decoding="async" src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2025/11/funciones-de-social-media-manager.jpg" alt="Social media manager curating VanBudapest luxury brand online">
+          </div>
+          <h3>Social Media Manager</h3>
+          <p>You curate VanBudapest’s digital identity — elegant, global, and inspiring. From visual storytelling to daily engagement, you transform our brand values into meaningful online experiences. You balance creativity with refinement and understand the rhythm of luxury travel.<br><br>To apply, send your English CV and a short letter of introduction.</p>
+        </div>
+        <a class="vb-cta" href="mailto:info@vanbudapest.com" aria-label="Apply for Social Media Manager position at VanBudapest">
+          Apply Now <span>→</span>
+        </a>
+      </div>
+
+      <div class="vb-card" role="listitem">
+        <div>
+          <div class="vb-card-media">
+            <img decoding="async" src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2025/11/Host-Hostess.webp" alt="Elegant event host and hostess welcoming guests at a luxury event">
+          </div>
+          <h3>Event Host / Hostess (Contract Based)</h3>
+          <p>You are the welcoming face of VanBudapest at exclusive events and private functions. Graceful, multilingual, and composed, you ensure that every guest feels valued and every moment runs smoothly. Your presence turns coordination into hospitality at its finest.<br><br>To apply, send your English CV and a short letter of introduction.</p>
+        </div>
+        <a class="vb-cta" href="mailto:info@vanbudapest.com" aria-label="Apply for Event Host or Hostess position at VanBudapest">
+          Apply Now <span>→</span>
+        </a>
+      </div>
+
+      <div class="vb-card" role="listitem">
+        <div>
+          <div class="vb-card-media">
+            <img decoding="async" src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2025/11/Licensed-Tour-Guide.webp" alt="Licensed tour guide showing Budapest to international guests">
+          </div>
+          <h3>Licensed Tour Guide (Freelance, EN/DE/ES)</h3>
+          <p>You transform travel into cultural discovery. As a licensed tour guide fluent in English, German, or Spanish, you bring Budapest’s stories to life for our discerning clients. Your professionalism and passion elevate every journey into an unforgettable experience.<br><br>To apply, send your English CV and a short letter of introduction.</p>
+        </div>
+        <a class="vb-cta" href="mailto:info@vanbudapest.com" aria-label="Apply for Licensed Tour Guide position at VanBudapest">
+          Apply Now <span>→</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Sticky mobile CTA bar -->
+  <div class="vb-sticky-bar" aria-label="Quick apply bar for VanBudapest careers">
+    <div class="vb-sticky-text">
+      Ready to join VanBudapest?<br>
+      Send your English CV &amp; short introduction.
+    </div>
+    <div class="vb-sticky-cta">
+      <a class="vb-cta" href="mailto:info@vanbudapest.com" aria-label="Apply to VanBudapest careers via email">
+        Apply Now <span>→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+
+
+<section class="vb-section vb-fw" data-theme="dark-premium" data-component="vb-motion-v4">
+  <style>
+    .vb-section, .vb-section * { box-sizing: border-box !important; }
+    .vb-section.vb-fw{
+      width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw);
+      overflow:hidden; position:relative; isolation:isolate; z-index:1;
+      background: linear-gradient(135deg,#050E23,#0A1F44,#12306A);
+      color:#C8B560; font-family:"Montserrat",system-ui,Arial; padding:90px 0 110px;
+    }
+    .vb-inner{ max-width:1300px; margin:0 auto; padding:0 24px; text-align:center; }
+
+    .vb-title{ font-size:2.7rem; color:#C8B560; font-weight:800; margin-bottom:28px; }
+    .vb-title::after{
+      content:""; display:block; width:90px; height:3px; background:#C8B560;
+      margin:16px auto 0; border-radius:2px;
+    }
+
+    .vb-content{ max-width:900px; margin:0 auto; margin-top:40px; font-size:1.15rem; line-height:1.8; text-align:justify; }
+    .vb-content p{ margin-bottom:22px; color:#C8B560; }
+
+    .vb-footer{
+      margin-top:50px; font-size:1.05rem; letter-spacing:0.3px;
+      color:#C8B560; font-weight:600;
+    }
+
+    .vb-cta{
+      margin-top:35px; display:inline-block; padding:14px 34px; border-radius:40px;
+      border:2px solid #C8B560; color:#C8B560; text-decoration:none; font-weight:700;
+      background:rgba(255,255,255,0.05); backdrop-filter:blur(8px);
+      transition:0.35s ease; letter-spacing:0.6px;
+    }
+    .vb-cta:hover{
+      background:#C8B560; color:#0A1F44; box-shadow:0 0 30px rgba(200,181,96,0.5);
+    }
+  </style>
+
+  <div class="vb-inner">
+    <h2 class="vb-title">Join the Future of Luxury Travel in Europe</h2>
+
+    <div class="vb-content">
+      <p>At VanBudapest, excellence is more than a standard — it’s a shared philosophy. Every member of our team contributes to a legacy built on professionalism, discretion, and refined service. From chauffeurs and customer care experts to marketing minds and partner drivers, we all move with the same purpose: to deliver peace of mind and understated elegance in every journey.</p>
+
+      <p>We believe in trust, precision, and opportunity. Working with VanBudapest means joining an international environment where quality and respect guide every interaction. Here, your skills are valued, your ambition is encouraged, and your dedication shapes the travel experience of Europe’s most discerning guests.</p>
+
+      <p>Whether you are seeking luxury chauffeur jobs in Budapest, private driver careers in Hungary, or premium travel opportunities across Europe, VanBudapest welcomes professionals who understand that true luxury lies in the details.</p>
+
+      <p>Together, we define what modern elegance on the road truly means.</p>
+    </div>
+
+    <div class="vb-footer">VanBudapest.com • Premium Chauffeur • Budapest &#038; Central Europe</div>
+
+    <a class="vb-cta" href="mailto:info@vanbudapest.com">Apply Now</a>
+  </div>
+</section>
+
