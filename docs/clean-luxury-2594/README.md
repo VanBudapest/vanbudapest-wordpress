@@ -52,3 +52,44 @@ A megoldás a `redirect-301-wpcode-snippet.php` tartalma WPCode-ba (PHP Snippet,
 Run Everywhere, Active). Az MCP nem enged `wpcode` post típust létrehozni
 („post_type »wpcode« is not exposed via UI/public”), ezért ez kézi vagy külön
 jóváhagyást igénylő lépés.
+
+---
+
+## Utólagos kör (2026-08-21, jóváhagyás után)
+
+### 1. #10 galéria 4. képe → V-Class flotta-fotó
+`55106-disinfected-…-5.jpg` (a #6 galéria duplikátuma) → média **21048**
+(`/V-Class-fleet/flotta/…-086.webp`, 1440×1080, 281 KB).
+Ezzel **0 duplikált kép-URL** maradt az oldalon.
+Új `post_content` SHA-256: `84e640d3c18b2d60f8306a3593892deda070279632bf85cb0844d95534fd92f9` (64 042 kar.).
+⚠️ Ezt a képet én nem láttam — az audit sem ellenőrizte vizuálisan. Ha rendszám
+vagy nem odaillő tartalom látszik rajta, egyetlen `<img>` cseréje a javítás.
+
+### 2. TikTok-link
+Marad a jelenlegi `tiktok.com/@vanbudapest` (döntés szerint). A Facebook / X /
+Instagram már a jóváhagyott hivatalos fiókokra mutat.
+
+### 3. 301 átirányítás — WPCode snippet #26547
+
+A snippet elkészült és **publikálva** van:
+
+| | |
+|---|---|
+| Post ID | **26547** |
+| Cím | `VB 301 - Clean Luxury (2594) regi COVID slug atiranyitas` |
+| Típus / hely | `wpcode_type=php` · `wpcode_location=everywhere` |
+| Státusz | publish, `_wpcode_auto_insert=1`, `_wpcode_priority=10` |
+| Korábbi tartalom | „VB Mobil Menu v2.1" elavult draft — bájtpontosan visszaállítható az MCP snapshotból (**action_id 820**) |
+
+**Még nem fut**, mert a WPCode az aktív snippeteket a `wpcode_snippets`
+option-ben gyorsítótárazza, és ezt csak a saját mentési útvonala építi újra —
+a `wp_update_post` nem váltja ki. A gyorsítótár írás előtti állapota:
+`backup_wpcode_snippets_20260821.json`.
+
+**Amit tenni kell (kb. 10 másodperc):**
+WP Admin → **Code Snippets** → „VB 301 - Clean Luxury (2594)…" megnyitása →
+**Update** gomb. Ez újraépíti a gyorsítótárat, és a 301 azonnal él.
+
+Ellenőrzés utána:
+`https://vanbudapest.com/covid-hungary-private-bus-airport-transfer/` →
+**301** → `https://vanbudapest.com/clean-hungary-private-bus-airport-transfer/`
