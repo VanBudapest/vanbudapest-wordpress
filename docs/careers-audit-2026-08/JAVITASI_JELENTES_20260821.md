@@ -49,3 +49,12 @@
 ## Költség (fal.ai)
 
 4× flux-2-pro (~$0,10) + 4× nano-banana-2/edit ($0,32) + vision QA (~$0,02) ≈ **$0,45**
+
+---
+
+## Kiegészítés (2026-08-21, v2)
+
+Tomi kérésére a **4 kártyakép-csere visszavonva** — az eredeti képek maradnak a karrier-kártyákon
+(a scoped CSS 10. szekciója eltávolítva, undo action_id: 782). Minden más javítás változatlanul él.
+A generált képek a médiatárban maradtak (ID 26705–26708), később bármikor felhasználhatók vagy törölhetők.
+Az OG/featured kép (13611 → 10795, V-Class Hősök tere) egyelőre az új — szólj, ha ezt is vissza kell állítani.

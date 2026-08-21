@@ -1,5 +1,5 @@
 /* ============================================================
-   VB CAREERS (13604) — MASTER scoped CSS — A-csomag + képcsere
+   VB CAREERS (13604) — MASTER scoped CSS — A-csomag (v2: képcserék visszavonva)
    2026-08-21 · Audit: VanBudapest_Careers_oldalaudit_20260821
    A post_contenthez nem nyúl. Visszavonás: a szabály törlése.
    ============================================================ */
@@ -109,13 +109,3 @@ body.page-id-13604 .vb-img{aspect-ratio:3/2;object-fit:cover;height:auto}
 @media (min-width:1200px) and (max-width:1500px){
   body.page-id-13604 .vb-career-wrapper{padding-left:110px;padding-right:110px}
 }
-
-/* ---- 10. Licenc-kockázatos képek cseréje (fal.ai generálás, arc nélkül) ---- */
-body.page-id-13604 img[src*="customer-service-representative-csr"]{
-  content:url("https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2026/08/image-1787323300.webp")}
-body.page-id-13604 img[src*="Marketing-Communications-Expert"]{
-  content:url("https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2026/08/image-1787323322.webp")}
-body.page-id-13604 img[src*="funciones-de-social-media-manager"]{
-  content:url("https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2026/08/image-1787323330.webp")}
-body.page-id-13604 img[src*="Host-Hostess"]{
-  content:url("https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2026/08/image-1787323343.webp")}
