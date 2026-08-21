@@ -185,3 +185,22 @@
   .vb-lx .vb-subtitle { font-size: .98rem; }
   .vb-lx figure.vb-figure-center img { max-width: 100%; }
 }
+
+/* ---- 2. kör: horgony-navigáció ---- */
+.vb-lx .vb-anchor-nav { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; margin: 0 0 1.6rem; }
+.vb-lx .vb-anchor-nav a { font-size: .85rem; font-weight: 600; padding: .4rem .95rem; border-radius: 50px; border: 1px solid rgba(200,181,96,.55); color: #E5D9A8; background: rgba(255,255,255,.06); text-decoration: none; transition: background .25s ease, color .25s ease; }
+.vb-lx .vb-anchor-nav a:hover { background: #C8B560; color: #0A1F44; }
+section.vb-lx[id] { scroll-margin-top: 96px; }
+
+/* ---- 2. kör: sticky mobil CTA sáv (csak ≤781px) ---- */
+.vb-lx .vb-sticky-cta { display: none; }
+@media (max-width: 781px) {
+  .vb-lx .vb-sticky-cta { display: flex; position: fixed; left: 0; right: 0; bottom: 0; z-index: 9999; box-shadow: 0 -4px 16px rgba(0,0,0,.35); }
+  .vb-lx .vb-sticky-link { flex: 1 1 50%; text-align: center; padding: .95rem .5rem; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; text-decoration: none; font-size: .95rem; }
+  .vb-lx .vb-sticky-book { background: #C8B560; color: #0A1F44; }
+  .vb-lx .vb-sticky-wa { background: #0A1F44; color: #FFFFFF; }
+  .vb-lx--faq { padding-bottom: 56px; }
+}
+
+/* ---- 2. kör: teljes szélességű figure-képek felső korlátja ---- */
+.vb-lx .vb-content > figure img { max-width: 1100px; margin-inline: auto; }
