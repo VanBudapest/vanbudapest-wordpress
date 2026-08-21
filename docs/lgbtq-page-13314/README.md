@@ -208,6 +208,9 @@ is hozzá kell igazítani — ez tartalmi döntés.
 | DE oldal átépítve | 822 |
 | FR oldal átépítve | 824 |
 | ES oldal átépítve | 825 |
+| DE brand-javítás („seit 1988") | 826 |
+| ES brand-javítás („desde 1988") | 827 |
+| FR brand-javítás („depuis 1988") | 828 |
 
 ## Továbbra is nyitott
 - Ajánlások/„(verified)" hitelesítése vagy valódi Google-értékelésre cserélése
