@@ -1,0 +1,187 @@
+/* VanBudapest – LGBTQ+ Luxury Transfers (page 13314) – scoped stylesheet v1.0
+   Minden szabály a .vb-lx namespace alatt; az oldalon kívül semmire nincs hatása. */
+
+.vb-lx, .vb-lx * { box-sizing: border-box; }
+
+/* ---- Full-bleed sáv + blokk-folytonosság (nincs rés) ---- */
+.vb-lx {
+  width: 100vw;
+  max-width: 100vw;
+  margin: 0 calc(50% - 50vw);
+  position: relative;
+  display: block;
+  clear: both;
+  overflow: clip;
+  color: var(--lx-fg, #FFFFFF);
+  background: var(--lx-bg, #0A1F44);
+  font-family: "Montserrat", "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+  line-height: 1.75;
+  isolation: isolate;
+}
+/* A téma blokk-gapjének kiütése csak ezekre a szekciókra */
+.entry-content .vb-lx, .wp-site-blocks .vb-lx, body .vb-lx { margin-top: 0 !important; margin-bottom: 0 !important; }
+.is-layout-constrained > .vb-lx { max-width: 100vw !important; }
+
+/* ---- Középre igazított tartalom-konténer ---- */
+.vb-lx .vb-inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: clamp(2.5rem, 5vw, 5rem) clamp(1rem, 3vw, 3rem);
+  width: 100%;
+  text-align: left;
+}
+
+/* ---- Tipográfia ---- */
+.vb-lx .vb-title {
+  text-align: center;
+  color: var(--lx-accent, #C8B560);
+  font-size: clamp(1.7rem, 4.5vw, 2.6rem);
+  font-weight: 800;
+  letter-spacing: .3px;
+  line-height: 1.2;
+  margin: 0 0 1.2rem;
+}
+.vb-lx .vb-title::after {
+  content: "";
+  display: block;
+  width: 120px;
+  height: 3px;
+  margin: .6rem auto 0;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--lx-accent, #C8B560), var(--lx-fg, #FFFFFF));
+}
+.vb-lx .vb-subtitle {
+  text-align: center;
+  font-weight: 600;
+  margin: 0 0 2rem;
+  font-size: clamp(1rem, 2vw, 1.15rem);
+}
+.vb-lx .vb-content p { margin: 0 0 1.2em; font-size: clamp(1rem, 1.3vw, 1.08rem); }
+.vb-lx .vb-content h3 { text-align: center; color: var(--lx-accent, #C8B560); margin: 2rem 0 1rem; }
+
+/* ---- Képek ---- */
+.vb-lx .vb-img, .vb-lx figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.35);
+}
+.vb-lx .vb-hero-img { max-width: 1100px; margin: 2rem auto; outline: 1px solid rgba(200,181,96,.25); }
+.vb-lx figure { margin: 1.8rem 0; text-align: center; }
+.vb-lx figure.vb-figure-center img { margin: 0 auto; max-width: 900px; }
+.vb-lx figcaption { font-size: .95rem; opacity: .9; margin-top: .5rem; text-align: center; }
+
+.vb-lx .vb-img-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 1.25rem;
+  margin: 2rem 0;
+  align-items: stretch;
+}
+.vb-lx .vb-img-grid figure, .vb-lx .vb-img-card { margin: 0; }
+.vb-lx .vb-img-card {
+  background: rgba(255,255,255,.10);
+  border-radius: 14px;
+  padding: .7rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,.35);
+  display: flex;
+  flex-direction: column;
+}
+.vb-lx .vb-img-card img {
+  border-radius: 10px;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  flex: 1 1 auto;
+}
+.vb-lx .vb-img-card figcaption { font-size: .9rem; margin-top: .45rem; }
+
+/* ---- CTA gombok (töltött, kontraszt-biztos) ---- */
+.vb-lx .vb-cta-row {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+  text-align: center;
+}
+.vb-lx .vb-cta {
+  display: inline-block;
+  padding: .95rem 1.9rem;
+  border-radius: 50px;
+  border: 2px solid transparent;
+  background: var(--lx-cta-bg, #C8B560);
+  color: var(--lx-cta-fg, #0A1F44);
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+}
+.vb-lx .vb-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(0,0,0,.35); background: var(--lx-cta-bg-hover, #B78D38); }
+.vb-lx .vb-cta:focus-visible { outline: 3px solid var(--lx-fg, #FFFFFF); outline-offset: 3px; }
+
+/* ---- Testimonials ---- */
+.vb-lx .vb-testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 1.5rem; margin: 2rem 0; }
+.vb-lx .vb-testimonial-card { background: rgba(255,255,255,.14); border-radius: 16px; padding: 1.6rem 1.5rem 1.2rem; box-shadow: 0 8px 24px rgba(0,0,0,.35); position: relative; }
+.vb-lx .vb-testimonial-card p { font-size: 1rem; margin-bottom: .8rem; }
+.vb-lx .vb-testimonial-card strong { color: var(--lx-accent, #C8B560); }
+.vb-lx .vb-quote { font-size: 2rem; color: var(--lx-accent, #C8B560); position: absolute; top: 6px; left: 14px; opacity: .5; }
+.vb-lx .vb-stars { text-align: center; font-size: 1.1rem; margin-top: 1rem; }
+
+/* ---- FAQ (details/summary, JS nélkül) ---- */
+.vb-lx .vb-faq-list { max-width: 960px; margin: 0 auto; }
+.vb-lx .vb-faq-item { background: rgba(255,255,255,.10); border-radius: 10px; margin-bottom: 1rem; box-shadow: 0 6px 20px rgba(0,0,0,.35); overflow: hidden; }
+.vb-lx .vb-faq-item summary {
+  list-style: none;
+  cursor: pointer;
+  color: var(--lx-accent, #FFD95E);
+  font-weight: 700;
+  font-size: 1.05rem;
+  padding: 1rem 2.6rem 1rem 1.2rem;
+  position: relative;
+}
+.vb-lx .vb-faq-item summary::-webkit-details-marker { display: none; }
+.vb-lx .vb-faq-item summary::after { content: "+"; position: absolute; right: 1.1rem; top: 50%; transform: translateY(-50%); font-size: 1.4rem; transition: transform .3s ease; }
+.vb-lx .vb-faq-item[open] summary::after { transform: translateY(-50%) rotate(45deg); }
+.vb-lx .vb-faq-item summary:hover { background: rgba(255,255,255,.08); }
+.vb-lx .vb-faq-answer { padding: 0 1.2rem 1rem; }
+.vb-lx .vb-faq-answer p { margin: .4rem 0 0; }
+
+/* ---- Blokk-színvariánsok (statikus gradiens, kontraszt-ellenőrzött) ---- */
+.vb-lx--hero      { --lx-bg: linear-gradient(135deg, #0A1F44 0%, #4B2E5C 55%, #12306A 100%); --lx-fg: #FFFFFF; --lx-accent: #C8B560; }
+.vb-lx--blue      { --lx-bg: linear-gradient(140deg, #231A5E 0%, #1D5C96 55%, #17708F 100%); --lx-fg: #FFFFFF; --lx-accent: #E5D9A8; }
+.vb-lx--green     { --lx-bg: linear-gradient(140deg, #10402A 0%, #1C6B41 55%, #1F7A4C 100%); --lx-fg: #FFFFFF; --lx-accent: #E5D9A8; }
+.vb-lx--yellow    { --lx-bg: linear-gradient(145deg, #FFB347 0%, #F5C84C 45%, #FFD95E 100%); --lx-fg: #0A1F44; --lx-accent: #0A1F44;
+                    --lx-cta-bg: #0A1F44; --lx-cta-fg: #FFD95E; --lx-cta-bg-hover: #12306A; }
+.vb-lx--orange    { --lx-bg: linear-gradient(145deg, #8C3A10 0%, #B4531B 55%, #C05F21 100%); --lx-fg: #FFFFFF; --lx-accent: #FFD9A8; }
+.vb-lx--red       { --lx-bg: linear-gradient(145deg, #7C1410 0%, #A81A0C 55%, #C22323 100%); --lx-fg: #FFFFFF; --lx-accent: #FFD9A8; }
+.vb-lx--rainbow   { --lx-bg: linear-gradient(rgba(12,16,42,.78), rgba(12,16,42,.78)),
+                             linear-gradient(120deg, #E63946, #FFA552, #FFD166, #4CAF50, #4F81C7, #A259FF);
+                    --lx-fg: #FFFFFF; --lx-accent: #FFD166; }
+.vb-lx--pride     { --lx-bg: linear-gradient(rgba(12,16,42,.72), rgba(12,16,42,.72)),
+                             linear-gradient(120deg, #E63946, #FF8C42, #FFD166, #06D6A0, #118AB2, #9B5DE5);
+                    --lx-fg: #FFFFFF; --lx-accent: #FFD166; }
+.vb-lx--gold      { --lx-bg: linear-gradient(140deg, #0A1F44 0%, #0D0D0D 45%, #6B5A22 100%); --lx-fg: #FFFFFF; --lx-accent: #E5D9A8; }
+.vb-lx--warm      { --lx-bg: linear-gradient(160deg, #1A1F2B 0%, #34527E 55%, #7C4152 100%); --lx-fg: #FFFFFF; --lx-accent: #FFC857; }
+.vb-lx--faq       { --lx-bg: linear-gradient(rgba(10,10,30,.78), rgba(10,10,30,.78)),
+                             url('https://vanbudapest.com/wp-content/uploads/2026/04/letoltes-51.png') center / cover no-repeat;
+                    --lx-fg: #FFFFFF; --lx-accent: #FFD95E; }
+
+/* ---- Reszponzív kaszkád ---- */
+@media (max-width: 1024px) {
+  .vb-lx .vb-inner { padding: clamp(2rem, 4vw, 3.5rem) clamp(1rem, 3vw, 2rem); }
+}
+@media (max-width: 781px) {
+  .vb-lx .vb-inner { padding: 2rem 1rem; }
+  .vb-lx .vb-title { font-size: 1.7rem; }
+  .vb-lx .vb-img-grid { gap: 1rem; }
+  .vb-lx .vb-cta { width: 100%; max-width: 420px; text-align: center; }
+}
+@media (max-width: 480px) {
+  .vb-lx .vb-inner { padding: 1.6rem .9rem; }
+  .vb-lx .vb-title { font-size: 1.45rem; }
+  .vb-lx .vb-subtitle { font-size: .98rem; }
+  .vb-lx figure.vb-figure-center img { max-width: 100%; }
+}
