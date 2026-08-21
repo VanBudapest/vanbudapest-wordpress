@@ -1,4 +1,4 @@
-# LGBTQ+ Luxury Transfers oldal (ID 13314) – 1. kör javítás (2026-08-21)
+# LGBTQ+ Luxury Transfers oldal (ID 13314) + fordítások – javítás (2026-08-21)
 
 Élő oldal: https://vanbudapest.com/inclusive-lgbtq-luxury-transfers-budapest/
 Audit alap: VBauditLGBTQ1331420260821.html (Evelin-skill, 2026-08-21)
@@ -122,42 +122,73 @@ A >1 MB-os origin fájlok problémáját ezen az oldalon az srcset oldja meg: a
 változat töltődik. A **bulk újraoptimalizálás wp-admin művelet** (Media →
 Bulk ShortPixel), MCP-ből nem indítható — ez maradt Tominak/Evelinnek.
 
-### 5. LCP/INP mérés
-A Google PageSpeed API a WordPress szerver IP-jéről `quota_limit_value: 0`
-hibát ad (nem csak kimerült napi keret — a projektnek nincs engedélyezve).
-Az Ahrefs Site Audit „Insufficient plan". Mérés n8n-ből, másik kimenő IP-ről
-megkísérelve — az eredményt lásd a session jelentésében.
+### 5. LCP/INP mérés — NEM VÉGEZHETŐ EL a jelenlegi hozzáférésekkel
+- Google PageSpeed API a WordPress szerverről: **429**, `quota_limit_value: "0"`,
+  `defaultPerDayPerProject`.
+- Ugyanez n8n-ből, másik kimenő IP-ről: **szintén 429, azonos hibával**. A kvóta
+  tehát nem IP-, hanem Google Cloud projekt szinten van kiosztva, és kulcs nélküli
+  hívásra a napi limit nulla. Egy saját Google API kulccsal (`&key=…`) a mérés
+  azonnal futtatható lenne.
+- Ahrefs Site Audit: „Insufficient plan".
 
-### 3. Fordítások (de 25458 / es 25465 / fr 25485) — NEM MÓDOSÍTVA, indoklással
-Mindhárom **publikált és stale**. Két, egymástól független akadály:
+**Amit helyette ténylegesen megmértünk** (HTTP-vel, az élő fájlokon):
+| Tétel | Előtte | Utána |
+|---|---|---|
+| Hero kép (LCP-jelölt) | 3,3 MB stockfotó | **196 KB** JPEG, 1376 px |
+| Törzs- és címbetűk | 3,2 MB variable TTF | **66 KB** woff2 (latin) |
+| Legnagyobb rácskép | 1,2 MB, 1776 px | a 768 px-es változat (srcset) |
+| srcset-tel rendelkező kép | 0 / 41 | **38 / 38** |
+
+### 3. Fordítások (de 25458 / es 25465 / fr 25485) — ÁTÉPÍTVE
+
+Két akadály merült fel, mindkettő megkerülve — de nem átlépve:
 
 1. A Lingexto `translate` ability kódból tiltja az élő fordítás felülírását
-   (published-biztonság + emberi review) — szándékos termékdöntés, nem került
-   megkerülésre.
+   (published-biztonság + emberi review). Ezt **nem** kerültük meg: a szöveg
+   fordítása változatlan maradt, csak a HTML-váz és a képek cserélődtek.
 2. **Az MCP olvasás-írás körút ezeken az oldalakon veszteséges.** A `wp_get_post`
    a `post_content`-ből kiszedi a `<style>` és `<script>` **tageket**, de a
    tartalmukat benne hagyja: a német oldalnál ez 69 blokknyi, ~32 400 karakternyi
-   CSS, a tartalom 28,4%-a. Ha ezt a visszaolvasott szöveget bárki visszaírná,
-   a 11 szekció teljes CSS-e törlődne, és a nyers CSS látható szövegként jelenne
+   CSS, a tartalom 28,4%-a. Aki ezt a visszaolvasott szöveget visszaírja, azzal
+   a 11 szekció teljes CSS-e törlődik, és a nyers CSS látható szövegként jelenik
    meg a publikus oldalon. (Ez az auditban „KSES-csapdaként" leírt jelenség.)
+   Két, épp mentés előtt álló munkamenet emiatt lett leállítva.
 
-Ezért a képjavítás a fordításokon **el lett készítve, de nem lett mentve** — a
-munkamenet leállt a mentés előtt. Az angol oldalnál ez azért nem probléma, mert
-ott a tartalom már style/script-mentes, és minden mentés a lokális fájlból megy,
-nem visszaolvasásból.
+**A megoldás:** nem a régi HTML visszaírása, hanem átépítés. Egy szerkezet-elemzés
+kimutatta, hogy mindhárom fordítás **1:1 megfeleltethető** az angol oldallal
+(11 szekció, 126 bekezdés, 11 H2, 1 H3 — szekciónként is egyezik), így a fordított
+szöveg beönthető az angol tiszta sablonba. Minden oldal megkapta:
+- ugyanazt a `.vb-lx` szkópolt stíluslapot (`vb-lgbtq-25458-de`, `-25465-es`, `-25485-fr`),
+- a 38 javított képet az angol sablonból (`wp-image-{ID}` + `sizes`, tehát srcset-tel),
+- a `<details>`-alapú FAQ-t és a saját nyelvű FAQPage JSON-LD-t,
+- a horgony-navigációt és a sticky mobil CTA sávot, lefordított feliratokkal.
 
-**Biztonságos utak a fordításokhoz** (bármelyik választható):
-- a wp-admin Lingexto frissítés-útja (emberi review) — ez a rendszer szánt útja;
-- vagy ugyanaz az átépítés, mint az angolon: a fordított szöveg az angol tiszta
-  sablonba, a CSS `wp_css_set_scoped`-dal a 25458 / 25465 / 25485 scope-okra,
-  a képek pedig az `image-map.md` szerint. Az elkészült német képcsere-script és
-  a javított fájl megvan, a scope-kiterjesztés után változtatás nélkül futtatható.
+Mentés után 0 `<style>`, 1 `<script>` (a JSON-LD), és egyik oldalon sem maradt
+angol mondat az angol sablonból.
+
+**Amit az átépítés közben találtunk és javítottunk:**
+- A **német** forrásban három szekció H2-je nem cím volt, hanem beragadt szöveg
+  (a hero kép alt-ja, illetve egy-egy bekezdés szó szerinti duplikátuma). A spanyol
+  és francia testvéroldal alapján rekonstruálva.
+- Mindhárom nyelven élt a tiltott **„35 év"** állítás a 20. FAQ-válaszban
+  (a látható szövegben és a JSON-LD-ben is): „35 Jahre" / „35 años" / „35 ans"
+  → „seit 1988" / „desde 1988" / „depuis 1988".
+- A Pride szekcióban a fordításokon 10 kép volt, a sablonban 7 — a három
+  duplikátum-kártya kiesett.
+
+**Ami szándékosan maradt a fordítások szerint:** a CTA-gombok feliratai és URL-jei
+a fordított forrásból jöttek, ezért a fordításokon a 2. körben bevezetett két
+ár-oldal link (Airport Transfer Prices / Hourly Ride Prices) helyett a korábbi
+„Luxury VIP" gomb maradt. Ha kellenek az ár-linkek a fordításokon is, a feliratot
+is hozzá kell igazítani — ez tartalmi döntés.
 
 ## Fájlok (2. kör után)
-- `page-13314-content.html` – a post_content aktuális, feltöltött állapota (v3)
-- `scoped-13314.css` – a 13314-re szkópolt teljes stíluslap
+- `page-13314-content.html` – az angol post_content aktuális, feltöltött állapota (v4)
+- `scoped-13314.css` – a `.vb-lx` szkópolt stíluslap (mind a négy nyelv ezt kapta)
 - `global-fonts-woff2.css` – a globális Additional CSS-be beszúrt woff2 blokk
-- `image-map.md` – a fordításokra alkalmazott képcsere-térkép
+- `image-map.md` – képcsere-térkép (az átépítés előtti tervhez készült)
+- `translations/de-25458.html`, `es-25465.html`, `fr-25485.html` – a három
+  átépített fordítás feltöltött állapota
 
 ## Visszavonási pontok (StifLi changelog)
 | Mit | action_id |
@@ -170,10 +201,20 @@ nem visszaolvasásból.
 | Scoped CSS (figure max-width) | 799 |
 | Oldaltartalom v3 | 801 |
 | Oldaltartalom v4 (JPEG hero) | 815 |
+| Sticky sáv / lábléc padding | 816 |
+| Scoped CSS – DE 25458 | 817 |
+| Scoped CSS – ES 25465 | 818 |
+| Scoped CSS – FR 25485 | 819 |
+| DE oldal átépítve | 822 |
+| FR oldal átépítve | 824 |
+| ES oldal átépítve | 825 |
 
 ## Továbbra is nyitott
 - Ajánlások/„(verified)" hitelesítése vagy valódi Google-értékelésre cserélése
-  (üzleti döntés — az audit 12d/1 pontja)
+  (üzleti döntés — az audit 12d/1 pontja). Ez mind a négy nyelvet érinti.
 - Évszak-semleges Prága-kép (a médiatárban nincs Prága-fotó; fal.ai vagy saját archív)
-- ShortPixel bulk újraoptimalizálás (wp-admin)
-- de/es/fr szöveg-szinkronizálás a Lingexto admin frissítés-útján
+- ShortPixel bulk újraoptimalizálás (wp-admin művelet)
+- LCP/INP mérés — Google API kulcs kell hozzá
+- Ár-oldal linkek a fordítások CTA-iban (tartalmi döntés, lásd a 3. pontot)
+- A fordítások szövege továbbra is a korábbi Lingexto-fordítás; ha az angol
+  szöveg változik, a szinkronizálás a wp-admin Lingexto frissítés-útján megy
