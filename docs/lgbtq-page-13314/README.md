@@ -55,12 +55,19 @@ Audit alap: VBauditLGBTQ1331420260821.html (Evelin-skill, 2026-08-21)
 # 2. kör (2026-08-21) — a kért 13 tétel
 
 ### 1. fal.ai képek (hero + Pride Fleet)
-- Hero: **26715** – fekete V-Class szivárványos gyalogátkelőn, Andrássy-jellegű
+- Hero: **26726** – fekete V-Class szivárványos gyalogátkelőn, Andrássy-jellegű
   homlokzatokkal, arany órában. `nano-banana-2/edit`, a saját 26345-ös V-Class
   fotóból, hogy a jármű a valódi legyen. Arc és olvasható rendszám nincs rajta.
-- Pride Fleet (#8 első kártya): **26716** – ugyanaz a V-Class, elmosott Pride-tömeggel
+- Pride Fleet (#8 első kártya): **26727** – ugyanaz a V-Class, elmosott Pride-tömeggel
   és zászlókkal a háttérben.
 - Mindkettő átment a vizuális minőség-ellenőrzésen (torzulás, embléma, arc nincs).
+
+**Formátum-tanulság:** a fal.ai PNG-t ad vissza, és a WP.com CDN a `vary: Accept`
+alapján WebP-t szolgálna ki — de egy fotórealisztikus képnél a WebP **nagyobb**
+lett (704 KB), mint az optimalizált PNG (321 KB). Ezért mindkét képet a Jetpack
+Photonon átengedve (`i0.wp.com/...?quality=82&w=1600`) JPEG-ként töltöttem fel
+újra: a hero így **196 KB** 1376 px szélességben. Az eredeti PNG-k (26715, 26716)
+a médiatárban maradtak, de az oldalon már nem szerepelnek.
 
 ### 6–8. Vizuálisan ellenőrzött képcserék
 A `fal-ai/any-llm/vision` modellel minden jelöltet leírattam, mielőtt cseréltem:
@@ -121,13 +128,30 @@ hibát ad (nem csak kimerült napi keret — a projektnek nincs engedélyezve).
 Az Ahrefs Site Audit „Insufficient plan". Mérés n8n-ből, másik kimenő IP-ről
 megkísérelve — az eredményt lásd a session jelentésében.
 
-### 3. Fordítások (de 25458 / es 25465 / fr 25485)
-Mindhárom **publikált és stale**. A Lingexto `translate` ability kódból tiltja az
-élő fordítás felülírását (published-biztonság + emberi review) — ez szándékos
-termékdöntés, nem került megkerülésre. Helyette a **képhibák** javítva mindhárom
-nyelven, a fordított szöveghez nyúlás nélkül: törött fájlok, jogi kockázatú képek
-és téves járműképek cserélve az `image-map.md` szerint.
-A szöveg-szinkronizálás a wp-admin Lingexto frissítés-útján történhet.
+### 3. Fordítások (de 25458 / es 25465 / fr 25485) — NEM MÓDOSÍTVA, indoklással
+Mindhárom **publikált és stale**. Két, egymástól független akadály:
+
+1. A Lingexto `translate` ability kódból tiltja az élő fordítás felülírását
+   (published-biztonság + emberi review) — szándékos termékdöntés, nem került
+   megkerülésre.
+2. **Az MCP olvasás-írás körút ezeken az oldalakon veszteséges.** A `wp_get_post`
+   a `post_content`-ből kiszedi a `<style>` és `<script>` **tageket**, de a
+   tartalmukat benne hagyja: a német oldalnál ez 69 blokknyi, ~32 400 karakternyi
+   CSS, a tartalom 28,4%-a. Ha ezt a visszaolvasott szöveget bárki visszaírná,
+   a 11 szekció teljes CSS-e törlődne, és a nyers CSS látható szövegként jelenne
+   meg a publikus oldalon. (Ez az auditban „KSES-csapdaként" leírt jelenség.)
+
+Ezért a képjavítás a fordításokon **el lett készítve, de nem lett mentve** — a
+munkamenet leállt a mentés előtt. Az angol oldalnál ez azért nem probléma, mert
+ott a tartalom már style/script-mentes, és minden mentés a lokális fájlból megy,
+nem visszaolvasásból.
+
+**Biztonságos utak a fordításokhoz** (bármelyik választható):
+- a wp-admin Lingexto frissítés-útja (emberi review) — ez a rendszer szánt útja;
+- vagy ugyanaz az átépítés, mint az angolon: a fordított szöveg az angol tiszta
+  sablonba, a CSS `wp_css_set_scoped`-dal a 25458 / 25465 / 25485 scope-okra,
+  a képek pedig az `image-map.md` szerint. Az elkészült német képcsere-script és
+  a javított fájl megvan, a scope-kiterjesztés után változtatás nélkül futtatható.
 
 ## Fájlok (2. kör után)
 - `page-13314-content.html` – a post_content aktuális, feltöltött állapota (v3)
@@ -145,6 +169,7 @@ A szöveg-szinkronizálás a wp-admin Lingexto frissítés-útján történhet.
 | Globális font-CSS | 797 |
 | Scoped CSS (figure max-width) | 799 |
 | Oldaltartalom v3 | 801 |
+| Oldaltartalom v4 (JPEG hero) | 815 |
 
 ## Továbbra is nyitott
 - Ajánlások/„(verified)" hitelesítése vagy valódi Google-értékelésre cserélése
