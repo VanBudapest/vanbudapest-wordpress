@@ -207,3 +207,23 @@ section.vb-lx[id] { scroll-margin-top: 96px; }
 
 /* ---- 2. kör: a sticky sáv ne takarja a láblécet (csak ezen az oldalon) ---- */
 @media (max-width: 781px) { body { padding-bottom: 56px; } }
+
+/* ---- mobil-mérés utáni javítás (böngészőben mérve 320–820 px) ---- */
+.vb-lx .vb-hero-img { width: 100%; height: auto; }
+.vb-lx .vb-anchor-nav a { padding: .58rem 1rem; }
+
+/* ---- mobil: a horgony-chipek egy sorban, vízszintesen görgetve ---- */
+@media (max-width: 781px) {
+  .vb-lx .vb-anchor-nav {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    margin-inline: -1rem;
+    padding: 0 1rem .3rem;
+    scroll-padding-inline: 1rem;
+  }
+  .vb-lx .vb-anchor-nav::-webkit-scrollbar { display: none; }
+  .vb-lx .vb-anchor-nav a { flex: 0 0 auto; }
+}

@@ -238,6 +238,26 @@ A horgony-chipek 39 px magasak voltak; a tapintási célméret miatt 44 px-re n�
 Mindkét javítás mind a négy nyelv scope-jára felment: **832** (EN), **833** (DE),
 **834** (ES), **835** (FR).
 
+**Miért nem derült ki a HTML-ből, csak méréssel:** a hiba a levágás miatt nem okoz
+vízszintes csúszkát (a szekció `overflow: clip`-je elnyeli), és a `height="768"`
+attribútum miatt a kép aránya papíron helyesnek látszik. A böngészőben viszont a
+hero 1100×768 px maradt, és 390 px-es viewporton a képnek **csak a 34%-a** látszott
+— épp a bal oldala, ahol az épület van; a jármű a levágott kétharmadban volt.
+Ez okozta azt, amit a képernyőképen látni lehetett.
+
+**Egy figyelmeztetés a módszerről:** az első mérés helyőrző képekkel futott, és
+azokon a hiba NEM jelentkezett, mert a helyőrző SVG-nek nincs saját natív mérete.
+A `width: 100%` hiányát csak a valódi, natív méretű kép hozza elő. Aki ezt a
+mérést újrafuttatja, ügyeljen rá, hogy a helyőrző natív szélessége nagyobb legyen
+a konténernél, különben a teszt hamis zöldet ad.
+
+### Mobil: horgony-chipek egy sorban
+A 7 chip a valódi eszközön 3 sorba tört, és ~150 px-t vitt el rögtön a cím alatt.
+≤781 px-en most egy sorban futnak, vízszintesen görgetve (`flex-wrap: nowrap`,
+`overflow-x: auto`, elrejtett görgetősáv), a sáv 49 px magas. A negyedik chip
+félig kilátszik, ami jelzi, hogy van még. Scope-onként: **841** (EN), **842** (DE),
+**843** (ES), **844** (FR).
+
 ### Újramérés a javítás után — minden szélességen tiszta
 
 | Mit | Eredmény |
