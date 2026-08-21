@@ -4,8 +4,7 @@ Forrás: `VanBudapest_COVIDHygieneoldal_teljesaudit_20260821.html` (Evelin-skill
 
 | | |
 |---|---|
-| **Régi URL** | `https://vanbudapest.com/covid-hungary-private-bus-airport-transfer/` |
-| **Új URL** | `https://vanbudapest.com/clean-hungary-private-bus-airport-transfer/` |
+| **URL** | `https://vanbudapest.com/covid-hungary-private-bus-airport-transfer/` — **változatlan** (a slug-csere visszavonva, lásd lent) |
 | **Visszaállítási pont** | WP revízió **#23530** (2026-04-25 16:33:52) |
 | **Backup (post_content, ELŐTTE)** | `backup_post_content_BEFORE_20260821.html` — 63 719 kar., SHA-256 `bájtpontosan az élő állapot` |
 | **Új tartalom (UTÁNA)** | `post_content_AFTER_20260821.html` — 64 009 kar., SHA-256 `143ec3828be9822cd6dbea4efc0fea61b757a2aa2ff0d6bb2daefe4b4c30b574` |
@@ -55,41 +54,48 @@ jóváhagyást igénylő lépés.
 
 ---
 
-## Utólagos kör (2026-08-21, jóváhagyás után)
+## Utólagos kör (2026-08-21) — a slug-csere VISSZAVONVA
 
-### 1. #10 galéria 4. képe → V-Class flotta-fotó
-`55106-disinfected-…-5.jpg` (a #6 galéria duplikátuma) → média **21048**
-(`/V-Class-fleet/flotta/…-086.webp`, 1440×1080, 281 KB).
-Ezzel **0 duplikált kép-URL** maradt az oldalon.
-Új `post_content` SHA-256: `84e640d3c18b2d60f8306a3593892deda070279632bf85cb0844d95534fd92f9` (64 042 kar.).
-⚠️ Ezt a képet én nem láttam — az audit sem ellenőrizte vizuálisan. Ha rendszám
-vagy nem odaillő tartalom látszik rajta, egyetlen `<img>` cseréje a javítás.
+Döntés: a slug maradjon a régi, mert a 301 átirányításhoz WPCode-beavatkozás
+kellett volna. **Minden más javítás érvényben van.**
 
-### 2. TikTok-link
-Marad a jelenlegi `tiktok.com/@vanbudapest` (döntés szerint). A Facebook / X /
-Instagram már a jóváhagyott hivatalos fiókokra mutat.
-
-### 3. 301 átirányítás — WPCode snippet #26547
-
-A snippet elkészült és **publikálva** van:
-
-| | |
+| lépés | állapot |
 |---|---|
-| Post ID | **26547** |
-| Cím | `VB 301 - Clean Luxury (2594) regi COVID slug atiranyitas` |
-| Típus / hely | `wpcode_type=php` · `wpcode_location=everywhere` |
-| Státusz | publish, `_wpcode_auto_insert=1`, `_wpcode_priority=10` |
-| Korábbi tartalom | „VB Mobil Menu v2.1" elavult draft — bájtpontosan visszaállítható az MCP snapshotból (**action_id 820**) |
+| `post_name` | vissza `covid-hungary-private-bus-airport-transfer`-re · a régi URL **200 OK** |
+| `_wp_old_slug` meta | törölve (nem kell) |
+| WPCode #26547 | **draft + `_wpcode_auto_insert=0`** → inert, nem tud elsülni. Címe: `[INAKTIV] VB 301 slug-atiranyitas - NEM HASZNALNI` |
 
-**Még nem fut**, mert a WPCode az aktív snippeteket a `wpcode_snippets`
-option-ben gyorsítótárazza, és ezt csak a saját mentési útvonala építi újra —
-a `wp_update_post` nem váltja ki. A gyorsítótár írás előtti állapota:
-`backup_wpcode_snippets_20260821.json`.
+⚠️ **Amit el kell mondani:** a #26547-es snippet korábban a „VB Mobil Menu v2.1
+(2026-08-14)" elavult DRAFT-ot tartalmazta, és a bővítmény changelogja **nem
+mentett `before_state`-et** (`mcp_get_change_detail` → `before_state: null`),
+ezért a v2.1 törzse a szerverről nem állítható vissza. Ez nem kritikus: az élő
+verzió a **v3.3 (#26556)**, és a **v3.1 (#26550)** + **v3.2 (#26551)** draftok
+érintetlenek. A v2.1 forrása a snippet saját jegyzete szerint:
+`03-WEBSITE-VANBUDAPEST/webdev/mobil-menu-v2/`.
 
-**Amit tenni kell (kb. 10 másodperc):**
-WP Admin → **Code Snippets** → „VB 301 - Clean Luxury (2594)…" megnyitása →
-**Update** gomb. Ez újraépíti a gyorsítótárat, és a 301 azonnal él.
+### Ami maradt a helyén (a slug-visszaállítás ezeket NEM érinti)
 
-Ellenőrzés utána:
-`https://vanbudapest.com/covid-hungary-private-bus-airport-transfer/` →
-**301** → `https://vanbudapest.com/clean-hungary-private-bus-airport-transfer/`
+- COVID kiszedve a #10 blokkból; a #14 archív blokkban marad (16 említés)
+- törött kép pótolva, 4 duplikált kép lecserélve → **0 duplikált kép-URL**
+- hero ALT + `fetchpriority`, 16 képre `loading=lazy` + `decoding=async`
+- 16 social link, hero CTA, 8 emoji-kép, halott CSS, 2 üres bekezdés
+- H3→P a kontakt-csempéken, 8 `aria-label`, `lang` attribútumok
+- scoped CSS MASTER (`vb-cleanluxury-2594-master`)
+- meta description, OG-kép 1200×630 / 231 KB
+
+Aktuális `post_content`: 64 042 kar. ·
+SHA-256 `84e640d3c18b2d60f8306a3593892deda070279632bf85cb0844d95534fd92f9`
+
+### Reszponzív mérés (Chromium 1194, 15 szélesség, lokális blokk-render)
+
+`measure.json` · előtte/utána képernyőképek: `visual-report.html`
+
+- **0 vízszintes túllógás** 320–2560 px-en, előtte és utána is
+- galéria-oszlop: előtte 1/2/3/4/5/**8** → utána fix **1/2/3**
+- oldalmagasság: 900 px-en **−29%**, 1440 px-en **−26%**, 390 px-en −8%
+  (mobilon kisebb, mert a #14 microcopy szándékosan **nagyobb** lett: 11–13 px → 14–15,5 px)
+
+A mérés a 15 `wp:html` blokk lokális újrarenderelésén készült (valódi kód +
+valódi inline CSS + az új scoped CSS), a téma fejléce/lábléce és a fényképek
+nélkül — az abszolút magasságok ezért kisebbek az élő oldalénál, az arányok és
+az oszlopszámok viszont valósak.
