@@ -1,0 +1,21 @@
+body.page-id-470{height:auto !important;overflow-x:clip;font-family:Raleway,sans-serif;color:#383F40;line-height:1.65}
+body.page-id-470 .wp-block-post-title{display:none !important}
+body.page-id-470 .wp-block-jetpack-tiled-gallery{max-width:1320px;margin-left:auto !important;margin-right:auto !important;padding-left:clamp(16px,1rem + 1.5vw,40px);padding-right:clamp(16px,1rem + 1.5vw,40px);box-sizing:border-box}
+body.page-id-470 .wp-block-jetpack-tiled-gallery .tiled-gallery__gallery{display:flex !important;flex-direction:row !important;flex-wrap:wrap !important;justify-content:center !important;align-items:stretch !important;gap:16px !important;width:100% !important;margin:0 !important;padding:0 !important}
+body.page-id-470 .wp-block-jetpack-tiled-gallery .tiled-gallery__row,
+body.page-id-470 .wp-block-jetpack-tiled-gallery .tiled-gallery__col{display:contents !important}
+body.page-id-470 .wp-block-jetpack-tiled-gallery .tiled-gallery__item{flex:0 1 calc((100% - 32px)/3 - .5px) !important;margin:0 !important;padding:0 !important;overflow:hidden !important;border-radius:14px !important;box-shadow:0 6px 18px rgba(10,31,68,.08)}
+body.page-id-470 .wp-block-jetpack-tiled-gallery .tiled-gallery__item img{width:100% !important;height:100% !important;aspect-ratio:4/3 !important;object-fit:cover !important;object-position:center !important;display:block !important;max-width:100% !important;border-radius:0 !important}
+@media (max-width:1024px){
+  body.page-id-470 .wp-block-jetpack-tiled-gallery{max-width:960px}
+}
+@media (max-width:781px){
+  body.page-id-470 .wp-block-jetpack-tiled-gallery{padding-left:16px;padding-right:16px}
+  body.page-id-470 .wp-block-jetpack-tiled-gallery .tiled-gallery__item{flex:0 1 calc((100% - 16px)/2 - .5px) !important}
+}
+@media (max-width:480px){
+  body.page-id-470 .wp-block-jetpack-tiled-gallery .tiled-gallery__gallery{gap:12px !important}
+  body.page-id-470 .wp-block-jetpack-tiled-gallery .tiled-gallery__item{flex:0 1 100% !important}
+}
+body.page-id-470 .entry-content > p a,
+body.page-id-470 .wp-block-post-content > p a{color:#8A6D1F !important}

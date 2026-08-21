@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Legacy Reviews Archive | VanBudapest.com</title>
+<style>
+  :root{
+    --vb-deepblue:#0A1F44; /* brand deep navy */
+    --vb-gold:#C8B560;     /* elegant gold */
+    --vb-ink:#111111;      /* text */
+    --vb-bg:#ffffff;       /* page */
+    --vb-card:#fafafa;     /* card */
+    --vb-border:#e5e5e5;   /* border */
+  }
+  html,body{margin:0;padding:0;background:var(--vb-bg);color:var(--vb-ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif}
+  .wrap{max-width:1060px;margin:0 auto;padding:28px 18px 64px}
+  header{padding:18px 16px 12px}
+  .eyebrow{letter-spacing:.12em;text-transform:uppercase;font-size:12px;color:#555}
+  h1{margin:6px 0 4px;font-size:30px;line-height:1.15;color:var(--vb-deepblue)}
+  .sub{color:#444;max-width:780px}
+
+  /* controls */
+  .controls{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 8px}
+  .input{border:1px solid var(--vb-border);border-radius:10px;padding:10px 12px;font:inherit}
+  .select{border:1px solid var(--vb-border);border-radius:10px;padding:10px 12px;font:inherit;background:#fff}
+  .count{margin-left:auto;color:#666;font-size:13px}
+
+  /* list */
+  .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px;margin-top:10px}
+  .col{grid-column:span 12}
+  .card{background:var(--vb-card);border:1px solid var(--vb-border);border-radius:16px;box-shadow:0 8px 24px rgba(0,0,0,.05)}
+  .card-body{padding:16px 18px}
+  .meta{display:flex;flex-wrap:wrap;gap:8px 12px;color:#555;font-size:13px;margin-bottom:6px}
+  .pill{display:inline-block;border:1px solid var(--vb-border);border-radius:999px;padding:4px 10px;background:#fff}
+  h3{margin:4px 0 8px;font-size:18px}
+  blockquote{margin:0;font-size:16px;line-height:1.55}
+  .date{margin-top:10px;font-size:12px;color:#666}
+
+  /* footer note */
+  .note{margin-top:20px;color:#666;font-size:12px}
+
+  @media(min-width:880px){
+    .col{grid-column:span 6}
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="eyebrow">Archive</div>
+      <h1>Legacy Reviews Archive</h1>
+      <p class="sub">This standalone page preserves historical customer quotes in their original, short form. These entries are not part of the curated stories feed and remain for reference only.</p>
+    </header>
+
+    <div class="controls" role="region" aria-label="Filters">
+      <input id="q" class="input" placeholder="Search name or text…" />
+      <select id="country" class="select">
+        <option value="">All countries</option>
+        <option>US</option><option>UK</option><option>CA</option><option>AU</option><option>DE</option><option>FR</option><option>IN</option><option>IT</option><option>ES</option><option>BR</option><option>CN</option><option>TH</option><option>MX</option><option>AR</option><option>TR</option><option>PH</option><option>ID</option><option>HU</option><option>SK</option><option>PL</option><option>SA</option><option>GR</option><option>ZA</option><option>MY</option>
+      </select>
+      <select id="year" class="select">
+        <option value="">All years</option>
+        <option>2024</option><option>2023</option><option>2022</option><option>2021</option><option>2020</option><option>2019</option><option>2018</option>
+      </select>
+      <div class="count" id="count"></div>
+    </div>
+
+    <section id="list" class="grid">
+      <!-- ITEM -->
+      <article class="card col" data-country="US" data-date="2023-03-10">
+        <div class="card-body">
+          <div class="meta"><span class="pill">US</span><span>Abigail Williams</span></div>
+          <h3>“Vanbudapest.com provided an excellent service. Our driver, Csaba, was incredibly friendly and helpful. The minivan was clean and comfortable, making our airport transfer smooth and enjoyable.”</h3>
+          <div class="date">Date: 2023.03.10</div>
+        </div>
+      </article>
+
+      <article class="card col" data-country="UK" data-date="2022-08-15">
+        <div class="card-body">
+          <div class="meta"><span class="pill">UK</span><span>Oliver Smith</span></div>
+          <blockquote>“Great experience with vanbudapest.com. The private transfer was seamless and comfortable. The driver was very professional and on time. Highly recommend for anyone visiting Budapest!”</blockquote>
+          <div class="date">Date: 2022.08.15</div>
+        </div>
+      </article>
+
+      <article class="card col" data-country="CA" data-date="2021-11-05">
+        <div class="card-body">
+          <div class="meta"><span class="pill">CA</span><span>Sophia Taylor</span></div>
+          <blockquote>“Highly recommend vanbudapest.com. Our driver, Zoltán, was punctual and courteous. The vehicle was clean and spacious. Our transfer from the airport to our hotel was very pleasant.”</blockquote>
+          <div class="date">Date: 2021.11.05</div>
+        </div>
+      </article>
+
+      <article class="card col" data-country="AU" data-date="2020-12-22">
+        <div class="card-body">
+          <div class="meta"><span class="pill">AU</span><span>Thomas Johnson</span></div>
+          <blockquote>“Outstanding service from vanbudapest.com. The minivan was perfect for our family, and the driver was very polite and helpful. Will definitely use their service again.”</blockquote>
+          <div class="date">Date: 2020.12.22</div>
+        </div>
+      </article>
+
+      <article class="card col" data-country="DE" data-date="2021-09-30">
+        <div class="card-body">
+          <div class="meta"><span class="pill">DE</span><span>Julia Müller</span></div>
+          <blockquote>“Fantastic service! The driver, László, was very friendly and professional. The bus was clean and comfortable, making our transfer from the airport to the hotel very enjoyable.”</blockquote>
+          <div class="date">Date: 2021.09.30</div>
+        </div>
+      </article>
+
+      <article class="card col" data-country="FR" data-date="2022-04-12">
+        <div class="card-body">
+          <div class="meta"><span class="pill">FR</span><span>Lucas Moreau</span></div>
+          <blockquote>“Excellent private transfer service from vanbudapest.com. The driver was on time and very courteous. The vehicle was clean and comfortable. Highly recommended!”</blockquote>
+          <div class="date">Date: 2022.04.12</div>
+        </div>
+      </article>
+
+      <article class="card col" data-country="IN" data-date="2019-10-19">
+        <div class="card-body">
+          <div class="meta"><span class="pill">IN</span><span>Ananya Sharma</span></div>
+          <blockquote>“Top-notch service! The minibus was spacious and very comfortable. Our driver, Balázs, ensured we reached our hotel safely and promptly. Will definitely book with vanbudapest.com again.”</blockquote>
+          <div class="date">Date: 2019.10.19</div>
+        </div>
+      </article>
+
+      <article class="card col" data-country="IT" data-date="2020-06-27">
+        <div class="card-body">
+          <div class="meta"><span class="pill">IT</span><span>Matteo Bianchi</span></div>
+          <blockquote>“Great service from vanbudapest.com! The driver was punctual and very polite. The vehicle was clean and comfortable. I highly recommend their private transfer service.”</blockquote>
+          <div class="date">Date: 2020.06.27</div>
+        </div>
+      </article>
+
+      <article class="card col" data-country="ES" data-date="2021-05-14">
+        <div class="card-body">
+          <div class="meta"><span class="pill">ES</span><span>Elena Martinez</span></div>
+          <blockquote>“Wonderful experience with vanbudapest.com. The driver, Tamás, was friendly and knowledgeable. The bus was very comfortable, making our transfer hassle-free. Highly recommend!”</blockquote>
+          <div class="date">Date: 2021.05.14</div>
+        </div>
+      </article>
+
+      <article class="card col" data-country="BR" data-date="2022-02-23">
+        <div class="card-body">
+          <div class="meta"><span class="pill">BR</span><span>João Silva</span></div>
+          <blockquote>“Fantastic service! The driver was very professional and friendly. The bus was clean and comfortable. Our transfer from the airport to the hotel was very enjoyable. Highly recommend vanbudapest.com.”</blockquote>
+          <div class="date">Date: 2022.02.23</div>
+        </div>
+      </article>
+
+      <article class="card col" data-country="US" data-date="2022-09-21">
+        <div class="card-body">
+          <div class="meta"><span class="pill">US</span><span>Emily Davis</span></div>
+          <blockquote>“Excellent private transfer service from vanbudapest.com. The driver was on time and very courteous. The minivan was clean and comfortable. Our journey was seamless and enjoyable.”</blockquote>
+          <div class="date">Date: 2022.09.21</div>
+        </div>
+      </article>
+
+      <article class="card col" data-country="UK" data-date="2023-04-10">
+        <div class="card-body">
+          <div class="meta"><span class="pill">UK</span><span>Jessica Brown</span></div>
+          <blockquote>“Highly professional and reliable service. The bus was modern and clean, and the driver was very friendly. Our transfer from the Budapest airport to our hotel was seamless. Thank you, vanbudapest.com!”</blockquote>
+          <div class="date">Date: 2023.04.10</div>
+        </div>
+      </article>
+
+      <article class="card col" data-country="CA" data-date="2021-03-15">
+        <div class="card-body">
+          <div class="meta"><span class="pill">CA</span><span>Benjamin Clark</span></div>
+          <blockquote>“Great experience with vanbudapest.com. The minivan was perfect for our family, and the driver was prompt and polite. Highly recommend for anyone needing a private airport transfer in Budapest.”</blockquote>
+          <div class="date">Date: 2021.03.15</div>
+        </div>
+      </article>
+
+      <article class="card col" data-country="AU" data-date="2020-09-10">
+        <div class="card-body">
+          <div class="meta"><span class="pill">AU</span><span>Chloe Wilson</span></div>
+          <blockquote>“Outstanding service from vanbudapest.com! The driver arrived on time and was very courteous. The minivan was clean and comfortable, making our transfer smooth and enjoyable.”</blockquote>
+          <div class="date">Date: 2020.09.10</div>
+        </div>
+      </article>
+
+      <article class="card col" data-country="DE" data-date="2021-12-05">
+        <div class="card-body">
+          <div class="meta"><span class="pill">DE</span><span>Maximilian Schmidt</span></div>
+          <blockquote>“Exceptional service from vanbudapest.com. The bus was clean and comfortable, and the driver, István, was very courteous. Our private transfer from the airport to the hotel was smooth and enjoyable.”</blockquote>
+          <div class="date">Date: 2021.12.05</div>
+        </div>
+      </article>
+
+      <article class="card col" data-country="CN" data-date="2023-02-15">
+        <div class="card-body">
+          <div class="meta"><span class="pill">CN</span><span>Wei Zhang</span></div>
+          <blockquote>“Vanbudapest.com provided an excellent service. Our driver, Csaba, was incredibly friendly and helpful. The minivan was clean and comfortable, making our airport transfer smooth and enjoyable.”</blockquote>
+          <div class="date">Date: 2023.02.15</div>
+        </div>
+      </article>
+
+      <article class="card col" data-country="TH" data-date="2022-09-10">
+        <div class="card-body">
+          <div class="meta"><span class="pill">TH</span><span>Napatra Wong</span></div>
+          <blockquote>“Fantastic experience with vanbudapest.com. The private transfer was smooth and comfortable. The driver was very professional and on time. Highly recommend for anyone visiting Budapest!”</blockquote>
+          <div class="date">Date: 2022.09.10</div>
+        </div>
+      </article>
+
+      <article class="card col" data-country="AU" data-date="2023-01-18">
+        <div class="card-body">
+          <div class="meta"><span class="pill">AU</span><span>Emily Parker</span></div>
+          <blockquote>“Highly recommend vanbudapest.com. Our driver, Zoltán, was punctual and courteous. The vehicle was clean and spacious, making our transfer very pleasant.”</blockquote>
+          <div class="date">Date: 2023.01.18</div>
+        </div>
+      </article>
+
+      <article class="card col" data-country="CN" data-date="2021-11-22">
+        <div class="card-body">
+          <div class="meta"><span class="pill">CN</span><span>Ming Li</span></div>
+          <blockquote>“Great service from vanbudapest.com! The driver was very polite and professional. The minivan was perfect for our group, and the ride from the airport to the hotel was enjoyable.”</blockquote>
+          <div class="date">Date: 2021.11.22</div>
+        </div>
+      </article>
+
+      <article class="card col" data-country="TH" data-date="2022-07-05">
+        <div class="card-body">
+          <div class="meta"><span class="pill">TH</span><span>Anong Lert</span></div>
+          <blockquote>“Wonderful experience with vanbudapest.com. The driver was friendly and professional, and the minivan was clean and comfortable. Our airport transfer was hassle-free and enjoyable.”</blockquote>
+          <div class="date">Date: 2022.07.05</div>
+        </div>
+      </article>
+
+      <article class="card col" data-country="AU" data-date="2021-10-10">
+        <div class="card-body">
+          <div class="meta"><span class="pill">AU</span><span>James Wilson</span></div>
+          <blockquote>“Exceptional service! Our driver, László, was extremely courteous and knowledgeable. The bus was clean and comfortable, making our transfer from the airport to the hotel very smooth.”</blockquote>
+          <div class="date">Date: 2021.10.10</div>
+        </div>
+      </article>
+
+      <article class="card col" data-country="CN" data-date="2021-12-08">
+        <div class="card-body">
+          <div class="meta"><span class="pill">CN</span><span>Xiaoyan Liu</span></div>
+          <blockquote>“Fantastic service! The driver, Ferenc, was very friendly and professional. The bus was clean and comfortable, making our transfer from the airport to the hotel very enjoyable.”</blockquote>
+          <div class="date">Date: 2021.12.08</div>
+        </div>
+      </article>
+
+      <article class="card col" data-country="TH" data-date="2022-03-14">
+        <div class="card-body">
+          <div class="meta"><span class="pill">TH</span><span>Somchai Kiat</span></div>
+          <blockquote>“Excellent private transfer service from vanbudapest.com. The driver was on time and very professional. The vehicle was immaculate, and the journey was seamless. Highly recommended!”</blockquote>
+          <div class="date">Date: 2022.03.14</div>
+        </div>
+      </article>
+
+      <article class="card col" data-country="AU" data-date="2021-05-15">
+        <div class="card-body">
+          <div class="meta"><span class="pill">AU</span><span>Olivia Johnson</span></div>
+          <blockquote>“Great service from vanbudapest.com! The driver was punctual and very polite. The vehicle was clean and comfortable. I highly recommend their private transfer service.”</blockquote>
+          <div class="date">Date: 2021.05.15</div>
+        </div>
+      </article>
+
+      <!-- MORE ITEMS CAN BE CONTINUED HERE ... (send me the next chunk and I'll append) -->
+    </section>
+
+    <p class="note">Tip: Use the search and filters above to quickly find specific names, countries, or years.</p>
+  </div>
+
+<script>
+  // Simple filter logic (client-side only)
+  const list = document.getElementById('list');
+  const q = document.getElementById('q');
+  const country = document.getElementById('country');
+  const year = document.getElementById('year');
+  const count = document.getElementById('count');
+
+  function refresh(){
+    const term = (q.value||'').toLowerCase();
+    const ctry = country.value;
+    const yr = year.value;
+    let visible = 0;
+    list.querySelectorAll('.card').forEach(card =>{
+      const text = card.textContent.toLowerCase();
+      const c = card.getAttribute('data-country');
+      const d = card.getAttribute('data-date'); // yyyy-mm-dd
+      const okTerm = !term || text.includes(term);
+      const okCountry = !ctry || c === ctry;
+      const okYear = !yr || (d && d.startsWith(yr));
+      const show = okTerm && okCountry && okYear;
+      card.style.display = show ? '' : 'none';
+      if(show) visible++;
+    });
+    count.textContent = visible + ' shown';
+  }
+  q.addEventListener('input', refresh);
+  country.addEventListener('change', refresh);
+  year.addEventListener('change', refresh);
+  refresh();
+</script>
+</body>
+</html>
