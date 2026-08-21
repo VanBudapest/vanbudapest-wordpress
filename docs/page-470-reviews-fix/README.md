@@ -88,3 +88,25 @@ Baj esetén: `wp_restore_post_revision(470, 23600)` + a scoped szabály törlés
 - `backup/` — teljes írás előtti mentések
 - `qa/` — lokális Playwright harness + screenshotok (390/781/1440px)
 - `live-after/` — élesítés utáni REST rendered pillanatkép
+
+---
+
+## 2. kör (2026-08-21, kb. 14:26): teljes képcsere + galériabővítés
+
+Kérés: minden kép cseréje a friss S-Class / E-Class / V-Class flotta-sorozatokra (2026/06,
+főleg beltéri képek), és több kép kirakása. Az értékelés-szekcióhoz nem nyúltunk.
+
+- **11 → 18 kép**: az 1. galéria 8 → **12** csempe, a 2. galéria 3 → **6** csempe
+- Forrás: a 2026/06-os profi flotta-sorozatok (`Mercedes_S-class_VanBudapest-*`,
+  `Mercedes_E-class_VanBudapest-*`, `Mercedes_V-class_VanBudapest-*`)
+- Összetétel: **12 beltéri** (quilted/krém bőr, ambient világítás, rear-seat entertainment,
+  executive kabin, V-Class utastér frissítőkkel) + 6 kontextus-kép (garázs, nyitott tolóajtó,
+  sofőr vezetés közben, előkészített csomagtér)
+- Minden kép ≤ 500 KB (a két nagy E-Class képnél az 1536px-es változat használva);
+  teljes képtömeg ~3,6 MB (cél: <10 MB) · minden kép `loading="lazy" decoding="async"`
+- ALT-ok a médiatár kurált leírásaiból, ≤100 karakter
+- Kiválasztás a médiatári kurált ALT-metaadatok alapján (a konténerből bináris képletöltés
+  nem lehetséges) — **vizuális szúrópróba a felhasználónál**
+- Mentés bájt-verifikált: SHA-256 `ffdbdda1c50e…` · undo snapshot **753** · új revízió a 2. kör után
+- Élő rendered ellenőrizve: 0 régi kép-hivatkozás, Jetpack srcset generálódik
+- Lokális QA: 15/15 szélesség PASS, 3/2/1 oszlopos rács, szűrő működik

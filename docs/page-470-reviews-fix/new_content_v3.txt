@@ -1,0 +1,371 @@
+<!-- wp:html -->
+<section class="vb-rev470-intro">
+<style>
+  .vb-rev470-intro{
+    --bg:#ffffff;--panel:#ffffff;--text:#0A2342;--muted:#334766;
+    --accent:#0A2342;--accent-strong:#001A33;--border:#C7D3EA;
+    box-sizing:border-box;width:100%;margin:0;
+    background:var(--bg);color:var(--text);line-height:1.7;
+    -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+  .vb-rev470-intro *,.vb-rev470-intro *::before,.vb-rev470-intro *::after{box-sizing:border-box}
+  .vb-rev470-intro .wrap{max-width:980px;padding:32px 20px 60px;margin:0 auto}
+  .vb-rev470-intro .breadcrumb a{color:var(--accent);text-decoration:none}
+  .vb-rev470-intro .breadcrumb a:hover{color:var(--accent-strong);text-decoration:underline}
+  .vb-rev470-intro .title{font-family:inherit;font-size:clamp(28px,4vw,40px);margin:12px 0 8px;font-weight:800;color:var(--text);letter-spacing:.2px;line-height:1.2;overflow-wrap:anywhere}
+  .vb-rev470-intro .lead{font-size:clamp(16px,1.6vw,18px);max-width:72ch;color:var(--muted)}
+  .vb-rev470-intro .card{background:var(--panel);border-radius:16px;padding:26px;margin-top:22px;border:1px solid var(--border);box-shadow:0 4px 12px rgba(0,0,0,.05)}
+  .vb-rev470-intro .card h2{font-family:inherit;margin:0 0 10px;font-size:clamp(24px,3vw,34px);color:var(--text);letter-spacing:normal;text-transform:none}
+  .vb-rev470-intro .features{padding-left:20px;margin:0}
+  .vb-rev470-intro .features li{margin:10px 0;color:var(--text)}
+  .vb-rev470-intro .features li::marker{color:var(--accent)}
+  .vb-rev470-intro .features b{color:var(--accent)}
+  @media (min-width:782px){
+    .vb-rev470-intro .lead{text-align:justify;text-justify:inter-word;-webkit-hyphens:auto;hyphens:auto}
+  }
+  @media (max-width:781px){
+    .vb-rev470-intro .lead{text-align:left;-webkit-hyphens:none;hyphens:none}
+  }
+  @media (max-width:480px){
+    .vb-rev470-intro .wrap{padding:24px 16px 44px}
+  }
+</style>
+  <div class="wrap">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a> / <a href="https://vanbudapest.com/google-reviews-customer-feedback/">Customer Feedback</a>
+    </nav>
+
+    <h1 class="title">Customer Feedback &#038; Reviews — Budapest Private Transfers</h1>
+    <p class="lead">
+      We’re proud to share authentic testimonials from real passengers. Reviews appear only with explicit consent for name visibility.
+      Your privacy and data security come first.
+    </p>
+
+    <section class="card" aria-labelledby="why">
+      <h2 id="why">Why our review page is different</h2>
+      <ul class="features">
+        <li><b>Consent‑based publishing:</b> Only passengers who opt‑in to name display appear publicly; others remain private.</li>
+        <li><b>Security &amp; data protection:</b> We handle personal data with care and never sell your information.</li>
+        <li><b>Simple feedback flow:</b> A short email survey arrives a few days after your ride—share as much or as little as you like.</li>
+        <li><b>Clarity across languages:</b> Feedback is automatically translated to English for consistency and easy browsing.</li>
+      </ul>
+    </section>
+  </div>
+</section>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+[trustindex data-widget-id=e95ff0d571b982743336b331eb3]
+<!-- /wp:html -->
+
+<!-- wp:spacer {"height":"27px"} -->
+<div style="height:27px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:jetpack/tiled-gallery {"align":"full","className":"is-style-columns","columns":2,"columnWidths":[["50","50"]],"ids":[25107,24967,25206,25112,24957,25204,25086,24972,25213,25104,25210,25088]} -->
+<div class="wp-block-jetpack-tiled-gallery alignfull is-style-columns"><div class=""><div class="tiled-gallery__gallery"><div class="tiled-gallery__row"><div class="tiled-gallery__col" style="flex-basis:50%"><figure class="tiled-gallery__item"><img alt="Mercedes S-Class quilted leather interior with blue ambient lighting for Budapest VIP transfers" data-height="1080" data-id="25107" data-link="https://vanbudapest.com/wp-content/uploads/2026/06/Mercedes_S-class_VanBudapest-28.webp" data-url="https://vanbudapest.com/wp-content/uploads/2026/06/Mercedes_S-class_VanBudapest-28.webp" data-width="1620" src="https://i0.wp.com/vanbudapest.com/wp-content/uploads/2026/06/Mercedes_S-class_VanBudapest-28.webp?ssl=1" data-amp-layout="responsive" loading="lazy" decoding="async" /></figure><figure class="tiled-gallery__item"><img alt="Mercedes E-Class interior with cream leather seats and digital dashboard for Budapest transfers" data-height="1632" data-id="24967" data-link="https://vanbudapest.com/wp-content/uploads/2026/06/Mercedes_E-class_VanBudapest-26.webp" data-url="https://vanbudapest.com/wp-content/uploads/2026/06/Mercedes_E-class_VanBudapest-26.webp" data-width="2560" src="https://i0.wp.com/vanbudapest.com/wp-content/uploads/2026/06/Mercedes_E-class_VanBudapest-26.webp?ssl=1" data-amp-layout="responsive" loading="lazy" decoding="async" /></figure><figure class="tiled-gallery__item"><img alt="Mercedes V-Class interior with three black leather seats for private Budapest group transfers" data-height="1080" data-id="25206" data-link="https://vanbudapest.com/wp-content/uploads/2026/06/Mercedes_V-class_VanBudapest-14.webp" data-url="https://vanbudapest.com/wp-content/uploads/2026/06/Mercedes_V-class_VanBudapest-14.webp" data-width="1620" src="https://i0.wp.com/vanbudapest.com/wp-content/uploads/2026/06/Mercedes_V-class_VanBudapest-14.webp?ssl=1" data-amp-layout="responsive" loading="lazy" decoding="async" /></figure><figure class="tiled-gallery__item"><img alt="Black Mercedes S-Class sedan ready in the garage for a premium Budapest airport transfer" data-height="1080" data-id="25112" data-link="https://vanbudapest.com/wp-content/uploads/2026/06/Mercedes_S-class_VanBudapest-33.webp" data-url="https://vanbudapest.com/wp-content/uploads/2026/06/Mercedes_S-class_VanBudapest-33.webp" data-width="1620" src="https://i0.wp.com/vanbudapest.com/wp-content/uploads/2026/06/Mercedes_S-class_VanBudapest-33.webp?ssl=1" data-amp-layout="responsive" loading="lazy" decoding="async" /></figure><figure class="tiled-gallery__item"><img alt="Mercedes E-Class rear seats in black leather, prepared for a private Budapest transfer" data-height="2560" data-id="24957" data-link="https://vanbudapest.com/wp-content/uploads/2026/06/Mercedes_E-class_VanBudapest-16.webp" data-url="https://vanbudapest.com/wp-content/uploads/2026/06/Mercedes_E-class_VanBudapest-16.webp" data-width="1632" src="https://i0.wp.com/vanbudapest.com/wp-content/uploads/2026/06/Mercedes_E-class_VanBudapest-16.webp?ssl=1" data-amp-layout="responsive" loading="lazy" decoding="async" /></figure><figure class="tiled-gallery__item"><img alt="Mercedes V-Class cabin with black leather seats and refreshments for Budapest airport transfers" data-height="1080" data-id="25204" data-link="https://vanbudapest.com/wp-content/uploads/2026/06/Mercedes_V-class_VanBudapest-12.webp" data-url="https://vanbudapest.com/wp-content/uploads/2026/06/Mercedes_V-class_VanBudapest-12.webp" data-width="1620" src="https://i0.wp.com/vanbudapest.com/wp-content/uploads/2026/06/Mercedes_V-class_VanBudapest-12.webp?ssl=1" data-amp-layout="responsive" loading="lazy" decoding="async" /></figure></div><div class="tiled-gallery__col" style="flex-basis:50%"><figure class="tiled-gallery__item"><img alt="Mercedes S-Class rear-seat entertainment with blue ambient lighting for VIP Budapest journeys" data-height="1080" data-id="25086" data-link="https://vanbudapest.com/wp-content/uploads/2026/06/Mercedes_S-class_VanBudapest-07.webp" data-url="https://vanbudapest.com/wp-content/uploads/2026/06/Mercedes_S-class_VanBudapest-07.webp" data-width="1620" src="https://i0.wp.com/vanbudapest.com/wp-content/uploads/2026/06/Mercedes_S-class_VanBudapest-07.webp?ssl=1" data-amp-layout="responsive" loading="lazy" decoding="async" /></figure><figure class="tiled-gallery__item"><img alt="Black Mercedes E-Class prepared for an hourly chauffeur service in Budapest" data-height="1080" data-id="24972" data-link="https://vanbudapest.com/wp-content/uploads/2026/06/Mercedes_E-class_VanBudapest-31.webp" data-url="https://vanbudapest.com/wp-content/uploads/2026/06/Mercedes_E-class_VanBudapest-31.webp" data-width="1620" src="https://i0.wp.com/vanbudapest.com/wp-content/uploads/2026/06/Mercedes_E-class_VanBudapest-31.webp?ssl=1" data-amp-layout="responsive" loading="lazy" decoding="async" /></figure><figure class="tiled-gallery__item"><img alt="Black Mercedes V-Class with open doors showing the premium interior before a Budapest transfer" data-height="1080" data-id="25213" data-link="https://vanbudapest.com/wp-content/uploads/2026/06/Mercedes_V-class_VanBudapest-21.webp" data-url="https://vanbudapest.com/wp-content/uploads/2026/06/Mercedes_V-class_VanBudapest-21.webp" data-width="720" src="https://i0.wp.com/vanbudapest.com/wp-content/uploads/2026/06/Mercedes_V-class_VanBudapest-21.webp?ssl=1" data-amp-layout="responsive" loading="lazy" decoding="async" /></figure><figure class="tiled-gallery__item"><img alt="Mercedes S-Class rear cabin configured for executive work between Budapest meetings" data-height="1080" data-id="25104" data-link="https://vanbudapest.com/wp-content/uploads/2026/06/Mercedes_S-class_VanBudapest-25.webp" data-url="https://vanbudapest.com/wp-content/uploads/2026/06/Mercedes_S-class_VanBudapest-25.webp" data-width="1620" src="https://i0.wp.com/vanbudapest.com/wp-content/uploads/2026/06/Mercedes_S-class_VanBudapest-25.webp?ssl=1" data-amp-layout="responsive" loading="lazy" decoding="async" /></figure><figure class="tiled-gallery__item"><img alt="Professional VanBudapest chauffeur driving a luxury Mercedes on a private Budapest transfer" data-height="1080" data-id="25210" data-link="https://vanbudapest.com/wp-content/uploads/2026/06/Mercedes_V-class_VanBudapest-18.webp" data-url="https://vanbudapest.com/wp-content/uploads/2026/06/Mercedes_V-class_VanBudapest-18.webp" data-width="1620" src="https://i0.wp.com/vanbudapest.com/wp-content/uploads/2026/06/Mercedes_V-class_VanBudapest-18.webp?ssl=1" data-amp-layout="responsive" loading="lazy" decoding="async" /></figure><figure class="tiled-gallery__item"><img alt="Mercedes S-Class interior with cream leather seats for premium Budapest private transfers" data-height="1080" data-id="25088" data-link="https://vanbudapest.com/wp-content/uploads/2026/06/Mercedes_S-class_VanBudapest-09.webp" data-url="https://vanbudapest.com/wp-content/uploads/2026/06/Mercedes_S-class_VanBudapest-09.webp" data-width="1620" src="https://i0.wp.com/vanbudapest.com/wp-content/uploads/2026/06/Mercedes_S-class_VanBudapest-09.webp?ssl=1" data-amp-layout="responsive" loading="lazy" decoding="async" /></figure></div></div></div></div></div>
+<!-- /wp:jetpack/tiled-gallery -->
+
+<!-- wp:spacer {"height":"27px"} -->
+<div style="height:27px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:html -->
+<section class="vb-rev470-arch">
+<style>
+  .vb-rev470-arch{
+    --vb-deepblue:#0A1F44;--vb-gold:#C8B560;--vb-ink:#111111;--vb-bg:#ffffff;
+    --vb-card:#fafafa;--vb-border:#e5e5e5;
+    box-sizing:border-box;width:100%;margin:0;padding:0;
+    background:var(--vb-bg);color:var(--vb-ink)}
+  .vb-rev470-arch *,.vb-rev470-arch *::before,.vb-rev470-arch *::after{box-sizing:border-box}
+  .vb-rev470-arch .wrap{max-width:1060px;margin:0 auto;padding:28px 18px 64px}
+  .vb-rev470-arch header{padding:18px 16px 12px}
+  .vb-rev470-arch .eyebrow{letter-spacing:.12em;text-transform:uppercase;font-size:12px;color:#555}
+  .vb-rev470-arch .vb-arch-title{font-family:inherit;margin:6px 0 4px;font-size:30px;line-height:1.15;color:var(--vb-deepblue);font-weight:700;letter-spacing:normal;text-transform:none}
+  .vb-rev470-arch .sub{color:#444;max-width:780px}
+  .vb-rev470-arch .controls{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 8px}
+  .vb-rev470-arch .input{border:1px solid var(--vb-border);border-radius:10px;padding:10px 12px;font:inherit;min-width:0}
+  .vb-rev470-arch .select{border:1px solid var(--vb-border);border-radius:10px;padding:10px 12px;font:inherit;background:#fff;min-width:0}
+  .vb-rev470-arch .count{margin-left:auto;color:#666;font-size:13px}
+  .vb-rev470-arch .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px;margin-top:10px;scroll-margin-top:80px}
+  .vb-rev470-arch .col{grid-column:span 12;min-width:0}
+  .vb-rev470-arch .card{background:var(--vb-card);border:1px solid var(--vb-border);border-radius:16px;box-shadow:0 8px 24px rgba(0,0,0,.05)}
+  .vb-rev470-arch .card-body{padding:16px 18px}
+  .vb-rev470-arch .meta{display:flex;flex-wrap:wrap;gap:8px 12px;color:#555;font-size:13px;margin-bottom:6px}
+  .vb-rev470-arch .pill{display:inline-block;border:1px solid var(--vb-border);border-radius:999px;padding:4px 10px;background:#fff}
+  .vb-rev470-arch blockquote{margin:0;font-size:16px;line-height:1.55;font-family:inherit;font-style:normal;border:0;padding:0}
+  .vb-rev470-arch .date{margin-top:10px;font-size:12px;color:#666}
+  .vb-rev470-arch .note{margin-top:20px;color:#666;font-size:12px}
+  @media (min-width:880px){
+    .vb-rev470-arch .col{grid-column:span 6}
+  }
+  @media (max-width:480px){
+    .vb-rev470-arch .wrap{padding:20px 14px 44px}
+    .vb-rev470-arch .controls{gap:8px}
+    .vb-rev470-arch .input,.vb-rev470-arch .select{width:100%}
+    .vb-rev470-arch .count{margin-left:0}
+  }
+</style>
+  <div class="wrap">
+    <header>
+      <div class="eyebrow">Archive</div>
+      <h2 class="vb-arch-title">Legacy Reviews Archive</h2>
+      <p class="sub">This standalone page preserves historical customer quotes in their original, short form. These entries are not part of the curated stories feed and remain for reference only.</p>
+    </header>
+
+    <div class="controls" role="region" aria-label="Filters">
+      <input id="q" class="input" placeholder="Search name or text…" aria-label="Search name or text" />
+      <select id="country" class="select" aria-label="Filter by country">
+        <option value="">All countries</option>
+        <option>US</option><option>UK</option><option>CA</option><option>AU</option><option>DE</option><option>FR</option><option>IN</option><option>IT</option><option>ES</option><option>BR</option><option>CN</option><option>TH</option><option>MX</option><option>AR</option><option>TR</option><option>PH</option><option>ID</option><option>HU</option><option>SK</option><option>PL</option><option>SA</option><option>GR</option><option>ZA</option><option>MY</option>
+      </select>
+      <select id="year" class="select" aria-label="Filter by year">
+        <option value="">All years</option>
+        <option>2024</option><option>2023</option><option>2022</option><option>2021</option><option>2020</option><option>2019</option><option>2018</option>
+      </select>
+      <div class="count" id="count" aria-live="polite"></div>
+    </div>
+
+    <section id="list" class="grid">
+      <article class="card col" data-country="US" data-date="2023-03-10">
+        <div class="card-body">
+          <div class="meta"><span class="pill">US</span><span>Abigail Williams</span></div>
+          <blockquote>“Vanbudapest.com provided an excellent service. Our driver, Csaba, was incredibly friendly and helpful. The minivan was clean and comfortable, making our airport transfer smooth and enjoyable.”</blockquote>
+          <div class="date">Date: 2023.03.10</div>
+        </div>
+      </article>
+
+      <article class="card col" data-country="UK" data-date="2022-08-15">
+        <div class="card-body">
+          <div class="meta"><span class="pill">UK</span><span>Oliver Smith</span></div>
+          <blockquote>“Great experience with vanbudapest.com. The private transfer was seamless and comfortable. The driver was very professional and on time. Highly recommend for anyone visiting Budapest!”</blockquote>
+          <div class="date">Date: 2022.08.15</div>
+        </div>
+      </article>
+
+      <article class="card col" data-country="CA" data-date="2021-11-05">
+        <div class="card-body">
+          <div class="meta"><span class="pill">CA</span><span>Sophia Taylor</span></div>
+          <blockquote>“Highly recommend vanbudapest.com. Our driver, Zoltán, was punctual and courteous. The vehicle was clean and spacious. Our transfer from the airport to our hotel was very pleasant.”</blockquote>
+          <div class="date">Date: 2021.11.05</div>
+        </div>
+      </article>
+
+      <article class="card col" data-country="AU" data-date="2020-12-22">
+        <div class="card-body">
+          <div class="meta"><span class="pill">AU</span><span>Thomas Johnson</span></div>
+          <blockquote>“Outstanding service from vanbudapest.com. The minivan was perfect for our family, and the driver was very polite and helpful. Will definitely use their service again.”</blockquote>
+          <div class="date">Date: 2020.12.22</div>
+        </div>
+      </article>
+
+      <article class="card col" data-country="DE" data-date="2021-09-30">
+        <div class="card-body">
+          <div class="meta"><span class="pill">DE</span><span>Julia Müller</span></div>
+          <blockquote>“Fantastic service! The driver, László, was very friendly and professional. The bus was clean and comfortable, making our transfer from the airport to the hotel very enjoyable.”</blockquote>
+          <div class="date">Date: 2021.09.30</div>
+        </div>
+      </article>
+
+      <article class="card col" data-country="FR" data-date="2022-04-12">
+        <div class="card-body">
+          <div class="meta"><span class="pill">FR</span><span>Lucas Moreau</span></div>
+          <blockquote>“Excellent private transfer service from vanbudapest.com. The driver was on time and very courteous. The vehicle was clean and comfortable. Highly recommended!”</blockquote>
+          <div class="date">Date: 2022.04.12</div>
+        </div>
+      </article>
+
+      <article class="card col" data-country="IN" data-date="2019-10-19">
+        <div class="card-body">
+          <div class="meta"><span class="pill">IN</span><span>Ananya Sharma</span></div>
+          <blockquote>“Top-notch service! The minibus was spacious and very comfortable. Our driver, Balázs, ensured we reached our hotel safely and promptly. Will definitely book with vanbudapest.com again.”</blockquote>
+          <div class="date">Date: 2019.10.19</div>
+        </div>
+      </article>
+
+      <article class="card col" data-country="IT" data-date="2020-06-27">
+        <div class="card-body">
+          <div class="meta"><span class="pill">IT</span><span>Matteo Bianchi</span></div>
+          <blockquote>“Great service from vanbudapest.com! The driver was punctual and very polite. The vehicle was clean and comfortable. I highly recommend their private transfer service.”</blockquote>
+          <div class="date">Date: 2020.06.27</div>
+        </div>
+      </article>
+
+      <article class="card col" data-country="ES" data-date="2021-05-14">
+        <div class="card-body">
+          <div class="meta"><span class="pill">ES</span><span>Elena Martinez</span></div>
+          <blockquote>“Wonderful experience with vanbudapest.com. The driver, Tamás, was friendly and knowledgeable. The bus was very comfortable, making our transfer hassle-free. Highly recommend!”</blockquote>
+          <div class="date">Date: 2021.05.14</div>
+        </div>
+      </article>
+
+      <article class="card col" data-country="BR" data-date="2022-02-23">
+        <div class="card-body">
+          <div class="meta"><span class="pill">BR</span><span>João Silva</span></div>
+          <blockquote>“Fantastic service! The driver was very professional and friendly. The bus was clean and comfortable. Our transfer from the airport to the hotel was very enjoyable. Highly recommend vanbudapest.com.”</blockquote>
+          <div class="date">Date: 2022.02.23</div>
+        </div>
+      </article>
+
+      <article class="card col" data-country="US" data-date="2022-09-21">
+        <div class="card-body">
+          <div class="meta"><span class="pill">US</span><span>Emily Davis</span></div>
+          <blockquote>“Excellent private transfer service from vanbudapest.com. The driver was on time and very courteous. The minivan was clean and comfortable. Our journey was seamless and enjoyable.”</blockquote>
+          <div class="date">Date: 2022.09.21</div>
+        </div>
+      </article>
+
+      <article class="card col" data-country="UK" data-date="2023-04-10">
+        <div class="card-body">
+          <div class="meta"><span class="pill">UK</span><span>Jessica Brown</span></div>
+          <blockquote>“Highly professional and reliable service. The bus was modern and clean, and the driver was very friendly. Our transfer from the Budapest airport to our hotel was seamless. Thank you, vanbudapest.com!”</blockquote>
+          <div class="date">Date: 2023.04.10</div>
+        </div>
+      </article>
+
+      <article class="card col" data-country="CA" data-date="2021-03-15">
+        <div class="card-body">
+          <div class="meta"><span class="pill">CA</span><span>Benjamin Clark</span></div>
+          <blockquote>“Great experience with vanbudapest.com. The minivan was perfect for our family, and the driver was prompt and polite. Highly recommend for anyone needing a private airport transfer in Budapest.”</blockquote>
+          <div class="date">Date: 2021.03.15</div>
+        </div>
+      </article>
+
+      <article class="card col" data-country="AU" data-date="2020-09-10">
+        <div class="card-body">
+          <div class="meta"><span class="pill">AU</span><span>Chloe Wilson</span></div>
+          <blockquote>“Outstanding service from vanbudapest.com! The driver arrived on time and was very courteous. The minivan was clean and comfortable, making our transfer smooth and enjoyable.”</blockquote>
+          <div class="date">Date: 2020.09.10</div>
+        </div>
+      </article>
+
+      <article class="card col" data-country="DE" data-date="2021-12-05">
+        <div class="card-body">
+          <div class="meta"><span class="pill">DE</span><span>Maximilian Schmidt</span></div>
+          <blockquote>“Exceptional service from vanbudapest.com. The bus was clean and comfortable, and the driver, István, was very courteous. Our private transfer from the airport to the hotel was smooth and enjoyable.”</blockquote>
+          <div class="date">Date: 2021.12.05</div>
+        </div>
+      </article>
+
+      <article class="card col" data-country="CN" data-date="2023-02-15">
+        <div class="card-body">
+          <div class="meta"><span class="pill">CN</span><span>Wei Zhang</span></div>
+          <blockquote>“Vanbudapest.com provided an excellent service. Our driver, Csaba, was incredibly friendly and helpful. The minivan was clean and comfortable, making our airport transfer smooth and enjoyable.”</blockquote>
+          <div class="date">Date: 2023.02.15</div>
+        </div>
+      </article>
+
+      <article class="card col" data-country="TH" data-date="2022-09-10">
+        <div class="card-body">
+          <div class="meta"><span class="pill">TH</span><span>Napatra Wong</span></div>
+          <blockquote>“Fantastic experience with vanbudapest.com. The private transfer was smooth and comfortable. The driver was very professional and on time. Highly recommend for anyone visiting Budapest!”</blockquote>
+          <div class="date">Date: 2022.09.10</div>
+        </div>
+      </article>
+
+      <article class="card col" data-country="AU" data-date="2023-01-18">
+        <div class="card-body">
+          <div class="meta"><span class="pill">AU</span><span>Emily Parker</span></div>
+          <blockquote>“Highly recommend vanbudapest.com. Our driver, Zoltán, was punctual and courteous. The vehicle was clean and spacious, making our transfer very pleasant.”</blockquote>
+          <div class="date">Date: 2023.01.18</div>
+        </div>
+      </article>
+
+      <article class="card col" data-country="CN" data-date="2021-11-22">
+        <div class="card-body">
+          <div class="meta"><span class="pill">CN</span><span>Ming Li</span></div>
+          <blockquote>“Great service from vanbudapest.com! The driver was very polite and professional. The minivan was perfect for our group, and the ride from the airport to the hotel was enjoyable.”</blockquote>
+          <div class="date">Date: 2021.11.22</div>
+        </div>
+      </article>
+
+      <article class="card col" data-country="TH" data-date="2022-07-05">
+        <div class="card-body">
+          <div class="meta"><span class="pill">TH</span><span>Anong Lert</span></div>
+          <blockquote>“Wonderful experience with vanbudapest.com. The driver was friendly and professional, and the minivan was clean and comfortable. Our airport transfer was hassle-free and enjoyable.”</blockquote>
+          <div class="date">Date: 2022.07.05</div>
+        </div>
+      </article>
+
+      <article class="card col" data-country="AU" data-date="2021-10-10">
+        <div class="card-body">
+          <div class="meta"><span class="pill">AU</span><span>James Wilson</span></div>
+          <blockquote>“Exceptional service! Our driver, László, was extremely courteous and knowledgeable. The bus was clean and comfortable, making our transfer from the airport to the hotel very smooth.”</blockquote>
+          <div class="date">Date: 2021.10.10</div>
+        </div>
+      </article>
+
+      <article class="card col" data-country="CN" data-date="2021-12-08">
+        <div class="card-body">
+          <div class="meta"><span class="pill">CN</span><span>Xiaoyan Liu</span></div>
+          <blockquote>“Fantastic service! The driver, Ferenc, was very friendly and professional. The bus was clean and comfortable, making our transfer from the airport to the hotel very enjoyable.”</blockquote>
+          <div class="date">Date: 2021.12.08</div>
+        </div>
+      </article>
+
+      <article class="card col" data-country="TH" data-date="2022-03-14">
+        <div class="card-body">
+          <div class="meta"><span class="pill">TH</span><span>Somchai Kiat</span></div>
+          <blockquote>“Excellent private transfer service from vanbudapest.com. The driver was on time and very professional. The vehicle was immaculate, and the journey was seamless. Highly recommended!”</blockquote>
+          <div class="date">Date: 2022.03.14</div>
+        </div>
+      </article>
+
+      <article class="card col" data-country="AU" data-date="2021-05-15">
+        <div class="card-body">
+          <div class="meta"><span class="pill">AU</span><span>Olivia Johnson</span></div>
+          <blockquote>“Great service from vanbudapest.com! The driver was punctual and very polite. The vehicle was clean and comfortable. I highly recommend their private transfer service.”</blockquote>
+          <div class="date">Date: 2021.05.15</div>
+        </div>
+      </article>
+
+    </section>
+
+    <p class="note">Tip: Use the search and filters above to quickly find specific names, countries, or years.</p>
+  </div>
+
+<script>
+  // Simple filter logic (client-side only)
+  const list = document.getElementById('list');
+  const q = document.getElementById('q');
+  const country = document.getElementById('country');
+  const year = document.getElementById('year');
+  const count = document.getElementById('count');
+
+  function refresh(){
+    const term = (q.value||'').toLowerCase();
+    const ctry = country.value;
+    const yr = year.value;
+    let visible = 0;
+    list.querySelectorAll('.card').forEach(card =>{
+      const text = card.textContent.toLowerCase();
+      const c = card.getAttribute('data-country');
+      const d = card.getAttribute('data-date'); // yyyy-mm-dd
+      const okTerm = !term || text.includes(term);
+      const okCountry = !ctry || c === ctry;
+      const okYear = !yr || (d && d.startsWith(yr));
+      const show = okTerm && okCountry && okYear;
+      card.style.display = show ? '' : 'none';
+      if(show) visible++;
+    });
+    count.textContent = visible + ' shown';
+  }
+  q.addEventListener('input', refresh);
+  country.addEventListener('change', refresh);
+  year.addEventListener('change', refresh);
+  refresh();
+</script>
+</section>
+<!-- /wp:html -->
+
+<!-- wp:paragraph {"style":{"typography":{"textAlign":"justify"}}} -->
+<p>You have just read the most relevant results for you. You can also view our archive of reviews on this page: <a href="#list">Archive &gt;</a>. Find more of our references here: <a href="https://vanbudapest.com/client-references/" target="_blank" rel="noreferrer noopener">Client References</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:spacer {"height":"27px"} -->
+<div style="height:27px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:jetpack/tiled-gallery {"align":"full","columns":2,"columnWidths":[["50","50"]],"ids":[25215,24966,25119,25203,24962,25217]} -->
+<div class="wp-block-jetpack-tiled-gallery alignfull is-style-rectangular"><div class=""><div class="tiled-gallery__gallery"><div class="tiled-gallery__row"><div class="tiled-gallery__col" style="flex-basis:50%"><figure class="tiled-gallery__item"><img alt="Mercedes V-Class with open sliding door waiting for passengers at a Budapest pickup" data-height="1080" data-id="25215" data-link="https://vanbudapest.com/wp-content/uploads/2026/06/Mercedes_V-class_VanBudapest-23.webp" data-url="https://vanbudapest.com/wp-content/uploads/2026/06/Mercedes_V-class_VanBudapest-23.webp" data-width="1620" src="https://i0.wp.com/vanbudapest.com/wp-content/uploads/2026/06/Mercedes_V-class_VanBudapest-23.webp?ssl=1" data-amp-layout="responsive" loading="lazy" decoding="async" /></figure><figure class="tiled-gallery__item"><img alt="Mercedes E-Class interior with cream leather seats for Budapest airport private transfers" data-height="979" data-id="24966" data-link="https://vanbudapest.com/wp-content/uploads/2026/06/Mercedes_E-class_VanBudapest-25-1536x979.webp" data-url="https://vanbudapest.com/wp-content/uploads/2026/06/Mercedes_E-class_VanBudapest-25-1536x979.webp" data-width="1536" src="https://i0.wp.com/vanbudapest.com/wp-content/uploads/2026/06/Mercedes_E-class_VanBudapest-25-1536x979.webp?ssl=1" data-amp-layout="responsive" loading="lazy" decoding="async" /></figure><figure class="tiled-gallery__item"><img alt="Mercedes S350d luxury sedan in the VanBudapest garage for premium airport transfers" data-height="1080" data-id="25119" data-link="https://vanbudapest.com/wp-content/uploads/2026/06/Mercedes_S-class_VanBudapest-40.webp" data-url="https://vanbudapest.com/wp-content/uploads/2026/06/Mercedes_S-class_VanBudapest-40.webp" data-width="1620" src="https://i0.wp.com/vanbudapest.com/wp-content/uploads/2026/06/Mercedes_S-class_VanBudapest-40.webp?ssl=1" data-amp-layout="responsive" loading="lazy" decoding="async" /></figure></div><div class="tiled-gallery__col" style="flex-basis:50%"><figure class="tiled-gallery__item"><img alt="Black leather passenger cabin inside a Mercedes-Benz V-Class for Budapest group transfers" data-height="1080" data-id="25203" data-link="https://vanbudapest.com/wp-content/uploads/2026/06/Mercedes_V-class_VanBudapest-11.webp" data-url="https://vanbudapest.com/wp-content/uploads/2026/06/Mercedes_V-class_VanBudapest-11.webp" data-width="1620" src="https://i0.wp.com/vanbudapest.com/wp-content/uploads/2026/06/Mercedes_V-class_VanBudapest-11.webp?ssl=1" data-amp-layout="responsive" loading="lazy" decoding="async" /></figure><figure class="tiled-gallery__item"><img alt="Open Mercedes E-Class luggage compartment prepared for a Budapest airport transfer" data-height="979" data-id="24962" data-link="https://vanbudapest.com/wp-content/uploads/2026/06/Mercedes_E-class_VanBudapest-21-1536x979.webp" data-url="https://vanbudapest.com/wp-content/uploads/2026/06/Mercedes_E-class_VanBudapest-21-1536x979.webp" data-width="1536" src="https://i0.wp.com/vanbudapest.com/wp-content/uploads/2026/06/Mercedes_E-class_VanBudapest-21-1536x979.webp?ssl=1" data-amp-layout="responsive" loading="lazy" decoding="async" /></figure><figure class="tiled-gallery__item"><img alt="Mercedes V-Class interior with premium black leather seating for private Budapest transfers" data-height="1080" data-id="25217" data-link="https://vanbudapest.com/wp-content/uploads/2026/06/Mercedes_V-class_VanBudapest-25.webp" data-url="https://vanbudapest.com/wp-content/uploads/2026/06/Mercedes_V-class_VanBudapest-25.webp" data-width="1620" src="https://i0.wp.com/vanbudapest.com/wp-content/uploads/2026/06/Mercedes_V-class_VanBudapest-25.webp?ssl=1" data-amp-layout="responsive" loading="lazy" decoding="async" /></figure></div></div></div></div></div>
+<!-- /wp:jetpack/tiled-gallery -->
