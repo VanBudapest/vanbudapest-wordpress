@@ -551,6 +551,92 @@ arra külön rá kell tenni a `target="_blank" rel="noopener"`-t. A fejléc/láb
 
 ---
 
+## ✅ 7. kör — galéria-bővítés: +19 kép, új rács (2026-08-22)
+
+`apply-changes-step7.py`. **A kártyákat és a táblázatot nem érinti** — ezt nem ígérgetem,
+hanem a script minden futáskor ellenőrzi és leáll, ha mégis megváltoznának:
+
+```
+vedelmi ellenorzes: A-kartyak bajtra valtozatlan  (25318 kar., sha1 72adaccf4b4f)
+vedelmi ellenorzes: D-matrix  bajtra valtozatlan  (18051 kar., sha1 1bda3bd3e885)
+```
+
+A feltöltés után az **élő tartalomból** újramérve is ugyanez a két SHA1 jött ki.
+
+### Mi került be — 19 új kép, mind az 5 kategóriából
+
+Mind 2025. májusa utáni feltöltés, mind a médiatárból (`media.list` API), és
+mind a 19 útvonal **visszaellenőrizve az API `source_url` mezőjéhez** (19/19 pontos egyezés).
+
+| Kategória | Db | Forrás-szett |
+|---|---|---|
+| Mercedes S-Class | 5 | `2026/06/Mercedes_S-class_VanBudapest-*` |
+| Mercedes V-Class | 5 | `2026/08/V-CLASS_VANBUDAPEST_FLEET_MERCEDES-*` + bratislava |
+| VIP Sprinter | 4 | `2026/06/Mercedes_VIP_Sprinter_minibus_VanBudapest-*` |
+| Mercedes E-Class | 3 | `2026/06/Mercedes_E-class_VanBudapest-*` |
+| Sprinter (minibusz) | 2 | `2026/05/black-sprinter-budapest-disposal-*` |
+
+| Galéria | Volt | Lett |
+|---|---|---|
+| #3 „Luxury fleet gallery” | 4 | **8** |
+| #4 „Airport terminals” | 2 | **4** |
+| #4 „Budapest travel moments” (külsők) | 3 | **8** |
+| #4 „Extra visuals” (belsők) | 3 | **8** |
+| #4 „Final highlight” | 1 | **4** |
+| #4 „Policy & inclusivity” | 3 | 3 — *nem nyúltam hozzá, ez nem flotta-galéria* |
+
+Az oldalon 35 → **54** kép.
+
+### Az új rács — `.vbg`
+
+Saját névtér, hogy ne ütközzön a meglévő `.vb-gallery` / `.vb-card` szabályokkal
+(azok blokkok között is átszivárognak, mert mindegyik `.vb-section`-ben van definiálva).
+
+- **Fix oszlopszám**, nem `auto-fit`: 4 oszlop → 2 oszlop ≤900px → vízszintes,
+  snap-elő carousel ≤560px (ugyanaz a minta, mint az árkártyáknál).
+- Minden csempe **azonos méretű** (`aspect-ratio:4/3` + `object-fit:cover`) — a magasság
+  akkor sem csúszik el, ha a képek eredeti aránya eltér.
+- A felirat **a képre ült rá** gradiens sávval, nem alá — így nincs rojtos alsó él,
+  minden csempe pontosan egyforma magas.
+- Hover: 4px emelés + 1.05× képnagyítás; `prefers-reduced-motion` esetén kikapcsol.
+- A #4 lightbox-szelektora `'.vb-card img'` → `'.vb-card img, .vbg img'`, tehát az új
+  képek is nagyban nyílnak kattintásra.
+
+### Szimmetria — megmérve, nem megsaccolva
+
+A csempeszám minden galériában osztható 4-gyel **és** 2-vel, tehát egyetlen töréspontban
+sincs árva csempe. Playwrightból mérve, három szélességen:
+
+| | csempe | oszlop × sor | egyforma szél. | egyforma mag. |
+|---|---|---|---|---|
+| 1440px | 285×214 | 4 × 2 (a 8-asoknál) | ✅ | ✅ |
+| 900px | 363×273 | 2 × 4 | ✅ | ✅ |
+| 390px | 244×183 | carousel, 1 sor | ✅ | ✅ |
+
+És a **szöveghez igazodás**, szintén mérve — a galéria bal/jobb éle pontosan a bekezdések éle:
+
+| | szöveg él | galéria él | egyezik |
+|---|---|---|---|
+| 1440px | 130 / 1310 | 130 / 1310 | ✅ |
+| 900px | 81 / 819 | 81 / 819 | ✅ |
+| 390px | 39 / 351 | 39 / 351 | ✅ |
+
+Vízszintes túlcsordulás mindhárom szélességen **0**, a 6 szekció közti 5 rés továbbra is **0 px**.
+
+### CLS
+
+Az új képeken nincs `width`/`height` attribútum — **nem is kell**: a `.vbg img` CSS-ben
+`aspect-ratio:4/3` van, ami ugyanúgy lefoglalja a helyet a betöltés előtt.
+Mind a 19 kép `loading="lazy" decoding="async"`.
+
+### Ami nyitva maradt
+
+A #4 „Extra visuals” galériában **benne maradt a két magánrepülő-kép** — a kérés bővítés
+volt, nem csere, ezért nem vettem ki őket. Most 8-ból 2, tehát felhígultak, de ha törölni
+kell őket, az egy sor.
+
+---
+
 ## Előnézet
 
 ```

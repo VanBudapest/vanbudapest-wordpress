@@ -461,6 +461,32 @@
     .vb-card img { display: block; width: 100%; height: auto; object-fit: cover; }
 
     @media (max-width:640px) { .vb-inner { padding: 1.5rem; } .vb-inner h2 { font-size: 1.6rem; } }
+
+    /* ===== VBG · flotta-galeria (2026-08) — fix oszlopszam, egyforma csempek ===== */
+    .vbg{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:26px 0 8px}
+    .vbg figure{position:relative;margin:0;border-radius:14px;overflow:hidden;
+      background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);
+      box-shadow:0 10px 28px rgba(0,0,0,.28);
+      transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease}
+    .vbg figure:hover{transform:translateY(-4px);border-color:rgba(200,181,96,.55);
+      box-shadow:0 18px 40px rgba(0,0,0,.42)}
+    .vbg img{display:block;width:100%;height:100%;aspect-ratio:4/3;object-fit:cover;
+      transition:transform .6s ease}
+    .vbg figure:hover img{transform:scale(1.05)}
+    .vbg figcaption{position:absolute;left:0;right:0;bottom:0;padding:30px 10px 9px;
+      font:600 11px/1.35 'Montserrat','Segoe UI',system-ui,sans-serif;letter-spacing:.06em;
+      color:#fff;text-align:center;text-shadow:0 1px 3px rgba(0,0,0,.6);
+      background:linear-gradient(180deg,rgba(5,14,35,0),rgba(5,14,35,.9))}
+    @media (max-width:900px){.vbg{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}}
+    /* Telefonon vizszintesen huzhato, nagy csempek — ugyanaz a minta, mint az arkartyaknal */
+    @media (max-width:560px){
+      .vbg{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;
+        padding-bottom:10px;scrollbar-width:thin;scrollbar-color:rgba(200,181,96,.6) transparent}
+      .vbg figure{flex:0 0 78%;scroll-snap-align:center}
+      .vbg figcaption{font-size:12px;padding:34px 12px 11px}
+    }
+    @media (prefers-reduced-motion:reduce){.vbg figure,.vbg img{transition:none}
+      .vbg figure:hover{transform:none}.vbg figure:hover img{transform:none}}
   
 
   
@@ -475,12 +501,16 @@
     <p>All prices listed below are in EUR and include: flight/train delays, highway tolls, Meet &amp; Greet services, VAT, and all applicable taxes. Budapest Airport parking is charged separately and itemised on your confirmation (€12 on arrival, €3 on departure). We believe in providing clear pricing to make your travel planning stress-free.</p>
     <p>These rates cover the most popular destinations, ensuring reliable and seamless transfers. For custom destinations or additional pricing details, please reach out to our Customer Service. We’re committed to sending you a personalized quotation within 12–24 hours.</p>
 
-    <div class="vb-gallery" aria-label="Luxury fleet gallery">
-      <figure class="vb-card"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2025/05/budapest-hungary-private-transfer-S-class.png" alt="Mercedes S-Class luxury transfer" width="1536" height="1024" loading="lazy" decoding="async"></figure>
-      <figure class="vb-card"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2025/05/vanbudapest-luxury-vip-sprinter-minibus.png" alt="Luxury Sprinter minibus" width="1536" height="1024" loading="lazy" decoding="async"></figure>
-      <figure class="vb-card"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2025/03/interior1.jpg" alt="Vehicle interior luxury seating" width="1600" height="1066" loading="lazy" decoding="async"></figure>
-      <figure class="vb-card"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2025/01/hungary-luxury-vip-transfer.png" alt="Hungary VIP luxury transfer" width="1536" height="1024" loading="lazy" decoding="async"></figure>
-    </div>
+    <div class="vbg" aria-label="Luxury fleet gallery">
+        <figure><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2025/05/budapest-hungary-private-transfer-S-class.png" alt="Mercedes S-Class luxury transfer" loading="lazy" decoding="async"><figcaption>Mercedes S-Class</figcaption></figure>
+        <figure><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2025/05/vanbudapest-luxury-vip-sprinter-minibus.png" alt="Luxury Sprinter minibus" loading="lazy" decoding="async"><figcaption>Luxury VIP Sprinter</figcaption></figure>
+        <figure><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2025/03/interior1.jpg" alt="Vehicle interior luxury seating" loading="lazy" decoding="async"><figcaption>Interior · lounge seating</figcaption></figure>
+        <figure><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2025/01/hungary-luxury-vip-transfer.png" alt="Hungary VIP luxury transfer" loading="lazy" decoding="async"><figcaption>Hungary · VIP transfer</figcaption></figure>
+        <figure><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2026/06/Mercedes_S-class_VanBudapest-10.webp" alt="Mercedes-Benz S-Class sedan for premium Budapest airport transfers" loading="lazy" decoding="async"><figcaption>S-Class · exterior</figcaption></figure>
+        <figure><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2026/06/Mercedes_S-class_VanBudapest-28.webp" alt="Mercedes S-Class interior with quilted leather seats and ambient lighting" loading="lazy" decoding="async"><figcaption>S-Class · quilted leather</figcaption></figure>
+        <figure><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2026/08/V-CLASS_VANBUDAPEST_FLEET_MERCEDES-02.webp" alt="Black Mercedes V-Class luxury van for Budapest airport transfers" loading="lazy" decoding="async"><figcaption>Mercedes V-Class</figcaption></figure>
+        <figure><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2026/06/Mercedes_VIP_Sprinter_minibus_VanBudapest-05.webp" alt="Luxury Mercedes VIP Sprinter minibus interior with premium leather seats" loading="lazy" decoding="async"><figcaption>VIP Sprinter · cabin</figcaption></figure>
+      </div>
   </div>
 </section>
 <!-- /wp:html --></div>
