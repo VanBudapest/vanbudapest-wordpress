@@ -257,9 +257,9 @@ Mindegyik helyére a tételes kiírás került (EN/DE/ES-ben is): **€12 érkez
 Ezekhez nem nyúltam, mert vagy szöveget érintenek, vagy feltöltést igényelnek:
 
 - **C-csomag maradéka (nyitott döntések):** ~~10 → 15 perc~~, ~~12 óra → 12–24 óra~~, ~~25% discount~~, ~~„Hungary- Vienna” elírás~~ — **mind kész a 3. körben.**
+  ~~lemondási FAQ 3 járműsávra bontása~~ — **kész a 4. körben**, az ÁSZF alapján.
   Nyitva maradt: **menetidő-ellentmondás** (40–45 perc vs. a FAQ 30 / 60–70 perce — ugyanarra az útra),
-  **lemondási FAQ** 3 járműsávra bontása (ehhez az ÁSZF kell — a csatolmány nem érkezett meg),
-  **„Luxury Car VIP 2024”** évszám.
+  **„Luxury Car VIP 2024”** évszám, és az új **kiemelt időszaki felár** kérdése (lásd 4. kör).
   → Ezekhez **egyenként kell döntés** — nem találgatok. Szólj, melyik mehet, és egy körben javítom.
 - **B-csomag (képek):** 2 magánrepülő stock-kép licenc-cseréje, „Travel route” base64-nevű kép, a 404-es `placeholder-default.jpg`, 11 nagy kép tömörítése, Hősök tere-i kategóriaszett feltöltése, `og:image`.
 - **D-csomag (globális):** látható H1 / WP-cím, `_fbp` Set-Cookie → edge-cache, GTM-konténerek, DE/ES FAQ Lingexto-oldalakra + hreflang, FAQPage schema.
@@ -348,6 +348,75 @@ Az egész oldalon **0 backslash** van — más ilyen sérülés nincs.
 
 Minden írás után visszaolvasva: a cél-blokk bájtra egyezik a helyivel, a **másik három
 blokk bájtra változatlan**, és a teljes oldal megegyezik az elvárt tartalommal (96 972 karakter).
+
+---
+
+## ✅ 4. kör — halott CSS + a lemondási FAQ az ÁSZF szerint (2026-08-22)
+
+Egy blokk (`[3]`, #6 FAQ), két dolog. `apply-changes-step4.py`, 4 lépés, bájtra ellenőrizve.
+
+### 1) Halott CSS kivéve
+
+A 2. körben a `.vb-page-h2` osztályt azért kapta meg a #0 blokk H2-je, hogy a szivárgó
+`h2{}` namespace-elése után is megtartsa a kinézetét. Utána azt a H2-t áthoztuk az
+A-blokkba, így az osztály **használat nélkül maradt**: a CSS-ben kétszer definiálva,
+egyetlen elemen sem. Most kivéve (−181 bájt).
+
+### 2) Lemondási FAQ — EN / DE / ES, az ÁSZF VII. fejezete szerint
+
+Forrás: `VanBudapest_ASZF_HU.docx` (Tomi küldte 2026-08-22).
+
+**Ami a lapon állt:** csak a 72/48 órás sáv, és azt a minibuszokra is kiterjesztette.
+A német kifejezetten *„Bei PKWs **und Minivans**"*, a spanyol *„Para sedanes **y minivans**"* —
+az ÁSZF szerint viszont a V-Class/Sprinter sávja **7 nap**, nem 72 óra. A publikált szöveg
+tehát **kedvezőbb feltételt ígért, mint az ÁSZF** — ez a kockázatosabb irány.
+
+**Ami most áll, ÁSZF 7.2 szerint:**
+
+| Kategória | 100% | 50% | 0% |
+|---|---|---|---|
+| **7.2.1** Személygépkocsi (E-Class, S-Class) | ≥ 72 óra | 72–48 óra | < 48 óra / no-show |
+| **7.2.2** Minibusz (V-Class, Sprinter) | ≥ 7 nap | 7 nap – 72 óra | < 72 óra / no-show |
+| **7.2.3** Autóbusz és VIP Sprinter | ≥ 21 nap | 21–14 nap | < 14 nap / no-show |
+
+Plusz, szintén az ÁSZF-ből: **3% tranzakciós költség, min. 20 €** (7.2.4/a) · **módosítás
+72 órán belülig díjmentes** (7.5.2) · **lemondás kizárólag e-mailben**, `info@vanbudapest.com`
+(7.1.2) · **kiemelt időszakban szigorúbb rend lehet, a visszaigazolás az irányadó** (7.3, 7.3.3).
+
+Mindhárom nyelven ugyanaz a tartalom, kategóriánként külön `<p><b>…</b></p>` sorban —
+így olvasható marad a `<details>`-en belül.
+
+### Az ÁSZF megerősítette a korábbi köröket
+
+Két dolgot, amit már kint volt, most utólag alá tudtam támasztani:
+
+| Amit publikáltunk | ÁSZF |
+|---|---|
+| €12 érkezéskor, **60 perc** várakozással | *„12 EUR parkolási díj… maximum 1 óra várakozási időt foglal magában"* |
+| €3 induláskor, **5 perc** kiállással | *„3 EUR parkolási díj… legfeljebb 5 perc időtartamot tartalmaz"* |
+| „beyond that, the airport's current tariff applies **on the spot**" | *„az egy órát meghaladó várakozás feláras (a BUD mindenkori díjszabása szerint) **a helyszínen kell fizetni**"* |
+
+### ⚠️ Új, nyitott ellentmondás: kiemelt időszaki felár
+
+Az **ÁSZF 6.3** szerint kiemelt időszakokban (karácsony–szilveszter, munkaszüneti napok,
+nagy események) eltérő díjazás alkalmazható, és **2026. december 23. – 2027. január 2.
+között +100% felár** is lehet; a végleges ár mindig az árajánlatban szerepel.
+
+Az oldal viszont *„Fixed, published rates"*, *„the fare you see is the fare you pay"*,
+*„no surprises and no hidden fees"* állításokkal publikálja a 2026-os táblázatot,
+és sehol nem jelzi, hogy ez alapdíj, amitől kiemelt időszakban el lehet térni.
+
+A kettő összeegyeztethető (a fix ár a **visszaigazolás után** fix), de ez a lapon nincs kimondva.
+→ **Döntés kell**: kell-e egy rövid kiegészítés a D-mátrix alá, pl.
+*„Base rates. Peak periods and major events are quoted individually — your confirmed price is then fixed."*
+Ehhez nem nyúltam, mert kereskedelmi döntés.
+
+### ℹ️ A `vanbudapest-rules` skill jóváhagyott-link listája elavult
+
+A skill „Coach Options" sorában még a `https://vanbudapest.com/coach-bus-vehicle-options/`
+szerepel — az az oldal (17870) publikált, de a tartalma **üres string**. A 3. körben Tomi
+kérésére a kártya-link a flotta oldalra került. A skill listáját érdemes frissíteni,
+vagy az üres oldalt feltölteni.
 
 ---
 
