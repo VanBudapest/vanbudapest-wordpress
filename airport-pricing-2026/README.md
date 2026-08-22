@@ -749,3 +749,32 @@ minden szélességen illeszkedik az A-kártyákéhoz, 900px fölött `justify`, 
 `&`-et `&amp;`-re alakította. Megjelenésben azonos („Meet & Greet"), szabványosabb HTML.
 A 8. körből örökölt dekoratív `═` vonalak a CSS-kommentben rövid `-` vonalra cserélve,
 hogy a blokk átvitele ne csorbulhasson.
+
+## 10. kör — teljes szélesség mobilon + címsor-elválasztás (2026-08-22)
+
+Fehér sáv maradt a régi szekciók jobb oldalán mobilon (a felhasználó képernyőképe
+alapján kb. 12%). Természetes kísérlet volt ugyanazon az oldalon: az A-kártyák és
+a D-mátrix **ugyanazzal** a full-bleed technikával teljes szélességűek, a négy régi
+`.vb-fw` szekció nem. Az egyetlen CSS-különbség:
+
+```
+.vbp-a / .vbp-d :  width:100vw; max-width:100vw; margin-left:calc(50% - 50vw); …
+.vb-fw          :  width:100vw;                  margin-left:calc(50% - 50vw); …
+```
+
+`max-width` híján a sablon egy `max-width` szabálya visszaszorította a szekciót,
+a `width:100vw` pedig nem tudta felülírni. Playwrightben reprodukáltam
+(`.wp-block-column > *{max-width:342px}`): a `.vbp-*` marad 390px, a `.vb-fw`
+342px-re esik, balra zárva → 12,3% fehér sáv jobbra. Pont a képernyőkép aránya.
+
+**Javítás:** `body.page-id-1351 .vb-section.vb-fw{max-width:100vw}` — ugyanaz,
+ami az A/D szekciókban már ki volt írva.
+
+**Ráadás ugyanabban az írásban:** a címsorok elválasztójellel törtek
+(„Ex-pectations", „Premi-um", „Vi-enna"). Ezt a 8. körben felvett `hyphens:auto`
+okozta, ami a `.vb-inner`/`.vb-content`-ről a címsorokra is öröklődött.
+A h1–h6 mostantól `hyphens:manual` + `text-wrap:balance`; a törzsszöveg marad
+`hyphens:auto` (ott kell, a keskeny hasábban).
+
+Ellenőrzés: a blokk **bytera azonosan** ment ki (108 412 kar), A-kártyák és
+D-mátrix sha1 változatlan, 20 szélességen nincs regresszió.

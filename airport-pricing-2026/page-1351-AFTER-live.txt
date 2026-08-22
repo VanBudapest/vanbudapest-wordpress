@@ -1008,6 +1008,22 @@
       display:inline-block;margin-right:.45rem;vertical-align:-.12em}
     /* kepaláirasok: az uj .vbg figcaption mar kozepen van, a regi .vb-card is legyen */
     body.page-id-1351 .vb-section .vb-card small{text-align:center}
+
+    /* 8) TELJES SZELESSEG. A .vb-fw csak `width:100vw`-t kapott, `max-width`-et
+          nem, ezert a sablon egy max-width szabalya visszaszoritotta: mobilon
+          feher sav maradt a szekcio jobb oldalan. Az A-kartyak es a D-matrix
+          azert jok, mert ott a `max-width:100vw` ki van irva. Ugyanaz ide is. */
+    body.page-id-1351 .vb-section.vb-fw{max-width:100vw}
+
+    /* 9) A cimsorok ne toredezzenek elvalasztojellel ("Ex-pectations", "Premi-um"):
+          a 8. korben felvett hyphens:auto rajuk is oroklodott. A text-wrap:balance
+          egyenletesebb sortoresre bontja a kozepre igazitott cimsorokat. */
+    body.page-id-1351 .vb-section h1,
+    body.page-id-1351 .vb-section h2,
+    body.page-id-1351 .vb-section h3,
+    body.page-id-1351 .vb-section h4,
+    body.page-id-1351 .vb-section h5,
+    body.page-id-1351 .vb-section h6{hyphens:manual;text-wrap:balance}
   </style>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
