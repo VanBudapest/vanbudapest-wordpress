@@ -712,3 +712,40 @@ preview/shot-390.png
 ```
 
 Az előnézet **szándékosan tartalmazza** a #6 blokk szivárgó `h2{}`/`h3{}` szabályait, hogy látszódjon: az új blokkok ellenállnak nekik.
+
+## 9. kör — címsorok középre + mobil igazítás (2026-08-22)
+
+Két kérés egy írásban, mindkettő a `blokk[3]` (#6 FAQ) reszponzív rétegében,
+`body.page-id-1351` előtaggal, tehát az oldal **összes** `.vb-section` szekciójára hat.
+
+**a) „a címket, címsorokat igazítsd középre az oldalon"**
+- `.vb-section h2…h6` → `text-align:center`. Eddig a `h3` **balra** állt a #4, #5 és
+  #6 szekcióban (a blokk[3] `.vb-section h3{text-align:left}` szabálya CSS-szivárgással
+  felülírta a #5 saját `.vb-inner h3{text-align:center}` szabályát is).
+- A #6 nyelvi címsorai (`🇺🇸 Frequently Asked Questions`) flex-sorok voltak: a zászló
+  a bal szélre ragadt, a szöveg mellette. `display:block` + inline zászló → a zászló
+  és a szöveg **egy egységként** kerül középre.
+- FAQ-kérdés (`summary`): a `+`/`−` jel az abszolút bal szélről a szöveg elé került,
+  így az egész kérdés középre áll. Tap-target marad 44px fölött (mért: 46–72px).
+- `.vb-card small` képaláírás középre — az új `.vbg figcaption` már középen volt.
+
+**b) „mobilon még mindig balra igazodik a tartalom ami korábban készült"**
+- A 8. kör 900px alatt `text-align:left`-et adott (a `justify` „folyói" miatt). Ez
+  viszont elütött a középre igazított A-kártyáktól és D-mátrixtól. Mostantól 900px
+  alatt **minden középre** kerül.
+- Listajelölők: a `.vb-list li::before` aranypont és a `.vb-inner ul` bulletje
+  `position:static` / `list-style-position:inside` lett, így a jelölő a szöveggel
+  együtt mozog, nem ragad a bal szélre.
+
+**Nem érintett:** az A-kártyák (`.vbp-a`) és a D-mátrix (`.vbp-d`) — a szkript
+bytera ellenőrzi: `A-kártyák sha1 72adaccf4b4f`, `D-mátrix sha1 1bda3bd3e885`.
+A kártyákon belüli járműnevek és címkék szándékosan balra maradnak.
+
+**Mérés (20 szélesség, 2560→320px):** nincs vízszintes túlcsordulás, a tartalmi sáv
+minden szélességen illeszkedik az A-kártyákéhoz, 900px fölött `justify`, alatta
+`center`, tap-target 46–72px, szekcióközök 0px.
+
+**Megjegyzés:** a mentéskor a WordPress a 6 db `Meet & Greet` szövegben a csupasz
+`&`-et `&amp;`-re alakította. Megjelenésben azonos („Meet & Greet"), szabványosabb HTML.
+A 8. körből örökölt dekoratív `═` vonalak a CSS-kommentben rövid `-` vonalra cserélve,
+hogy a blokk átvitele ne csorbulhasson.
