@@ -1,6 +1,4 @@
-<!-- VanBudapest.com · Airport Pricing Cards – KONCEPCIÓ A "Dark Editorial" · 2026-08-22 -->
-<!-- Cseréli: #1 wp:html blokk ("Airport Pricing Cards – v2.0 CHRONO-SAFE") -->
-<!-- Ikonok: CSS mask + data-URI  →  KSES-biztos (nincs inline SVG elem a markupban) -->
+<!-- VanBudapest.com · Airport Transfer Rates · 2026-08 · ikonok CSS-maskkal (KSES-biztos) -->
 <section class="vbp-a" aria-label="Airport transfer rates – VanBudapest"><style>
   /* ===== SCOPE: minden változó a szekción belül, nem :root ===== */
   .vbp-a{
@@ -120,7 +118,6 @@
 
     <p class="vbp-tier">Core classes</p>
     <div class="vbp-grid">
-
       <!-- 1) Business Car — Mercedes E-Class -->
       <article class="vbp-card">
         <div class="vbp-media"><img
@@ -199,16 +196,16 @@
         </div>
       </article>
 
-      <!-- 5) Luxury Minibus VIP — Mercedes VIP Sprinter -->
+      <!-- 5) Luxury Minibus — Mercedes VIP Sprinter -->
       <article class="vbp-card vbp-card--vip">
         <span class="vbp-badge vbp-badge--vip">VIP</span>
         <div class="vbp-media"><img
           src="https://vanbudapest.com/wp-content/uploads/2025/04/vip-luxury-budapest-rental-768x512.png"
           srcset="https://vanbudapest.com/wp-content/uploads/2025/04/vip-luxury-budapest-rental-300x200.png 300w, https://vanbudapest.com/wp-content/uploads/2025/04/vip-luxury-budapest-rental-768x512.png 768w, https://vanbudapest.com/wp-content/uploads/2025/04/vip-luxury-budapest-rental-1024x683.png 1024w"
           sizes="(max-width:480px) 88vw, (max-width:781px) 84vw, (max-width:1023px) 45vw, 400px"
-          alt="Luxury Minibus VIP &#8211; Mercedes VIP Sprinter, 8 lounge seats, VanBudapest airport transfer" width="768" height="512" loading="lazy" decoding="async"></div>
+          alt="Luxury Minibus &#8211; Mercedes VIP Sprinter, 8 lounge seats, VanBudapest airport transfer" width="768" height="512" loading="lazy" decoding="async"></div>
         <div class="vbp-body">
-          <p class="vbp-cat">Luxury Minibus VIP</p>
+          <p class="vbp-cat">Luxury Minibus</p>
           <h3 class="vbp-veh">Mercedes VIP Sprinter<small>8 lounge seats · delegations &amp; VIP groups</small></h3>
           <ul class="vbp-specs"><li><i class="vbi vbi-pax"></i>8 passengers</li><li><i class="vbi vbi-bag"></i>10 suitcases</li><li><i class="vbi vbi-carry"></i>10 carry-ons</li></ul>
           <div class="vbp-price"><div><span class="amt"><sup>&euro;</sup><span class="v" data-bud="220" data-vie="1190" data-bts="990">220</span></span><div class="per">per vehicle · one way · incl. VAT &amp; tolls</div></div><div class="route-tag r">BUD</div></div>
@@ -255,8 +252,8 @@
   var labels={bud:'BUD',vie:'VIE',bts:'BTS'};
   var notes={
     bud:'+ Budapest Airport parking: €12 on arrival (60 min waiting incl.) · €3 on departure',
-    vie:'Long-distance rate · tolls &amp; motorway vignettes included',
-    bts:'Long-distance rate · tolls &amp; motorway vignettes included'
+    vie:'Long-distance rate &middot; tolls &amp; motorway vignettes included &middot; airport parking paid on the spot, at the airport&#8217;s current local tariff',
+    bts:'Long-distance rate &middot; tolls &amp; motorway vignettes included &middot; airport parking paid on the spot, at the airport&#8217;s current local tariff'
   };
   Array.prototype.forEach.call(btns,function(b){
     b.addEventListener('click',function(){

@@ -1,8 +1,8 @@
-# OPCIONÁLIS — #6 (FAQ) blokk: szivárgó `h2{}` / `h3{}` szelektorok namespace alá
+# ✅ ALKALMAZVA — #6 (FAQ) blokk: szivárgó `h2{}` / `h3{}` szelektorok namespace alá
 
 **Audit-hivatkozás:** 3. Kód/CSS — „Csupasz h2{}, h3{}, h3 span.flag{} selector – nem namespace-elt, oldalszinten hat” · címke: *kötelező A (L-teszt FAIL)*
 
-**Ezt NEM alkalmaztam automatikusan.** Indok lent, a „Mellékhatás” pontban — döntést igényel.
+**Élesítve 2026-08-22-én**, Tomi kérésére („minden szivárgásnak meg kell szűnnie”). A mellékhatás kezelve — lásd lent.
 
 ---
 
@@ -37,16 +37,34 @@ A #6 blokk `<style>`-jában cseréld a négy szelektort:
 
 Négy darab `.vb-section ` előtag beszúrása, semmi más. A #6 blokk saját megjelenése **nem változik** (a szekciója `class="vb-section vb-fw"`).
 
-## ⚠ Mellékhatás — ezért kérek rá külön döntést
+## A mellékhatás és a megoldása
 
-A #0 blokk Gutenberg-H2-je (**„Budapest & Hungary- Vienna – Airport Transfers”**) jelenleg **ebből a szivárgásból** kapja a megjelenését: 41,6 px, 800-as vastagság, középre zárva. A `color:var(--vb-gold)` odakint érvénytelen változó, ezért lesz fekete.
+A #0 blokk Gutenberg-H2-je (**„Budapest & Hungary- Vienna – Airport Transfers”**) korábban **ebből a szivárgásból** kapta a megjelenését: 41,6 px, 800-as vastagság, középre zárva. A szivárgás megszüntetése önmagában lecsupaszította volna.
 
-A javítás után ez a H2 visszaesik a **téma alapértelmezett** címsor-stílusára — vagyis **láthatóan megváltozik a hajtás feletti címsor**.
+Ezért a javítás **két részből** áll:
 
-Ez összefügg az audit 5. szekciójával (címsor-struktúra) és a D-csomaggal (látható H1 / WP-cím csere), ami külön SEO-döntést igényel. Ezért:
+1. A #6 blokk négy szelektora `.vb-section` alá került.
+2. A #0 blokk H2-je saját, stabil osztályt kapott — Gutenberg-érvényes módon, `className` attribútummal:
 
-- **Ha a #0 H2 amúgy is átalakul** (audit 5. pont) → ezt a javítást vele egy körben érdemes elvégezni.
-- **Ha a #0 H2 marad** → a javítással együtt a #0 blokk H2-jére kell egy szándékos stílus (Gutenberg-beállításból vagy scoped CSS-ből), különben „lecsupaszodik”.
+```
+<!-- wp:heading {"style":{"typography":{"textAlign":"center"}},"className":"vb-page-h2"} -->
+<h2 class="wp-block-heading has-text-align-center vb-page-h2">Budapest &amp; Hungary- Vienna - Airport Transfers</h2>
+```
+
+…és a #6 blokk stíluslapjába bekerült a hozzá tartozó, **nem szivárgó** szabály:
+
+```css
+.vb-page-h2{text-align:center;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;margin-bottom:2rem;}
+@media(max-width:640px){.vb-page-h2{font-size:1.6rem;}}
+```
+
+**Eredmény:** a szivárgás megszűnt, a főcím megjelenése bájtra ugyanaz maradt. Böngészőben mérve a javítás után:
+
+```
+.vb-page-h2 : display:block  text-align:center  font-size:41.6px  font-weight:800
+```
+
+Vagyis pontosan az, ami korábban is volt — csak most szándékosan, nem véletlenül.
 
 ## Az új A/D blokkokat ez NEM érinti
 
