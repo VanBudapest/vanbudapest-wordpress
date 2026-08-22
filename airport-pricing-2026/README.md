@@ -637,6 +637,72 @@ kell őket, az egy sor.
 
 ---
 
+## ✅ 8. kör — reszponzív réteg a régi szekciókra (2026-08-22)
+
+Előbb mértem, aztán javítottam. `tools/responsive-check.mjs` (Playwright), 20 szélességen.
+
+### Amit a mérés talált
+
+| Hiba | Bizonyíték |
+|---|---|
+| **Túl hosszú sorok** | 1920px-en **122 karakter/sor**, 1440-en 123, 1024-en 95. Az olvasható tartomány 45–75. |
+| **Sorkizárás telefonon** | 390px-en 35 karakter/sor + `justify` → szétszakadó szóközök („folyók"). |
+| **Elcsúszó tartalmi sáv** | A-kártyák sávja 1240px, a régi szekcióké 1320/1296px → **1440px-en 30px-szel** beljebb kezdődött a szöveg, mint a kártyáké. |
+| **`background-attachment:fixed`** | a #4-ben. Az iOS Safari nem támogatja rendesen: elcsúszó háttér, akadozó görgetés. |
+| **Kicsi tap-targetek** | a FAQ-nyitók 26–29px magasak (WCAG 2.5.8 minimum 24, a gyakorlati ajánlás 44). |
+
+Vízszintes túlcsordulás **nem volt** egyik szélességen sem — az rendben volt.
+
+### A javítás
+
+Egyetlen CSS-réteg, **egyetlen blokkba** (a legkisebbe, #6 FAQ), de
+`body.page-id-1351` előtaggal — a magasabb specificitás miatt **a blokkok sorrendjétől
+függetlenül** érvényesül mind a négy régi szekcióra. Így nem kellett négy blokkot cserélni.
+
+1. **Egységes sáv:** `.vb-inner{width:100%;max-width:1320px;padding-inline:clamp(16px,4vw,40px)}`
+   → a tartalom szélessége minden töréspontban pontosan az A-kártyák sávja.
+2. **Sorhossz:** a törzsbekezdések és listák `max-width:62ch`, középre igazítva.
+   A galériák és rácsok teljes szélességűek maradnak.
+3. **Sorkizárás:** ≤900px-en `text-align:left`. Fölötte marad `justify` (ott már elég
+   karakter van soronként ahhoz, hogy ne csúnyuljon). Plusz `hyphens:auto`.
+4. **`background-attachment`** → `scroll` ≤1024px-en, `(hover:none)`-on és
+   `prefers-reduced-motion` esetén.
+5. **Tap-target:** `.vb-faq summary{min-height:44px;display:flex;align-items:center}`.
+6. `.vb-section img{max-width:100%}` — kép sose lóghasson ki.
+
+**Az A-kártyákat és a D-mátrixot nem érinti**: a réteg minden szelektora `.vb-section`-nel
+kezdődik, a kártyák/mátrix pedig `.vbp-a` / `.vbp-d`. A script ezt ellenőrzi is
+(a kommentek levágása után egyetlen szabály sem címzi az A/D névteret), és a feltöltés
+után az élő tartalomból újramérve mindkettő SHA1-je változatlan.
+
+### Eredmény — 20 szélességen mérve
+
+| | előtte | utána |
+|---|---|---|
+| karakter/sor 1920px | **122** | **71** |
+| karakter/sor 1440px | **123** | **71** |
+| karakter/sor 1024px | **95** | **71** |
+| sáv-illesztés az A-kártyákhoz | ❌ minden szélességen eltért | ✅ **mind a 20-on pontosan egyezik** |
+| sorkizárás ≤900px | justify | **left** |
+| FAQ tap-target | 26–29px | **44px** |
+| `bg-attachment` mobilon | fixed | **scroll** |
+| vízszintes túlcsordulás | 0 | **0** |
+| szekció-rések | 0px | **0px** |
+
+320–375px-en a sorhossz 32–39 karakter. Ez nem hiba: 16px-es betűvel egy 320px-es
+kijelzőn ennyi fér el, a sáv már így is a teljes szélességet használja.
+
+A galéria és a szöveg **közepe továbbra is egy vonalban** van mind a 20 szélességen —
+a 7. körben beállított szimmetria nem sérült.
+
+### Apró eltérés a feltöltésnél
+
+A blokk 7 bájttal rövidebb lett, mint a helyi másolat: a CSS-komment díszítő `═`
+karaktereiből maradt le néhány átíráskor. Mind a 11 szabály-töredék hiánytalanul
+megvan az élő tartalomban (ellenőrizve), a helyi referenciát az élőhöz igazítottam.
+
+---
+
 ## Előnézet
 
 ```
