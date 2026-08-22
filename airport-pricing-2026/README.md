@@ -257,9 +257,9 @@ Mindegyik helyére a tételes kiírás került (EN/DE/ES-ben is): **€12 érkez
 Ezekhez nem nyúltam, mert vagy szöveget érintenek, vagy feltöltést igényelnek:
 
 - **C-csomag maradéka (nyitott döntések):** ~~10 → 15 perc~~, ~~12 óra → 12–24 óra~~, ~~25% discount~~, ~~„Hungary- Vienna” elírás~~ — **mind kész a 3. körben.**
-  ~~lemondási FAQ 3 járműsávra bontása~~ — **kész a 4. körben**, az ÁSZF alapján.
+  ~~lemondási FAQ 3 járműsávra bontása~~ — a 4. körben bekerült az ÁSZF szerint, majd az **5. körben Tomi döntése alapján teljesen kikerült** (nem pótoljuk ki).
   Nyitva maradt: **menetidő-ellentmondás** (40–45 perc vs. a FAQ 30 / 60–70 perce — ugyanarra az útra),
-  **„Luxury Car VIP 2024”** évszám, és az új **kiemelt időszaki felár** kérdése (lásd 4. kör).
+  **„Luxury Car VIP 2024”** évszám. (A kiemelt időszaki felár kérdése az 5. körben megoldva: az ütköző állítások kikerültek.)
   → Ezekhez **egyenként kell döntés** — nem találgatok. Szólj, melyik mehet, és egy körben javítom.
 - **B-csomag (képek):** 2 magánrepülő stock-kép licenc-cseréje, „Travel route” base64-nevű kép, a 404-es `placeholder-default.jpg`, 11 nagy kép tömörítése, Hősök tere-i kategóriaszett feltöltése, `og:image`.
 - **D-csomag (globális):** látható H1 / WP-cím, `_fbp` Set-Cookie → edge-cache, GTM-konténerek, DE/ES FAQ Lingexto-oldalakra + hreflang, FAQPage schema.
@@ -417,6 +417,89 @@ A skill „Coach Options" sorában még a `https://vanbudapest.com/coach-bus-veh
 szerepel — az az oldal (17870) publikált, de a tartalma **üres string**. A 3. körben Tomi
 kérésére a kártya-link a flotta oldalra került. A skill listáját érdemes frissíteni,
 vagy az üres oldalt feltölteni.
+
+---
+
+## ✅ 5. kör — CSAK TÖRLÉS: minden ÁSZF-fel ütköző állítás ki (2026-08-22)
+
+Tomi döntése: *„Vedd ki azokat amik ellenkeznek az ÁSZF-el, de ne pótold ki a jelenlegi
+ÁSZF szerinti szabályokkal, csak szedd ki."* — tehát a 4. körben beírt ÁSZF-sávok is
+kikerültek, helyettük **semmi** nem jött. `apply-changes-step5.py`, 24 lépés, mind a 4 blokk.
+
+### A teszt, amit egy mondatra alkalmaztam
+
+Egy állítás akkor ütközik, ha azt mondja, hogy
+
+- **(a)** az oldalon **közölt** ár a végleges fizetendő ár, vagy
+- **(b)** semmilyen további díj nem merülhet fel.
+
+Ez azért ez, mert az **ÁSZF 6.2** szó szerint ezt írja:
+
+> *„Az árak **irányadóak**, az aktuális és végleges díj minden esetben az **írásos
+> visszaigazolásban** kerül rögzítésre."*
+
+…és az ÁSZF ugyanitt **erre az oldalra linkel** mint az irányadó árak helyére.
+Plusz **6.3**: kiemelt időszakban eltérő díjazás, dec. 23. – jan. 2. között **+100%** felár.
+Plusz **6.1/6.5**: a parkolás nem része a viteldíjnak, a 60 perc feletti várakozás feláras.
+Plusz **6.1/6.6**: a többletcsomag-szállítás költsége a Megrendelőt terheli.
+
+### Ami kikerült
+
+| Blokk | Mi volt ott |
+|---|---|
+| #1 (A) | eyebrow: „**Fixed, published rates** · Since 1988" → csak „Since 1988" |
+| #3 | „…and **include every cost**:" → „…and include:" · „clear, **all-inclusive** pricing" → „clear pricing" |
+| #4 | „**At VanBudapest, the fare you see is the fare you pay. Every airport transfer is offered at a fixed, all-inclusive rate, meaning no surprises and no hidden fees.**" — törölve |
+| #4 | h3: „Transparent, **All-Inclusive** Pricing" → „Transparent Pricing" |
+| #4 | intro: „fixed **all-inclusive** pricing" → „fixed pricing" |
+| #4 | FAQ „Are the prices really fixed?" — **teljes kérdés törölve** |
+| #5 | „**These are final prices and will not be charged any additional fees.**" — törölve |
+| #5 | „**Final Fixed Prices – No Hidden Costs**" szekció (h3 + bekezdés) — **teljesen törölve** |
+| #6 EN/DE/ES | 1. kérdés: „all-inclusive" / „Endpreise" / „todo incluido", „no hidden charges" / „keine versteckten Zusatzkosten" / „sin cargos adicionales", „the final price you pay" / „der angezeigte Preis ist der Endpreis" / „el precio final que pagará" — törölve |
+| #6 EN/DE/ES | késés-kérdés: „…flight delays, traffic, **or waiting time**" → „…flight delays or traffic" (60 perc felett feláras) |
+| #6 EN/DE/ES | „Are the prices fixed with no hidden fees?" / „Sind die Preise endgültig…?" / „¿Los precios son fijos…?" — **mindhárom kérdés törölve** |
+| #6 EN/DE/ES | lemondási kérdés — **mindhárom törölve** (a 4. körben beírt ÁSZF-sávokkal együtt) |
+| #6 EN/DE/ES | „luggage trailer **free of charge**" / „**ohne Aufpreis**" / „**sin coste adicional**" → a díjmentesség-ígéret törölve |
+
+### Ami MARADT (mert az ÁSZF alátámasztja)
+
+- mi van a viteldíjban: útdíj, autópálya-matrica, Meet & Greet, ÁFA → **ÁSZF 6.1**
+- a tételes **€12 érkezés / €3 indulás**, a **60 perc** várakozás, és hogy azon felül
+  a reptér mindenkori tarifája a helyszínen fizetendő → **ÁSZF 6.5**
+- „nincs felár késésért vagy forgalomért" → a visszaigazolt ár utólag nem változik
+- „Since 1988" → jóváhagyott brand line
+
+### A csomagszállító pótkocsi — ez az egy, ami üzleti döntés
+
+Az ÁSZF **6.1** kifejezetten kiveszi a viteldíjból *„a Megrendelő hibájából szükségessé váló
+további jármű vagy csomagszállító eszköz költségeit"*, a **6.6** pedig azt írja, hogy a
+kapacitást meghaladó csomag esetén *„külön jármű vagy csomagszállítás szükséges, amelynek
+szervezése és költsége a Megrendelőt terheli"*. Az oldal viszont mindhárom nyelven
+**díjmentesnek** ígérte. A „free of charge / ohne Aufpreis / sin coste adicional" ezért kikerült,
+a mondat maga maradt. **Ha előre bejelentett nagy csoportnál tényleg ingyenes, ezt vissza lehet tenni** —
+egy szó, és megy.
+
+### Feltöltés — 4 blokk, bájtra ellenőrizve
+
+| Blokk | Méret | `_content_warnings` | Bájtazonos |
+|---|---|---|---|
+| [2] #5 Summary | 8 733 → 8 397 | `[]` | ✅ |
+| [3] #6 FAQ | 12 421 | `[]` | ✅ |
+| [1] #4 Motion-v4 | 20 935 | `[]` | ✅ |
+| [0] Pricing group | 50 641 | `[]` | ✅ |
+
+Teljes oldal: 98 488 → **92 408** karakter, és bájtra egyezik az elvárttal.
+Mérés utána: 6 szekció, mind az 5 rés **0 px**, vízszintes túlcsordulás **0** — 1440-en és 390-en is.
+A FAQ 31 → **24** kérdés (7 nyelvenként).
+
+### Skill-fájlok is javítva
+
+A `/coach-bus-vehicle-options/` (üres oldal) linkje kikerült **mindkét** helyről, ahol szerepelt:
+
+- `vanbudapest-rules` → „Jóváhagyott linkek" tábla
+- `vanbudapest-brand-guide` → „Coach Options" sor
+
+Így a flotta oldal maradt az egyetlen jóváhagyott jármű-link. `grep` a synced skillekre: **0 találat**.
 
 ---
 

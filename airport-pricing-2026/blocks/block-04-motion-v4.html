@@ -1,0 +1,239 @@
+<!-- wp:columns {"verticalAlignment":"center","align":"full"} -->
+<div class="wp-block-columns alignfull are-vertically-aligned-center"><!-- wp:column {"verticalAlignment":"center","width":"100%"} -->
+<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:100%"><!-- wp:html -->
+<section class="vb-section vb-fw" data-theme="sky" data-component="vb-motion-v4" aria-label="Budapest Airport Transfer — Full-Width Block">
+  <style>
+    /* ================= VB v4.0 SCOPE ================= */
+    .vb-section, .vb-section * { box-sizing: border-box !important; }
+    .vb-fw { width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw); overflow:hidden; position:relative; isolation:isolate; z-index:1; }
+
+    /* ====== THEME VARS ====== */
+    .vb-section{
+      --vb-font: "Montserrat","Segoe UI",system-ui,-apple-system,Arial,sans-serif;
+      --vb-white:#FFFFFF; --vb-black:#000;
+      --vb-gold:#C8B560; --vb-gold-dark:#B78D38; --vb-gold-light:#E5D9A8;
+      --vb-sky-1:#E6F4FF; /* very light */
+      --vb-sky-2:#BEE3FF; /* light */
+      --vb-sky-3:#79C2FF; /* medium */
+      --vb-sky-4:#2B7BBA; /* deep sky */
+      --vb-sky-5:#0F4C81; /* elegant deep blue (airline vibe) */
+      --vb-fg:#0B1E35;   /* dark text fallback if needed */
+      --vb-card-bg: rgba(255,255,255,.08);
+      --vb-card-border: rgba(255,255,255,.18);
+      --vb-shadow: 0 10px 30px rgba(0,0,0,.15);
+      color:var(--vb-white); font-family:var(--vb-font); line-height:1.7;
+    }
+
+    /* ====== SKY THEME (non-navy request) ====== */
+    .vb-section[data-theme="sky"]{
+      background:
+        radial-gradient(1200px 500px at 20% -10%, rgba(255,255,255,.25), transparent 40%),
+        linear-gradient(150deg, var(--vb-sky-5) 0%, var(--vb-sky-4) 35%, var(--vb-sky-3) 70%, var(--vb-sky-2) 100%);
+      background-attachment: fixed;
+    }
+
+    /* ====== INNER CONTAINER ====== */
+    .vb-inner{ max-width:min(90vw, 1320px); margin:0 auto; padding:clamp(24px,4vw,64px) clamp(16px,3vw,32px); }
+    .vb-title{ text-align:center; margin:0 0 10px; font-weight:800; letter-spacing:.4px; font-size:clamp(1.8rem,4.5vw,2.6rem); color:#fff; }
+    .vb-sub{ text-align:center; opacity:.95; margin:0 0 32px; }
+
+    /* ====== CONTENT TYPO ====== */
+    .vb-content{ text-align:justify; text-justify:inter-word; hyphens:auto; font-size:clamp(1rem,1.2vw,1.1rem); }
+    .vb-content p{ margin:0 0 1em; }
+    .vb-content h2,.vb-content h3,.vb-content h4,.vb-content h5,.vb-content h6{
+      text-align:center; color:var(--vb-gold); font-weight:700; margin:2rem 0 1rem;
+    }
+    .vb-content h2::after,.vb-content h3::after,.vb-content h4::after,.vb-content h5::after,.vb-content h6::after{
+      content:""; display:block; width:72px; height:2px; background:linear-gradient(90deg, transparent, var(--vb-gold), transparent); margin:.5rem auto 0; border-radius:1px;
+    }
+
+    /* ====== ICON CHIP (decorative) ====== */
+    .vb-chip{ display:inline-flex; align-items:center; gap:.5rem; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.18); padding:.5rem .9rem; border-radius:999px; font-size:.95rem; margin:.5rem auto 1rem; }
+    .vb-dot{ width:10px; height:10px; border-radius:50%; background:var(--vb-gold); display:inline-block; box-shadow:0 0 0 0 rgba(200,181,96,.7); animation:vb-pulse 2.4s ease-out infinite; }
+    @keyframes vb-pulse{0%{box-shadow:0 0 0 0 rgba(200,181,96,.7);}50%{box-shadow:0 0 0 8px rgba(200,181,96,.35);}100%{box-shadow:0 0 0 14px rgba(200,181,96,0);}}
+
+    /* ====== LIST (text preserved, just styling) ====== */
+    .vb-list{ list-style:none; padding:0; margin:0 0 1rem; }
+    .vb-list li{ position:relative; padding-left:1.4rem; margin:.4rem 0; }
+    .vb-list li::before{ content:""; position:absolute; left:0; top:.55rem; width:.6rem; height:.6rem; border-radius:50%; background:var(--vb-gold); box-shadow:0 0 0 3px rgba(200,181,96,.25); }
+
+    /* ====== CARD GALLERY ====== */
+    .vb-gallery{ display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; margin:24px 0 12px; }
+    .vb-card{ background:var(--vb-card-bg); border:1px solid var(--vb-card-border); border-radius:14px; overflow:hidden; box-shadow:var(--vb-shadow); transition:transform .45s ease, box-shadow .45s ease; }
+    .vb-card:hover{ transform:translateY(-4px); box-shadow:0 16px 44px rgba(0,0,0,.25); }
+    .vb-card img{ display:block; width:100%; height:auto; aspect-ratio: 4/3; object-fit:cover; }
+    .vb-card small{ display:block; padding:.6rem .8rem; opacity:.9; }
+
+    /* Small images hint: constrain intrinsic size via inline style per card when needed */
+
+    /* ====== LIGHTBOX (contained, not full screen) ====== */
+    .vb-lightbox{ position:fixed; inset:0; display:none; align-items:center; justify-content:center; background:rgba(0,0,0,.55); backdrop-filter:blur(2px); z-index:9999; padding:2vw; }
+    .vb-lightbox[aria-hidden="false"]{ display:flex; }
+    .vb-lightbox-figure{ max-width:min(90vw, 1100px); max-height:85vh; border-radius:14px; overflow:hidden; background:#000; box-shadow:0 20px 50px rgba(0,0,0,.5); }
+    .vb-lightbox-figure img{ display:block; max-width:100%; max-height:85vh; height:auto; width:auto; }
+    .vb-lightbox-close{ position:absolute; top:1rem; right:1rem; background:rgba(255,255,255,.15); border:1px solid rgba(255,255,255,.35); color:#fff; border-radius:999px; padding:.5rem .75rem; cursor:pointer; }
+
+    /* ====== FAQ (plus toggle) ====== */
+    .vb-faq{ margin-top:28px; }
+    .vb-faq details{ border:1px solid rgba(255,255,255,.22); border-radius:12px; padding:14px 16px; margin-bottom:12px; background:rgba(255,255,255,.06); }
+    .vb-faq summary{ cursor:pointer; font-weight:700; list-style:none; position:relative; padding-left:1.6rem; }
+    .vb-faq summary::-webkit-details-marker{ display:none; }
+    .vb-faq summary::before{ content:"+"; position:absolute; left:0; top:0; font-weight:800; color:var(--vb-gold); }
+    .vb-faq details[open] summary::before{ content:"−"; }
+
+    /* ====== CTA BUTTON ====== */
+    .vb-cta-wrap{ text-align:center; margin:2rem 0 0; }
+    .vb-cta{ display:inline-block; padding:1rem 1.6rem; border-radius:999px; border:2px solid var(--vb-gold); color:var(--vb-gold); text-decoration:none; background:rgba(255,255,255,.06); backdrop-filter:blur(8px); font-weight:700; letter-spacing:.3px; transition:all .3s ease; }
+    .vb-cta:hover{ background:var(--vb-gold); color:var(--vb-sky-5); box-shadow:0 0 40px rgba(200,181,96,.3); transform:translateY(-2px); }
+    .vb-cta:focus-visible{ outline:2px solid var(--vb-gold-light); outline-offset:3px; }
+
+    /* ====== RESPONSIVE ====== */
+    @media (max-width:640px){ .vb-inner{ padding:20px; } .vb-title{ font-size:1.6rem; } }
+    @media (prefers-reduced-motion:reduce){ .vb-dot{ animation:none; } .vb-card{ transition:none; } }
+  </style>
+
+  <!-- Optional Montserrat load (safe) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+
+  <div class="vb-inner">
+    <h2 class="vb-title">Budapest Airport Transfer</h2>
+    <p class="vb-sub"><span class="vb-chip" aria-hidden="true"><span class="vb-dot"></span> Arrive in Comfort and Style</span></p>
+
+    <div class="vb-content">
+      <h3>Budapest Airport Transfers – Fixed-Price Chauffeur Service</h3>
+      <h4>Arrive in Comfort and Style</h4>
+      <p>Traveling to or from Budapest Airport should be the easiest part of your journey. VanBudapest ensures a seamless experience with private airport transfers, fixed pricing, and a luxury fleet tailored for every traveler. Whether you’re a business executive, a family with children, or a group arriving together, our professional chauffeurs provide a smooth, stress-free ride to any destination in Budapest or beyond.</p>
+      <p>Our English-speaking drivers track your flight in real time, greet you at the terminal, assist with luggage, and ensure your comfort from the moment you arrive. Forget the taxi queues and language barriers – enjoy a door-to-door airport transfer experience that sets the tone for your stay.</p>
+
+      <!-- GALLERY 1: Airport terminals (cards) -->
+      <div class="vb-gallery" aria-label="Airport terminals gallery">
+        <figure class="vb-card"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2025/10/Budapest-Airport-BUD-vanbudapest.jpg" alt="Budapest Airport BUD terminal"><small>Budapest Airport (BUD)</small></figure>
+        <figure class="vb-card"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2025/10/bratislava-airport-terminal-vanbudapest.webp" alt="Bratislava Airport terminal"><small>Bratislava Airport (BTS)</small></figure>
+      </div>
+
+      <h3>Transparent Pricing</h3>
+      <p>Your confirmed quote already includes highway tolls, VAT, and a personalized Meet &amp; Greet service. Budapest Airport parking is shown as a separate, itemised line: €12 on arrival, €3 on departure. Even if your flight is delayed or arrives late at night, your transfer cost remains the same.</p>
+      <p>From 2025, Budapest Airport increased its parking and waiting fees for commercial vehicles. To maintain full transparency, we show these airport costs as a separate, itemised line instead of hiding them in the fare. The €12 arrival fee covers airport parking and up to 60 minutes of waiting time from landing, including your Meet &amp; Greet service inside the terminal. If luggage collection or customs takes longer, we recommend contacting your chauffeur via the provided phone number so they can adjust their arrival at the meeting point accordingly. Should the waiting time exceed 60 minutes, Budapest Airport’s current parking tariff applies and can be settled directly with the driver.</p>
+
+      <!-- GALLERY 2: Fleet &amp; city vibes -->
+      <div class="vb-gallery" aria-label="Budapest travel moments gallery">
+        <figure class="vb-card"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2025/01/budapest-hungary-2025-luxury-private-transfer-12.jpg" alt="Luxury transfer in Budapest"><small>Luxury transfer • Budapest</small></figure>
+        <figure class="vb-card"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/V-Class-fleet/kulso/vanbudapest-mercedes-v-class-wedding-car-budapest-038.webp" alt="Mercedes in Budapest"><small>Mercedes • City arrival</small></figure>
+        <figure class="vb-card"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/V-Class-fleet/kulso/vanbudapest-mercedes-v-class-wedding-car-budapest-017.webp" alt="Budapest skyline with car"><small>Budapest skyline</small></figure>
+      </div>
+
+      <h3>Personalized Meet &amp; Greet Service</h3>
+      <p>Upon landing at Budapest Liszt Ferenc International Airport (BUD), your chauffeur will monitor your flight and enter the terminal approximately 15 minutes after landing. You’ll find your driver waiting at the Meet &amp; Greet point inside the arrivals hall, holding a sign with your name. This service ensures a smooth connection between your flight and your private vehicle.</p>
+      <p>Our chauffeurs assist with luggage and guide you directly to your car, parked at the designated airport transfer zone. Every service includes flight monitoring, professional handling, and personal attention to ensure a stress-free arrival. For departures, our drivers drop passengers off at the short-term departure zone, where a 5-minute drop-off window applies (€3, itemised on your confirmation). This ensures convenient unloading without entering higher-cost parking zones.</p>
+
+      <h4>Included with every airport transfer:</h4>
+      <ul class="vb-list">
+        <li>Real-time flight tracking and schedule adjustment</li>
+        <li>Meet &amp; Greet with name signage at the terminal</li>
+        <li>Up to 60 minutes of waiting time after landing</li>
+        <li>Professional English-speaking chauffeurs</li>
+        <li>Door-to-door private transport</li>
+        <li>Luggage assistance and vehicle guidance</li>
+      </ul>
+
+      <!-- GALLERY 3: Policy &amp; inclusivity &amp; safety (some small-resolution handled by card) -->
+      <div class="vb-gallery" aria-label="Policy &amp; inclusivity gallery">
+        <figure class="vb-card" style="max-width:280px; justify-self:center"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2025/01/covid_hungary_transfer_budapest_van.webp" alt="Disinfection &amp; cleanliness"><small>Clean &amp; disinfected vehicles</small></figure>
+        <figure class="vb-card" style="max-width:280px; justify-self:center"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2023/10/lgbtq-budapest-transfer.png" alt="LGBTQ+ friendly service"><small>LGBTQ+ friendly</small></figure>
+        <figure class="vb-card" style="max-width:260px; justify-self:center"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/vb-image-audit/placeholder-default.jpg" alt="Badge"><small>Professional standards</small></figure>
+      </div>
+
+      <h3>Luxury Fleet for Every Traveler</h3>
+      <p>Our fleet combines style, safety, and sophistication. Each vehicle is modern, spacious, and meticulously maintained to meet the highest standards of cleanliness and comfort. Whether you prefer the elegance of a sedan or the space of a van, our fleet provides options for all travel needs.</p>
+      <h4>Fleet highlights:</h4>
+      <ul class="vb-list">
+        <li>Mercedes E-Class &amp; S-Class – Executive and VIP travel in total comfort</li>
+        <li>Mercedes V-Class &amp; Vito Vans – Premium vans ideal for families or small groups</li>
+        <li>Mercedes Sprinter Minibuses – Luxury minibuses for medium-sized groups</li>
+        <li>Coaches (Mercedes, MAN, Setra, Volvo) – Large group and corporate transfers</li>
+      </ul>
+      <p>Every vehicle offers leather interiors, Wi-Fi access, bottled water, and child seats on request. All cars are cleaned and disinfected before each trip for a safe, pleasant journey. We also provide vehicles equipped with winter tires and air-conditioning systems suitable for every season.</p>
+
+      <!-- GALLERY 4: Misc / small assets -->
+      <div class="vb-gallery" aria-label="Extra visuals gallery">
+        <figure class="vb-card" style="max-width:250px; justify-self:center"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2025/02/OIP.jpeg" alt="Iconic travel moment"><small>Travel moment</small></figure>
+        <figure class="vb-card" style="max-width:260px; justify-self:center"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2025/02/letoltes-1.jpeg" alt="Service quality"><small>Service quality</small></figure>
+        <figure class="vb-card" style="max-width:280px; justify-self:center"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2022/01/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcGQxOS0zLTE0MzEwYS5qcGc.webp" alt="Travel route"><small>Routes across CEE</small></figure>
+      </div>
+
+      <h3>Transfers Across Central Europe</h3>
+      <p>VanBudapest extends its airport transfer service beyond the city. We operate fixed-price transfers from Budapest Airport to major cities across Central Europe, including Vienna, Bratislava, Prague, and Zagreb. Each long-distance transfer includes door-to-door comfort, tolls, and VAT already included in the rate, plus professional chauffeurs and 24/7 support.</p>
+
+      <h3>Family &amp; Group-Friendly Service</h3>
+      <p>Traveling with family or children? Every VanBudapest airport transfer includes free child seats upon request. Our vans and minibuses provide ample luggage space and easy boarding for strollers or sports equipment. We ensure a stress-free airport transfer experience for parents, children, and group travelers alike.</p>
+      <p>For business travelers, we offer discreet, professional service tailored to tight schedules and meeting agendas. Each chauffeur is punctual, polite, and trained to provide exceptional assistance throughout your ride. All drivers speak English at least at a conversational level, and by request, we can assign drivers fluent in English for smoother communication.</p>
+
+      <h3>24/7 Booking &amp; Customer Support</h3>
+      <p>Booking your Budapest airport transfer is quick and effortless. Reservations can be made online anytime, day or night, with instant confirmation and flexible payment options. For custom requests, multi-stop itineraries, or large group transfers, our 24/7 customer service is ready to help via phone, email, or WhatsApp.</p>
+
+      <h4>Why travelers choose VanBudapest:</h4>
+      <ul class="vb-list">
+        <li>Fixed, transparent pricing — airport fees itemised, never hidden</li>
+        <li>Professional English-speaking chauffeurs</li>
+        <li>Luxury Mercedes vehicles for every need</li>
+        <li>Meet &amp; Greet and real-time flight monitoring</li>
+        <li>24/7 booking and customer support</li>
+        <li>Family-friendly transfers with child seats</li>
+      </ul>
+      <p>Experience the most reliable airport transfer service in Budapest, trusted by travelers worldwide.</p>
+
+      <h3>Frequently Asked Questions</h3>
+      <div class="vb-faq" role="region" aria-label="FAQ">
+        <details>
+          <summary>How do I find my driver at the airport?</summary>
+          <p>Your chauffeur will meet you inside the arrivals hall at the designated Meet &amp; Greet point, holding a sign with your name. They will also assist you with luggage and escort you to your vehicle.</p>
+        </details>
+        <details>
+          <summary>What if my flight is delayed?</summary>
+          <p>No problem – our system monitors flights in real time. Your driver adjusts pickup time automatically, and you won’t be charged extra for delays within the included waiting time.</p>
+        </details>
+        <details>
+          <summary>Can I pay online or on arrival?</summary>
+          <p>Yes. You can pay securely online during booking or directly to the driver in cash or card upon arrival.</p>
+        </details>
+      </div>
+
+      <h3>Book Your Airport Transfer Today</h3>
+      <p>Start your Budapest experience the right way – with a fixed-price chauffeur service that values your time, comfort, and peace of mind. Whether arriving or departing, VanBudapest ensures every airport journey is effortless, safe, and elegant.</p>
+      <p>Book VIP Transfer • VanBudapest.com • Premium Chauffeur • Budapest &amp; Central Europe</p>
+
+      <!-- FINAL IMAGE (hero-ish but card-sized) -->
+      <div class="vb-gallery" aria-label="Final highlight image">
+        <figure class="vb-card"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/V-Class-fleet/flotta/vanbudapest-luxury-van-airport-shuttle-budapest-030.webp" alt="Premium chauffeur detail"><small>Premium details</small></figure>
+      </div>
+    </div>
+
+    <div class="vb-cta-wrap"><a class="vb-cta" href="https://vanbudapest.com/contact-customer-reviews/" aria-label="Book your Budapest Airport Transfer">Book VIP Transfer</a></div>
+  </div>
+
+  <!-- LIGHTBOX SCRIPT (tiny, namespaced) -->
+  <script>
+    (function(){
+      var root=document.currentScript.closest('.vb-section');
+      var cards=root.querySelectorAll('.vb-card img');
+      var lb=document.createElement('div'); lb.className='vb-lightbox'; lb.setAttribute('aria-hidden','true'); lb.innerHTML='<button class="vb-lightbox-close" aria-label="Close">✕</button><figure class="vb-lightbox-figure"><img alt="Expanded image"></figure>';
+      root.appendChild(lb);
+      var lbImg=lb.querySelector('img');
+      var close=lb.querySelector('.vb-lightbox-close');
+      cards.forEach(function(img){
+        img.addEventListener('click',function(){
+          lbImg.src=img.src; lb.setAttribute('aria-hidden','false');
+        },{passive:true});
+      });
+      function hide(){ lb.setAttribute('aria-hidden','true'); lbImg.src=''; }
+      close.addEventListener('click',hide);
+      lb.addEventListener('click',function(e){ if(e.target===lb) hide(); });
+      document.addEventListener('keydown',function(e){ if(e.key==='Escape') hide(); });
+    })();
+  </script>
+</section>
+<!-- /wp:html --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns -->
