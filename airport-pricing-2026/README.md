@@ -503,6 +503,54 @@ A `/coach-bus-vehicle-options/` (üres oldal) linkje kikerült **mindkét** hely
 
 ---
 
+## ✅ 6. kör — minden CTA új lapon nyílik (2026-08-22)
+
+`apply-changes-step6.py`. Az oldal **mind a 25 CTA-linkje** megkapta:
+
+```html
+target="_blank" rel="noopener"
+```
+
+| Osztály | Db | Mi ez |
+|---|---|---|
+| `.vbp-btn` | **18** | „Book E-Class / V-Class / …" — 6 az A-kártyákon, 6 a D-mátrix táblázatában, 6 a mobil járműkártyákon |
+| `.vbp-link` | **6** | „Vehicle details →" az A-kártyákon |
+| `.vb-cta` | **1** | „Book VIP Transfer" a #4 blokk alján |
+| **összesen** | **25** | |
+
+### Miért `rel="noopener"` is
+
+A `target="_blank"` önmagában odaadja a megnyíló lapnak a `window.opener` hivatkozást a
+szülő lapra. A modern böngészők ezt már alapból blokkolják, de kiírva biztos, és a régebbi
+böngészőkben egy külön böngészőfolyamatot is kap a lap (gyorsabb). Nulla kockázat, ezért kiírtam.
+
+### A `mailto:` linket szándékosan kihagytam
+
+A #5 blokkban van egy `mailto:info@vanbudapest.com`. Erre a `target="_blank"` csak egy
+**üres fület** nyitna a levelezőprogram indítása mellé — rosszabb élmény, nem jobb.
+Ez maradt úgy, ahogy volt. (Összes `<a>` az oldalon: 26 — ebből 25 CTA + 1 mailto.)
+
+### Ellenőrzés
+
+Nem csak az attribútumot néztem meg, hanem **valódi kattintást** is szimuláltam
+(Playwright, Chromium): a `.vbp-btn`-re kattintva a böngésző tényleg **új lapot nyitott**
+(1 → 2 lap). A layout változatlan: 6 szekció, mind az 5 rés 0 px, vízszintes túlcsordulás 0.
+
+| Blokk | Méret | `_content_warnings` | Bájtazonos |
+|---|---|---|---|
+| [1] #4 Motion-v4 | 20 935 → 20 966 | `[]` | ✅ |
+| [0] Pricing group | 50 641 → 51 385 | `[]` | ✅ |
+
+A #5 és a #6 blokkban nincs CTA-link, azokat nem kellett bántani.
+
+### Amire figyelni kell a jövőben
+
+Ez a beállítás **az oldal tartalmában** van, nem globális. Ha új CTA-gomb kerül az oldalra,
+arra külön rá kell tenni a `target="_blank" rel="noopener"`-t. A fejléc/lábléc menü
+**téma-szintű**, arra ez nem vonatkozik — ha az is kell, az külön munka (téma vagy globális JS).
+
+---
+
 ## Előnézet
 
 ```
