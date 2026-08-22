@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>VanBudapest – Hourly rate cards (A) + calculator (B) · 2026 prices</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<!-- ===================================================================
+     VanBudapest.com — Hourly rate cards (A) + price calculator (B)
+     Arak: ARAZAS2026UJ.xlsx "Alap arak" — B15 (3-6 h) es B16 (7 h+).
+     A B17 ("DISCOUNT") sav BELSO ar, itt nem jelenik meg.
+     A betutipusokat a tema tolti (Playfair Display / Montserrat / Open Sans).
+     Minden CSS a .vbh-a es .vbh-b szekciora van szukitve — nem nyul a tobbi blokkhoz.
+     =================================================================== -->
 <style>
 /* ===================================================================
    VanBudapest.com — Hourly chauffeur pricing
@@ -17,7 +15,7 @@
    SÁVOZÁS   : VanBudapest ÁSZF 2026.01.01. — 6.4. pont (óradíjas szabályok)
    IKONOK    : CSS mask + data-URI → KSES-biztos (nincs inline <svg>)
    =================================================================== */
-:root{
+.vbh-a,.vbh-b{
   --vb-navy:#0A1F44; --vb-navy-2:#12306A; --vb-navy-dark:#050E23;
   --vb-gold:#C8B560; --vb-gold-dark:#B78D38; --vb-gold-light:#E5D9A8;
   --vb-cream:#F5F0E8; --vb-white:#fff; --vb-ink:#1b2233; --vb-muted:#5e6877;
@@ -25,9 +23,9 @@
   --vb-font-head:'Montserrat',system-ui,sans-serif;
   --vb-font-body:'Open Sans',Arial,sans-serif;
 }
-*{box-sizing:border-box}
-body{margin:0;font-family:var(--vb-font-body);color:var(--vb-ink);background:#fff;line-height:1.6}
-img{max-width:100%;display:block}
+.vbh-a,.vbh-b,.vbh-a *,.vbh-b *{box-sizing:border-box}
+.vbh-a,.vbh-b{line-height:1.6;color:var(--vb-ink)}
+.vbh-a img,.vbh-b img{max-width:100%;display:block}
 
 /* ---- ikon-rendszer (mask + data URI) ---- */
 .vbi{display:inline-block;width:18px;height:18px;background-color:currentColor;-webkit-mask:var(--i) center/contain no-repeat;mask:var(--i) center/contain no-repeat;vertical-align:-3px;flex:none}
@@ -73,7 +71,7 @@ img{max-width:100%;display:block}
 .vbh-a .vbh-badge--vip{background:rgba(5,10,22,.8);color:var(--vb-gold);border:1px solid rgba(200,181,96,.6)}
 .vbh-a .vbh-body{padding:4px 22px 22px;display:flex;flex-direction:column;gap:12px;flex:1}
 .vbh-a .vbh-cat{font:700 13px/1.2 var(--vb-font-head);letter-spacing:.16em;text-transform:uppercase;color:var(--vb-gold);margin:0}
-.vbh-a .vbh-veh{font:600 clamp(19px,1.6vw,22px)/1.25 var(--vb-font-display);color:#fff;margin:0}
+.vbh-a .vbh-veh{font:700 clamp(19px,1.6vw,22px)/1.25 var(--vb-font-display);color:#fff;margin:0}
 .vbh-a .vbh-veh small{display:block;font:400 13px/1.4 var(--vb-font-body);color:#aab6cf;margin-top:2px}
 .vbh-a .vbh-specs{display:flex;gap:10px;flex-wrap:wrap;margin:2px 0 0;padding:0;list-style:none;color:#dfe6f3;font:600 13px/1 var(--vb-font-head)}
 .vbh-a .vbh-specs li{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);padding:7px 10px;border-radius:999px}
@@ -127,7 +125,7 @@ img{max-width:100%;display:block}
 .vbh-b .vbh-vcard{appearance:none;text-align:left;background:rgba(255,255,255,.05);border:1px solid rgba(200,181,96,.25);border-radius:16px;padding:10px;cursor:pointer;color:#fff;display:grid;grid-template-columns:92px 1fr;gap:10px;align-items:center;transition:.25s;min-height:44px;font-family:var(--vb-font-body)}
 .vbh-b .vbh-vcard img{width:92px;height:62px;object-fit:cover;border-radius:10px}
 .vbh-b .vbh-vcard b{display:block;font:700 10.5px/1.2 var(--vb-font-head);letter-spacing:.12em;text-transform:uppercase;color:var(--vb-gold)}
-.vbh-b .vbh-vcard .n{display:block;font:600 15px/1.2 var(--vb-font-display);margin:2px 0 4px}
+.vbh-b .vbh-vcard .n{display:block;font:700 15px/1.2 var(--vb-font-display);margin:2px 0 4px}
 .vbh-b .vbh-vcard .s{display:flex;gap:8px;font:600 11.5px/1 var(--vb-font-head);color:#c9d3e6;align-items:center;white-space:nowrap}
 .vbh-b .vbh-vcard .s .vbi{width:13px;height:13px;color:var(--vb-gold)}
 .vbh-b .vbh-vcard .fr{font:600 11px/1.2 var(--vb-font-head);color:var(--vb-gold-light);margin-top:4px}
@@ -181,27 +179,8 @@ img{max-width:100%;display:block}
 }
 @media (max-width:480px){ .vbh-b .vbh-vcard{flex-basis:86%;grid-template-columns:80px 1fr} .vbh-b .vbh-vcard img{width:80px;height:54px} .vbh-b .vbh-dur button{padding:11px 12px;min-width:52px} }
 @media (prefers-reduced-motion:reduce){ .vbh-b *{transition:none!important} }
-
-/* ---- belső ellenőrző sáv — ÉLESÍTÉS ELŐTT TÖRLENDŐ ---- */
-.vb-qa{background:#fff7e0;border-top:4px solid var(--vb-gold);padding:26px clamp(16px,4vw,40px);font:400 13.5px/1.6 var(--vb-font-body);color:#4a3b10}
-.vb-qa .in{max-width:1240px;margin:0 auto}
-.vb-qa h3{font:700 15px/1.3 var(--vb-font-head);color:var(--vb-navy);margin:0 0 4px}
-.vb-qa p{margin:6px 0}
-.vb-qa table{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px;background:#fff}
-.vb-qa th,.vb-qa td{padding:7px 10px;border:1px solid #e4d39a;text-align:left}
-.vb-qa th{background:var(--vb-navy);color:#fff;font:700 12px/1.3 var(--vb-font-head)}
-.vb-qa td b{color:var(--vb-navy)}
-.vb-qa code{background:#fff;border:1px solid #e4d39a;border-radius:4px;padding:0 5px;font-size:12px}
-.vb-qa .ok{color:#1e824c;font-weight:700}
-.vb-qa .warn{color:#b45309;font-weight:700}
-@media(max-width:720px){.vb-qa table{display:block;overflow-x:auto}}
 </style>
-</head>
-<body>
 
-<!-- ================================================================
-     A — RATE CARDS + HOUR SWITCHER
-     ================================================================ -->
 <section class="vbh-a" aria-label="Hourly chauffeur rates – VanBudapest">
   <div class="vbh-wrap">
     <p class="vbh-eyebrow">Published hourly rates · Since 1988</p>
@@ -315,9 +294,6 @@ img{max-width:100%;display:block}
   </div>
 </section>
 
-<!-- ================================================================
-     B — CALCULATOR
-     ================================================================ -->
 <section class="vbh-b" aria-label="Hourly price calculator – VanBudapest">
   <div class="vbh-wrap">
     <p class="vbh-eyebrow">VanBudapest.com — Rates 2026</p>
@@ -462,30 +438,3 @@ img{max-width:100%;display:block}
   updB();
 })();
 </script>
-
-<!-- ================================================================
-     BELSŐ ELLENŐRZŐ SÁV — ÉLESÍTÉS ELŐTT TÖRLENDŐ
-     ================================================================ -->
-<section class="vb-qa">
-  <div class="in">
-    <h3>Árellenőrzés — ÁRAZÁS2026ÚJ.xlsx „Alap árak" lap</h3>
-    <p>Minden ár az Excel <b>B15</b> és <b>B16</b> sorából jön. A <b>B17 („DISCOUNT")</b> sor a kódban benne van, de <span class="warn">nincs publikálva</span> — lásd a lenti indoklást.</p>
-    <table>
-      <tr><th>Excel oszlop</th><th>Kártya</th><th>B15 · 3–6 h</th><th>B16 · 7 h+</th><th>B17 · nem publikált</th><th>3 h (4 h számlázva)</th><th>8 h (9 h)</th><th>12 h (13 h)</th></tr>
-      <tr><td>Sedan Car</td><td><b>Mercedes E-Class</b></td><td>€65</td><td>€60</td><td>(€55)</td><td>€260</td><td>€540</td><td>€780</td></tr>
-      <tr><td>VAN Minivan</td><td><b>Mercedes V-Class</b></td><td>€70</td><td>€65</td><td>(€60)</td><td>€280</td><td>€585</td><td>€845</td></tr>
-      <tr><td>Minibus</td><td><b>Mercedes Sprinter</b></td><td>€75</td><td>€70</td><td>(€65)</td><td>€300</td><td>€630</td><td>€910</td></tr>
-      <tr><td>VIP S-Class</td><td><b>Mercedes S-Class</b></td><td>€110</td><td>€105</td><td>(€100)</td><td>€440</td><td>€945</td><td>€1 365</td></tr>
-      <tr><td>VIP Sprinter</td><td><b>Mercedes VIP Sprinter</b></td><td>€85</td><td>€80</td><td>(€75)</td><td>€340</td><td>€720</td><td>€1 040</td></tr>
-      <tr><td>Coach Bus</td><td><b>Coach Bus</b></td><td>€120</td><td>€110</td><td>(€100)</td><td>€480</td><td>€990</td><td>€1 430</td></tr>
-    </table>
-    <p><b>Sávozás:</b> 3–6 h → B15 · 7 h-tól → B16. Minden végösszeg = óradíj × (óra + 1 garázsóra), ÁSZF 6.4. szerint.</p>
-    <p><b>Miért nincs publikálva a B17 sáv? (döntés 2026-08-22: belső ár, csak 2 sáv látszik)</b> Az Excelben nincs mellette óraküszöb, az ÁSZF 6.4. pontja pedig csak két sávot ismer. Az ÁSZF 6.2. szerint kedvezmény „nagyobb volumenű, többnapos vagy rendszeres megrendelések esetén" egyedi, írásos megállapodás tárgya. Az élő oldal 12 órás sora ma is a B16 sávval számol (780 / 845 / 910 / 1 040 / 1 430) — egyedül az S-Class tér el, mert ott a régi €135 szerepel a helyes €105 helyett. A <code>TIER3_FROM</code> értéke ezért <code>null</code> — külön jóváhagyás nélkül ne állítsd át.</p>
-    <p><b>Eltérés a régi oldalhoz képest:</b> <span class="warn">S-Class €140/€135 → €110/€105</span> (Excel B15/B16, VIP S-Class oszlop). A 12 órás S-Class végösszeg így €1 755 helyett <b>€1 365</b>.</p>
-    <p><b>Kapacitások:</b> ÁSZF 6.6. „Jármű kapacitások" táblázat (E 3 fő / 2+2, S 3 / 2+2, V 6–7 / 5+5, VIP Sprinter 8 / 10+10, Sprinter 14–20 / 10+10, Coach 49 / 49+49).</p>
-    <p><b>Túlóra (ÁSZF 6.4.) — beépítve:</b> a megkezdett többletóra E-Class, V-Class, Sprinter esetén <b>€80</b>, Coach, VIP Sprinter, S-Class esetén <b>€120</b> — <span class="warn">nem</span> az eredeti óradíj. Megjelenik mind a 6 kártyán és a kalkulátor összegzőjében (jármű szerint váltakozva). A copy-javaslat „extend at the same hourly rate" mondata <span class="warn">törölve</span> — az ÁSZF-fel ellentétes.</p>
-  </div>
-</section>
-
-</body>
-</html>
