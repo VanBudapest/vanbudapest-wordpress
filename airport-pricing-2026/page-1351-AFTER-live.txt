@@ -118,7 +118,7 @@
 
   <div class="vbp-wrap">
     <p class="vbp-eyebrow">Fixed, published rates · Since 1988</p>
-    <h2>Budapest &amp; Hungary- Vienna – Airport Transfers</h2>
+    <h2>Budapest &amp; Hungary – Vienna – Airport Transfers</h2>
     <h6 class="vbp-kicker"><strong>Airport Transfers to Budapest  – Reliable, Comfortable, and Stress-Free</strong></h6>
     <h6 class="vbp-kicker">Airport Transfer Rates — Budapest (BUD), Bratislava (BTS) &amp; Vienna (VIE)</h6>
     <p class="vbp-sub">Private chauffeur transfers between your Budapest address and Budapest (BUD), Vienna (VIE) or Bratislava (BTS) airport. One price per vehicle, not per person.</p>
@@ -242,7 +242,7 @@
           <div class="vbp-price"><div><span class="amt"><sup>&euro;</sup><span class="v" data-bud="390" data-vie="1890" data-bts="1690">390</span></span><div class="per">per vehicle · one way · incl. VAT &amp; tolls</div></div><div class="route-tag r">BUD</div></div>
           <p class="vbp-note"><i class="vbi vbi-park"></i><span class="n">+ Budapest Airport parking: &euro;12 on arrival (60 min waiting incl.) · &euro;3 on departure</span></p>
           <a class="vbp-btn" href="https://vanbudapest.com/contact-customer-reviews/">Book Coach</a>
-          <a class="vbp-link" href="https://vanbudapest.com/coach-bus-vehicle-options/">Coach options &#8594;</a>
+          <a class="vbp-link" href="https://vanbudapest.com/our-fleet-vip-limousines-coaches-sedans-luxury-vans/">Vehicle details &#8594;</a>
         </div>
       </article>
     </div>
@@ -473,13 +473,13 @@
     <p>Our professional chauffeurs ensure punctuality and a seamless experience from the moment you land to your destination. With flexible booking options, whether for a single trip or round-trip, we cater to both business and leisure travelers.</p>
     <p>Enjoy all-inclusive pricing that covers highway tolls, taxes, and Meet &amp; Greet services, so you can focus on what matters most: your journey. Choose vanbudapest.com for the ultimate airport transfer experience, connecting you to Budapest and Vienna with unparalleled service.</p>
     <p>All prices listed below are in EUR and include every cost: flight/train delays, highway tolls, Meet &amp; Greet services, VAT, and all applicable taxes. Budapest Airport parking is charged separately and itemised on your confirmation (€12 on arrival, €3 on departure). We believe in providing clear, all-inclusive pricing to make your travel planning stress-free.</p>
-    <p>These rates cover the most popular destinations, ensuring reliable and seamless transfers. For custom destinations or additional pricing details, please reach out to our Customer Service. We’re committed to sending you a personalized quotation within 12 hours.</p>
+    <p>These rates cover the most popular destinations, ensuring reliable and seamless transfers. For custom destinations or additional pricing details, please reach out to our Customer Service. We’re committed to sending you a personalized quotation within 12–24 hours.</p>
 
     <div class="vb-gallery" aria-label="Luxury fleet gallery">
-      <figure class="vb-card"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2025/05/budapest-hungary-private-transfer-S-class.png" alt="Mercedes S-Class luxury transfer"></figure>
-      <figure class="vb-card"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2025/05/vanbudapest-luxury-vip-sprinter-minibus.png" alt="Luxury Sprinter minibus"></figure>
-      <figure class="vb-card"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2025/03/interior1.jpg" alt="Vehicle interior luxury seating"></figure>
-      <figure class="vb-card"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2025/01/hungary-luxury-vip-transfer.png" alt="Hungary VIP luxury transfer"></figure>
+      <figure class="vb-card"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2025/05/budapest-hungary-private-transfer-S-class.png" alt="Mercedes S-Class luxury transfer" width="1536" height="1024" loading="lazy" decoding="async"></figure>
+      <figure class="vb-card"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2025/05/vanbudapest-luxury-vip-sprinter-minibus.png" alt="Luxury Sprinter minibus" width="1536" height="1024" loading="lazy" decoding="async"></figure>
+      <figure class="vb-card"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2025/03/interior1.jpg" alt="Vehicle interior luxury seating" width="1600" height="1066" loading="lazy" decoding="async"></figure>
+      <figure class="vb-card"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2025/01/hungary-luxury-vip-transfer.png" alt="Hungary VIP luxury transfer" width="1536" height="1024" loading="lazy" decoding="async"></figure>
     </div>
   </div>
 </section>
@@ -615,7 +615,7 @@
       </div>
 
       <h3>Personalized Meet &amp; Greet Service</h3>
-      <p>Upon landing at Budapest Liszt Ferenc International Airport (BUD), your chauffeur will monitor your flight and enter the terminal approximately 10 minutes after landing. You’ll find your driver waiting at the Meet &amp; Greet point inside the arrivals hall, holding a sign with your name. This service ensures a smooth connection between your flight and your private vehicle.</p>
+      <p>Upon landing at Budapest Liszt Ferenc International Airport (BUD), your chauffeur will monitor your flight and enter the terminal approximately 15 minutes after landing. You’ll find your driver waiting at the Meet &amp; Greet point inside the arrivals hall, holding a sign with your name. This service ensures a smooth connection between your flight and your private vehicle.</p>
       <p>Our chauffeurs assist with luggage and guide you directly to your car, parked at the designated airport transfer zone. Every service includes flight monitoring, professional handling, and personal attention to ensure a stress-free arrival. For departures, our drivers drop passengers off at the short-term departure zone, where a 5-minute drop-off window applies (€3, itemised on your confirmation). This ensures convenient unloading without entering higher-cost parking zones.</p>
 
       <h4>Included with every airport transfer:</h4>
@@ -712,7 +712,7 @@
     (function(){
       var root=document.currentScript.closest('.vb-section');
       var cards=root.querySelectorAll('.vb-card img');
-      var lb=document.createElement('div'); lb.className='vb-lightbox'; lb.setAttribute('aria-hidden','true'); lb.innerHTML='n        <button class="vb-lightbox-close" aria-label="Close">✕</button>n        <figure class="vb-lightbox-figure"><img alt="Expanded image"></figure>n      ';
+      var lb=document.createElement('div'); lb.className='vb-lightbox'; lb.setAttribute('aria-hidden','true'); lb.innerHTML='<button class="vb-lightbox-close" aria-label="Close">✕</button><figure class="vb-lightbox-figure"><img alt="Expanded image"></figure>';
       root.appendChild(lb);
       var lbImg=lb.querySelector('img');
       var close=lb.querySelector('.vb-lightbox-close');
@@ -780,7 +780,7 @@
 
     <p>Clean buses and disinfected vans in Hungary. Budapest Airport Pick Up, Meet &amp; Greet Service, Fixed transfer price. We accept Visa, MasterCard, and American Express AMEX credit cards, as well as PayPal. See our Budapest Transfer pricing details | View our cancellation policy here.</p>
     <p>We offer a fleet of clean buses and disinfected vans for your travels in Hungary. Unlike some Budapest taxi services, we ensure our vehicles are thoroughly disinfected before every transfer. Our company maintains a strict no-smoking policy, guaranteeing a smoke-free environment.</p>
-    <p>Plus, for a limited time, enjoy a 25% discount on your next Budapest Airport Transfer. Whether you're traveling from any BUD Airport terminal to the City Center or vice versa, our fixed prices are valid for one-way trips. These are final prices and will not be charged any additional fees. The fixed-price applies, regardless of whether your flight delay, the road is clear, the driver must take detours or is stuck in traffic jams during peak time. So, our rates are simple, transparent, and flat. Don’t hesitate to email or call us if you have any questions!</p>
+    <p>Whether you're traveling from any BUD Airport terminal to the City Center or vice versa, our fixed prices are valid for one-way trips. These are final prices and will not be charged any additional fees. The fixed-price applies, regardless of whether your flight delay, the road is clear, the driver must take detours or is stuck in traffic jams during peak time. So, our rates are simple, transparent, and flat. Don’t hesitate to email or call us if you have any questions!</p>
 
     <h3>Safe and Immaculate Vehicles for Every Journey</h3>
     <p>At vanbudapest.com, cleanliness and hygiene have always been top priorities – long before, during, and after the pandemic. Our vehicles are meticulously cleaned and disinfected after every trip, ensuring a pristine and safe environment for all passengers.</p>
@@ -789,7 +789,7 @@
 
     <h3>Booking and Customer Service</h3>
     <p>Booking your ride has never been easier! Use our user-friendly booking form to enter your travel details, select your preferred vehicle, and share any special requests. That’s it – your reservation is completed in just minutes!</p>
-    <p>We’ll follow up within 12 hours to confirm your booking and ensure all your needs are met. Prefer to talk to us directly? Call our dispatcher, who will happily assist you with making a reservation.</p>
+    <p>We’ll follow up within 12–24 hours to confirm your booking and ensure all your needs are met. Prefer to talk to us directly? Call our dispatcher, who will happily assist you with making a reservation.</p>
     <p>For email inquiries, simply send your trip details or questions to <a href="mailto:info@vanbudapest.com">info@vanbudapest.com</a>, and our team will provide prompt assistance. Choose vanbudapest.com for reliable, efficient, and professional service every time.</p>
 
     <h3>Comprehensive Transfer and Rental Services</h3>

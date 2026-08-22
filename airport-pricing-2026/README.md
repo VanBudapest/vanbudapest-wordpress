@@ -256,10 +256,98 @@ Mindegyik helyére a tételes kiírás került (EN/DE/ES-ben is): **€12 érkez
 
 Ezekhez nem nyúltam, mert vagy szöveget érintenek, vagy feltöltést igényelnek:
 
-- **C-csomag maradéka (nyitott döntések):** „10 → 15 perc” (mikor megy be a sofőr a terminálba — az audit szerint Tomi 15 percet mondott, az oldalon 10 áll), menetidő-ellentmondás (40–45 perc vs. 30 / 60–70 perc), „12 óra vs. 12–24 óra” ajánlatadás, lemondási FAQ 3 járműsávra bontása, „25% discount” (tiltott szó + él-e még?), „Luxury Car VIP **2024**” évszám, „Hungary- Vienna” elírás.
+- **C-csomag maradéka (nyitott döntések):** ~~10 → 15 perc~~, ~~12 óra → 12–24 óra~~, ~~25% discount~~, ~~„Hungary- Vienna” elírás~~ — **mind kész a 3. körben.**
+  Nyitva maradt: **menetidő-ellentmondás** (40–45 perc vs. a FAQ 30 / 60–70 perce — ugyanarra az útra),
+  **lemondási FAQ** 3 járműsávra bontása (ehhez az ÁSZF kell — a csatolmány nem érkezett meg),
+  **„Luxury Car VIP 2024”** évszám.
   → Ezekhez **egyenként kell döntés** — nem találgatok. Szólj, melyik mehet, és egy körben javítom.
 - **B-csomag (képek):** 2 magánrepülő stock-kép licenc-cseréje, „Travel route” base64-nevű kép, a 404-es `placeholder-default.jpg`, 11 nagy kép tömörítése, Hősök tere-i kategóriaszett feltöltése, `og:image`.
 - **D-csomag (globális):** látható H1 / WP-cím, `_fbp` Set-Cookie → edge-cache, GTM-konténerek, DE/ES FAQ Lingexto-oldalakra + hreflang, FAQPage schema.
+
+---
+
+## ✅ 3. kör — az audit jóváhagyott pontjai (2026-08-22)
+
+A C-csomagból amit jóváhagytál, mind kint van. `apply-changes-step3.py`, 9 lépés,
+mindegyik `assert n == expect` ellenőrzéssel, 3 blokk cserével.
+
+| # | Amit kértél | Mi történt | Hol |
+|---|---|---|---|
+| 1 | „ezt javíthatod, hogy ne legyen gáz” | `Hungary- Vienna` → `Hungary – Vienna` | #1 A-blokk H2 |
+| 2 | „ITT A 12-24 A JÓ, ERRE KELL JAVÍTANI MINDENT!” | `within 12 hours` → `within 12–24 hours` (2 hely) | #3, #5 |
+| 3 | „A 15 A VALÓS, MINDENHOL EZ LEGYEN!” | `10 minutes after landing` → `15 minutes` | #4 |
+| 4 | „EZ PRÉMIUM OLDAL, EZÉRT NEM LENNE SZABAD EZT KIÍRNI” | a 25%-os mondat törölve | #5 |
+| 5 | „CSINÁLD MEG!” (CLS) | 4 képre `width`/`height` + `loading="lazy"` | #3 galéria |
+| 6 | Coach kártya üres oldalra vitt | link → flotta oldal, felirat → `Vehicle details →` | #1 A-blokk |
+| + | (magamtól, kódhiba) | lightbox `'n'` szemét eltávolítva | #4 script |
+
+### A 25%-os kedvezmény — hol volt
+
+A **#5 Summary** blokkban, önálló mondatként:
+
+> *„Plus, for a limited time, enjoy a 25% discount on your next Budapest Airport Transfer.”*
+
+Mivel önálló mondat volt, tisztán kivehető — a bekezdés többi része érintetlen.
+
+### CLS — pontosítás a korábbi becsléshez
+
+Először 17 képet mondtam. **Blokkonként megmérve valójában 4 volt veszélyben.**
+A #4 blokk 13 képét a saját CSS-e védi:
+
+```css
+.vb-card img{ display:block; width:100%; height:auto; aspect-ratio: 4/3; object-fit:cover; }
+```
+
+Az `aspect-ratio` ugyanúgy lefoglalja a helyet, mint a `width`/`height` — ott nincs ugrás.
+Egyedül a **#3 „Luxury Beyond” galéria** 4 képének nem volt semmilyen védelme
+(`.vb-card img{width:100%;height:auto;object-fit:cover}` — magasság-foglalás nélkül).
+Ez a 4 kép kapott most `width`/`height`-ot.
+
+### A Coach kártya „üres oldala” — mi volt a baj
+
+A `Coach options →` link a **17870-es oldalra** mutatott:
+
+| | |
+|---|---|
+| Cím | „Coach Bus Category (34-49 seats) — Vehicle Options” |
+| Státusz | `publish` |
+| Tartalom | **üres string** |
+| Utolsó mentés | 2026-01-25 |
+
+Publikált oldal, nulla tartalommal — ezért jelent meg üres lap.
+A link most a flotta oldalra megy, a felirat pedig egységes a másik 5 kártyáéval.
+**Az üres 17870-es oldalhoz nem nyúltam** — ha kell rá busz-tartalom, az külön kör.
+
+### A lightbox `'n'` szemét
+
+A #4 blokk lightbox-scriptjében ez állt:
+
+```js
+lb.innerHTML='n        <button …>✕</button>n        <figure …></figure>n      ';
+```
+
+Ezek elveszett `\n`-ek: egy korábbi mentési csatorna leszedte a backslash-eket, és
+a magára maradt `n` betűk **szöveges csomópontként bekerültek a nagyított kép mellé**.
+A backup fájlban is így volt, tehát **nem az én köreim okozták** — de mivel úgyis
+ezt a blokkot írtam, egy körben kijavítottam:
+
+```js
+lb.innerHTML='<button …>✕</button><figure …></figure>';
+```
+
+Backslash nélkül, hogy egy következő mentés se tudja újra elrontani.
+Az egész oldalon **0 backslash** van — más ilyen sérülés nincs.
+
+### Feltöltés — blokkonként, bájtra ellenőrizve
+
+| Blokk | Méret | `_content_warnings` | Bájtazonos |
+|---|---|---|---|
+| [2] #5 Summary | 8 733 | `[]` | ✅ |
+| [1] #4 Motion-v4 | 21 527 | `[]` | ✅ |
+| [0] Pricing group (A + D + #3) | 50 692 | `[]` | ✅ |
+
+Minden írás után visszaolvasva: a cél-blokk bájtra egyezik a helyivel, a **másik három
+blokk bájtra változatlan**, és a teljes oldal megegyezik az elvárt tartalommal (96 972 karakter).
 
 ---
 
