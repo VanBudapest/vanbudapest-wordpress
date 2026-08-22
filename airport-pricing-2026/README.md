@@ -143,6 +143,62 @@ Visszaállítás: a backup tartalma visszaírható ugyanezen az úton; a WordPre
 
 **Következő lépés: `seo-deploy` skill** — ShortPixel CDN cache-bump + inkognitós ellenőrzés desktopon és mobilon.
 
+---
+
+## ✅ 2. kör — címsor-összevonás + fehér csíkok megszüntetése (2026-08-22)
+
+### Címsorok
+
+Minden felsorolt cím megmaradt, de a fehér sávból a sötét blokk fejlécébe került — az A-blokk saját, duplikált „Airport Transfer Rates” H2-je helyére:
+
+```
+[fehér]  RELIABLE – CLEAN BUS & VAN: Budapest Airport Pick Up   ← WP-cím, marad
+─────────────────────────────────────────────────────────────
+[sötét]  FIXED, PUBLISHED RATES · SINCE 1988
+         Budapest & Hungary- Vienna – Airport Transfers          ← volt #0 H2
+         AIRPORT TRANSFERS TO BUDAPEST – RELIABLE, COMFORTABLE…  ← volt #0 H6
+         AIRPORT TRANSFER RATES — BUDAPEST (BUD), BRATISLAVA…    ← volt #0 H6
+         Private chauffeur transfers between your Budapest…
+         [BUD | VIE | BTS]  →  kártyák
+```
+
+A szövegek karakterre pontosan mentek át (a „Budapest” utáni **két szóköz** is). A H2/H6 szintek változatlanok, csak a helyük és a stílusuk más — a `vbp-kicker` osztály reprodukálja a téma kiskapitális H6-megjelenését, aranyszínben.
+
+A `vb-page-h2` osztály és a hozzá tartozó szabály feleslegessé vált (a Gutenberg-H2 elköltözött) — a #6 blokkban maradt 2 sor halott CSS, ártalmatlan, következő körben kitakarítható.
+
+### Fehér csíkok — mi okozta és mi lett velük
+
+| Forrás | Db | Megoldás |
+|---|---|---|
+| `core/separator` | 3 | törölve |
+| `core/spacer` | 5 | törölve |
+| üres `core/paragraph` | 2 | törölve |
+| **üres `core/group`** („Hero Product 3 Split” — csak 2 spacert tartalmazott) | 1 | törölve |
+| a #0 group `padding` | — | `0` mind a 4 oldalon |
+| WP blokk-wrapperek margói | — | page-scoped szabály (`body.page-id-1351`) |
+
+Top-level blokkok: **8 → 4**. A `<style>` (6), `<script>` (2), `<link>` (9) és `<img>` (35) darabszám változatlan.
+
+### Mérés a VALÓDI élő tartalomból
+
+`tools/measure-section-gaps.mjs`, a WP/téma résképző szabályainak szándékos szimulálásával:
+
+```
+✅ 0px  vbp-a → vbp-d
+✅ 0px  vbp-d → vb-section (Luxury Beyond)
+✅ 0px  vb-section → vb-section (motion-v4)
+✅ 0px  vb-section → vb-section (Summary)
+✅ 0px  vb-section → vb-section (FAQ)
+```
+
+A hat sötét szekció hézagmentesen összeér. A WP-cím alatt marad ~24 px levegő (a téma címsor-margója) — szándékos, hogy a nagy fekete cím ne tapadjon rá a sötét blokkra.
+
+### Feltöltés
+
+`page-sections.remove` ×4 (hátulról előre, hogy az indexek ne csússzanak) + `page-sections.replace` ×1, mindegyik optimista zárolással. `_content_warnings: []` minden lépésnél.
+
+---
+
 ## Az audit többi pontja — mi generálható, mi nem
 
 ### ✅ Ez a két blokk megoldotta
