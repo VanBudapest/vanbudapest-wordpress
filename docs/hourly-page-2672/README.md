@@ -219,6 +219,37 @@ Notes:
   all 12 full-bleed sections span the viewport exactly, **every gap between them is
   0 px**, and there is no horizontal page scroll.
 
+### Fifth pass — display optimisation for every screen (2026-08-23)
+
+Measured in Chromium at **16 widths** — 320 · 360 · 390 · 414 · 480 · 540 · 600 · 768 ·
+834 · 1024 · 1180 · 1280 · 1440 · 1680 · 1920 · 2560 px — on the full page, legacy block
+included. Three real defects came out, all now fixed by one CSS block placed last:
+
+**1. Text below 12 px** — 28 rules, the smallest at **8.5 px** (the `LOWER RATE` badge on
+the calculator's 7 h chip), then 9 px, 9.5 px, 10 px… Every one is now at least 12 px.
+The corner badge went to 11 px with room made above it, because at 12 px it covered the
+chip's own `7 h` label. Result: **0 sub-12 px text at any width**, down from 8 offenders.
+
+**2. Tap targets under 24 px** — eleven links were 12–18 px tall, below the WCAG 2.2
+(2.5.8) minimum. Fixed with `padding-block:7px; margin-block:-7px`, which grows the hit
+box without touching the line box, so nothing on the page moved. All are now 26–32 px.
+
+**3. Justified text in the legacy block** — `text-align: justify` on `.vb-inner` /
+`.vb-content` opened rivers of whitespace on phones. Left-aligned at ≤900 px; desktop
+keeps the justified setting, as the audit specified.
+
+Two knock-on adjustments the larger type needed: the calculator's vehicle-card
+`pax/bags` line now wraps instead of overflowing by 3 px, and the rate-card hour chips
+lost the trailing letter-spacing that pushed the last character outside its background.
+
+**On audit item 17 (`width`/`height` + `srcset`):** the layout-shift risk it warns about
+was measured and is **not present** — CLS is **0.000 on mobile and 0.0001 on desktop**
+after scrolling the whole page and loading every lazy image. Each image already sits in a
+box with a reserved size (`aspect-ratio` on the gallery tiles, definite grid rows in the
+bento, fixed heights in the cards). What is still missing from those images is `srcset`,
+which is a **bandwidth** question, not a layout one, and belongs with the image-compression
+item.
+
 ## Still open — needs a decision
 
 1. **The promo block still uses banned words** (left in place on purpose for now) — `discount` × 6 (`vanbudapest-rules`:
