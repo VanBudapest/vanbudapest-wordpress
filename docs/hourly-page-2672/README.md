@@ -278,17 +278,139 @@ scoped fix the audit asked for, on this page only:
     .wp-block-cover .wp-block-cover__inner-container{position:relative;z-index:2}
     .wp-block-cover .wp-block-cover__background{z-index:1}
 
+## Pass 7 — content & SEO corrections (2026-08-24)
+
+The owner's list, worked top to bottom. Live snapshot: `page-2672-live-2026-08-24.html`.
+
+**1. The €135 S-Class contradiction (block 26, `core/columns`, EN + DE + ES).** The
+multilingual FAQ quoted "around €135 per hour" for the S-Class while the rate cards and
+the Offer schema both said €110 / €105. All three answers were rewritten to the real
+two-band rate card:
+
+| Vehicle | 3–6 h | 7–12 h |
+|---|---|---|
+| Mercedes E-Class · Business Car | €65 | €60 |
+| Mercedes V-Class · Premium Van | €70 | €65 |
+| Mercedes Sprinter · Minibus | €75 | €70 |
+| Mercedes VIP Sprinter · Luxury Minibus | €85 | €80 |
+| Mercedes S-Class · Luxury Car VIP | **€110** | **€105** |
+| Coach Bus | €120 | €110 |
+
+`€135` / `135 €` now occurs **zero** times in `post_content` (the four remaining `135`
+matches are `linear-gradient(135deg…)` values).
+
+**2. "Prices can change depending on duration, demand…" (× 3).** Removed with the same
+rewrite — it undercut a page whose entire proposition is a published rate card. The
+answers now end with "These are the published 2026 rates shown in the rate card above".
+
+**3. "Most companies, including VanBudapest, require a three-hour minimum" (EN).**
+Replaced. It sourced a house rule to unnamed competitors. Now: "The shortest hourly
+booking is three hours. Every booking is billed with the +1 garage hour on top, so three
+hours with you is invoiced as four — €260 for a Mercedes E-Class, for example."
+(4 × €65 = €260, matching block C's totals table.) DE and ES got the same treatment.
+
+**4. The tipping sentence (× 3).** "Gratuities are optional but appreciated; 10–15% is
+standard for excellent service" invented a norm. Now: "Gratuities are entirely optional
+and are never added to the quoted price."
+
+**5. "Book VIP Transfer • VanBudapest.com • Premium Chauffeur • Budapest & Central
+Europe" (× 3).** A keyword-stuffed bold line, not a link and not an approved CTA. Each
+one is now a real CTA row built only from `vanbudapest-buttons-ctas`: **BOOK NOW** →
+`/contact-customer-reviews/`, **GET QUOTE IN 12H** → `/contact-customer-reviews/`,
+**VIEW FLEET** → `/our-fleet-vip-limousines-coaches-sedans-luxury-vans/`. 48px tap
+targets, full-width on mobile.
+
+**6. `affordable` and `budget` (block 24).** "Affordable and Reliable Bus Rentals… we
+combine affordability with professionalism" → "Reliable Bus Rentals… we combine
+published, all-inclusive rates with professionalism". "To help you start planning your
+budget" → "To help you plan ahead, the full 2026 rate card is published on this page".
+`affordable`, `affordability`, `budget`, `cheap`, `low-cost` are all now zero on the page.
+
+**7. `<h2>Call to Action</h2>` + `<p>Hire a Chauffeur</p>` (block 16).** A CMS
+placeholder rendered as a visible heading. Replaced with a real closing CTA: an H2 that
+says what it is, one paragraph explaining what you get back, and the same three approved
+buttons.
+
+**8. The copied airport-page text (block 16).** The first `.vb-content` of the legacy
+block opened with two paragraphs about **"airport transfers between Budapest and
+Vienna"** — pasted from the airport page onto an hourly-rates page, ending in "the
+ultimate airport transfer experience, connecting you to Budapest and Vienna". Both
+paragraphs were rewritten for this page: what hourly hire is, what the rate covers, the
+six vehicle classes, the two bands, and that parking is settled on site. The section's
+H2 became "Hourly Chauffeur Hire in Budapest – Luxury Beyond Expectations".
+
+The other airport section further down ("Airport Segments within an Hourly Plan") was
+also generic. It is now "Airport Legs inside an Hourly Booking" and answers the question
+this page's readers actually have — when to put the airport leg inside the booked hours
+and when to ask for a separate point-to-point quote instead.
+
+**9. Title / meta description / H1.** The SEO Manager stores these in post meta with the
+`_vb_seo_` prefix (`vb_seo_settings` is the plugin option; `_vbseo_*` keys do not exist).
+
+| | Before | After |
+|---|---|---|
+| `_vb_seo_title` | Hourly Van & Bus Rental Rates in Budapest \| VanBudapest | Hourly Van & Bus Rental Budapest — 2026 Rates from €65/h (56 ch) |
+| `_vb_seo_description` | Flexible hourly rates for private van and bus rentals in Budapest… | Private van, minibus and coach rental with driver in Budapest. Published 2026 hourly rates from €65/h — chauffeur, fuel, tolls and VAT included. Quote in 12h. (158 ch) |
+| `_vb_seo_h1` / cover H1 | …with Driver in Budapest – Hourly Rates | …with Driver in Budapest – 2026 Hourly Rates |
+
+Both stay inside the plugin's own limits (60 / 160). The keyword core that the URL
+already ranks for (hourly · van · bus · rental · Budapest) is kept; the price and the
+year are what is new, because this page's queries are cost queries. Ahrefs could not be
+used to size the terms — both `keywords-explorer-overview` and
+`site-explorer-organic-keywords` return `Insufficient plan` on this account.
+
+**10. og:image.** The plugin falls back to the **featured image**, which was still
+`2025/04/vip-luxury-budapest-rental.png`. Featured image set to attachment **25987**
+(`2026/07/BLACK-MERCEDES.png`, 1672 × 941), so `og:image` and `twitter:image` now match
+the hero. Verified in the live `<head>`.
+
+**11. Two images that should not have been there (block 16 bento).**
+
+| Was | Now | Why |
+|---|---|---|
+| `2025/01/2021-04-10_image_2021-mercedesbenz-s-class-056.png` | `2026/06/Mercedes_S-class_VanBudapest-46.webp` (200, 126 KB) | manufacturer press render — copyright risk, and it is not their car |
+| `2025/02/WhatsApp-Image-2019-06-25-at-1.51.08-PM.jpeg` | `2026/08/V-CLASS_VANBUDAPEST_FLEET_MERCEDES-01.webp` (200, 355 KB) | 2019 phone snapshot in a premium bento |
+
+Both replacements are own photographs, both got a descriptive alt, both got
+`loading="lazy"`.
+
+**12. The 48 raw image links.** Every `.vb-card` in the legacy block wrapped its image in
+`<a href="https://vanbudapest.com/wp-content/uploads/…" target="_blank">` — a click took
+the visitor out of the site and onto a bare `.webp`, and it published 48 crawlable
+non-HTML URLs. All 48 anchors were unwrapped; the images and captions are untouched, and
+the uniform-tile CSS (`aspect-ratio:3/2; object-fit:cover`) still applies because it
+targets the `img`, not the `a`. `<a href=…/uploads/…>` now occurs zero times.
+
+**13. Regression found and fixed while re-auditing.** Rule 2 of the display-fix block
+(`.vbh-b a:not([class*="cta"]){padding-block:7px}`) has the *same* specificity as
+`.vbh-b .vbh-sticky a` — both (0,2,1) — and wins on source order. It had shrunk the
+sticky mobile **BOOK NOW** bar, the page's primary mobile CTA, from 40px to **26px**.
+Fixed with one extra class:
+
+    .vbh-b .vbh-sticky a:not([class*="cta"]){
+      display:inline-flex;align-items:center;justify-content:center;
+      min-height:48px;padding:16px 20px;margin-block:0}
+
+Re-measured at 390px in Chromium: the sticky CTA is out of the sub-44px list. What
+remains under 44px are inline text links at 26–32px ("Vehicle details →",
+"Terms & Conditions" × 3, "Bratislava", six `.vbh-uc` links) — all above the WCAG 2.5.8
+minimum of 24 × 24, and enlarging inline links inside running text would overlap the
+neighbouring lines.
+
+Also confirmed while probing: the `.vbh-card` elements that the audit script reports as
+"sticking out" below 768px sit inside `.vbh-grid`, which is `overflow-x:auto` — an
+intentional horizontal scroll strip, not an overflow bug.
+
 ## Still open — needs a decision
 
-1. **The promo block still uses banned words** (left in place on purpose for now) — `discount` × 6 (`vanbudapest-rules`:
+1. **The promo block still uses banned words** (kept on the owner's explicit instruction —
+   "EZT HAGYJUK MOST BENT EGYENLŐRE") — `discount` × 6 (`vanbudapest-rules`:
    never write discount / affordable / budget / cheap). It was kept verbatim because
    removing it was not part of this task. Its message (7 h+ lower rate, full-day rate)
    is now covered by blocks A, B, C and F, so it can be dropped or rewritten.
-2. `affordable` × 1 and `budget` × 1 remain in block 17 (the untouched
-   "Transparent and Reliable Pricing" columns block).
-3. **S-Class is now €110 / €105** on the new blocks, per ÁRAZÁS2026ÚJ.xlsx. The old FAQ
-   block further down the page still says "around €135 per hour" (EN/DE/ES) — those three
-   answers now contradict the rate cards and need the same correction.
+2. ~~`affordable` × 1 and `budget` × 1~~ — **resolved in pass 7** (block 24).
+3. ~~S-Class €135 in the EN/DE/ES FAQ~~ — **resolved in pass 7**: all three answers now
+   carry the full two-band rate card, S-Class included at €110 / €105.
 4. ~~12 h band~~ — **resolved**: the price file has only 3+1 and 7+1, so the third band
    was removed from the engine, from block C (totals, column heads, legends) and from the
    hours switcher label in block A.
@@ -297,3 +419,9 @@ scoped fix the audit asked for, on this page only:
 6. The `MOST POPULAR` badge on the V-Class is a marketing choice, confirmed by the owner
    (V-Class is the most-booked category). It is not derived from booking data, so it should
    not be presented as a statistic anywhere.
+7. **Image weight and `srcset`** — still open, and still blocked: there is no file-upload
+   path from here, and `dji_0549-hdr.jpg` is 1 070 526 bytes at origin. Measured CLS is
+   0.000 / 0.0001, so this is a bandwidth item, not a layout one.
+8. **Fonts (theme file), `_fbp`, GTM duplication (Site Kit vs WPCode `AW-634016224`), the
+   ES page + hreflang** — unchanged, all four need access or a decision this session does
+   not have.

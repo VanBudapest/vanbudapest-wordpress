@@ -9,6 +9,7 @@
    1. no text below 12px anywhere (the smallest was 8.5px)
    2. inline links get a >=26px tap area without moving any text
    3. the legacy block stops justifying its text on narrow screens
+   5. the sticky mobile BOOK NOW bar keeps its own 48px button box
    =================================================================== */
 
 /* --- 0. hero H1 above the dim layer ------------------------------
@@ -61,6 +62,15 @@
 .vbh-f a:not([class*="cta"]),
 .vbh-pi a:not([class*="cta"]){padding-block:7px;margin-block:-7px}
 .vbh-a .vbh-link{display:inline-flex;align-items:center;min-height:26px}
+
+/* --- 5. the sticky mobile booking bar --------------------------------
+   .vbh-sticky a is a real button, not an inline link, but its own rule
+   (.vbh-b .vbh-sticky a) has the same specificity as rule 2 above and
+   loses on source order, which shrank the primary mobile CTA from 40px
+   to 26px. One extra class here restores it and lifts it to 48px. */
+.vbh-b .vbh-sticky a:not([class*="cta"]){
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:48px;padding:16px 20px;margin-block:0}
 
 /* --- 3. no justified text on narrow screens ------------------------ */
 @media (max-width:900px){
