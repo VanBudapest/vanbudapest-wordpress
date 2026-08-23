@@ -1,0 +1,18 @@
+<!-- wp:html -->
+<style>
+/* ===================================================================
+   VanBudapest.com - uniform gallery tiles (2026-08-23)
+   Every .vb-card / .vb-bento-card image fills its frame at the same
+   3:2 ratio, so a row can no longer end with empty navy strips under
+   the shorter pictures.
+   Scaling stays proportional (object-fit: cover); when a crop is
+   unavoidable it is taken off the bottom (object-position: center top).
+   Placed after the gallery block so it wins on source order, and the
+   selectors carry one extra class so they also win on specificity.
+   =================================================================== */
+.vb-section .vb-grid .vb-card a,
+.vb-section .vb-bento-grid .vb-bento-card a{display:block;width:100%;line-height:0}
+.vb-section .vb-grid .vb-card img,
+.vb-section .vb-bento-grid .vb-bento-card img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;object-position:center top;display:block}
+</style>
+<!-- /wp:html -->

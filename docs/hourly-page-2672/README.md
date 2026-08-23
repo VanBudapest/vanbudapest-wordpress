@@ -19,14 +19,18 @@ and the copy proposal (`vb-hourly-copy-proposal.html`).
 | 7 | **D** — Day Trips from Budapest | prototype D |
 | 8 | **E** — When Hourly Hire Beats Single Transfers | prototype E |
 | 9 | promo block (unchanged, moved down) | live page (kept verbatim) |
+| 10 | legacy gallery group (`.vb-section`, 12 grids × 4 images) | live page |
+| 11 | uniform-tile CSS override for those grids | added 2026-08-23 |
 
 ## Files
 
 - `BACKUP-page-2672-original-2026-08-23.html` — the **raw** `post_content` before the change
   (138 688 chars, 7 `<style>`, 1 `<script>`, 62 `<img>`). Restore point.
 - `page-2672-live-after-2026-08-23.html` — the `post_content` **as it is live now**
-  (179 624 chars, 7 `<style>`, 1 `<script>`, 82 `<img>`, 0 `<table>`, 0 backslashes).
+  (181 104 chars, 8 `<style>`, 1 `<script>`, 0 `<table>`, 0 backslashes).
 - `blocks/block_*.html` — each new top-level Gutenberg block on its own, ready to paste.
+  `block_GALLERY.html` is the legacy `.vb-section` group after the image repair;
+  `block_TILECSS.html` is the uniform-tile override.
 - `vbh-blocks.css` / `vbh-rate-engine.js` — the stylesheet and the rate engine, extracted.
 - `preview-standalone.html` — open in a browser to see all seven sections without WordPress.
 
@@ -98,6 +102,60 @@ grown to five nested `spcdn.shortpixel.ai/spio/...` prefixes. Removing that bloc
 the problem. ShortPixel also CDN-ized the `-600x400` image URLs in blocks B and C once
 (normal, not nested) — that is why those two blocks differ from `blocks/block_B.html`
 and `blocks/block_C.html` by exactly the CDN prefix.
+
+### Third pass — broken images (2026-08-23)
+
+Every image URL on the page was HEAD-checked from the server (the container cannot
+reach vanbudapest.com; the egress policy blocks it, so the checks ran through the
+WordPress HTTP API). 66 distinct references, **11 broken `<img>` slots**, all of them
+inside the legacy gallery group.
+
+Six were the *same picture under a filename that no longer exists* — repaired by
+pointing at the file that is actually on disk, so the artwork did not change:
+
+| Grid | Was (404) | Now |
+|---|---|---|
+| B, L | `2020/04/7416d-castle-transfer-budapest.jpg` | `…-1.webp` |
+| D ×2 | `res.cloudinary.com/dmrjcw98n/…47/…28.webp` (401) | the local `2022/05/…47/…28.webp` |
+| F | `2024/05/budapest_jichang_shuttle-1.jpeg` | `…-1-1.webp` |
+| I | `2025/06/Matild-Palace-1.jpg` | `Matild-Palace.jpg` |
+
+Five files are genuinely gone from the server, so they were replaced from the media
+library with pictures that fit the grid's theme, and the `alt` text was rewritten to
+match what is now shown:
+
+| Grid | Was | Now | New alt |
+|---|---|---|---|
+| E | `puskas-stadium-budapest-rent-bus-arena.jpg` | `2026/07/Athletics5.png` | Budapest stadium at dusk |
+| E | `puskas-stadium-transfer-bus.jpg` | `2026/06/vb-img-1781984373031.png` | Chauffeur at event venue |
+| E | `puskas-stadium-budapest-rent-bus-hungary.jpg` | `2026/07/ferencvaros-europa-league-2026-27-hero-1.jpg` | Budapest match night |
+| G | `Holloko_Easter_Festival_Hungary_2025.jpg` | `2026/06/7ecacd3f-…-332f6ae63e6e.png` | Budapest skyline sunset |
+| I | `lgbtq-vanbudapest.jpg` | `2025/11/pride.lgbtq_.vanbudapest.webp` | Pride parade Budapest |
+
+Grid G's slot held a Hollókő village photo inside a grid titled *Budapest Scenes*, so a
+Budapest skyline replaced it; the Pride photo keeps the original intent of the LGBTQ+
+slot with a file that still exists.
+
+All 48 gallery cards, all 4 bento cards, the block CSS (byte-identical) and every
+paragraph of copy survived the rewrite unchanged — only the 11 image sources, their
+link targets and 5 `alt` strings differ. After the write all 66 references and all 44
+lightbox links return 200.
+
+### Uniform gallery tiles
+
+The grids used `height:auto`, so a row of mixed aspect ratios left empty navy strips
+under the shorter pictures. Block 11 fixes it without touching the gallery markup:
+
+    .vb-section .vb-grid .vb-card img,
+    .vb-section .vb-bento-grid .vb-bento-card img{
+      width:100%;height:auto;aspect-ratio:3/2;
+      object-fit:cover;object-position:center top;display:block}
+
+`cover` scales proportionally and only crops what cannot fit; `center top` takes that
+crop off the **bottom**. The block sits after the gallery so it wins on source order,
+and each selector carries one extra class so it also wins on specificity. Measured in
+Chromium at 1440 / 768 / 390 px with sources from 1:1 to 2.29:1: all 13 grids uniform,
+card height minus image height = 2 px everywhere (the card's own 1 px borders).
 
 ## Still open — needs a decision
 
