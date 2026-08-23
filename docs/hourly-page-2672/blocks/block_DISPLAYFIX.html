@@ -5,10 +5,18 @@
    2026-08-23. Sits last in the page so it wins on source order; every
    selector repeats the original one, so specificity matches too.
 
+   0. the hero H1 sits above the cover's dim layer
    1. no text below 12px anywhere (the smallest was 8.5px)
    2. inline links get a >=26px tap area without moving any text
    3. the legacy block stops justifying its text on narrow screens
    =================================================================== */
+
+/* --- 0. hero H1 above the dim layer ------------------------------
+   The theme sets position:initial on the cover, which drops the inner
+   container out of the stacking order and lets the dim span paint over
+   the H1. This restores the stacking for the cover on this page only. */
+.wp-block-cover .wp-block-cover__inner-container{position:relative;z-index:2}
+.wp-block-cover .wp-block-cover__background{z-index:1}
 
 /* --- 1. minimum legible type -------------------------------------- */
 .vbh-b .vbh-dur button.tier::after{font-size:11px;letter-spacing:.04em;padding:3px 6px;top:-13px;right:-2px}

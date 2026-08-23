@@ -250,6 +250,34 @@ bento, fixed heights in the cards). What is still missing from those images is `
 which is a **bandwidth** question, not a layout one, and belongs with the image-compression
 item.
 
+### Sixth pass — schema and the hero stacking (2026-08-23)
+
+**FAQPage + Offer schema (audit D-25).** The page was emitting `LocalBusiness`,
+`Service` and `BreadcrumbList` from the VanBudapest SEO Manager plugin, but no
+`FAQPage` and no offers. Added both as a `core/html` block carrying one
+`application/ld+json` script:
+
+- `FAQPage` with the **eight questions that are visible in the page's FAQ section**,
+  copied word for word — verified in code that every question string also occurs in the
+  rendered content, which is what Google requires.
+- `OfferCatalog` with **12 offers** — six vehicle classes × two duration bands — each as a
+  `UnitPriceSpecification` priced per hour (`unitCode: HUR`) with an `eligibleQuantity`
+  carrying the band's hour range. Every price was checked against ÁRAZÁS2026ÚJ.xlsx in
+  code: zero mismatches.
+
+The JSON parses cleanly and survived KSES intact. It deliberately avoids re-declaring
+the plugin's `@id`s, so nothing conflicts. If the SEO Manager ever starts emitting
+FAQPage itself, this block must be removed to avoid a duplicate.
+
+**Hero H1 above the dim layer (audit A / executive summary).** The audit found the H1
+invisible partly because the theme's `position:initial` on the cover drops the inner
+container out of the stacking order, letting the dim `<span>` paint over the heading.
+The image and overlay were already fixed in the second pass; this adds the one-line
+scoped fix the audit asked for, on this page only:
+
+    .wp-block-cover .wp-block-cover__inner-container{position:relative;z-index:2}
+    .wp-block-cover .wp-block-cover__background{z-index:1}
+
 ## Still open — needs a decision
 
 1. **The promo block still uses banned words** (left in place on purpose for now) — `discount` × 6 (`vanbudapest-rules`:
