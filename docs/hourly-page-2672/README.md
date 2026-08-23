@@ -22,6 +22,30 @@ and the copy proposal (`vb-hourly-copy-proposal.html`).
 | 10 | legacy gallery group (`.vb-section`, 12 grids × 4 images) | live page |
 | 11 | uniform-tile CSS override for those grids | added 2026-08-23 |
 
+Four own-photo galleries and their stylesheet were then interleaved between the
+blocks above, so the final order on the page is:
+
+| # | Block |
+|---|-------|
+| 0 | hero cover |
+| 1 | `.vbh-*` stylesheet |
+| 2 | **`.vbg-*` gallery stylesheet** |
+| 3 | A — rate cards |
+| 4 | **fleet marquee** (18 photos, two auto-scrolling rows) |
+| 5 | B — calculator |
+| 6 | Price Information |
+| 7 | **Budapest strip I** (4 photos) |
+| 8 | C — rate card at a glance |
+| 9 | F — how hourly hire works |
+| 10 | **vans & minibuses bento** (14 photos) |
+| 11 | D — day trips |
+| 12 | **Budapest strip II** (4 photos) |
+| 13 | E — when hourly beats single transfers |
+| 14 | **sedans / SUV / EQE mosaic** (14 photos) |
+| 15 | promo block |
+| 16 | legacy gallery group |
+| 17 | uniform-tile CSS |
+
 ## Files
 
 - `BACKUP-page-2672-original-2026-08-23.html` — the **raw** `post_content` before the change
@@ -30,7 +54,9 @@ and the copy proposal (`vb-hourly-copy-proposal.html`).
   (181 104 chars, 8 `<style>`, 1 `<script>`, 0 `<table>`, 0 backslashes).
 - `blocks/block_*.html` — each new top-level Gutenberg block on its own, ready to paste.
   `block_GALLERY.html` is the legacy `.vb-section` group after the image repair;
-  `block_TILECSS.html` is the uniform-tile override.
+  `block_TILECSS.html` is the uniform-tile override; `block_VBG*.html` are the
+  own-photo galleries and their stylesheet.
+- `vbg-galleries.css` — the `.vbg-*` gallery stylesheet, extracted.
 - `vbh-blocks.css` / `vbh-rate-engine.js` — the stylesheet and the rate engine, extracted.
 - `preview-standalone.html` — open in a browser to see all seven sections without WordPress.
 
@@ -156,6 +182,42 @@ crop off the **bottom**. The block sits after the gallery so it wins on source o
 and each selector carries one extra class so it also wins on specificity. Measured in
 Chromium at 1440 / 768 / 390 px with sources from 1:1 to 2.29:1: all 13 grids uniform,
 card height minus image height = 2 px everywhere (the card's own 1 px borders).
+
+### Fourth pass — own-photo galleries (2026-08-23)
+
+54 photographs the owner supplied as their own — 8 Budapest locations and 46 fleet
+shots — distributed across four galleries so neither kind clumps in one place. All 54
+URLs were HEAD-checked from the server first; all returned 200.
+
+| Gallery | Placement | Photos | Layout |
+|---|---|---|---|
+| The Mercedes You Actually Get | after the rate cards | 18 fleet | two auto-scrolling rows, opposite directions, edge fades |
+| Where Your Hours Take You | after Price Information | 4 Budapest | 4-up portrait strip, tiles 2–3 offset downward |
+| Room for the Whole Group | after How Hourly Hire Works | 14 vans | 4-column bento, dense packing |
+| The City You See From the Car | after Day Trips | 4 Budapest | same offset strip |
+| Every Class, Photographed | after When Hourly Hire Wins | 14 sedans/SUV/EQE + chauffeur | auto-fit mosaic |
+
+Written as six separate `page-sections.insert` calls (stylesheet + five sections) from
+the bottom of the page upward, so no earlier index shifted mid-run and no existing
+block was rewritten. Every write returned `_content_warnings: []`.
+
+Notes:
+
+- The marquee is **CSS-only** — a flex track holding each row twice, animated to
+  `translateX(-50%)`, so the loop is seamless with no JavaScript. It pauses on hover
+  and stops entirely under `prefers-reduced-motion: reduce`.
+- Tiles use `object-fit: cover` on a fixed `aspect-ratio`, the same rule as the legacy
+  grids, so mixed source ratios still tile evenly.
+- Captions sit in `<figcaption>` and fade in on hover or keyboard focus
+  (`:focus-within`), so they are reachable without a mouse.
+- Every image carries `loading="lazy"` and `decoding="async"` except the first three
+  marquee tiles, which are the only ones above the fold.
+- Alt text is derived from what the filename reliably encodes (the vehicle class) or,
+  for the four files whose names say nothing, from the alt already stored in the media
+  library. Nothing about the photographs was invented.
+- Measured in Chromium at 1440 / 768 / 390 px with source ratios from 3:4 to 2:1:
+  all 12 full-bleed sections span the viewport exactly, **every gap between them is
+  0 px**, and there is no horizontal page scroll.
 
 ## Still open — needs a decision
 

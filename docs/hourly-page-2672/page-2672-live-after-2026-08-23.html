@@ -413,6 +413,135 @@ html:has(.vbh-a),body:has(.vbh-a){overflow-x:clip}
 </style>
 <!-- /wp:html --><!-- wp:html -->
 <style>
+/* ===================================================================
+   VanBudapest.com - Hourly page 2026 - own-photo galleries
+   Namespace: .vbg-*   (separate from .vbh-* and from the older
+   .vb-section / .vb-fw so none of the three can collide)
+   All pictures are VanBudapest's own photographs.
+   =================================================================== */
+.vbg{
+  --vb-navy:#0A1F44; --vb-navy-2:#12306A; --vb-navy-dark:#050E23;
+  --vb-gold:#C8B560; --vb-gold-dark:#B78D38; --vb-gold-light:#E5D9A8;
+  --vb-font-display:'Playfair Display',Georgia,'Times New Roman',serif;
+  --vb-font-head:'Montserrat','Segoe UI',system-ui,Arial,sans-serif;
+  --vb-font-body:'Open Sans','Segoe UI',Arial,sans-serif;
+  font-family:var(--vb-font-body);
+  line-height:1.6;
+}
+.vbg,.vbg *{box-sizing:border-box}
+.vbg figure,.vbg figcaption,.vbg p,.vbg h2{margin:0}
+.vbg img{max-width:100%;display:block}
+.vbg-fw{
+  width:100vw;max-width:100vw;
+  margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);
+  margin-top:0;margin-bottom:0;
+  position:relative;isolation:isolate;overflow:hidden;
+}
+.vbg--dark{background:linear-gradient(160deg,#050E23 0%,#0A1F44 55%,#12306A 100%)}
+.vbg--deep{background:linear-gradient(200deg,#0A1F44 0%,#050E23 100%)}
+.vbg-wrap{max-width:1320px;margin:0 auto;padding:clamp(48px,6vw,84px) clamp(16px,4vw,32px)}
+.vbg-wrap--flush{max-width:none;padding-left:0;padding-right:0}
+
+/* ---- heading ---- */
+.vbg-eyebrow{
+  font:600 12px/1.4 var(--vb-font-head);letter-spacing:.18em;text-transform:uppercase;
+  color:var(--vb-gold);text-align:center;margin:0 0 12px !important;
+}
+.vbg h2{
+  font:700 clamp(24px,3.2vw,40px)/1.2 var(--vb-font-display);
+  color:#fff;text-align:center;margin:0 0 14px !important;letter-spacing:.2px;
+}
+.vbg h2 em{font-style:italic;color:var(--vb-gold-light)}
+.vbg-lead{
+  text-align:center;color:#c3cfe4;max-width:760px;margin:0 auto !important;
+  font-size:clamp(14.5px,1.5vw,16px);line-height:1.75;
+}
+.vbg-rule{
+  width:88px;height:2px;margin:22px auto 0;
+  background:linear-gradient(90deg,transparent,var(--vb-gold),transparent);
+}
+
+/* ---- shared tile ---- */
+.vbg-tile{
+  position:relative;overflow:hidden;border-radius:14px;
+  border:1px solid rgba(200,181,96,.26);
+  background:rgba(255,255,255,.04);
+  box-shadow:0 10px 30px rgba(0,0,0,.35);
+  transition:transform .38s ease,border-color .38s ease,box-shadow .38s ease;
+}
+.vbg-tile img{
+  width:100%;height:100%;object-fit:cover;object-position:center;
+  transition:transform .6s ease;
+}
+.vbg-tile:hover{transform:translateY(-5px);border-color:rgba(200,181,96,.62);box-shadow:0 18px 44px rgba(200,181,96,.22)}
+.vbg-tile:hover img{transform:scale(1.05)}
+.vbg-cap{
+  position:absolute;left:0;right:0;bottom:0;
+  padding:26px 14px 12px;
+  font:600 12.5px/1.35 var(--vb-font-head);color:#fff;letter-spacing:.02em;
+  background:linear-gradient(180deg,rgba(5,14,35,0) 0%,rgba(5,14,35,.86) 70%);
+  opacity:0;transform:translateY(8px);transition:opacity .35s ease,transform .35s ease;
+}
+.vbg-tile:hover .vbg-cap,.vbg-tile:focus-within .vbg-cap{opacity:1;transform:none}
+
+/* ---- 1. marquee ---- */
+.vbg-mq{position:relative;overflow:hidden;padding:6px 0}
+.vbg-mq+.vbg-mq{margin-top:14px}
+.vbg-mq::before,.vbg-mq::after{
+  content:"";position:absolute;top:0;bottom:0;width:11%;z-index:2;pointer-events:none;
+}
+.vbg-mq::before{left:0;background:linear-gradient(90deg,#050E23,rgba(5,14,35,0))}
+.vbg-mq::after{right:0;background:linear-gradient(270deg,#0A1F44,rgba(10,31,68,0))}
+.vbg-track{display:flex;gap:14px;width:max-content;animation:vbg-slide 64s linear infinite}
+.vbg-mq--rev .vbg-track{animation-direction:reverse}
+.vbg-mq:hover .vbg-track{animation-play-state:paused}
+@keyframes vbg-slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.vbg-track .vbg-tile{flex:0 0 auto;width:clamp(184px,21vw,286px);aspect-ratio:3/2}
+
+/* ---- 2. cinematic strip ---- */
+.vbg-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:34px}
+.vbg-strip .vbg-tile{aspect-ratio:3/4}
+.vbg-strip .vbg-tile:nth-child(2),.vbg-strip .vbg-tile:nth-child(3){aspect-ratio:3/4;margin-top:clamp(0px,2.4vw,30px)}
+
+/* ---- 3. bento ---- */
+.vbg-bento{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:clamp(104px,11vw,150px);grid-auto-flow:dense;gap:14px;margin-top:34px}
+.vbg-bento .vbg-tile{grid-column:span 1;grid-row:span 1}
+.vbg-bento .vbg-tile--w2{grid-column:span 2}
+.vbg-bento .vbg-tile--h2{grid-row:span 2}
+
+/* ---- 4. mosaic ---- */
+.vbg-mosaic{display:grid;grid-template-columns:repeat(auto-fit,minmax(228px,1fr));gap:14px;margin-top:34px}
+.vbg-mosaic .vbg-tile{aspect-ratio:3/2}
+
+/* ---- footnote ---- */
+.vbg-foot{
+  margin:28px auto 0 !important;text-align:center;color:#9fb0cd;
+  font-size:13px;line-height:1.7;max-width:680px;
+}
+.vbg-foot strong{color:var(--vb-gold-light);font-weight:600}
+
+/* ---- responsive ---- */
+@media (max-width:900px){
+  .vbg-strip{grid-template-columns:repeat(2,1fr)}
+  .vbg-strip .vbg-tile:nth-child(2),.vbg-strip .vbg-tile:nth-child(3){margin-top:0}
+  .vbg-bento{grid-template-columns:repeat(2,1fr)}
+  .vbg-bento .vbg-tile--w2{grid-column:span 2}
+}
+@media (max-width:540px){
+  .vbg-strip{grid-template-columns:repeat(2,1fr);gap:10px}
+  .vbg-bento{gap:10px}
+  .vbg-mosaic{grid-template-columns:repeat(2,1fr);gap:10px}
+  .vbg-track{gap:10px}
+  .vbg-cap{font-size:11.5px;padding:20px 10px 9px}
+}
+@media (prefers-reduced-motion:reduce){
+  .vbg-track{animation:none}
+  .vbg-mq{overflow-x:auto}
+  .vbg-tile,.vbg-tile img,.vbg-cap{transition:none}
+}
+</style>
+<!-- /wp:html --><!-- wp:html -->
+<style>
 .vbh-a .vbh-ask{font:italic 400 clamp(20px,2.3vw,28px)/1.35 var(--vb-font-display);color:var(--vb-gold-light);text-align:center;max-width:780px;margin:0 auto 16px}
 .vbh-a .vbh-lead{text-align:center;color:#c3cfe4;font-size:clamp(14.5px,1.5vw,16px);line-height:1.75;max-width:900px;margin:0 auto 20px}
 .vbh-a .vbh-sub{border-top:1px solid rgba(200,181,96,.28);padding-top:18px;font-size:clamp(14px,1.5vw,15.5px);color:#aab6cf}
@@ -532,6 +661,19 @@ html:has(.vbh-a),body:has(.vbh-a){overflow-x:clip}
   </div>
 </section>
 <!-- /wp:html --><!-- wp:html -->
+<section class="vbg vbg-fw vbg--dark" aria-label="VanBudapest fleet photographs">
+  <div class="vbg-wrap">
+  <p class="vbg-eyebrow">Own photographs &middot; Since 1988</p>
+  <h2>The Mercedes You <em>Actually</em> Get</h2>
+  <p class="vbg-lead">No stock images. Every car below is from our own fleet and was photographed by us in and around Budapest &mdash; the same vehicles that arrive for your hourly booking.</p>
+  <div class="vbg-rule"></div>
+  </div>
+  <div class="vbg-wrap vbg-wrap--flush" style="padding-top:0">
+    <div class="vbg-mq"><div class="vbg-track"><figure class="vbg-tile"><img src="https://vanbudapest.com/wp-content/uploads/2026/05/MERCEDES-FLEET-VANBUDAPEST.COM-161.webp" alt="Mercedes vehicle from the VanBudapest fleet" decoding="async"><figcaption class="vbg-cap">VanBudapest fleet</figcaption></figure><figure class="vbg-tile"><img src="https://vanbudapest.com/wp-content/uploads/2026/05/MERCEDES-FLEET-VANBUDAPEST.COM-154.webp" alt="Mercedes vehicle from the VanBudapest fleet" decoding="async"><figcaption class="vbg-cap">VanBudapest fleet</figcaption></figure><figure class="vbg-tile"><img src="https://vanbudapest.com/wp-content/uploads/2026/05/MERCEDES-FLEET-VANBUDAPEST.COM-153.webp" alt="Mercedes vehicle from the VanBudapest fleet" decoding="async"><figcaption class="vbg-cap">VanBudapest fleet</figcaption></figure><figure class="vbg-tile"><img src="https://vanbudapest.com/wp-content/uploads/2026/05/MERCEDES-FLEET-VANBUDAPEST.COM-157.webp" alt="Mercedes vehicle from the VanBudapest fleet" loading="lazy" decoding="async"><figcaption class="vbg-cap">VanBudapest fleet</figcaption></figure><figure class="vbg-tile"><img src="https://vanbudapest.com/wp-content/uploads/2026/05/MERCEDES-FLEET-VANBUDAPEST.COM-159.webp" alt="Mercedes vehicle from the VanBudapest fleet" loading="lazy" decoding="async"><figcaption class="vbg-cap">VanBudapest fleet</figcaption></figure><figure class="vbg-tile"><img src="https://vanbudapest.com/wp-content/uploads/2026/05/MERCEDES-FLEET-VANBUDAPEST.COM-151.webp" alt="Mercedes vehicle from the VanBudapest fleet" loading="lazy" decoding="async"><figcaption class="vbg-cap">VanBudapest fleet</figcaption></figure><figure class="vbg-tile"><img src="https://vanbudapest.com/wp-content/uploads/2026/05/MERCEDES-FLEET-VANBUDAPEST.COM-147.webp" alt="Mercedes vehicle from the VanBudapest fleet" loading="lazy" decoding="async"><figcaption class="vbg-cap">VanBudapest fleet</figcaption></figure><figure class="vbg-tile"><img src="https://vanbudapest.com/wp-content/uploads/2026/05/MERCEDES-FLEET-VANBUDAPEST.COM-146.webp" alt="Mercedes vehicle from the VanBudapest fleet" loading="lazy" decoding="async"><figcaption class="vbg-cap">VanBudapest fleet</figcaption></figure><figure class="vbg-tile"><img src="https://vanbudapest.com/wp-content/uploads/2026/05/MERCEDES-FLEET-VANBUDAPEST.COM-143.webp" alt="Mercedes vehicle from the VanBudapest fleet" loading="lazy" decoding="async"><figcaption class="vbg-cap">VanBudapest fleet</figcaption></figure><figure class="vbg-tile" aria-hidden="true"><img src="https://vanbudapest.com/wp-content/uploads/2026/05/MERCEDES-FLEET-VANBUDAPEST.COM-161.webp" alt="" loading="lazy" decoding="async"></figure><figure class="vbg-tile" aria-hidden="true"><img src="https://vanbudapest.com/wp-content/uploads/2026/05/MERCEDES-FLEET-VANBUDAPEST.COM-154.webp" alt="" loading="lazy" decoding="async"></figure><figure class="vbg-tile" aria-hidden="true"><img src="https://vanbudapest.com/wp-content/uploads/2026/05/MERCEDES-FLEET-VANBUDAPEST.COM-153.webp" alt="" loading="lazy" decoding="async"></figure><figure class="vbg-tile" aria-hidden="true"><img src="https://vanbudapest.com/wp-content/uploads/2026/05/MERCEDES-FLEET-VANBUDAPEST.COM-157.webp" alt="" loading="lazy" decoding="async"></figure><figure class="vbg-tile" aria-hidden="true"><img src="https://vanbudapest.com/wp-content/uploads/2026/05/MERCEDES-FLEET-VANBUDAPEST.COM-159.webp" alt="" loading="lazy" decoding="async"></figure><figure class="vbg-tile" aria-hidden="true"><img src="https://vanbudapest.com/wp-content/uploads/2026/05/MERCEDES-FLEET-VANBUDAPEST.COM-151.webp" alt="" loading="lazy" decoding="async"></figure><figure class="vbg-tile" aria-hidden="true"><img src="https://vanbudapest.com/wp-content/uploads/2026/05/MERCEDES-FLEET-VANBUDAPEST.COM-147.webp" alt="" loading="lazy" decoding="async"></figure><figure class="vbg-tile" aria-hidden="true"><img src="https://vanbudapest.com/wp-content/uploads/2026/05/MERCEDES-FLEET-VANBUDAPEST.COM-146.webp" alt="" loading="lazy" decoding="async"></figure><figure class="vbg-tile" aria-hidden="true"><img src="https://vanbudapest.com/wp-content/uploads/2026/05/MERCEDES-FLEET-VANBUDAPEST.COM-143.webp" alt="" loading="lazy" decoding="async"></figure></div></div>
+    <div class="vbg-mq vbg-mq--rev"><div class="vbg-track"><figure class="vbg-tile"><img src="https://vanbudapest.com/wp-content/uploads/2026/05/MERCEDES-FLEET-VANBUDAPEST.COM-142.webp" alt="Mercedes vehicle from the VanBudapest fleet" loading="lazy" decoding="async"><figcaption class="vbg-cap">VanBudapest fleet</figcaption></figure><figure class="vbg-tile"><img src="https://vanbudapest.com/wp-content/uploads/2026/05/MERCEDES-FLEET-VANBUDAPEST.COM-136.webp" alt="Mercedes vehicle from the VanBudapest fleet" loading="lazy" decoding="async"><figcaption class="vbg-cap">VanBudapest fleet</figcaption></figure><figure class="vbg-tile"><img src="https://vanbudapest.com/wp-content/uploads/2026/05/MERCEDES-FLEET-VANBUDAPEST.COM-137.webp" alt="Mercedes vehicle from the VanBudapest fleet" loading="lazy" decoding="async"><figcaption class="vbg-cap">VanBudapest fleet</figcaption></figure><figure class="vbg-tile"><img src="https://vanbudapest.com/wp-content/uploads/2026/05/MERCEDES-FLEET-VANBUDAPEST.COM-125.webp" alt="Mercedes vehicle from the VanBudapest fleet" loading="lazy" decoding="async"><figcaption class="vbg-cap">VanBudapest fleet</figcaption></figure><figure class="vbg-tile"><img src="https://vanbudapest.com/wp-content/uploads/2026/05/MERCEDES-FLEET-VANBUDAPEST.COM-110.webp" alt="Mercedes vehicle from the VanBudapest fleet" loading="lazy" decoding="async"><figcaption class="vbg-cap">VanBudapest fleet</figcaption></figure><figure class="vbg-tile"><img src="https://vanbudapest.com/wp-content/uploads/2026/05/MERCEDES-FLEET-VANBUDAPEST.COM-109.webp" alt="Mercedes vehicle from the VanBudapest fleet" loading="lazy" decoding="async"><figcaption class="vbg-cap">VanBudapest fleet</figcaption></figure><figure class="vbg-tile"><img src="https://vanbudapest.com/wp-content/uploads/2026/05/MERCEDES-FLEET-VANBUDAPEST.COM-106.webp" alt="Mercedes vehicle from the VanBudapest fleet" loading="lazy" decoding="async"><figcaption class="vbg-cap">VanBudapest fleet</figcaption></figure><figure class="vbg-tile"><img src="https://vanbudapest.com/wp-content/uploads/2026/05/MERCEDES-FLEET-VANBUDAPEST.COM-112.webp" alt="Mercedes vehicle from the VanBudapest fleet" loading="lazy" decoding="async"><figcaption class="vbg-cap">VanBudapest fleet</figcaption></figure><figure class="vbg-tile"><img src="https://vanbudapest.com/wp-content/uploads/2026/05/black-sprinter-budapest-disposal-02.webp" alt="Black Mercedes Sprinter on hourly disposal in Budapest" loading="lazy" decoding="async"><figcaption class="vbg-cap">Sprinter on disposal</figcaption></figure><figure class="vbg-tile" aria-hidden="true"><img src="https://vanbudapest.com/wp-content/uploads/2026/05/MERCEDES-FLEET-VANBUDAPEST.COM-142.webp" alt="" loading="lazy" decoding="async"></figure><figure class="vbg-tile" aria-hidden="true"><img src="https://vanbudapest.com/wp-content/uploads/2026/05/MERCEDES-FLEET-VANBUDAPEST.COM-136.webp" alt="" loading="lazy" decoding="async"></figure><figure class="vbg-tile" aria-hidden="true"><img src="https://vanbudapest.com/wp-content/uploads/2026/05/MERCEDES-FLEET-VANBUDAPEST.COM-137.webp" alt="" loading="lazy" decoding="async"></figure><figure class="vbg-tile" aria-hidden="true"><img src="https://vanbudapest.com/wp-content/uploads/2026/05/MERCEDES-FLEET-VANBUDAPEST.COM-125.webp" alt="" loading="lazy" decoding="async"></figure><figure class="vbg-tile" aria-hidden="true"><img src="https://vanbudapest.com/wp-content/uploads/2026/05/MERCEDES-FLEET-VANBUDAPEST.COM-110.webp" alt="" loading="lazy" decoding="async"></figure><figure class="vbg-tile" aria-hidden="true"><img src="https://vanbudapest.com/wp-content/uploads/2026/05/MERCEDES-FLEET-VANBUDAPEST.COM-109.webp" alt="" loading="lazy" decoding="async"></figure><figure class="vbg-tile" aria-hidden="true"><img src="https://vanbudapest.com/wp-content/uploads/2026/05/MERCEDES-FLEET-VANBUDAPEST.COM-106.webp" alt="" loading="lazy" decoding="async"></figure><figure class="vbg-tile" aria-hidden="true"><img src="https://vanbudapest.com/wp-content/uploads/2026/05/MERCEDES-FLEET-VANBUDAPEST.COM-112.webp" alt="" loading="lazy" decoding="async"></figure><figure class="vbg-tile" aria-hidden="true"><img src="https://vanbudapest.com/wp-content/uploads/2026/05/black-sprinter-budapest-disposal-02.webp" alt="" loading="lazy" decoding="async"></figure></div></div>
+  </div>
+</section>
+<!-- /wp:html --><!-- wp:html -->
 <section class="vbh-b vbh-fw" aria-label="Hourly price calculator – VanBudapest">
   <div class="vbh-wrap">
     <p class="vbh-eyebrow">VanBudapest.com — Rates 2026</p>
@@ -615,6 +757,21 @@ html:has(.vbh-a),body:has(.vbh-a){overflow-x:clip}
       </div>
     </div>
     <p class="vbh-pi-foot">Full terms, cancellation windows and peak-period conditions: <a href="https://vanbudapest.com/terms-and-conditions-and-privacy-policy/">Terms &amp; Conditions</a></p>
+  </div>
+</section>
+<!-- /wp:html --><!-- wp:html -->
+<section class="vbg vbg-fw vbg--deep" aria-label="Budapest landmarks reached by the hour">
+  <div class="vbg-wrap">
+  <p class="vbg-eyebrow">Budapest &middot; our own photographs</p>
+  <h2>Where Your <em>Hours</em> Take You</h2>
+  <p class="vbg-lead">Inside the city your chauffeur waits between stops, so an afternoon can hold the Parliament, the Chain Bridge and the riverside without a single re-booking.</p>
+  <div class="vbg-rule"></div>
+    <div class="vbg-strip">
+      <figure class="vbg-tile"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2026/05/budapest-panorama-buda-castle-parliament-617.webp" alt="The Hungarian Parliament and the Danube seen from the Buda side" loading="lazy" decoding="async"><figcaption class="vbg-cap">Parliament &amp; the Danube</figcaption></figure>
+      <figure class="vbg-tile"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2026/05/budapest-panorama-buda-castle-parliament-601.webp" alt="The Chain Bridge over the Danube in Budapest at sunset" loading="lazy" decoding="async"><figcaption class="vbg-cap">Chain Bridge at sunset</figcaption></figure>
+      <figure class="vbg-tile"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2026/05/budapest-panorama-buda-castle-parliament-632.webp" alt="Tree-lined riverside promenade along the Danube in Budapest" loading="lazy" decoding="async"><figcaption class="vbg-cap">Danube promenade</figcaption></figure>
+      <figure class="vbg-tile"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2026/05/budapest-panorama-buda-castle-parliament-587.webp" alt="The Hungarian Parliament with statues and greenery at sunset" loading="lazy" decoding="async"><figcaption class="vbg-cap">Parliament at golden hour</figcaption></figure>
+    </div>
   </div>
 </section>
 <!-- /wp:html --><!-- wp:html -->
@@ -717,6 +874,31 @@ html:has(.vbh-a),body:has(.vbh-a){overflow-x:clip}
   </div>
 </section>
 <!-- /wp:html --><!-- wp:html -->
+<section class="vbg vbg-fw vbg--dark" aria-label="Vans and minibuses in the VanBudapest fleet">
+  <div class="vbg-wrap">
+  <p class="vbg-eyebrow">Vans &amp; minibuses &middot; 7 to 20 seats</p>
+  <h2>Room for the <em>Whole</em> Group</h2>
+  <p class="vbg-lead">V-Class, Sprinter and VIP Sprinter &mdash; the same cars, photographed by us. Pick the smallest one your group and luggage fit into comfortably.</p>
+  <div class="vbg-rule"></div>
+    <div class="vbg-bento">
+      <figure class="vbg-tile vbg-tile--w2 vbg-tile--h2"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2026/06/Mercedes_V-class_VanBudapest-25.webp" alt="Mercedes V-Class from the VanBudapest fleet" loading="lazy" decoding="async"><figcaption class="vbg-cap">Mercedes V-Class</figcaption></figure>
+      <figure class="vbg-tile"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2026/06/Mercedes_VIP_Sprinter_minibus_VanBudapest-16.webp" alt="Mercedes VIP Sprinter minibus from the VanBudapest fleet" loading="lazy" decoding="async"><figcaption class="vbg-cap">VIP Sprinter</figcaption></figure>
+      <figure class="vbg-tile"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2026/06/Mercedes_Sprinter_minibus_VanBudapest-39.webp" alt="Mercedes Sprinter minibus from the VanBudapest fleet" loading="lazy" decoding="async"><figcaption class="vbg-cap">Sprinter minibus</figcaption></figure>
+      <figure class="vbg-tile"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2026/06/Mercedes_V-class_VanBudapest-27.webp" alt="Mercedes V-Class from the VanBudapest fleet" loading="lazy" decoding="async"><figcaption class="vbg-cap">Mercedes V-Class</figcaption></figure>
+      <figure class="vbg-tile"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2026/06/Mercedes_VIP_Sprinter_minibus_VanBudapest-15.webp" alt="Mercedes VIP Sprinter minibus from the VanBudapest fleet" loading="lazy" decoding="async"><figcaption class="vbg-cap">VIP Sprinter</figcaption></figure>
+      <figure class="vbg-tile vbg-tile--w2"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2026/06/Mercedes_Sprinter_minibus_VanBudapest-20.webp" alt="Mercedes Sprinter minibus from the VanBudapest fleet" loading="lazy" decoding="async"><figcaption class="vbg-cap">Sprinter minibus</figcaption></figure>
+      <figure class="vbg-tile"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2026/06/Mercedes_V-class_VanBudapest-17.webp" alt="Mercedes V-Class from the VanBudapest fleet" loading="lazy" decoding="async"><figcaption class="vbg-cap">Mercedes V-Class</figcaption></figure>
+      <figure class="vbg-tile"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2026/06/Mercedes_VIP_Sprinter_minibus_VanBudapest-09.webp" alt="Mercedes VIP Sprinter minibus from the VanBudapest fleet" loading="lazy" decoding="async"><figcaption class="vbg-cap">VIP Sprinter</figcaption></figure>
+      <figure class="vbg-tile vbg-tile--h2"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2026/06/Mercedes_Sprinter_minibus_VanBudapest-08.webp" alt="Mercedes Sprinter minibus from the VanBudapest fleet" loading="lazy" decoding="async"><figcaption class="vbg-cap">Sprinter minibus</figcaption></figure>
+      <figure class="vbg-tile"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2026/06/Mercedes_V-class_VanBudapest-11.webp" alt="Mercedes V-Class from the VanBudapest fleet" loading="lazy" decoding="async"><figcaption class="vbg-cap">Mercedes V-Class</figcaption></figure>
+      <figure class="vbg-tile"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2026/06/Mercedes_VIP_Sprinter_minibus_VanBudapest-03.webp" alt="Mercedes VIP Sprinter minibus from the VanBudapest fleet" loading="lazy" decoding="async"><figcaption class="vbg-cap">VIP Sprinter</figcaption></figure>
+      <figure class="vbg-tile vbg-tile--w2"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2026/06/Mercedes_Sprinter_minibus_VanBudapest-03.webp" alt="Mercedes Sprinter minibus from the VanBudapest fleet" loading="lazy" decoding="async"><figcaption class="vbg-cap">Sprinter minibus</figcaption></figure>
+      <figure class="vbg-tile"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2026/06/Mercedes_V-class_VanBudapest-12.webp" alt="Mercedes V-Class from the VanBudapest fleet" loading="lazy" decoding="async"><figcaption class="vbg-cap">Mercedes V-Class</figcaption></figure>
+      <figure class="vbg-tile"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2026/06/Mercedes_Sprinter_minibus_VanBudapest-11.webp" alt="Mercedes Sprinter minibus from the VanBudapest fleet" loading="lazy" decoding="async"><figcaption class="vbg-cap">Sprinter minibus</figcaption></figure>
+    </div>
+  </div>
+</section>
+<!-- /wp:html --><!-- wp:html -->
 <section class="vbh-d vbh-fw" aria-label="Day trips from Budapest with a private driver">
   <div class="vbh-wrap">
     <p class="vbh-eyebrow">Beyond the city · quoted per itinerary</p>
@@ -735,6 +917,21 @@ html:has(.vbh-a),body:has(.vbh-a){overflow-x:clip}
     <p class="vbh-foot">Also popular: <a href="https://vanbudapest.com/contact-customer-reviews/">Bratislava</a> (~2 h), Szentendre half-day (~40 min), Gödöllő Royal Palace (~40 min) and the Puszta. Larger groups travel in the V-Class, VIP Sprinter, minibus or coach — the quote is per vehicle, not per person.</p>
   
     <div class="vbh-ctarow"><a class="vbh-cta vbh-cta--gold" href="https://vanbudapest.com/contact-customer-reviews/">GET QUOTE IN 12H</a><a class="vbh-cta vbh-cta--ghost" href="https://vanbudapest.com/experience-packages-in-hungary/">Experience Packages in Hungary</a></div>
+  </div>
+</section>
+<!-- /wp:html --><!-- wp:html -->
+<section class="vbg vbg-fw vbg--deep" aria-label="Budapest scenes between stops">
+  <div class="vbg-wrap">
+  <p class="vbg-eyebrow">Between the stops</p>
+  <h2>The City You See <em>From the Car</em></h2>
+  <p class="vbg-lead">Day trips are quoted per itinerary, but the hours inside Budapest cover as much of this as your day has room for.</p>
+  <div class="vbg-rule"></div>
+    <div class="vbg-strip">
+      <figure class="vbg-tile"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2026/05/budapest-panorama-buda-castle-parliament-599.webp" alt="Panorama of the Danube with the Parliament and the Chain Bridge at sunset" loading="lazy" decoding="async"><figcaption class="vbg-cap">Danube panorama</figcaption></figure>
+      <figure class="vbg-tile"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2026/05/budapest-panorama-buda-castle-parliament-452.webp" alt="Gothic church tower and spire in Budapest" loading="lazy" decoding="async"><figcaption class="vbg-cap">Gothic spire</figcaption></figure>
+      <figure class="vbg-tile"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2026/05/budapest-panorama-buda-castle-parliament-578.webp" alt="Budapest skyline and the Danube at sunset framed by trees" loading="lazy" decoding="async"><figcaption class="vbg-cap">Skyline at sunset</figcaption></figure>
+      <figure class="vbg-tile"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2026/05/budapest-panorama-buda-castle-parliament-598.webp" alt="Budapest city view on a private group transfer route" loading="lazy" decoding="async"><figcaption class="vbg-cap">On the way across town</figcaption></figure>
+    </div>
   </div>
 </section>
 <!-- /wp:html --><!-- wp:html -->
@@ -864,6 +1061,32 @@ html:has(.vbh-a),body:has(.vbh-a){overflow-x:clip}
   }
 }());
 </script>
+<!-- /wp:html --><!-- wp:html -->
+<section class="vbg vbg-fw vbg--dark" aria-label="Sedans, SUV and electric cars in the VanBudapest fleet">
+  <div class="vbg-wrap">
+  <p class="vbg-eyebrow">Sedans, SUV &amp; electric</p>
+  <h2>Every Class, <em>Photographed</em></h2>
+  <p class="vbg-lead">S-Class, E-Class, the E SUV and the all-electric EQE &mdash; plus the part of the service that never shows up in a rate table: the chauffeur.</p>
+  <div class="vbg-rule"></div>
+    <div class="vbg-mosaic">
+      <figure class="vbg-tile"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2026/06/Mercedes_S-class_VanBudapest-45.webp" alt="Mercedes S-Class from the VanBudapest fleet" loading="lazy" decoding="async"><figcaption class="vbg-cap">Mercedes S-Class</figcaption></figure>
+      <figure class="vbg-tile"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2026/06/Mercedes_S-class_VanBudapest-48.webp" alt="Mercedes S-Class from the VanBudapest fleet" loading="lazy" decoding="async"><figcaption class="vbg-cap">Mercedes S-Class</figcaption></figure>
+      <figure class="vbg-tile"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2026/06/Mercedes_E-class_VanBudapest-43.webp" alt="Mercedes E-Class from the VanBudapest fleet" loading="lazy" decoding="async"><figcaption class="vbg-cap">Mercedes E-Class</figcaption></figure>
+      <figure class="vbg-tile"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2026/06/Mercedes_E_SUV_VanBudapest-6.webp" alt="Mercedes E-Class SUV from the VanBudapest fleet" loading="lazy" decoding="async"><figcaption class="vbg-cap">Mercedes E SUV</figcaption></figure>
+      <figure class="vbg-tile"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2026/06/Mercedes_E_SUV_VanBudapest-4.webp" alt="Mercedes E-Class SUV from the VanBudapest fleet" loading="lazy" decoding="async"><figcaption class="vbg-cap">Mercedes E SUV</figcaption></figure>
+      <figure class="vbg-tile"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2026/06/Mercedes_EQE_VanBudapest-62.webp" alt="Mercedes EQE electric sedan from the VanBudapest fleet" loading="lazy" decoding="async"><figcaption class="vbg-cap">Mercedes EQE</figcaption></figure>
+      <figure class="vbg-tile"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2026/06/Mercedes_EQE_VanBudapest-23.webp" alt="Mercedes EQE electric sedan from the VanBudapest fleet" loading="lazy" decoding="async"><figcaption class="vbg-cap">Mercedes EQE</figcaption></figure>
+      <figure class="vbg-tile"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2026/06/Mercedes_EQE_VanBudapest-20.webp" alt="Mercedes EQE electric sedan from the VanBudapest fleet" loading="lazy" decoding="async"><figcaption class="vbg-cap">Mercedes EQE</figcaption></figure>
+      <figure class="vbg-tile"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2026/06/Mercedes_EQE_VanBudapest-09.webp" alt="Mercedes EQE electric sedan from the VanBudapest fleet" loading="lazy" decoding="async"><figcaption class="vbg-cap">Mercedes EQE</figcaption></figure>
+      <figure class="vbg-tile"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2026/06/Mercedes_EQE_VanBudapest-16.webp" alt="Mercedes EQE electric sedan from the VanBudapest fleet" loading="lazy" decoding="async"><figcaption class="vbg-cap">Mercedes EQE</figcaption></figure>
+      <figure class="vbg-tile"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2026/06/4bc1e5ef-459e-4941-b1f2-3d48a7dbc5a1.png" alt="Chauffeur in white gloves opening a Mercedes door" loading="lazy" decoding="async"><figcaption class="vbg-cap">Door service</figcaption></figure>
+      <figure class="vbg-tile"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2026/06/05df7c81-ea13-4b01-8929-ece2e4284050.png" alt="Chauffeur beside a Mercedes with the Parliament behind" loading="lazy" decoding="async"><figcaption class="vbg-cap">Chauffeur &amp; Parliament</figcaption></figure>
+      <figure class="vbg-tile"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2026/06/421e7eb9-884a-445e-9c30-ee0a3ec04dde.png" alt="Chauffeur loading luggage into a Mercedes minivan in Budapest" loading="lazy" decoding="async"><figcaption class="vbg-cap">Luggage handled</figcaption></figure>
+      <figure class="vbg-tile"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2026/06/AO-LM-801-4-eredeti.jpg" alt="White Mercedes van at Budapest Airport for a private transfer" loading="lazy" decoding="async"><figcaption class="vbg-cap">At the airport</figcaption></figure>
+    </div>
+    <p class="vbg-foot">Every picture on this page is <strong>our own</strong> &mdash; our cars, our chauffeurs, our city. <strong>Since 1988.</strong></p>
+  </div>
+</section>
 <!-- /wp:html --><!-- wp:html -->
 <!-- ====================================================================
      VanBudapest Hourly — Discount Tiers + Planning Promo
