@@ -1,22 +1,19 @@
 
 /* VanBudapest.com - hourly rate engine for the A cards and the B calculator.
    Rates: ARAZAS2026UJ.xlsx (Alap arak + Experience Packages hourly bands).
-   band1 = 3-6 h, band2 = 7-11 h, band3 = 12 h.
+   Two bands only, exactly as in the price file: 3+1 h and 7+1 h.
    Written without regular expressions on purpose: a Gutenberg/KSES round trip
    eats backslashes, which is what broke the previous calculator script. */
 (function () {
   var V = [
-    { key: 'e',  name: 'Mercedes E-Class',       cat: 'Business Car',       pax: 3,  r: [65, 60, 55] },
-    { key: 'v',  name: 'Mercedes V-Class',       cat: 'Premium Van',        pax: 7,  r: [70, 65, 60] },
-    { key: 'm',  name: 'Mercedes Sprinter',      cat: 'Minibus',            pax: 20, r: [75, 70, 65] },
-    { key: 's',  name: 'Mercedes S-Class',       cat: 'Luxury Car VIP',     pax: 3,  r: [110, 105, 100] },
-    { key: 'vs', name: 'Mercedes VIP Sprinter',  cat: 'Luxury Minibus VIP', pax: 8,  r: [85, 80, 75] },
-    { key: 'c',  name: 'Coach Bus',              cat: 'Coach Bus',          pax: 49, r: [120, 110, 100] }
+    { key: 'e',  name: 'Mercedes E-Class',       cat: 'Business Car',       pax: 3,  r: [65, 60] },
+    { key: 'v',  name: 'Mercedes V-Class',       cat: 'Premium Van',        pax: 7,  r: [70, 65] },
+    { key: 'm',  name: 'Mercedes Sprinter',      cat: 'Minibus',            pax: 20, r: [75, 70] },
+    { key: 's',  name: 'Mercedes S-Class',       cat: 'Luxury Car VIP',     pax: 3,  r: [110, 105] },
+    { key: 'vs', name: 'Mercedes VIP Sprinter',  cat: 'Luxury Minibus VIP', pax: 8,  r: [85, 80] },
+    { key: 'c',  name: 'Coach Bus',              cat: 'Coach Bus',          pax: 49, r: [120, 110] }
   ];
-  var APPLY_12 = true;
-
   function rate(v, h) {
-    if (h >= 12 && APPLY_12) { return v.r[2]; }
     return h >= 7 ? v.r[1] : v.r[0];
   }
   function grp(n) {

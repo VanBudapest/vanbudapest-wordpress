@@ -44,16 +44,19 @@ and the copy proposal (`vb-hourly-copy-proposal.html`).
 
 ## Rates (ÁRAZÁS2026ÚJ.xlsx, 2026-08-22)
 
-| Vehicle | 3–6 h | 7–11 h | 12 h |
-|---|---|---|---|
-| Mercedes E-Class | €65 | €60 | €55 |
-| Mercedes V-Class | €70 | €65 | €60 |
-| Mercedes Sprinter | €75 | €70 | €65 |
-| Mercedes S-Class | €110 | €105 | €100 |
-| Mercedes VIP Sprinter | €85 | €80 | €75 |
-| Coach Bus | €120 | €110 | €100 |
+**Two bands only** — 3+1 h and 7+1 h, exactly as in the price file. There is no 12-hour band.
 
-Every total includes the +1 garage hour.
+| Vehicle | 3–6 h | 7–12 h |
+|---|---|---|
+| Mercedes E-Class | €65 | €60 |
+| Mercedes V-Class | €70 | €65 |
+| Mercedes Sprinter | €75 | €70 |
+| Mercedes S-Class | €110 | €105 |
+| Mercedes VIP Sprinter | €85 | €80 |
+| Coach Bus | €120 | €110 |
+
+Every total includes the +1 garage hour, so 12 h with you is billed as 13 h:
+780 / 845 / 910 / 1 365 / 1 040 / 1 430.
 
 
 ## What was done on the live page (2026-08-23)
@@ -79,7 +82,7 @@ and `blocks/block_C.html` by exactly the CDN prefix.
 
 ## Still open — needs a decision
 
-1. **The promo block still uses banned words** — `discount` × 6 (`vanbudapest-rules`:
+1. **The promo block still uses banned words** (left in place on purpose for now) — `discount` × 6 (`vanbudapest-rules`:
    never write discount / affordable / budget / cheap). It was kept verbatim because
    removing it was not part of this task. Its message (7 h+ lower rate, full-day rate)
    is now covered by blocks A, B, C and F, so it can be dropped or rewritten.
@@ -88,8 +91,8 @@ and `blocks/block_C.html` by exactly the CDN prefix.
 3. **S-Class is now €110 / €105** on the new blocks, per ÁRAZÁS2026ÚJ.xlsx. The old FAQ
    block further down the page still says "around €135 per hour" (EN/DE/ES) — those three
    answers now contradict the rate cards and need the same correction.
-4. **12 h band**: the new blocks price 12 h at the `DISCOUNT` band (E-Class €715).
-   If city hourly hire should stay on the 7 h+ rate (€780), flip `APPLY_12` to `false`
-   in the rate engine and update the `12 h` cells in block C.
+4. ~~12 h band~~ — **resolved**: the price file has only 3+1 and 7+1, so the third band
+   was removed from the engine, from block C (totals, column heads, legends) and from the
+   hours switcher label in block A.
 5. The hero image is still the 2025 ChatGPT render with an empty `alt`, and the H1 is
    still invisible white-on-white — both were outside this task.
