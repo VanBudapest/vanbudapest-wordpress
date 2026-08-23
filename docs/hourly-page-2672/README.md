@@ -9,8 +9,9 @@ and the copy proposal (`vb-hourly-copy-proposal.html`).
 
 | # | Block | Source |
 |---|-------|--------|
+| 0 | `core/cover` — hero + H1 (image replaced 2026-08-23) | live page |
 | 1 | `<style>` only — the whole `.vbh-*` stylesheet | `vbh-blocks.css` |
-| 2 | **A** — Rate cards + hours switcher (3/4/6/8/12 h) | prototype A |
+| 2 | **A** — Intro copy + rate cards + hours switcher (3/4/6/8/12 h) | prototype A |
 | 3 | **B** — Hourly price calculator | prototype B |
 | 4 | **Price Information** — existing approved copy, restyled | live page (kept) |
 | 5 | **C** — Hourly Rates at a Glance (rate card, no side-scroll) | prototype C |
@@ -24,7 +25,7 @@ and the copy proposal (`vb-hourly-copy-proposal.html`).
 - `BACKUP-page-2672-original-2026-08-23.html` — the **raw** `post_content` before the change
   (138 688 chars, 7 `<style>`, 1 `<script>`, 62 `<img>`). Restore point.
 - `page-2672-live-after-2026-08-23.html` — the `post_content` **as it is live now**
-  (179 797 chars, 6 `<style>`, 1 `<script>`, 82 `<img>`, 0 `<table>`, 0 backslashes).
+  (179 624 chars, 7 `<style>`, 1 `<script>`, 82 `<img>`, 0 `<table>`, 0 backslashes).
 - `blocks/block_*.html` — each new top-level Gutenberg block on its own, ready to paste.
 - `vbh-blocks.css` / `vbh-rate-engine.js` — the stylesheet and the rate engine, extracted.
 - `preview-standalone.html` — open in a browser to see all seven sections without WordPress.
@@ -67,11 +68,29 @@ Every write returned `_content_warnings: []` and each block was verified byte-fo
 against `blocks/block_*.html` afterwards.
 
 Removed: the old `Pricing table` group (the `.vb-hourly-cards--v20` cards, the
-`Budapest - Hourly ride` H3) and the old `.vb-hcalc` calculator with its horizontally
-scrolling price table.
+`Budapest - Hourly ride` H3), the old `.vb-hcalc` calculator with its horizontally
+scrolling price table, the standalone intro `core/html` block (its copy now lives inside
+block A) and the `core/separator` that sat between the hero and block A.
 
-Kept untouched: hero + H1, the intro block, the promo block (moved up one level out of
-its column wrapper), and blocks 12–20.
+Kept untouched: the H1, the promo block (moved up one level out of its column wrapper),
+and the legacy blocks below the promo.
+
+### Second pass, same day
+
+- **Intro copy folded into block A.** "Curious about the cost of renting a vehicle in
+  Budapest?" now renders as `.vbh-ask` (italic Playfair, `--vb-gold-light`) directly under
+  the H2 `Private Driver & Mercedes by the Hour`, with the original paragraph below it as
+  `.vbh-lead`. The wording is unchanged — it was moved, not rewritten. The old standalone
+  block above the cards was then deleted so the copy is not duplicated.
+- **Two rate bands only**, per ÁRAZÁS2026ÚJ.xlsx. The engine is now
+  `rate(v, h) { return h >= 7 ? v.r[1] : v.r[0]; }` with two-value `r` arrays; block C lost
+  its third column, its `t3` rows and every `7–11 h` label; the hours switcher label went
+  from `long day · lowest rate` to `long day`. Hours 8–12 all bill at the 7+1 rate.
+- **Hero image replaced**: `BLACK-MERCEDES.png` (id 25987, 1672×941, 16:9), `sizeSlug: full`
+  so it is not upscaled, a navy `#0A1F44` overlay at 60 % so the white H1 is legible, and a
+  real `alt`. The previous white Sprinter render is untouched in the media library.
+- The `core/separator` between the hero and block A was removed, so the cover's navy runs
+  straight into block A's navy with a measured 0 px gap.
 
 Side effect worth knowing: ShortPixel re-prefixed its own CDN URL onto the
 `background-image:url()` values in the old calculator on **every** save, so those URLs had
@@ -94,5 +113,8 @@ and `blocks/block_C.html` by exactly the CDN prefix.
 4. ~~12 h band~~ — **resolved**: the price file has only 3+1 and 7+1, so the third band
    was removed from the engine, from block C (totals, column heads, legends) and from the
    hours switcher label in block A.
-5. The hero image is still the 2025 ChatGPT render with an empty `alt`, and the H1 is
-   still invisible white-on-white — both were outside this task.
+5. ~~Hero image / invisible H1~~ — **resolved**: the cover now uses `BLACK-MERCEDES.png`
+   with a 60 % `#0A1F44` overlay and a descriptive `alt`, and the H1 reads white on navy.
+6. The `MOST POPULAR` badge on the V-Class is a marketing choice, confirmed by the owner
+   (V-Class is the most-booked category). It is not derived from booking data, so it should
+   not be presented as a statistic anywhere.

@@ -19,7 +19,7 @@
 </section>
 <script>
 /* VanBudapest.com - hourly rate engine for the A cards and the B calculator.
-   Rates: ARAZAS2026UJ.xlsx (Alap arak + Experience Packages hourly bands).
+   Rates: ARAZAS2026UJ.xlsx (Alap arak).
    Two bands only, exactly as in the price file: 3+1 h and 7+1 h.
    Written without regular expressions on purpose: a Gutenberg/KSES round trip
    eats backslashes, which is what broke the previous calculator script. */
@@ -32,6 +32,7 @@
     { key: 'vs', name: 'Mercedes VIP Sprinter',  cat: 'Luxury Minibus VIP', pax: 8,  r: [85, 80] },
     { key: 'c',  name: 'Coach Bus',              cat: 'Coach Bus',          pax: 49, r: [120, 110] }
   ];
+
   function rate(v, h) {
     return h >= 7 ? v.r[1] : v.r[0];
   }

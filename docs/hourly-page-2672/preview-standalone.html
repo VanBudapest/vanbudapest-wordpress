@@ -2,7 +2,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"><title>VBH preview</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-/* stand-in for the WP block theme wrapper */
 body{margin:0;background:#fff;font-family:'Open Sans',Arial,sans-serif;line-height:1.7}
 .wp-site-blocks{max-width:1200px;margin:0 auto;padding:0 24px}
 :where(.wp-site-blocks) > *{margin-block-start:24px}
@@ -10,8 +9,13 @@ a{text-decoration:underline}
 h2,h3,h4{margin:1em 0}
 p,ul,ol{margin:1em 0}
 ul,ol{padding-left:40px}
-.theme-intro{padding:24px 0;color:#333}
+.hero-stub{height:420px;background:#0A1F44;display:flex;align-items:center;justify-content:center;
+  width:100vw;max-width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);margin-top:0;margin-bottom:0}
+.hero-stub h1{color:#fff;font-family:'Montserrat',sans-serif;text-align:center;margin:0;padding:0 24px}
 </style>
+</head><body><div class="wp-site-blocks">
+<div class="hero-stub"><h1>Private Bus and Van Rental with Driver in Budapest &ndash; Hourly Rates</h1></div>
+
 <style>
 /* ===================================================================
    VanBudapest.com - Hourly page 2026 - blocks A / B / Price info / C / F / D / E
@@ -409,12 +413,20 @@ html:has(.vbh-a),body:has(.vbh-a){overflow-x:clip}
   .vbh-a *,.vbh-b *,.vbh-c *,.vbh-d *,.vbh-e *,.vbh-f *{transition:none !important;animation:none !important}
 }
 
-</style></head><body><div class="wp-site-blocks">
-<p class="theme-intro">[theme-constrained paragraph above &mdash; sections must break out edge to edge]</p>
+</style>
+
+
+<style>
+.vbh-a .vbh-ask{font:italic 400 clamp(20px,2.3vw,28px)/1.35 var(--vb-font-display);color:var(--vb-gold-light);text-align:center;max-width:780px;margin:0 auto 16px}
+.vbh-a .vbh-lead{text-align:center;color:#c3cfe4;font-size:clamp(14.5px,1.5vw,16px);line-height:1.75;max-width:900px;margin:0 auto 20px}
+.vbh-a .vbh-sub{border-top:1px solid rgba(200,181,96,.28);padding-top:18px;font-size:clamp(14px,1.5vw,15.5px);color:#aab6cf}
+</style>
 <section class="vbh-a vbh-fw" aria-label="Hourly chauffeur rates – VanBudapest">
   <div class="vbh-wrap">
     <p class="vbh-eyebrow">Published hourly rates · Since 1988</p>
     <h2>Private Driver &amp; Mercedes by the Hour</h2>
+    <p class="vbh-ask">Curious about the cost of renting a vehicle in Budapest?</p>
+    <p class="vbh-lead">Whether you’re looking for a premium car, a spacious minivan, or a coach bus for a larger group, we have flexible options tailored to your needs. Explore our transparent pricing and travel in comfort! Planning a trip to Budapest and need private transportation? Whether you’re booking a luxury car, a premium van, or a private coach for your group, we offer flexible hourly rates and first-class comfort. Experience a smooth, stylish journey with a professional driver.</p>
     <p class="vbh-sub">Your car and chauffeur at your disposal inside Budapest — for an evening, a half day or the whole day. One price per vehicle, not per person. Minimum 3 hours + 1 garage hour.</p>
 
     <div class="vbh-hours" role="group" aria-label="Choose duration">
@@ -422,7 +434,7 @@ html:has(.vbh-a),body:has(.vbh-a){overflow-x:clip}
       <button type="button" data-h="4" aria-pressed="false">4 h<small>half day</small></button>
       <button type="button" data-h="6" aria-pressed="false">6 h<small>afternoon + evening</small></button>
       <button type="button" data-h="8" aria-pressed="false">8 h<small>full day · lower rate</small></button>
-      <button type="button" data-h="12" aria-pressed="false">12 h<small>long day · lowest rate</small></button>
+      <button type="button" data-h="12" aria-pressed="false">12 h<small>long day</small></button>
     </div>
     <p class="vbh-hint">Totals include the <b>+1 garage hour</b> (vehicle out of and back to our depot), tolls and VAT. <b>From 7 hours</b> a lower hourly rate applies automatically.</p>
 
@@ -523,6 +535,8 @@ html:has(.vbh-a),body:has(.vbh-a){overflow-x:clip}
     </div>
   </div>
 </section>
+
+
 <section class="vbh-b vbh-fw" aria-label="Hourly price calculator – VanBudapest">
   <div class="vbh-wrap">
     <p class="vbh-eyebrow">VanBudapest.com — Rates 2026</p>
@@ -532,12 +546,12 @@ html:has(.vbh-a),body:has(.vbh-a){overflow-x:clip}
       <div>
         <p class="vbh-step"><span>1</span>Choose your vehicle</p>
         <ul class="vbh-veh" id="vbhVeh">
-          <li><button type="button" class="vbh-vcard" data-v="0" aria-pressed="true"><img src="https://vanbudapest.com/wp-content/uploads/2025/05/budapest-hungary-private-transfer-E-class-600x400.png" alt="" width="92" height="62" loading="lazy" srcset="https://vanbudapest.com/wp-content/uploads/2025/05/budapest-hungary-private-transfer-E-class-600x400.png 600w, https://vanbudapest.com/wp-content/uploads/2025/05/budapest-hungary-private-transfer-E-class-768x512.png 768w" sizes="92px" decoding="async"><span><b>Business Car</b><span class="n">Mercedes E-Class</span><span class="s"><i class="vbi vbi-pax"></i>3 pax<i class="vbi vbi-bag"></i>2 bags</span><span class="fr">from €60 / h</span></span></button></li>
-          <li><button type="button" class="vbh-vcard" data-v="1" aria-pressed="false"><img src="https://vanbudapest.com/wp-content/uploads/2025/05/budapest-hungary-private-transfer-V-class-600x400.png" alt="" width="92" height="62" loading="lazy" srcset="https://vanbudapest.com/wp-content/uploads/2025/05/budapest-hungary-private-transfer-V-class-600x400.png 600w, https://vanbudapest.com/wp-content/uploads/2025/05/budapest-hungary-private-transfer-V-class-768x512.png 768w" sizes="92px" decoding="async"><span><b>Premium Van</b><span class="n">Mercedes V-Class</span><span class="s"><i class="vbi vbi-pax"></i>7 pax<i class="vbi vbi-bag"></i>5 bags</span><span class="fr">from €65 / h</span></span></button></li>
-          <li><button type="button" class="vbh-vcard" data-v="2" aria-pressed="false"><img src="https://vanbudapest.com/wp-content/uploads/2025/05/budapest-hungary-private-transfer-minibus-600x400.png" alt="" width="92" height="62" loading="lazy" srcset="https://vanbudapest.com/wp-content/uploads/2025/05/budapest-hungary-private-transfer-minibus-600x400.png 600w, https://vanbudapest.com/wp-content/uploads/2025/05/budapest-hungary-private-transfer-minibus-768x512.png 768w" sizes="92px" decoding="async"><span><b>Minibus</b><span class="n">Mercedes Sprinter</span><span class="s"><i class="vbi vbi-pax"></i>20 pax<i class="vbi vbi-bag"></i>10 bags</span><span class="fr">from €70 / h</span></span></button></li>
-          <li><button type="button" class="vbh-vcard" data-v="3" aria-pressed="false"><img src="https://vanbudapest.com/wp-content/uploads/2025/05/budapest-hungary-private-transfer-S-class-600x400.png" alt="" width="92" height="62" loading="lazy" srcset="https://vanbudapest.com/wp-content/uploads/2025/05/budapest-hungary-private-transfer-S-class-600x400.png 600w, https://vanbudapest.com/wp-content/uploads/2025/05/budapest-hungary-private-transfer-S-class-768x512.png 768w" sizes="92px" decoding="async"><span><b>Luxury Car VIP</b><span class="n">Mercedes S-Class</span><span class="s"><i class="vbi vbi-pax"></i>3 pax<i class="vbi vbi-bag"></i>2 bags</span><span class="fr">from €105 / h</span></span></button></li>
-          <li><button type="button" class="vbh-vcard" data-v="4" aria-pressed="false"><img src="https://vanbudapest.com/wp-content/uploads/2025/04/vip-luxury-budapest-rental-600x400.png" alt="" width="92" height="62" loading="lazy" srcset="https://vanbudapest.com/wp-content/uploads/2025/04/vip-luxury-budapest-rental-600x400.png 600w, https://vanbudapest.com/wp-content/uploads/2025/04/vip-luxury-budapest-rental-768x512.png 768w" sizes="92px" decoding="async"><span><b>Luxury Minibus VIP</b><span class="n">Mercedes VIP Sprinter</span><span class="s"><i class="vbi vbi-pax"></i>8 pax<i class="vbi vbi-bag"></i>10 bags</span><span class="fr">from €80 / h</span></span></button></li>
-          <li><button type="button" class="vbh-vcard" data-v="5" aria-pressed="false"><img src="https://vanbudapest.com/wp-content/uploads/2025/05/budapest-hungary-private-transfer-coach-mercedes-600x400.png" alt="" width="92" height="62" loading="lazy" srcset="https://vanbudapest.com/wp-content/uploads/2025/05/budapest-hungary-private-transfer-coach-mercedes-600x400.png 600w, https://vanbudapest.com/wp-content/uploads/2025/05/budapest-hungary-private-transfer-coach-mercedes-768x512.png 768w" sizes="92px" decoding="async"><span><b>Coach Bus</b><span class="n">Mercedes · Setra · MAN</span><span class="s"><i class="vbi vbi-pax"></i>49 pax<i class="vbi vbi-bag"></i>49 bags</span><span class="fr">from €110 / h</span></span></button></li>
+          <li><button type="button" class="vbh-vcard" data-v="0" aria-pressed="true"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2025/05/budapest-hungary-private-transfer-E-class-600x400.png" alt="" width="92" height="62" loading="lazy" srcset="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2025/05/budapest-hungary-private-transfer-E-class-600x400.png 600w, https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2025/05/budapest-hungary-private-transfer-E-class-768x512.png 768w" sizes="92px" decoding="async"><span><b>Business Car</b><span class="n">Mercedes E-Class</span><span class="s"><i class="vbi vbi-pax"></i>3 pax<i class="vbi vbi-bag"></i>2 bags</span><span class="fr">from €60 / h</span></span></button></li>
+          <li><button type="button" class="vbh-vcard" data-v="1" aria-pressed="false"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2025/05/budapest-hungary-private-transfer-V-class-600x400.png" alt="" width="92" height="62" loading="lazy" srcset="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2025/05/budapest-hungary-private-transfer-V-class-600x400.png 600w, https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2025/05/budapest-hungary-private-transfer-V-class-768x512.png 768w" sizes="92px" decoding="async"><span><b>Premium Van</b><span class="n">Mercedes V-Class</span><span class="s"><i class="vbi vbi-pax"></i>7 pax<i class="vbi vbi-bag"></i>5 bags</span><span class="fr">from €65 / h</span></span></button></li>
+          <li><button type="button" class="vbh-vcard" data-v="2" aria-pressed="false"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2025/05/budapest-hungary-private-transfer-minibus-600x400.png" alt="" width="92" height="62" loading="lazy" srcset="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2025/05/budapest-hungary-private-transfer-minibus-600x400.png 600w, https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2025/05/budapest-hungary-private-transfer-minibus-768x512.png 768w" sizes="92px" decoding="async"><span><b>Minibus</b><span class="n">Mercedes Sprinter</span><span class="s"><i class="vbi vbi-pax"></i>20 pax<i class="vbi vbi-bag"></i>10 bags</span><span class="fr">from €70 / h</span></span></button></li>
+          <li><button type="button" class="vbh-vcard" data-v="3" aria-pressed="false"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2025/05/budapest-hungary-private-transfer-S-class-600x400.png" alt="" width="92" height="62" loading="lazy" srcset="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2025/05/budapest-hungary-private-transfer-S-class-600x400.png 600w, https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2025/05/budapest-hungary-private-transfer-S-class-768x512.png 768w" sizes="92px" decoding="async"><span><b>Luxury Car VIP</b><span class="n">Mercedes S-Class</span><span class="s"><i class="vbi vbi-pax"></i>3 pax<i class="vbi vbi-bag"></i>2 bags</span><span class="fr">from €105 / h</span></span></button></li>
+          <li><button type="button" class="vbh-vcard" data-v="4" aria-pressed="false"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2025/04/vip-luxury-budapest-rental-600x400.png" alt="" width="92" height="62" loading="lazy" srcset="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2025/04/vip-luxury-budapest-rental-600x400.png 600w, https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2025/04/vip-luxury-budapest-rental-768x512.png 768w" sizes="92px" decoding="async"><span><b>Luxury Minibus VIP</b><span class="n">Mercedes VIP Sprinter</span><span class="s"><i class="vbi vbi-pax"></i>8 pax<i class="vbi vbi-bag"></i>10 bags</span><span class="fr">from €80 / h</span></span></button></li>
+          <li><button type="button" class="vbh-vcard" data-v="5" aria-pressed="false"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2025/05/budapest-hungary-private-transfer-coach-mercedes-600x400.png" alt="" width="92" height="62" loading="lazy" srcset="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2025/05/budapest-hungary-private-transfer-coach-mercedes-600x400.png 600w, https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2025/05/budapest-hungary-private-transfer-coach-mercedes-768x512.png 768w" sizes="92px" decoding="async"><span><b>Coach Bus</b><span class="n">Mercedes · Setra · MAN</span><span class="s"><i class="vbi vbi-pax"></i>49 pax<i class="vbi vbi-bag"></i>49 bags</span><span class="fr">from €110 / h</span></span></button></li>
         </ul>
 
         <p class="vbh-step"><span>2</span>How many hours with you?</p>
@@ -581,6 +595,8 @@ html:has(.vbh-a),body:has(.vbh-a){overflow-x:clip}
     <div class="vbh-sticky"><div class="t" id="vbhStickyT">€260<small id="vbhStickyS">E-Class · 4 h billed</small></div><a href="https://vanbudapest.com/contact-customer-reviews/">BOOK NOW</a></div>
   </div>
 </section>
+
+
 <section class="vbh-pi vbh-fw" aria-label="Price information - hourly chauffeur service">
   <div class="vbh-wrap">
     <p class="vbh-eyebrow">What your hourly rate covers</p>
@@ -607,62 +623,64 @@ html:has(.vbh-a),body:has(.vbh-a){overflow-x:clip}
     <p class="vbh-pi-foot">Full terms, cancellation windows and peak-period conditions: <a href="https://vanbudapest.com/terms-and-conditions-and-privacy-policy/">Terms &amp; Conditions</a></p>
   </div>
 </section>
+
+
 <section class="vbh-c vbh-fw" aria-label="Hourly rate card – VanBudapest">
   <div class="vbh-wrap">
     <p class="vbh-eyebrow">Rate card 2026 · one price per vehicle</p>
     <h2>Hourly Rates at a Glance</h2>
-    <p class="vbh-sub">Three rate bands by duration. Every total already includes the +1 garage hour, tolls and VAT — parking is paid on site.</p>
+    <p class="vbh-sub">Two rate bands by duration. Every total already includes the +1 garage hour, tolls and VAT — parking is paid on site.</p>
     <p class="vbh-rule"><i class="vbi vbi-info"></i><span><b>How to read it:</b> "4 h" means 4 hours with you, billed as 5 (4 + 1 garage hour). Rates apply inside Budapest city limits; nationwide and cross-border itineraries are quoted individually.</span></p>
 
     <div class="vbh-list">
-      <div class="vbh-colhead"><span>Vehicle</span><span></span><span>3–6 h<em>€ / hour</em></span><span>7–11 h<em>€ / hour</em></span><span>Half day<em>4 h · 5 billed</em></span><span>Full day<em>8 h · 9 billed</em></span><span></span></div>
+      <div class="vbh-colhead"><span>Vehicle</span><span></span><span>3–6 h<em>€ / hour</em></span><span>7–12 h<em>€ / hour</em></span><span>Half day<em>4 h · 5 billed</em></span><span>Full day<em>8 h · 9 billed</em></span><span></span></div>
 
       <div class="vbh-row" data-veh="e">
-        <div class="vbh-media"><img src="https://vanbudapest.com/wp-content/uploads/2025/05/budapest-hungary-private-transfer-E-class-600x400.png" alt="Business Car – Mercedes E-Class" loading="lazy" width="600" height="400" srcset="https://vanbudapest.com/wp-content/uploads/2025/05/budapest-hungary-private-transfer-E-class-600x400.png 600w, https://vanbudapest.com/wp-content/uploads/2025/05/budapest-hungary-private-transfer-E-class-768x512.png 768w" sizes="(max-width:1100px) 90vw, 190px" decoding="async"></div>
+        <div class="vbh-media"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2025/05/budapest-hungary-private-transfer-E-class-600x400.png" alt="Business Car – Mercedes E-Class" loading="lazy" width="600" height="400" srcset="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2025/05/budapest-hungary-private-transfer-E-class-600x400.png 600w, https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2025/05/budapest-hungary-private-transfer-E-class-768x512.png 768w" sizes="(max-width:1100px) 90vw, 190px" decoding="async"></div>
         <div class="vbh-info"><p class="vbh-cat">Business Car</p><h3 class="vbh-veh">Mercedes E-Class<small>or similar executive sedan</small></h3><ul class="vbh-specs"><li><i class="vbi vbi-pax"></i>3 passengers</li><li><i class="vbi vbi-bag"></i>2 suitcases</li></ul></div>
-        <div class="vbh-rates"><div class="vbh-rate"><span>3–6 h</span><b>€65</b><i>per hour</i></div><div class="vbh-rate"><span>7–11 h</span><b>€60</b><i>per hour</i></div><div class="vbh-rate vbh-rate--main"><span>Half day</span><b>€325</b><i>4 h · 5 billed</i></div><div class="vbh-rate vbh-rate--main"><span>Full day</span><b>€540</b><i>8 h · 9 billed</i></div></div>
+        <div class="vbh-rates"><div class="vbh-rate"><span>3–6 h</span><b>€65</b><i>per hour</i></div><div class="vbh-rate"><span>7–12 h</span><b>€60</b><i>per hour</i></div><div class="vbh-rate vbh-rate--main"><span>Half day</span><b>€325</b><i>4 h · 5 billed</i></div><div class="vbh-rate vbh-rate--main"><span>Full day</span><b>€540</b><i>8 h · 9 billed</i></div></div>
         <a class="vbh-btn" href="https://vanbudapest.com/contact-customer-reviews/">BOOK NOW</a>
-        <details><summary><i class="vbi vbi-arrow"></i>Every hour 3–12 h · totals</summary><ul class="vbh-hours"><li>3 h<b>€260</b></li><li>4 h<b>€325</b></li><li>5 h<b>€390</b></li><li>6 h<b>€455</b></li><li class="t2">7 h<b>€480</b></li><li class="t2">8 h<b>€540</b></li><li class="t2">9 h<b>€600</b></li><li class="t2">10 h<b>€660</b></li><li class="t2">11 h<b>€720</b></li><li class="t3">12 h<b>€715</b></li></ul><p class="vbh-legend">Bands:<i style="background:#f6f3ea"></i>3–6 h €65<i style="background:#eef5f0"></i>7–11 h €60<i style="background:#e7f6ee"></i>12 h €55 · all totals include the +1 garage hour</p></details>
+        <details><summary><i class="vbi vbi-arrow"></i>Every hour 3–12 h · totals</summary><ul class="vbh-hours"><li>3 h<b>€260</b></li><li>4 h<b>€325</b></li><li>5 h<b>€390</b></li><li>6 h<b>€455</b></li><li class="t2">7 h<b>€480</b></li><li class="t2">8 h<b>€540</b></li><li class="t2">9 h<b>€600</b></li><li class="t2">10 h<b>€660</b></li><li class="t2">11 h<b>€720</b></li><li class="t2">12 h<b>€780</b></li></ul><p class="vbh-legend">Bands:<i style="background:#f6f3ea"></i>3–6 h €65<i style="background:#eef5f0"></i>7–12 h €60 · all totals include the +1 garage hour</p></details>
       </div>
 
       <div class="vbh-row vbh-row--hi" data-veh="v">
-        <div class="vbh-media"><img src="https://vanbudapest.com/wp-content/uploads/2025/05/budapest-hungary-private-transfer-V-class-600x400.png" alt="Premium Van – Mercedes V-Class" loading="lazy" width="600" height="400" srcset="https://vanbudapest.com/wp-content/uploads/2025/05/budapest-hungary-private-transfer-V-class-600x400.png 600w, https://vanbudapest.com/wp-content/uploads/2025/05/budapest-hungary-private-transfer-V-class-768x512.png 768w" sizes="(max-width:1100px) 90vw, 190px" decoding="async"></div>
+        <div class="vbh-media"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2025/05/budapest-hungary-private-transfer-V-class-600x400.png" alt="Premium Van – Mercedes V-Class" loading="lazy" width="600" height="400" srcset="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2025/05/budapest-hungary-private-transfer-V-class-600x400.png 600w, https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2025/05/budapest-hungary-private-transfer-V-class-768x512.png 768w" sizes="(max-width:1100px) 90vw, 190px" decoding="async"></div>
         <div class="vbh-info"><p class="vbh-cat">Premium Van <span class="tag">Most popular</span></p><h3 class="vbh-veh">Mercedes V-Class<small>Vito · families, day trips &amp; small teams</small></h3><ul class="vbh-specs"><li><i class="vbi vbi-pax"></i>7 passengers</li><li><i class="vbi vbi-bag"></i>5 suitcases</li></ul></div>
-        <div class="vbh-rates"><div class="vbh-rate"><span>3–6 h</span><b>€70</b><i>per hour</i></div><div class="vbh-rate"><span>7–11 h</span><b>€65</b><i>per hour</i></div><div class="vbh-rate vbh-rate--main"><span>Half day</span><b>€350</b><i>4 h · 5 billed</i></div><div class="vbh-rate vbh-rate--main"><span>Full day</span><b>€585</b><i>8 h · 9 billed</i></div></div>
+        <div class="vbh-rates"><div class="vbh-rate"><span>3–6 h</span><b>€70</b><i>per hour</i></div><div class="vbh-rate"><span>7–12 h</span><b>€65</b><i>per hour</i></div><div class="vbh-rate vbh-rate--main"><span>Half day</span><b>€350</b><i>4 h · 5 billed</i></div><div class="vbh-rate vbh-rate--main"><span>Full day</span><b>€585</b><i>8 h · 9 billed</i></div></div>
         <a class="vbh-btn" href="https://vanbudapest.com/contact-customer-reviews/">BOOK NOW</a>
-        <details><summary><i class="vbi vbi-arrow"></i>Every hour 3–12 h · totals</summary><ul class="vbh-hours"><li>3 h<b>€280</b></li><li>4 h<b>€350</b></li><li>5 h<b>€420</b></li><li>6 h<b>€490</b></li><li class="t2">7 h<b>€520</b></li><li class="t2">8 h<b>€585</b></li><li class="t2">9 h<b>€650</b></li><li class="t2">10 h<b>€715</b></li><li class="t2">11 h<b>€780</b></li><li class="t3">12 h<b>€780</b></li></ul><p class="vbh-legend">Bands:<i style="background:#f6f3ea"></i>3–6 h €70<i style="background:#eef5f0"></i>7–11 h €65<i style="background:#e7f6ee"></i>12 h €60</p></details>
+        <details><summary><i class="vbi vbi-arrow"></i>Every hour 3–12 h · totals</summary><ul class="vbh-hours"><li>3 h<b>€280</b></li><li>4 h<b>€350</b></li><li>5 h<b>€420</b></li><li>6 h<b>€490</b></li><li class="t2">7 h<b>€520</b></li><li class="t2">8 h<b>€585</b></li><li class="t2">9 h<b>€650</b></li><li class="t2">10 h<b>€715</b></li><li class="t2">11 h<b>€780</b></li><li class="t2">12 h<b>€845</b></li></ul><p class="vbh-legend">Bands:<i style="background:#f6f3ea"></i>3–6 h €70<i style="background:#eef5f0"></i>7–12 h €65</p></details>
       </div>
 
       <div class="vbh-row" data-veh="m">
-        <div class="vbh-media"><img src="https://vanbudapest.com/wp-content/uploads/2025/05/budapest-hungary-private-transfer-minibus-600x400.png" alt="Minibus – Mercedes Sprinter" loading="lazy" width="600" height="400" srcset="https://vanbudapest.com/wp-content/uploads/2025/05/budapest-hungary-private-transfer-minibus-600x400.png 600w, https://vanbudapest.com/wp-content/uploads/2025/05/budapest-hungary-private-transfer-minibus-768x512.png 768w" sizes="(max-width:1100px) 90vw, 190px" decoding="async"></div>
+        <div class="vbh-media"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2025/05/budapest-hungary-private-transfer-minibus-600x400.png" alt="Minibus – Mercedes Sprinter" loading="lazy" width="600" height="400" srcset="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2025/05/budapest-hungary-private-transfer-minibus-600x400.png 600w, https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2025/05/budapest-hungary-private-transfer-minibus-768x512.png 768w" sizes="(max-width:1100px) 90vw, 190px" decoding="async"></div>
         <div class="vbh-info"><p class="vbh-cat">Minibus</p><h3 class="vbh-veh">Mercedes Sprinter<small>groups, crews &amp; shuttles up to 20</small></h3><ul class="vbh-specs"><li><i class="vbi vbi-pax"></i>20 passengers</li><li><i class="vbi vbi-bag"></i>10 suitcases</li></ul></div>
-        <div class="vbh-rates"><div class="vbh-rate"><span>3–6 h</span><b>€75</b><i>per hour</i></div><div class="vbh-rate"><span>7–11 h</span><b>€70</b><i>per hour</i></div><div class="vbh-rate vbh-rate--main"><span>Half day</span><b>€375</b><i>4 h · 5 billed</i></div><div class="vbh-rate vbh-rate--main"><span>Full day</span><b>€630</b><i>8 h · 9 billed</i></div></div>
+        <div class="vbh-rates"><div class="vbh-rate"><span>3–6 h</span><b>€75</b><i>per hour</i></div><div class="vbh-rate"><span>7–12 h</span><b>€70</b><i>per hour</i></div><div class="vbh-rate vbh-rate--main"><span>Half day</span><b>€375</b><i>4 h · 5 billed</i></div><div class="vbh-rate vbh-rate--main"><span>Full day</span><b>€630</b><i>8 h · 9 billed</i></div></div>
         <a class="vbh-btn" href="https://vanbudapest.com/contact-customer-reviews/">BOOK NOW</a>
-        <details><summary><i class="vbi vbi-arrow"></i>Every hour 3–12 h · totals</summary><ul class="vbh-hours"><li>3 h<b>€300</b></li><li>4 h<b>€375</b></li><li>5 h<b>€450</b></li><li>6 h<b>€525</b></li><li class="t2">7 h<b>€560</b></li><li class="t2">8 h<b>€630</b></li><li class="t2">9 h<b>€700</b></li><li class="t2">10 h<b>€770</b></li><li class="t2">11 h<b>€840</b></li><li class="t3">12 h<b>€845</b></li></ul><p class="vbh-legend">Bands:<i style="background:#f6f3ea"></i>3–6 h €75<i style="background:#eef5f0"></i>7–11 h €70<i style="background:#e7f6ee"></i>12 h €65</p></details>
+        <details><summary><i class="vbi vbi-arrow"></i>Every hour 3–12 h · totals</summary><ul class="vbh-hours"><li>3 h<b>€300</b></li><li>4 h<b>€375</b></li><li>5 h<b>€450</b></li><li>6 h<b>€525</b></li><li class="t2">7 h<b>€560</b></li><li class="t2">8 h<b>€630</b></li><li class="t2">9 h<b>€700</b></li><li class="t2">10 h<b>€770</b></li><li class="t2">11 h<b>€840</b></li><li class="t2">12 h<b>€910</b></li></ul><p class="vbh-legend">Bands:<i style="background:#f6f3ea"></i>3–6 h €75<i style="background:#eef5f0"></i>7–12 h €70</p></details>
       </div>
 
       <div class="vbh-row" data-veh="s">
-        <div class="vbh-media"><img src="https://vanbudapest.com/wp-content/uploads/2025/05/budapest-hungary-private-transfer-S-class-600x400.png" alt="Luxury Car VIP – Mercedes S-Class" loading="lazy" width="600" height="400" srcset="https://vanbudapest.com/wp-content/uploads/2025/05/budapest-hungary-private-transfer-S-class-600x400.png 600w, https://vanbudapest.com/wp-content/uploads/2025/05/budapest-hungary-private-transfer-S-class-768x512.png 768w" sizes="(max-width:1100px) 90vw, 190px" decoding="async"></div>
+        <div class="vbh-media"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2025/05/budapest-hungary-private-transfer-S-class-600x400.png" alt="Luxury Car VIP – Mercedes S-Class" loading="lazy" width="600" height="400" srcset="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2025/05/budapest-hungary-private-transfer-S-class-600x400.png 600w, https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2025/05/budapest-hungary-private-transfer-S-class-768x512.png 768w" sizes="(max-width:1100px) 90vw, 190px" decoding="async"></div>
         <div class="vbh-info"><p class="vbh-cat">Luxury Car VIP <span class="tag">First Class</span></p><h3 class="vbh-veh">Mercedes S-Class<small>executive arrivals, roadshows &amp; VIP guests</small></h3><ul class="vbh-specs"><li><i class="vbi vbi-pax"></i>3 passengers</li><li><i class="vbi vbi-bag"></i>2 suitcases</li></ul></div>
-        <div class="vbh-rates"><div class="vbh-rate"><span>3–6 h</span><b>€110</b><i>per hour</i></div><div class="vbh-rate"><span>7–11 h</span><b>€105</b><i>per hour</i></div><div class="vbh-rate vbh-rate--main"><span>Half day</span><b>€550</b><i>4 h · 5 billed</i></div><div class="vbh-rate vbh-rate--main"><span>Full day</span><b>€945</b><i>8 h · 9 billed</i></div></div>
+        <div class="vbh-rates"><div class="vbh-rate"><span>3–6 h</span><b>€110</b><i>per hour</i></div><div class="vbh-rate"><span>7–12 h</span><b>€105</b><i>per hour</i></div><div class="vbh-rate vbh-rate--main"><span>Half day</span><b>€550</b><i>4 h · 5 billed</i></div><div class="vbh-rate vbh-rate--main"><span>Full day</span><b>€945</b><i>8 h · 9 billed</i></div></div>
         <a class="vbh-btn" href="https://vanbudapest.com/contact-customer-reviews/">BOOK NOW</a>
-        <details><summary><i class="vbi vbi-arrow"></i>Every hour 3–12 h · totals</summary><ul class="vbh-hours"><li>3 h<b>€440</b></li><li>4 h<b>€550</b></li><li>5 h<b>€660</b></li><li>6 h<b>€770</b></li><li class="t2">7 h<b>€840</b></li><li class="t2">8 h<b>€945</b></li><li class="t2">9 h<b>€1 050</b></li><li class="t2">10 h<b>€1 155</b></li><li class="t2">11 h<b>€1 260</b></li><li class="t3">12 h<b>€1 300</b></li></ul><p class="vbh-legend">Bands:<i style="background:#f6f3ea"></i>3–6 h €110<i style="background:#eef5f0"></i>7–11 h €105<i style="background:#e7f6ee"></i>12 h €100</p></details>
+        <details><summary><i class="vbi vbi-arrow"></i>Every hour 3–12 h · totals</summary><ul class="vbh-hours"><li>3 h<b>€440</b></li><li>4 h<b>€550</b></li><li>5 h<b>€660</b></li><li>6 h<b>€770</b></li><li class="t2">7 h<b>€840</b></li><li class="t2">8 h<b>€945</b></li><li class="t2">9 h<b>€1 050</b></li><li class="t2">10 h<b>€1 155</b></li><li class="t2">11 h<b>€1 260</b></li><li class="t2">12 h<b>€1 365</b></li></ul><p class="vbh-legend">Bands:<i style="background:#f6f3ea"></i>3–6 h €110<i style="background:#eef5f0"></i>7–12 h €105</p></details>
       </div>
 
       <div class="vbh-row" data-veh="vs">
-        <div class="vbh-media"><img src="https://vanbudapest.com/wp-content/uploads/2025/04/vip-luxury-budapest-rental-600x400.png" alt="Luxury Minibus VIP – Mercedes VIP Sprinter" loading="lazy" width="600" height="400" srcset="https://vanbudapest.com/wp-content/uploads/2025/04/vip-luxury-budapest-rental-600x400.png 600w, https://vanbudapest.com/wp-content/uploads/2025/04/vip-luxury-budapest-rental-768x512.png 768w" sizes="(max-width:1100px) 90vw, 190px" decoding="async"></div>
+        <div class="vbh-media"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2025/04/vip-luxury-budapest-rental-600x400.png" alt="Luxury Minibus VIP – Mercedes VIP Sprinter" loading="lazy" width="600" height="400" srcset="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2025/04/vip-luxury-budapest-rental-600x400.png 600w, https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2025/04/vip-luxury-budapest-rental-768x512.png 768w" sizes="(max-width:1100px) 90vw, 190px" decoding="async"></div>
         <div class="vbh-info"><p class="vbh-cat">Luxury Minibus VIP <span class="tag">VIP</span></p><h3 class="vbh-veh">Mercedes VIP Sprinter<small>8 lounge seats · delegations, talent &amp; VIP groups</small></h3><ul class="vbh-specs"><li><i class="vbi vbi-pax"></i>8 passengers</li><li><i class="vbi vbi-bag"></i>10 suitcases</li></ul></div>
-        <div class="vbh-rates"><div class="vbh-rate"><span>3–6 h</span><b>€85</b><i>per hour</i></div><div class="vbh-rate"><span>7–11 h</span><b>€80</b><i>per hour</i></div><div class="vbh-rate vbh-rate--main"><span>Half day</span><b>€425</b><i>4 h · 5 billed</i></div><div class="vbh-rate vbh-rate--main"><span>Full day</span><b>€720</b><i>8 h · 9 billed</i></div></div>
+        <div class="vbh-rates"><div class="vbh-rate"><span>3–6 h</span><b>€85</b><i>per hour</i></div><div class="vbh-rate"><span>7–12 h</span><b>€80</b><i>per hour</i></div><div class="vbh-rate vbh-rate--main"><span>Half day</span><b>€425</b><i>4 h · 5 billed</i></div><div class="vbh-rate vbh-rate--main"><span>Full day</span><b>€720</b><i>8 h · 9 billed</i></div></div>
         <a class="vbh-btn" href="https://vanbudapest.com/contact-customer-reviews/">BOOK NOW</a>
-        <details><summary><i class="vbi vbi-arrow"></i>Every hour 3–12 h · totals</summary><ul class="vbh-hours"><li>3 h<b>€340</b></li><li>4 h<b>€425</b></li><li>5 h<b>€510</b></li><li>6 h<b>€595</b></li><li class="t2">7 h<b>€640</b></li><li class="t2">8 h<b>€720</b></li><li class="t2">9 h<b>€800</b></li><li class="t2">10 h<b>€880</b></li><li class="t2">11 h<b>€960</b></li><li class="t3">12 h<b>€975</b></li></ul><p class="vbh-legend">Bands:<i style="background:#f6f3ea"></i>3–6 h €85<i style="background:#eef5f0"></i>7–11 h €80<i style="background:#e7f6ee"></i>12 h €75</p></details>
+        <details><summary><i class="vbi vbi-arrow"></i>Every hour 3–12 h · totals</summary><ul class="vbh-hours"><li>3 h<b>€340</b></li><li>4 h<b>€425</b></li><li>5 h<b>€510</b></li><li>6 h<b>€595</b></li><li class="t2">7 h<b>€640</b></li><li class="t2">8 h<b>€720</b></li><li class="t2">9 h<b>€800</b></li><li class="t2">10 h<b>€880</b></li><li class="t2">11 h<b>€960</b></li><li class="t2">12 h<b>€1 040</b></li></ul><p class="vbh-legend">Bands:<i style="background:#f6f3ea"></i>3–6 h €85<i style="background:#eef5f0"></i>7–12 h €80</p></details>
       </div>
 
       <div class="vbh-row" data-veh="c">
-        <div class="vbh-media"><img src="https://vanbudapest.com/wp-content/uploads/2025/05/budapest-hungary-private-transfer-coach-mercedes-600x400.png" alt="Coach Bus – up to 49 seats" loading="lazy" width="600" height="400" srcset="https://vanbudapest.com/wp-content/uploads/2025/05/budapest-hungary-private-transfer-coach-mercedes-600x400.png 600w, https://vanbudapest.com/wp-content/uploads/2025/05/budapest-hungary-private-transfer-coach-mercedes-768x512.png 768w" sizes="(max-width:1100px) 90vw, 190px" decoding="async"></div>
+        <div class="vbh-media"><img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2025/05/budapest-hungary-private-transfer-coach-mercedes-600x400.png" alt="Coach Bus – up to 49 seats" loading="lazy" width="600" height="400" srcset="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2025/05/budapest-hungary-private-transfer-coach-mercedes-600x400.png 600w, https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_auto,s_webp:avif/vanbudapest.com/wp-content/uploads/2025/05/budapest-hungary-private-transfer-coach-mercedes-768x512.png 768w" sizes="(max-width:1100px) 90vw, 190px" decoding="async"></div>
         <div class="vbh-info"><p class="vbh-cat">Coach Bus</p><h3 class="vbh-veh">Mercedes · Setra · MAN<small>Neoplan · Volvo · conferences &amp; large groups up to 49</small></h3><ul class="vbh-specs"><li><i class="vbi vbi-pax"></i>49 passengers</li><li><i class="vbi vbi-bag"></i>49 suitcases</li></ul></div>
-        <div class="vbh-rates"><div class="vbh-rate"><span>3–6 h</span><b>€120</b><i>per hour</i></div><div class="vbh-rate"><span>7–11 h</span><b>€110</b><i>per hour</i></div><div class="vbh-rate vbh-rate--main"><span>Half day</span><b>€600</b><i>4 h · 5 billed</i></div><div class="vbh-rate vbh-rate--main"><span>Full day</span><b>€990</b><i>8 h · 9 billed</i></div></div>
+        <div class="vbh-rates"><div class="vbh-rate"><span>3–6 h</span><b>€120</b><i>per hour</i></div><div class="vbh-rate"><span>7–12 h</span><b>€110</b><i>per hour</i></div><div class="vbh-rate vbh-rate--main"><span>Half day</span><b>€600</b><i>4 h · 5 billed</i></div><div class="vbh-rate vbh-rate--main"><span>Full day</span><b>€990</b><i>8 h · 9 billed</i></div></div>
         <a class="vbh-btn" href="https://vanbudapest.com/contact-customer-reviews/">BOOK NOW</a>
-        <details><summary><i class="vbi vbi-arrow"></i>Every hour 3–12 h · totals</summary><ul class="vbh-hours"><li>3 h<b>€480</b></li><li>4 h<b>€600</b></li><li>5 h<b>€720</b></li><li>6 h<b>€840</b></li><li class="t2">7 h<b>€880</b></li><li class="t2">8 h<b>€990</b></li><li class="t2">9 h<b>€1 100</b></li><li class="t2">10 h<b>€1 210</b></li><li class="t2">11 h<b>€1 320</b></li><li class="t3">12 h<b>€1 300</b></li></ul><p class="vbh-legend">Bands:<i style="background:#f6f3ea"></i>3–6 h €120<i style="background:#eef5f0"></i>7–11 h €110<i style="background:#e7f6ee"></i>12 h €100</p></details>
+        <details><summary><i class="vbi vbi-arrow"></i>Every hour 3–12 h · totals</summary><ul class="vbh-hours"><li>3 h<b>€480</b></li><li>4 h<b>€600</b></li><li>5 h<b>€720</b></li><li>6 h<b>€840</b></li><li class="t2">7 h<b>€880</b></li><li class="t2">8 h<b>€990</b></li><li class="t2">9 h<b>€1 100</b></li><li class="t2">10 h<b>€1 210</b></li><li class="t2">11 h<b>€1 320</b></li><li class="t2">12 h<b>€1 430</b></li></ul><p class="vbh-legend">Bands:<i style="background:#f6f3ea"></i>3–6 h €120<i style="background:#eef5f0"></i>7–12 h €110</p></details>
       </div>
     </div>
 
@@ -673,6 +691,8 @@ html:has(.vbh-a),body:has(.vbh-a){overflow-x:clip}
     </div>
   </div>
 </section>
+
+
 <section class="vbh-f vbh-fw" aria-label="How hourly chauffeur hire works">
   <div class="vbh-wrap">
     <h2>How Hourly Hire Works</h2>
@@ -704,6 +724,8 @@ html:has(.vbh-a),body:has(.vbh-a){overflow-x:clip}
     <p class="foot"><i class="vbi vbi-info"></i><span>Rates apply within Budapest city limits. Full terms, cancellation windows and peak-period conditions: <a href="https://vanbudapest.com/terms-and-conditions-and-privacy-policy/">Terms &amp; Conditions</a>.</span></p>
   </div>
 </section>
+
+
 <section class="vbh-d vbh-fw" aria-label="Day trips from Budapest with a private driver">
   <div class="vbh-wrap">
     <p class="vbh-eyebrow">Beyond the city · quoted per itinerary</p>
@@ -724,6 +746,8 @@ html:has(.vbh-a),body:has(.vbh-a){overflow-x:clip}
     <div class="vbh-ctarow"><a class="vbh-cta vbh-cta--gold" href="https://vanbudapest.com/contact-customer-reviews/">GET QUOTE IN 12H</a><a class="vbh-cta vbh-cta--ghost" href="https://vanbudapest.com/experience-packages-in-hungary/">Experience Packages in Hungary</a></div>
   </div>
 </section>
+
+
 <section class="vbh-e vbh-fw" aria-label="When hourly hire is the better choice">
   <div class="vbh-wrap">
     <p class="vbh-eyebrow">Many transfers in one day? Book the hours instead</p>
@@ -744,23 +768,21 @@ html:has(.vbh-a),body:has(.vbh-a){overflow-x:clip}
 </section>
 <script>
 /* VanBudapest.com - hourly rate engine for the A cards and the B calculator.
-   Rates: ARAZAS2026UJ.xlsx (Alap arak + Experience Packages hourly bands).
-   band1 = 3-6 h, band2 = 7-11 h, band3 = 12 h.
+   Rates: ARAZAS2026UJ.xlsx (Alap arak).
+   Two bands only, exactly as in the price file: 3+1 h and 7+1 h.
    Written without regular expressions on purpose: a Gutenberg/KSES round trip
    eats backslashes, which is what broke the previous calculator script. */
 (function () {
   var V = [
-    { key: 'e',  name: 'Mercedes E-Class',       cat: 'Business Car',       pax: 3,  r: [65, 60, 55] },
-    { key: 'v',  name: 'Mercedes V-Class',       cat: 'Premium Van',        pax: 7,  r: [70, 65, 60] },
-    { key: 'm',  name: 'Mercedes Sprinter',      cat: 'Minibus',            pax: 20, r: [75, 70, 65] },
-    { key: 's',  name: 'Mercedes S-Class',       cat: 'Luxury Car VIP',     pax: 3,  r: [110, 105, 100] },
-    { key: 'vs', name: 'Mercedes VIP Sprinter',  cat: 'Luxury Minibus VIP', pax: 8,  r: [85, 80, 75] },
-    { key: 'c',  name: 'Coach Bus',              cat: 'Coach Bus',          pax: 49, r: [120, 110, 100] }
+    { key: 'e',  name: 'Mercedes E-Class',       cat: 'Business Car',       pax: 3,  r: [65, 60] },
+    { key: 'v',  name: 'Mercedes V-Class',       cat: 'Premium Van',        pax: 7,  r: [70, 65] },
+    { key: 'm',  name: 'Mercedes Sprinter',      cat: 'Minibus',            pax: 20, r: [75, 70] },
+    { key: 's',  name: 'Mercedes S-Class',       cat: 'Luxury Car VIP',     pax: 3,  r: [110, 105] },
+    { key: 'vs', name: 'Mercedes VIP Sprinter',  cat: 'Luxury Minibus VIP', pax: 8,  r: [85, 80] },
+    { key: 'c',  name: 'Coach Bus',              cat: 'Coach Bus',          pax: 49, r: [120, 110] }
   ];
-  var APPLY_12 = true;
 
   function rate(v, h) {
-    if (h >= 12 && APPLY_12) { return v.r[2]; }
     return h >= 7 ? v.r[1] : v.r[0];
   }
   function grp(n) {
@@ -852,5 +874,245 @@ html:has(.vbh-a),body:has(.vbh-a){overflow-x:clip}
   }
 }());
 </script>
-<p class="theme-intro">[theme-constrained paragraph below]</p>
+
+
+<!-- ====================================================================
+     VanBudapest Hourly — Discount Tiers + Planning Promo
+     Separate Custom HTML block, sits BELOW the calculator.
+     v3 — 2026-04-29 — Tomi és Evelin
+     ==================================================================== -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&amp;family=Montserrat:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+
+<style>
+.vb-hpromo {
+  --vb-navy:        #0A1F44;
+  --vb-navy-deep:   #050E23;
+  --vb-navy-light:  #12306A;
+  --vb-gold:        #C8B560;
+  --vb-gold-light:  #E5D9A8;
+  --vb-gold-dark:   #A8954A;
+  --vb-white:       #FFFFFF;
+
+  all: initial !important;
+  display: block !important;
+  font-family: 'Montserrat', system-ui, -apple-system, sans-serif !important;
+  box-sizing: border-box !important;
+  width: 100% !important; max-width: 100% !important;
+  background: linear-gradient(170deg, var(--vb-navy-light) 0%, var(--vb-navy-deep) 100%) !important;
+  color: var(--vb-white) !important;
+  padding: clamp(36px, 5vw, 64px) clamp(16px, 3vw, 32px) !important;
+  margin: 0 !important;
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+}
+.vb-hpromo *, .vb-hpromo *::before, .vb-hpromo *::after { box-sizing: border-box; }
+.vb-hpromo-wrap { max-width: 1180px; margin: 0 auto; }
+
+.vb-hpromo-intro { text-align: center; margin: 0 0 clamp(24px, 3vw, 36px); }
+.vb-hpromo-intro-h3 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(24px, 3vw, 34px); font-weight: 600; line-height: 1.2;
+  color: var(--vb-white); margin: 0 0 8px;
+}
+.vb-hpromo-intro-h3 em { font-style: italic; color: var(--vb-gold); font-weight: 500; }
+.vb-hpromo-intro-sub {
+  font-size: 13px; font-weight: 400; line-height: 1.6;
+  color: var(--vb-gold-light); margin: 0 auto; max-width: 600px;
+}
+
+.vb-dtiers {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: clamp(12px, 1.6vw, 18px); margin-bottom: clamp(28px, 3vw, 40px);
+}
+@media (max-width: 720px) { .vb-dtiers { grid-template-columns: 1fr; } }
+.vb-dtier {
+  position: relative; border-radius: 12px; overflow: hidden;
+  padding: 22px 20px; text-align: center;
+  border: 1px solid rgba(200, 181, 96, 0.20);
+  background: rgba(255,255,255,0.03);
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+.vb-dtier:hover {
+  border-color: rgba(200, 181, 96, 0.45);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px -10px rgba(200, 181, 96, 0.20);
+}
+.vb-dtier--highlight {
+  background: linear-gradient(160deg, rgba(200, 181, 96, 0.10) 0%, rgba(200, 181, 96, 0.02) 100%);
+  border-color: rgba(200, 181, 96, 0.40);
+}
+.vb-dtier--highlight::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--vb-gold), var(--vb-gold-light), var(--vb-gold), transparent);
+}
+.vb-dtier-icon {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 56px; height: 56px; margin: 0 auto 14px;
+  border-radius: 50%;
+  border: 1px solid rgba(200, 181, 96, 0.30);
+  background: rgba(200, 181, 96, 0.06);
+  color: var(--vb-gold);
+  transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;
+}
+.vb-dtier:hover .vb-dtier-icon {
+  border-color: var(--vb-gold);
+  background: rgba(200, 181, 96, 0.12);
+  transform: scale(1.05);
+}
+.vb-dtier-icon svg {
+  width: 26px; height: 26px;
+  stroke: currentColor; fill: none;
+  stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;
+}
+.vb-dtier--highlight .vb-dtier-icon {
+  border-color: rgba(200, 181, 96, 0.50);
+  background: rgba(200, 181, 96, 0.10);
+}
+.vb-dtier-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--vb-gold); margin: 0 0 6px;
+}
+.vb-dtier-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 18px; font-weight: 600; color: var(--vb-white); margin: 0 0 8px;
+}
+.vb-dtier-desc { font-size: 12px; line-height: 1.55; color: rgba(255,255,255,0.65); margin: 0; }
+
+.vb-hpromo-card {
+  border-radius: 14px;
+  border: 1px solid rgba(200, 181, 96, 0.25);
+  background: linear-gradient(170deg, rgba(200, 181, 96, 0.08) 0%, rgba(200, 181, 96, 0.01) 100%);
+  overflow: hidden;
+}
+.vb-hpromo-inner {
+  display: grid; grid-template-columns: auto 1fr;
+  gap: clamp(20px, 3vw, 36px); padding: clamp(24px, 3vw, 36px);
+  align-items: center;
+}
+@media (max-width: 720px) { .vb-hpromo-inner { grid-template-columns: 1fr; text-align: center; } }
+.vb-hpromo-badge {
+  width: 96px; height: 96px; border-radius: 50%;
+  border: 1px solid rgba(200, 181, 96, 0.40);
+  background: rgba(200, 181, 96, 0.06);
+  display: grid; place-items: center; text-align: center; flex-shrink: 0; position: relative;
+}
+@media (max-width: 720px) { .vb-hpromo-badge { margin: 0 auto; } }
+.vb-hpromo-badge-icon {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 36px; font-weight: 700; color: var(--vb-gold);
+  line-height: 1; margin-bottom: 2px; display: block;
+}
+.vb-hpromo-badge-text {
+  font-size: 9px; font-weight: 700; letter-spacing: 2.5px;
+  text-transform: uppercase; color: var(--vb-gold-light);
+}
+.vb-hpromo-content { min-width: 0; }
+.vb-hpromo-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(20px, 2.4vw, 28px); font-weight: 600;
+  line-height: 1.2; margin: 0 0 10px; color: var(--vb-white);
+}
+.vb-hpromo-title span { color: var(--vb-gold); font-style: italic; font-weight: 500; }
+.vb-hpromo-desc { font-size: 13px; line-height: 1.6; color: rgba(255,255,255,0.70); margin: 0 0 14px; }
+.vb-hpromo-perks { display: flex; flex-wrap: wrap; gap: 8px 16px; margin: 0 0 18px; }
+@media (max-width: 720px) { .vb-hpromo-perks { justify-content: center; } }
+.vb-hpromo-perk {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 11px; font-weight: 600; color: var(--vb-gold-light); letter-spacing: 0.5px;
+}
+.vb-hpromo-perk-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--vb-gold); flex-shrink: 0; }
+.vb-hpromo-cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+  padding: 14px 28px; border-radius: 100px;
+  text-decoration: none; border: 2px solid var(--vb-gold);
+  color: var(--vb-gold); background: transparent;
+  transition: all 0.25s ease;
+}
+.vb-hpromo-cta:hover {
+  background: var(--vb-gold); color: var(--vb-navy-deep);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 22px -6px rgba(200, 181, 96, 0.45);
+}
+.vb-hpromo-cta-arrow { display: inline-block; transition: transform 0.25s ease; }
+.vb-hpromo-cta:hover .vb-hpromo-cta-arrow { transform: translateX(4px); }
+</style>
+
+<section class="vb-hpromo" aria-label="VanBudapest Discount Tiers and Extended Booking Promo">
+  <div class="vb-hpromo-wrap">
+
+    <div class="vb-hpromo-intro">
+      <h3 class="vb-hpromo-intro-h3">Exclusive <em>Hourly Rate</em> Offers</h3>
+      <p class="vb-hpromo-intro-sub">Discover our exclusive hourly rate offers tailored for your comfort.</p>
+    </div>
+
+    <div class="vb-dtiers">
+      <div class="vb-dtier">
+        <span class="vb-dtier-icon" aria-hidden="true">
+          <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="13" r="8"></circle>
+            <path d="M12 9v4l2.5 2"></path>
+            <path d="M9 3h6"></path>
+            <path d="M12 3v2"></path>
+          </svg>
+        </span>
+        <p class="vb-dtier-label">7+ Hours</p>
+        <p class="vb-dtier-title">Hourly Rate Discount</p>
+        <p class="vb-dtier-desc">Book 7 or more hours and receive a reduced hourly rate — automatically applied to every vehicle category.</p>
+      </div>
+      <div class="vb-dtier vb-dtier--highlight">
+        <span class="vb-dtier-icon" aria-hidden="true">
+          <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20.5 11.5L12 3H4v8l8.5 8.5a1.5 1.5 0 0 0 2.12 0l5.88-5.88a1.5 1.5 0 0 0 0-2.12z"></path>
+            <circle cx="7.5" cy="7.5" r="1.2"></circle>
+          </svg>
+        </span>
+        <p class="vb-dtier-label">Full-Day &amp; Combined</p>
+        <p class="vb-dtier-title">Extra Savings</p>
+        <p class="vb-dtier-desc">Full-day bookings, multi-day trips, and combined services (e.g. transfer + hourly charter) qualify for additional exclusive discounts.</p>
+      </div>
+      <div class="vb-dtier">
+        <span class="vb-dtier-icon" aria-hidden="true">
+          <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="9"></circle>
+            <circle cx="12" cy="12" r="5.5"></circle>
+            <circle cx="12" cy="12" r="2" fill="currentColor"></circle>
+          </svg>
+        </span>
+        <p class="vb-dtier-label">Events &amp; Volume</p>
+        <p class="vb-dtier-title">Custom Pricing</p>
+        <p class="vb-dtier-desc">Large-scale events, corporate roadshows, and high-volume orders receive fully customized rates tailored to your needs.</p>
+      </div>
+    </div>
+
+    <div class="vb-hpromo-card">
+      <div class="vb-hpromo-inner">
+        <div class="vb-hpromo-badge">
+          <span class="vb-hpromo-badge-icon">%</span>
+          <span class="vb-hpromo-badge-text">Extra</span>
+        </div>
+        <div class="vb-hpromo-content">
+          <h3 class="vb-hpromo-title">Planning a <span>Full-Day</span> or <span>Multi-Day</span> Journey?</h3>
+          <p class="vb-hpromo-desc">We offer exclusive discounts for extended bookings — full-day charters, multi-day tours, corporate roadshows, and large-scale event transfers. The longer you book, the more you save.</p>
+          <div class="vb-hpromo-perks">
+            <span class="vb-hpromo-perk"><span class="vb-hpromo-perk-dot"></span>7+ hour rate reduction</span>
+            <span class="vb-hpromo-perk"><span class="vb-hpromo-perk-dot"></span>Full-day discounts</span>
+            <span class="vb-hpromo-perk"><span class="vb-hpromo-perk-dot"></span>Multi-day packages</span>
+            <span class="vb-hpromo-perk"><span class="vb-hpromo-perk-dot"></span>Combined service savings</span>
+            <span class="vb-hpromo-perk"><span class="vb-hpromo-perk-dot"></span>Group &amp; corporate rates</span>
+          </div>
+          <a href="https://vanbudapest.com/contact-customer-reviews/" class="vb-hpromo-cta">
+            Request Your Custom Rate <span class="vb-hpromo-cta-arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 </div></body></html>
