@@ -1,0 +1,130 @@
+<!-- wp:html -->
+<section class="vbh-e vbh-fw" aria-label="When hourly hire is the better choice">
+  <div class="vbh-wrap">
+    <p class="vbh-eyebrow">Many transfers in one day? Book the hours instead</p>
+    <h2>When Hourly Hire Beats Single Transfers</h2>
+    <p class="vbh-sub">If you need more than two rides in a day, a dedicated vehicle by the hour is simpler, calmer and usually costs less. These are the days we are booked for most often.</p>
+    <div class="vbh-grid">
+      <article class="vbh-uc"><div class="ic"><i class="vbi vbi-film"></i></div><h3>Film, TV &amp; Commercial Production</h3><p>Unit drivers, crew minibuses and talent cars that follow the call sheet — shoot days, recces and studio runs to Origo, Korda and Mafilm.</p><ul><li><i class="vbi vbi-check"></i>Multi-day bookings, same driver every day</li><li><i class="vbi vbi-check"></i>Long shoot days and overtime priced upfront</li><li><i class="vbi vbi-check"></i>Hungarian company invoice for your production paperwork</li></ul><p class="veh">V-Class · Sprinter · VIP Sprinter</p><a href="https://vanbudapest.com/quick-questions-multi-day-rent/">Multi-day hire details <i class="vbi vbi-arrow"></i></a></article>
+      <article class="vbh-uc"><div class="ic"><i class="vbi vbi-mic"></i></div><h3>Conferences, Congresses &amp; MICE</h3><p>Hotel-to-venue shuttle loops, speaker and VIP cars, delegate transfers — HUNGEXPO, Budapest Congress Center, Bálna, MÜPA, Várkert Bazár.</p><ul><li><i class="vbi vbi-check"></i>Several vehicles on one schedule, one coordinator</li><li><i class="vbi vbi-check"></i>Built for PCOs, DMCs and corporate travel desks</li><li><i class="vbi vbi-check"></i>Company invoicing, bank transfer or card</li></ul><p class="veh">Sprinter · Coach · V-Class</p><a href="https://vanbudapest.com/private-event-transportation-budapest/">Event transportation <i class="vbi vbi-arrow"></i></a></article>
+      <article class="vbh-uc"><div class="ic"><i class="vbi vbi-game"></i></div><h3>Esports &amp; Sports Events</h3><p>Team, player and staff shuttles between hotel, boot camp and arena — late finals included. Puskás Aréna, MVM Dome, Papp László Sportaréna, Hungaroring.</p><ul><li><i class="vbi vbi-check"></i>Official transfer partner experience at StarLadder CS2 Major</li><li><i class="vbi vbi-check"></i>Equipment space in Sprinters, staggered pickups</li><li><i class="vbi vbi-check"></i>F1 and UEFA weekends by the hour or by the day</li></ul><p class="veh">VIP Sprinter · Sprinter · Coach</p><a href="https://vanbudapest.com/esports-event-transportation-logistics-budapest/">Esports logistics <i class="vbi vbi-arrow"></i></a></article>
+      <article class="vbh-uc"><div class="ic"><i class="vbi vbi-brief"></i></div><h3>Executive Roadshows &amp; Delegations</h3><p>Back-to-back meetings across District V, the Castle District and the business parks — your chauffeur manages timing, you manage the agenda.</p><ul><li><i class="vbi vbi-check"></i>Discreet S-Class or V-Class, as-directed all day</li><li><i class="vbi vbi-check"></i>Secondary vehicles for aides and security on request</li><li><i class="vbi vbi-check"></i>Name-board airport arrivals built into the day</li></ul><p class="veh">S-Class · E-Class · V-Class</p><a href="https://vanbudapest.com/luxury-premium-travel-vip-budapest-hungary/">VIP &amp; executive travel <i class="vbi vbi-arrow"></i></a></article>
+      <article class="vbh-uc"><div class="ic"><i class="vbi vbi-ship"></i></div><h3>River Cruise Passengers</h3><p>Docked in Budapest for a day? A private car for 4–8 hours sees more than any shore excursion — and brings you back before the ship sails.</p><ul><li><i class="vbi vbi-check"></i>Pickup at the Viking, AmaWaterways and Avalon docks</li><li><i class="vbi vbi-check"></i>Castle District, Parliament, baths — your order, your pace</li><li><i class="vbi vbi-check"></i>Half-day Szentendre or Gödöllő side trip possible</li></ul><p class="veh">E-Class · V-Class · VIP Sprinter</p><a href="https://vanbudapest.com/shipstation-meet-and-greet-services-river-cruise-port/">Cruise port services <i class="vbi vbi-arrow"></i></a></article>
+      <article class="vbh-uc"><div class="ic"><i class="vbi vbi-ring"></i></div><h3>Weddings &amp; Private Celebrations</h3><p>Guest shuttles between hotel, ceremony and venue, a car for the couple, late-night returns — one vehicle on standby for the whole celebration.</p><ul><li><i class="vbi vbi-check"></i>Shuttle loops timed to your programme</li><li><i class="vbi vbi-check"></i>Premium stag, hen and birthday groups welcome</li><li><i class="vbi vbi-check"></i>Child seats and extra stops on request</li></ul><p class="veh">V-Class · VIP Sprinter · Sprinter</p><a href="https://vanbudapest.com/private-event-transportation-budapest/">Private events <i class="vbi vbi-arrow"></i></a></article>
+    </div>
+  
+    <p class="vbh-b2b">For companies: send dates, number of vehicles, hours per day and venues &mdash; you receive one quote, one coordinator and one invoice.</p>
+    <div class="vbh-ctarow"><a class="vbh-cta vbh-cta--gold" href="https://vanbudapest.com/contact-customer-reviews/">REQUEST QUOTE &bull; 12H REPLY</a><a class="vbh-cta vbh-cta--ghost" href="https://vanbudapest.com/our-fleet-vip-limousines-coaches-sedans-luxury-vans/">VIEW FLEET</a></div>
+  </div>
+</section>
+<script>
+/* VanBudapest.com - hourly rate engine for the A cards and the B calculator.
+   Rates: ARAZAS2026UJ.xlsx (Alap arak + Experience Packages hourly bands).
+   band1 = 3-6 h, band2 = 7-11 h, band3 = 12 h.
+   Written without regular expressions on purpose: a Gutenberg/KSES round trip
+   eats backslashes, which is what broke the previous calculator script. */
+(function () {
+  var V = [
+    { key: 'e',  name: 'Mercedes E-Class',       cat: 'Business Car',       pax: 3,  r: [65, 60, 55] },
+    { key: 'v',  name: 'Mercedes V-Class',       cat: 'Premium Van',        pax: 7,  r: [70, 65, 60] },
+    { key: 'm',  name: 'Mercedes Sprinter',      cat: 'Minibus',            pax: 20, r: [75, 70, 65] },
+    { key: 's',  name: 'Mercedes S-Class',       cat: 'Luxury Car VIP',     pax: 3,  r: [110, 105, 100] },
+    { key: 'vs', name: 'Mercedes VIP Sprinter',  cat: 'Luxury Minibus VIP', pax: 8,  r: [85, 80, 75] },
+    { key: 'c',  name: 'Coach Bus',              cat: 'Coach Bus',          pax: 49, r: [120, 110, 100] }
+  ];
+  var APPLY_12 = true;
+
+  function rate(v, h) {
+    if (h >= 12 && APPLY_12) { return v.r[2]; }
+    return h >= 7 ? v.r[1] : v.r[0];
+  }
+  function grp(n) {
+    var s = String(n);
+    return s.length > 3 ? s.slice(0, s.length - 3) + ' ' + s.slice(s.length - 3) : s;
+  }
+  function fmt(n) { return '€' + grp(n); }
+  function all(sel) { return document.querySelectorAll(sel); }
+  function each(list, fn) { Array.prototype.forEach.call(list, fn); }
+  function num(el, attr) { return parseInt(el.getAttribute(attr), 10); }
+  function txt(id, value) { var el = document.getElementById(id); if (el) { el.textContent = value; } }
+  function vehicle(key) {
+    for (var i = 0; i < V.length; i++) { if (V[i].key === key) { return V[i]; } }
+    return null;
+  }
+
+  function initCards() {
+    var btns = all('.vbh-a .vbh-hours button');
+    if (!btns.length) { return; }
+    function apply(h) {
+      each(btns, function (b) { b.setAttribute('aria-pressed', String(num(b, 'data-h') === h)); });
+      each(all('.vbh-a .vbh-card'), function (card) {
+        var v = vehicle(card.getAttribute('data-veh'));
+        if (!v) { return; }
+        var rt = rate(v, h), billed = h + 1;
+        var amount = card.querySelector('.v'), line = card.querySelector('.h');
+        var b1 = card.querySelector('.r1'), b2 = card.querySelector('.r2');
+        if (amount) { amount.textContent = grp(rt * billed); }
+        if (line) {
+          line.textContent = h + ' h with you + 1 garage h = ' + billed + ' h billed · ' + fmt(rt) + ' / h';
+        }
+        if (b1) { b1.className = h < 7 ? 'r1 on' : 'r1'; }
+        if (b2) { b2.className = h >= 7 ? 'r2 on' : 'r2'; }
+      });
+    }
+    each(btns, function (b) {
+      b.addEventListener('click', function () { apply(num(b, 'data-h')); });
+    });
+    apply(3);
+  }
+
+  function initCalculator() {
+    var vBtns = all('#vbhVeh .vbh-vcard'), hBtns = all('#vbhDur button');
+    if (!vBtns.length || !hBtns.length) { return; }
+    var selV = 0, selH = 3;
+    function update() {
+      var v = V[selV], rt = rate(v, selH), billed = selH + 1, total = rt * billed;
+      each(vBtns, function (b) { b.setAttribute('aria-pressed', String(num(b, 'data-v') === selV)); });
+      each(hBtns, function (b) { b.setAttribute('aria-pressed', String(num(b, 'data-h') === selH)); });
+      txt('vbhSumVeh', v.name);
+      txt('vbhSumCat', v.cat + ' · ' + v.pax + ' passengers');
+      txt('vbhSumTot', fmt(total));
+      txt('vbhEqH', selH + ' h');
+      txt('vbhEqB', billed + ' h');
+      txt('vbhEqR', fmt(rt) + ' / h');
+      var tier = document.getElementById('vbhTier');
+      if (tier) {
+        if (selH >= 7) {
+          tier.textContent = 'Lower rate applied from 7 hours — you pay ' + fmt(rt) +
+            ' / h instead of ' + fmt(v.r[0]) + ' / h (saving ' + fmt((v.r[0] - rt) * billed) + ' on this booking).';
+          tier.className = 'tier on';
+        } else {
+          tier.className = 'tier';
+        }
+      }
+      var cta = document.getElementById('vbhCta');
+      if (cta) {
+        cta.setAttribute('href',
+          'https://vanbudapest.com/contact-customer-reviews/?vehicle=' + v.key + '&hours=' + selH);
+      }
+      var sticky = document.getElementById('vbhStickyT');
+      if (sticky && sticky.firstChild) { sticky.firstChild.textContent = fmt(total); }
+      txt('vbhStickyS', v.name.replace('Mercedes ', '') + ' · ' + billed + ' h billed');
+    }
+    each(vBtns, function (b) {
+      b.addEventListener('click', function () { selV = num(b, 'data-v'); update(); });
+    });
+    each(hBtns, function (b) {
+      b.addEventListener('click', function () { selH = num(b, 'data-h'); update(); });
+    });
+    update();
+  }
+
+  function boot() { initCards(); initCalculator(); }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', boot);
+  } else {
+    boot();
+  }
+}());
+</script>
+<!-- /wp:html -->

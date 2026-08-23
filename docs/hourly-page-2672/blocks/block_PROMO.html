@@ -1,0 +1,240 @@
+<!-- wp:html -->
+<!-- ====================================================================
+     VanBudapest Hourly — Discount Tiers + Planning Promo
+     Separate Custom HTML block, sits BELOW the calculator.
+     v3 — 2026-04-29 — Tomi és Evelin
+     ==================================================================== -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&amp;family=Montserrat:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+
+<style>
+.vb-hpromo {
+  --vb-navy:        #0A1F44;
+  --vb-navy-deep:   #050E23;
+  --vb-navy-light:  #12306A;
+  --vb-gold:        #C8B560;
+  --vb-gold-light:  #E5D9A8;
+  --vb-gold-dark:   #A8954A;
+  --vb-white:       #FFFFFF;
+
+  all: initial !important;
+  display: block !important;
+  font-family: 'Montserrat', system-ui, -apple-system, sans-serif !important;
+  box-sizing: border-box !important;
+  width: 100% !important; max-width: 100% !important;
+  background: linear-gradient(170deg, var(--vb-navy-light) 0%, var(--vb-navy-deep) 100%) !important;
+  color: var(--vb-white) !important;
+  padding: clamp(36px, 5vw, 64px) clamp(16px, 3vw, 32px) !important;
+  margin: 0 !important;
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+}
+.vb-hpromo *, .vb-hpromo *::before, .vb-hpromo *::after { box-sizing: border-box; }
+.vb-hpromo-wrap { max-width: 1180px; margin: 0 auto; }
+
+.vb-hpromo-intro { text-align: center; margin: 0 0 clamp(24px, 3vw, 36px); }
+.vb-hpromo-intro-h3 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(24px, 3vw, 34px); font-weight: 600; line-height: 1.2;
+  color: var(--vb-white); margin: 0 0 8px;
+}
+.vb-hpromo-intro-h3 em { font-style: italic; color: var(--vb-gold); font-weight: 500; }
+.vb-hpromo-intro-sub {
+  font-size: 13px; font-weight: 400; line-height: 1.6;
+  color: var(--vb-gold-light); margin: 0 auto; max-width: 600px;
+}
+
+.vb-dtiers {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: clamp(12px, 1.6vw, 18px); margin-bottom: clamp(28px, 3vw, 40px);
+}
+@media (max-width: 720px) { .vb-dtiers { grid-template-columns: 1fr; } }
+.vb-dtier {
+  position: relative; border-radius: 12px; overflow: hidden;
+  padding: 22px 20px; text-align: center;
+  border: 1px solid rgba(200, 181, 96, 0.20);
+  background: rgba(255,255,255,0.03);
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+.vb-dtier:hover {
+  border-color: rgba(200, 181, 96, 0.45);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px -10px rgba(200, 181, 96, 0.20);
+}
+.vb-dtier--highlight {
+  background: linear-gradient(160deg, rgba(200, 181, 96, 0.10) 0%, rgba(200, 181, 96, 0.02) 100%);
+  border-color: rgba(200, 181, 96, 0.40);
+}
+.vb-dtier--highlight::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--vb-gold), var(--vb-gold-light), var(--vb-gold), transparent);
+}
+.vb-dtier-icon {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 56px; height: 56px; margin: 0 auto 14px;
+  border-radius: 50%;
+  border: 1px solid rgba(200, 181, 96, 0.30);
+  background: rgba(200, 181, 96, 0.06);
+  color: var(--vb-gold);
+  transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;
+}
+.vb-dtier:hover .vb-dtier-icon {
+  border-color: var(--vb-gold);
+  background: rgba(200, 181, 96, 0.12);
+  transform: scale(1.05);
+}
+.vb-dtier-icon svg {
+  width: 26px; height: 26px;
+  stroke: currentColor; fill: none;
+  stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;
+}
+.vb-dtier--highlight .vb-dtier-icon {
+  border-color: rgba(200, 181, 96, 0.50);
+  background: rgba(200, 181, 96, 0.10);
+}
+.vb-dtier-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--vb-gold); margin: 0 0 6px;
+}
+.vb-dtier-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 18px; font-weight: 600; color: var(--vb-white); margin: 0 0 8px;
+}
+.vb-dtier-desc { font-size: 12px; line-height: 1.55; color: rgba(255,255,255,0.65); margin: 0; }
+
+.vb-hpromo-card {
+  border-radius: 14px;
+  border: 1px solid rgba(200, 181, 96, 0.25);
+  background: linear-gradient(170deg, rgba(200, 181, 96, 0.08) 0%, rgba(200, 181, 96, 0.01) 100%);
+  overflow: hidden;
+}
+.vb-hpromo-inner {
+  display: grid; grid-template-columns: auto 1fr;
+  gap: clamp(20px, 3vw, 36px); padding: clamp(24px, 3vw, 36px);
+  align-items: center;
+}
+@media (max-width: 720px) { .vb-hpromo-inner { grid-template-columns: 1fr; text-align: center; } }
+.vb-hpromo-badge {
+  width: 96px; height: 96px; border-radius: 50%;
+  border: 1px solid rgba(200, 181, 96, 0.40);
+  background: rgba(200, 181, 96, 0.06);
+  display: grid; place-items: center; text-align: center; flex-shrink: 0; position: relative;
+}
+@media (max-width: 720px) { .vb-hpromo-badge { margin: 0 auto; } }
+.vb-hpromo-badge-icon {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 36px; font-weight: 700; color: var(--vb-gold);
+  line-height: 1; margin-bottom: 2px; display: block;
+}
+.vb-hpromo-badge-text {
+  font-size: 9px; font-weight: 700; letter-spacing: 2.5px;
+  text-transform: uppercase; color: var(--vb-gold-light);
+}
+.vb-hpromo-content { min-width: 0; }
+.vb-hpromo-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(20px, 2.4vw, 28px); font-weight: 600;
+  line-height: 1.2; margin: 0 0 10px; color: var(--vb-white);
+}
+.vb-hpromo-title span { color: var(--vb-gold); font-style: italic; font-weight: 500; }
+.vb-hpromo-desc { font-size: 13px; line-height: 1.6; color: rgba(255,255,255,0.70); margin: 0 0 14px; }
+.vb-hpromo-perks { display: flex; flex-wrap: wrap; gap: 8px 16px; margin: 0 0 18px; }
+@media (max-width: 720px) { .vb-hpromo-perks { justify-content: center; } }
+.vb-hpromo-perk {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 11px; font-weight: 600; color: var(--vb-gold-light); letter-spacing: 0.5px;
+}
+.vb-hpromo-perk-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--vb-gold); flex-shrink: 0; }
+.vb-hpromo-cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+  padding: 14px 28px; border-radius: 100px;
+  text-decoration: none; border: 2px solid var(--vb-gold);
+  color: var(--vb-gold); background: transparent;
+  transition: all 0.25s ease;
+}
+.vb-hpromo-cta:hover {
+  background: var(--vb-gold); color: var(--vb-navy-deep);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 22px -6px rgba(200, 181, 96, 0.45);
+}
+.vb-hpromo-cta-arrow { display: inline-block; transition: transform 0.25s ease; }
+.vb-hpromo-cta:hover .vb-hpromo-cta-arrow { transform: translateX(4px); }
+</style>
+
+<section class="vb-hpromo" aria-label="VanBudapest Discount Tiers and Extended Booking Promo">
+  <div class="vb-hpromo-wrap">
+
+    <div class="vb-hpromo-intro">
+      <h3 class="vb-hpromo-intro-h3">Exclusive <em>Hourly Rate</em> Offers</h3>
+      <p class="vb-hpromo-intro-sub">Discover our exclusive hourly rate offers tailored for your comfort.</p>
+    </div>
+
+    <div class="vb-dtiers">
+      <div class="vb-dtier">
+        <span class="vb-dtier-icon" aria-hidden="true">
+          <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="13" r="8"></circle>
+            <path d="M12 9v4l2.5 2"></path>
+            <path d="M9 3h6"></path>
+            <path d="M12 3v2"></path>
+          </svg>
+        </span>
+        <p class="vb-dtier-label">7+ Hours</p>
+        <p class="vb-dtier-title">Hourly Rate Discount</p>
+        <p class="vb-dtier-desc">Book 7 or more hours and receive a reduced hourly rate — automatically applied to every vehicle category.</p>
+      </div>
+      <div class="vb-dtier vb-dtier--highlight">
+        <span class="vb-dtier-icon" aria-hidden="true">
+          <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20.5 11.5L12 3H4v8l8.5 8.5a1.5 1.5 0 0 0 2.12 0l5.88-5.88a1.5 1.5 0 0 0 0-2.12z"></path>
+            <circle cx="7.5" cy="7.5" r="1.2"></circle>
+          </svg>
+        </span>
+        <p class="vb-dtier-label">Full-Day &amp; Combined</p>
+        <p class="vb-dtier-title">Extra Savings</p>
+        <p class="vb-dtier-desc">Full-day bookings, multi-day trips, and combined services (e.g. transfer + hourly charter) qualify for additional exclusive discounts.</p>
+      </div>
+      <div class="vb-dtier">
+        <span class="vb-dtier-icon" aria-hidden="true">
+          <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="9"></circle>
+            <circle cx="12" cy="12" r="5.5"></circle>
+            <circle cx="12" cy="12" r="2" fill="currentColor"></circle>
+          </svg>
+        </span>
+        <p class="vb-dtier-label">Events &amp; Volume</p>
+        <p class="vb-dtier-title">Custom Pricing</p>
+        <p class="vb-dtier-desc">Large-scale events, corporate roadshows, and high-volume orders receive fully customized rates tailored to your needs.</p>
+      </div>
+    </div>
+
+    <div class="vb-hpromo-card">
+      <div class="vb-hpromo-inner">
+        <div class="vb-hpromo-badge">
+          <span class="vb-hpromo-badge-icon">%</span>
+          <span class="vb-hpromo-badge-text">Extra</span>
+        </div>
+        <div class="vb-hpromo-content">
+          <h3 class="vb-hpromo-title">Planning a <span>Full-Day</span> or <span>Multi-Day</span> Journey?</h3>
+          <p class="vb-hpromo-desc">We offer exclusive discounts for extended bookings — full-day charters, multi-day tours, corporate roadshows, and large-scale event transfers. The longer you book, the more you save.</p>
+          <div class="vb-hpromo-perks">
+            <span class="vb-hpromo-perk"><span class="vb-hpromo-perk-dot"></span>7+ hour rate reduction</span>
+            <span class="vb-hpromo-perk"><span class="vb-hpromo-perk-dot"></span>Full-day discounts</span>
+            <span class="vb-hpromo-perk"><span class="vb-hpromo-perk-dot"></span>Multi-day packages</span>
+            <span class="vb-hpromo-perk"><span class="vb-hpromo-perk-dot"></span>Combined service savings</span>
+            <span class="vb-hpromo-perk"><span class="vb-hpromo-perk-dot"></span>Group &amp; corporate rates</span>
+          </div>
+          <a href="https://vanbudapest.com/contact-customer-reviews/" class="vb-hpromo-cta">
+            Request Your Custom Rate <span class="vb-hpromo-cta-arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- /wp:html -->
